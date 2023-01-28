@@ -1,0 +1,23 @@
+<%= turbo_frame_tag news, class: "bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl" do %>
+    <%= render 'active_storage/attachments/carousel', object: news%>
+    <div class="mt-6 p-3">
+        <!-- Title -->
+        <%= tag.h1 news.title, class: "text-xl font-semibold text-gray-800" %>
+        <!-- Description -->
+        <%= tag.p news.description, class: "mt-2 text-gray-500"%>
+        <div class="flex items-center justify-between mt-4">
+            <!-- Created at -->
+            <%= tag.p news.created_at, class: "text-base text-gray-500"%>
+            <!-- View more button -->
+            <%= render 'shared/buttons/view_more', path: contents_news_path(news) unless ['show', 'news'].eql?([action_name, controller_name])%>
+        </div>
+    </div>
+    <!-- Control buttons -->
+    <% if admin_signed_in?  %>
+        <%= render 'shared/buttons/control_buttons', model: news, 
+            edit_path: [:edit, :admins, news], publish_path: [:admins, :publish, news], del_path: [:admins, news]%>
+    <% end %>
+<% end %>
+
+
+

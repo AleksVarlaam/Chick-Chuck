@@ -1,0 +1,7 @@
+<% currently_at t('reset_password.title') %>
+<% provide :page_title, t('reset_password.title') %>
+
+
+<%= render TurboModalComponent.new(title: t('reset_password.title')) do %>
+    <%= render 'form'%>
+<% end %>

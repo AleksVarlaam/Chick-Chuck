@@ -1,0 +1,12 @@
+<!-- All companies and their prices -->
+<%= link_to contents_company_modal_path(company), class: "mb-3 flex items-center p-1 relative border-b border-b-gray-300 hover:border-b-gray-500 text-gray-600 hover:text-gray-800", data: { turbo_frame: 'modal' } do %>
+    <!-- Avatar -->
+    <%= image_tag(company.avatar_attachment_path,
+        class: "object-cover h-7 w-7 rounded-full border border-gray-500 m-1", alt: "avatar")%>
+    <!-- Company_name -->
+    <%= tag.p company.title, class: 'text-2xl' %>
+    <!-- Company total price -->
+    <%= tag.p class: "absolute right-1 block w-full md:w-[8rem] text-xl text-end" do %>
+        <%= total_price(company)%><span class="ml-1">₪</span>
+    <% end %>
+<% end if company.prices.present? && company.calculator.present? %>

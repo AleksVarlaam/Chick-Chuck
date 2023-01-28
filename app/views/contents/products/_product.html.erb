@@ -1,0 +1,36 @@
+<%= turbo_frame_tag product do %>
+    <div class="<%= ['index', 'main'].eql?([action_name, controller_name]) ? 'w-screen w-[25rem] sm:w-[18rem]' : 'w-full'%>
+            flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl">
+        <%= render 'active_storage/attachments/carousel', object: product %>
+        <div class="p-5">
+            <!-- Title -->
+            <%= tag.h5 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
+            <!-- Category -->
+            <%= tag.p "#{Product.human_attribute_name('category')}: #{product.category_name}", class: "mb-3 font-normal text-gray-500" if ['show', 'products'].eql?([action_name, controller_name])%>
+            <!-- Type -->
+            <%= tag.p "#{Product.human_attribute_name('things')}: #{product.thing_name}", class: "mb-3 font-normal text-gray-500"%>
+            <!-- Condition -->
+            <%= tag.p "#{Product.human_attribute_name('condition')}: #{product.condition_name}", class: "mb-3 font-normal text-gray-500"%>
+            <!-- Description -->
+            <%= tag.p "#{Product.human_attribute_name('description')}: #{product.description}", 
+                class: "mb-3 font-normal text-gray-500" if ['show', 'products'].eql?([action_name, controller_name])%>
+            <!-- Card Footer -->
+            <div class="flex items-center justify-between mt-4">
+                <!-- Created at -->
+                <%= tag.p product.created_at, class: "text-sm text-gray-500"%>
+                <!-- Price -->
+                <%= tag.p "#{Product.human_attribute_name('price')}: #{product.price} ₪", 
+                    class: "mb-2 text-xl text-end font-medium  text-gray-600" if ['show', 'products'].eql?([action_name, controller_name])%>
+                <!-- View more button -->
+                <%= render 'shared/buttons/view_more', path: contents_product_path(product) unless ['show', 'products'].eql?([action_name, controller_name]) %>
+            </div>
+        </div>
+        <!-- Views -->
+        <%= render 'shared/buttons/views', object: product%>
+        <!-- Control buttons -->
+        <% if company_signed_in? && current_company.products.all.include?(product) %>
+            <%= render 'shared/buttons/control_buttons', model: product, 
+                edit_path: [:edit, :companies, product], publish_path: [:companies, :publish, product], del_path: [:companies, product]%>
+        <% end %>
+    </div>
+<% end %>

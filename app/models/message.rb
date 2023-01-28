@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+class Message < ApplicationRecord
+  include ImagesAttachments
+
+  belongs_to :user
+  belongs_to :room
+
+  scope :unread, -> { where(readed: false).count }
+
+  has_noticed_notifications
+
+  after_create_commit :notify_user
+
+  def notify_user
+    MessageNotification.with(message: self).deliver_later(recipient)
+  end
+
+  def recipient
+    room.users.where.not(id: user.id)[0]
+  end
+end

@@ -1,0 +1,261 @@
+<!-- Form for new Company -->
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "shared/error_messages", resource: resource %>
+  
+  <!-- Credential Information -->
+  <h6 class="text-gray-500 text-xl mb-6 font-bold uppercase">
+    <%= t('become_a_carrier.credential')%>
+  </h6>
+
+<div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-12">
+  <!-- Email input -->
+  <div class="">
+     <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
+         <%= f.label :email, class: "text-lg" %></div>
+     <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+      class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+      id: "email-input",
+      placeholder: "Email address",
+      required: false
+     %>
+  </div>
+  
+  <!-- Phone input -->
+  <div class="">
+     <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
+         <%= f.label :phone, class: "text-lg" %></div>
+     <%= f.text_field :phone, autocomplete: "phone", 
+      class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+      id: "phone-input",
+      placeholder: '+(972) __-___ ____',
+      required: false
+     %>
+  </div>
+
+  <!-- Password input -->
+  <div class="">
+    <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
+        <%= f.label :password, class: "text-lg mr-1" %>
+        <% if @minimum_password_length %>
+            <!-- Popover button-->
+            <%= render 'shared/buttons/popover', text: User.human_attribute_name('password_popover', length: @minimum_password_length)%>
+        <% end %>
+    </div>
+    <%= f.password_field :password, autocomplete: "new-password",
+      class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+      id: "password-input",
+      placeholder: User.human_attribute_name('password'),
+      required: false
+    %>
+  </div>
+
+  <!-- Password confirmation -->
+  <div class="">
+     <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
+         <%= f.label :password_confirmation, class: "text-lg" %></div>
+     <%= f.password_field :password_confirmation, autocomplete: "new-password",
+       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+       id: "passwordConfirmation-input",
+       placeholder: User.human_attribute_name('password_confirmation'),
+       required: false
+     %>
+  </div>
+</div>  
+  
+  <!-- Personal Information -->
+  <hr>
+  <h6 class="text-gray-500 text-xl my-6 font-bold uppercase">
+   <%= t('become_a_carrier.personal')%>
+  </h6>
+
+<div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-12">
+    <!-- First Name input -->
+    <div class="">
+       <div class="flex items-center">
+           <%= f.label :first_name, class: "text-lg" %></div>
+       <%= f.text_field :first_name, autocomplete: "first_name", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        id: "firstName-input",
+        placeholder: User.human_attribute_name('first_name'),
+        required: false
+       %>
+    </div>
+
+    <!-- Last Name input -->
+    <div class="">
+       <%= f.label :last_name, class: "text-lg" %>
+       <%= f.text_field :last_name, autocomplete: "last_name", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        id: "lastName-input",
+        placeholder: User.human_attribute_name('last_name'),
+        required: false
+       %>
+    </div>
+
+    <!-- City input -->
+    <div class="">
+       <%= f.label :city, class: "text-lg" %>
+       <%= f.text_field :city, autocomplete: "city", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        id: "city-input",
+        placeholder:User.human_attribute_name('city'),
+        required: false
+       %>
+    </div>
+
+    <!-- Birthday -->
+    <div class="">
+       <%= f.label :birthday, class: "text-lg" %>
+       <%= f.date_field :birthday, autocomplete: "birthday", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        id: "birthday-input",
+        placeholder: "Birthday",
+        required: false
+       %>
+    </div>
+</div>
+    
+    <!-- Company Information -->
+    <hr>
+    <h6 class="text-gray-500 text-xl my-6 font-bold uppercase">
+      <%= t('become_a_carrier.company')%>
+    </h6>
+<div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-6">
+    <!-- Company name input -->
+    <div class="">
+       <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :title, class: "text-lg" %></div>
+       <%= f.text_field :title, autocomplete: "phone", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        placeholder: Company.human_attribute_name('title'),
+        required: false
+       %>
+    </div>
+    
+    <!-- Company website input -->
+    <div class="">
+       <%= f.label :website, 'Website URL', class: "text-lg" %>
+       <%= f.text_field :website, autocomplete: "phone", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        placeholder: "https://example.com/",
+        required: false
+       %>
+    </div>
+</div>
+    <!-- Working area -->
+    <div class="mb-6">
+       <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label Company.human_attribute_name('working_area'), class: "text-lg" %></div>
+       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-1">
+          <%= f.collection_check_boxes(:district_ids, District.all, :id, I18n.locale) do |b| %> 
+              <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
+          <% end%>
+       </div>
+    </div>
+    
+    <!-- Languages -->
+    <div class="mb-6">
+       <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label Company.human_attribute_name('languages'), class: "text-lg mr-1" %>
+           <%= render 'shared/buttons/popover', text: t('become_a_carrier.languages')%>
+       </div>
+       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-1">
+          <%= f.collection_check_boxes(:language_ids, Language.all, :id, :title) do |b| %> 
+              <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
+          <% end%>
+       </div>
+    </div>
+    <!-- Description input -->
+    <div class="mb-6">
+       <%= f.label :description, class: "text-lg" %>
+       <%= f.text_area :description, autocomplete: "phone", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        placeholder: Company.human_attribute_name('description'),
+        required: false
+       %>
+    </div>
+    
+    <!-- Logo -->
+    <div class="flex mt-6 mb-12 grid grid-rows-1 text-center items-center justify-center">
+        <label class="block text-sm font-medium text-white">
+        Image
+      </label>
+      <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+        <div class="space-y-1 text-center">
+          <%= f.label :avatar, class: "cursor-pointer" do %>
+              <svg class="mx-auto h-12 w-12 text-gray-700" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div class="text-gray-700 mt-1 mb-2 justify-center text-center text-base" data-controller="image" id="Img">
+                  <span class="relative rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">Upload Company Logo</span>
+                      <%= f.file_field :avatar, multiple: false, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#preview" %>
+              </div>
+              <p class="text-xs text-gray-700">
+                PNG, JPG, GIF up to 10MB
+              </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact Information -->
+    <hr>
+    <h6 class="text-gray-500 text-xl my-6 font-bold uppercase">
+      <%= t('become_a_carrier.contacts')%>
+    </h6>
+    
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 mb-12">
+    <!-- Additional Phone input -->
+    <div class="">
+       <%= f.label :additional_phone, class: "text-lg" %>
+       <%= f.text_field :additional_phone, autocomplete: "phone", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        placeholder: '+(972) __-___ ____',
+        required: false
+       %>
+    </div>
+    
+    <!-- WhatsApp input -->
+    <div class="">
+       <%= f.label :whatsapp, 'WhatsApp', class: "text-lg" %>
+       <%= f.text_field :whatsapp, autocomplete: "phone", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        placeholder: '+(972) __-___ ____',
+        required: false
+       %>
+    </div>
+    
+    <!-- Telegram input -->
+    <div class="">
+       <div class="flex items-center">
+           <%= f.label :telegram, 'Telegram', class: "text-lg mr-1" %>
+           <!-- Popover button-->
+           <%= render 'shared/buttons/popover', text: t('popover.telegram'), icon: 'icons/icons8-info-50.png'%>
+       </div>
+       <%= f.text_field :telegram, autocomplete: "phone", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        placeholder: '@example',
+        required: false
+       %>
+    </div>
+    
+    <!-- Facebook input -->
+    <div class="">
+       <div class="flex items-center">
+              <%= f.label :facebook, 'Facebook', class: "text-lg mr-1" %>
+           <!-- Popover button-->
+           <%= render 'shared/buttons/popover', text: t('popover.facebook'), icon: 'icons/icons8-info-50.png'%>
+       </div>
+       <%= f.text_field :facebook, autocomplete: "phone", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        placeholder: "https://web.facebook.com/example",
+        required: false
+       %>
+    </div>
+</div>
+
+    <!-- Submit button -->
+    <div class="text-center lg:text-center pt-5">
+        <%= f.submit t('sign_up.btn'), class: "cursor-pointer w-full text-white bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center mr-2 mb-2" %>
+    </div>
+<% end %>

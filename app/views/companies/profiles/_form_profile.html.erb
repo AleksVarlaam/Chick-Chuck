@@ -1,0 +1,39 @@
+<!-- Personal info form -->
+<%= form_with model: @company, url: companies_profile_path, method: :put do |f| %>
+    <%= render "shared/error_messages", resource: @company %>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <!-- First Name -->
+        <div>
+            <%= f.label :first_name, class: "text-gray-700 text-lg"%>
+            <%= f.text_field :first_name, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
+                placeholder: User.human_attribute_name('first_name')%>
+        </div>
+        
+        <!-- Last Name -->
+        <div>
+            <%= f.label :last_name, class: "text-gray-700 text-lg"%>
+            <%= f.text_field :last_name, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
+                placeholder: User.human_attribute_name('last_name')%>
+        </div>
+        
+        <!-- City -->
+        <div>
+            <%= f.label :city, class: "text-gray-700 text-lg"%>
+            <%= f.text_field :city, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
+                placeholder: User.human_attribute_name('city')%>
+        </div>
+        
+        <!-- Birthday -->
+        <div>
+            <%= f.label :birthday, class: "text-gray-700 text-lg" %>
+            <%= f.date_field :birthday, autocomplete: "birthday", 
+                 class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
+                 plcaholder: User.human_attribute_name('birthday')%>
+        </div>
+    </div>
+    
+    <!-- Button Save -->
+    <div class="flex justify-start mt-6">
+        <%= f.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+    </div>
+<% end %>

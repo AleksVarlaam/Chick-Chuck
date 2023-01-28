@@ -1,0 +1,46 @@
+<%= provide :footer do %>
+    <footer class="bg-gray-200 mt-8">
+        <div class="container px-6 py-8 mx-auto">
+            <div class="text-center">
+                <!-- Main title & locals -->
+                <div class="relative flex items-center justify-center">
+                    <%= link_to 'Laavor', root_path, class: "text-3xl font-bold text-gray-800 hover:text-gray-700"%>
+                    <%= tag.div (render 'shared/locales'), class: "absolute right-2"%>
+                </div>
+
+                <!-- Main navigations -->
+                <div class="flex flex-wrap justify-center mt-5 -mx-4">
+                    <%= nav_tab t('pages.home'), root_path, 
+                        class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900",
+                        current_page: current_page, data: {turbo_frame: '_top'} %>
+                    <%= nav_tab t('pages.calculator'), contents_calculator_path, 
+                        class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900", 
+                        current_page: current_page, data: {turbo_frame: '_top'} %>
+                    <%= nav_tab t('pages.trucks'), contents_trucks_path, 
+                        class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900", 
+                        current_page: current_page, data: {turbo_frame: '_top'} %>
+                    <%= nav_tab t('pages.preparation'), contents_moving_preparation_path, 
+                        class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900", 
+                        current_page: current_page, data: {turbo_frame: '_top'} %>
+                    <%= nav_tab t('pages.market'), contents_products_path, 
+                        class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900", 
+                        current_page: current_page, data: {turbo_frame: '_top'} %>
+                    <%= nav_tab t('pages.news'), contents_news_index_path, 
+                        class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900", 
+                        current_page: current_page, data: {turbo_frame: '_top'} %>
+                        
+                </div>
+
+            </div>
+
+            <hr class="my-6 border-gray-400 md:my-10" />
+
+            <div class="flex flex-col items-center w-full md:relative">
+                <%= link_to 'laavor@info.com', "mailto:laavor@info.com", 
+                    class:"text-gray-500 md:absolute md:right-0 hover:underline mb-4 md:mb-0"%>
+                <p class="text-gray-500 text-center">© Copyright 2023. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+<% end%>
+

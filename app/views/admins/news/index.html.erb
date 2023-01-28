@@ -1,0 +1,19 @@
+<% currently_at t('admin_menu.news') %>
+<% provide :page_title, t('admin_menu.news') %>
+<% provide :nav_title, t('admin_menu.news') %>
+<% provide :nav_path, admins_news_index_path %>
+<% provide :main_title, t('admin_menu.news') %>
+
+<!-- Latest News -->
+<%= turbo_frame_tag 'news',
+    class: "grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-2 container w-full mx-auto" do 
+%>
+    <%= render partial: 'contents/news/news', collection: @news %>
+<% end %>
+
+<%== pagy_nav(@pagy) if News.count > 8%>
+
+<!-- Add New -->
+<hr class="my-6">
+<%= render 'shared/buttons/add', id: dom_id(News.new, 'form'), title: t('admin_menu.add_news'), path: new_admins_news_path%>
+

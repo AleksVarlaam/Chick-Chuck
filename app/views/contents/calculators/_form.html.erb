@@ -1,0 +1,81 @@
+<!-- Calculator form -->
+<%= form_with url: path, method: :get, turbo: {turbo_frame: frame},
+    class: 'flex items-center justify-center grid grid-flow-row auto-rows-max w-full px-auto' do |f| 
+%>
+<div class="overflow-y-auto overflow-x-hidden max-h-[24rem] w-full grid grid-flow-row auto-rows-max">
+    <!-- Distance -->
+    <%= tag.div class: "items-center grid grid-cols-3 mx-auto px-1 lg:min-w-[24rem] w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+        <!-- Title -->
+        <%= f.label Calculator.human_attribute_name('distance'), class: "break-all ml-1 col-span-2 justify-start text-lg"%>
+        <!-- Amount -->
+        <div class="col-span-1 justify-end flex items-center">
+            <%= f.number_field :distance, class: "w-[4rem] p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500", value: params[:distance] || nil %><span class="ml-1">km.</span>
+        </div>
+    <% end %>
+    
+    <!-- Floor down -->
+    <%= tag.div class: "items-center grid grid-cols-3 mx-auto px-1 lg:min-w-[24rem] w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+        <!-- Title -->
+        <%= f.label Calculator.human_attribute_name('floor_down'), class: "break-all ml-1 col-span-2 justify-start text-lg"%>
+        <!-- Amount -->
+        <div class="col-span-1 justify-end flex items-center">
+            <%= f.number_field :floor_down, class: "w-[4rem] p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500", value: params[:floor_down] || nil %>
+        </div>
+    <% end %>
+    <!-- Floor down elevator-->
+    <%= tag.div class: "items-center grid grid-cols-3 mx-auto px-1 lg:min-w-[24rem] w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+        <!-- Title -->
+        <%= f.label Calculator.human_attribute_name('floor_down_elevator'), class: "break-all ml-1 col-span-2 justify-start text-lg"%>
+        <!-- Amount -->
+        <div class="col-span-1 justify-end flex items-center">
+            <%= f.number_field :floor_down_elevator, class: "w-[4rem] p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500", value: params[:floor_down_elevator] || nil %>
+        </div>
+    <% end %>
+    
+    <!-- Floor up -->
+    <%= tag.div class: "items-center grid grid-cols-3 mx-auto px-1 lg:min-w-[24rem] w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+        <!-- Title -->
+        <%= f.label Calculator.human_attribute_name('floor_up'), class: "break-all ml-1 col-span-2 justify-start text-lg"%>
+        <!-- Amount -->
+        <div class="col-span-1 justify-end flex items-center">
+            <%= f.number_field :floor_up, class: "w-[4rem] p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500", value: params[:floor_up] || nil %>
+        </div>
+    <% end %>
+    <!-- Floor up elevator -->
+    <%= tag.div class: "items-center grid grid-cols-3 mx-auto px-1 lg:min-w-[24rem] w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+        <!-- Title -->
+        <%= f.label Calculator.human_attribute_name('floor_up_elevator'), class: "break-all ml-1 col-span-2 justify-start text-lg"%>
+        <!-- Amount -->
+        <div class="col-span-1 justify-end flex items-center">
+            <%= f.number_field :floor_up_elevator, class: "w-[4rem] p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500", value: params[:floor_up_elevator] || nil %>
+        </div>
+    <% end %>
+    
+    <% @categories.each do |category| %>
+        <%= turbo_frame_tag category do %>
+            <!-- Category title -->
+            <%= tag.div class: 'items-center flex mx-auto my-4 w-full relative border-b border-b-gray-300' do %>
+                <%= tag.p category.title, class: "text-start text-gray-500 text-xl font-bold uppercase" %>
+            <% end %>
+            <!-- Things -->
+            <%= tag.div class: "overflow-x-auto mb-4 w-auto justify-center" do %>
+                <% category.things.decorate.each do |thing|%>
+                    <%= turbo_frame_tag thing, 
+                        class: "items-center grid grid-cols-3 mx-auto px-1 lg:min-w-[24rem] w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+                        <!-- Title -->
+                        <%= tag.div thing.title, class: "break-all ml-1 col-span-2 justify-start text-lg"%>
+                        <!-- Amount -->
+                        <div class="col-span-1 justify-end flex items-center">
+                            <%= f.number_field (thing.id.to_s).to_sym, class: "w-[4rem] p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500", value: params[(thing.id.to_s).to_sym] || nil %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+</div>
+    <!-- Button -->
+    <%= f.submit t('calculator.btn'), class: 'my-6 cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4'%>
+    <!-- All companies and their prices -->
+    <%= total_prices %>
+<% end %>

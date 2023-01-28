@@ -1,0 +1,11 @@
+
+<%= form_with url: path, method: :get, data: {turbo_frame: '_top'} do |f|%>
+    <div class="flex items-center text-gray-600 justify-center">
+        <div class="flex items-center text-center">
+            <%= f.label :category_id, Product.human_attribute_name('category'), class: "text-lg mr-2" %>
+        </div>
+        <%= f.collection_select(:category_id, @categories, :id, :title, 
+        { prompt: true, selected: params[:category_id] || @product&.category&.id },
+        {onchange: 'this.form.submit()',class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: true})%>
+    </div>
+<% end %>

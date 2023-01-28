@@ -1,0 +1,19 @@
+<% currently_at t('company_menu.edit_truck') %>
+<% provide :page_title, t('company_menu.edit_truck') %>
+<% provide :main_title, "#{t('company_menu.edit_truck')} #{@truck.number}" %>
+<% provide :parent_title, t('company_menu.trucks') %>
+<% provide :parent_path, companies_trucks_path %>
+<% provide :nav_title, "#{t('company_menu.truck')} #{@truck.number}" %>
+<% provide :nav_path, truck_path(@truck) %>
+
+<!-- Trucks Cards -->
+<div class="w-full mx-auto">
+    <%= render 'form' %>
+</div>
+
+<!-- All trucks link -->
+<%= link_to t('company_menu.trucks'), companies_trucks_path, 
+    class: "mt-6 rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-200 inline-block font-medium"
+%>
+   
+

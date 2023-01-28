@@ -1,0 +1,44 @@
+<!-- About company -->
+<section class="mx-5 flex flex-col items-center">
+    <!-- Avatar -->
+    <%= image_tag(company.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
+    <!-- Name -->
+    <%= tag.h4 (link_to company.title, contents_company_path(id: company), target: "_blank"), 
+        class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800",
+        data: { turbo_frame: '_top' } 
+    %>
+    <!-- Rating -->
+    <%= render 'feedbacks/reviews/company_reviews', company: company%> 
+    <!-- Districts -->
+    <div class="flex items-center justify-center text-center mb-3">
+        <%= tag.p class: "text-md font-medium mr-3 text-gray-500" do %>
+            <%= Company.human_attribute_name('working_area') + ': '%> 
+            <% company.districts.decorate.each do |district|%>
+                <%= district != company.districts.last ? district.title + ',' : district.title%>
+            <% end %>
+        <% end %>
+    </div>
+    <!-- All trucks -->
+    <%= link_to "#{t('company.all_trucks')}: #{company.trucks.published.count}", contents_company_path(id: company), 
+        class: "text-md font-medium hover:underline text-gray-500 mb-3", 
+        data: { turbo_frame: '_top' }, target: "_blank"
+    %>
+    <!-- Website -->
+    <%= tag.div (link_to "Website: #{company.website}", '#', class: "text-md font-medium hover:underline text-gray-500", target: "_blank"), class: 'flex items-center justify-center text-center mb-3' if company.website.present?%>
+    <!-- Description -->
+    <%= tag.p company.description, class: "mb-3 max-w-xl font-medium text-md text-center text-gray-500 border-y" if company.description.present?%>
+    <!-- Languages -->
+    <div class="flex items-center justify-center text-center mb-3">
+        <%= tag.p class: "text-md font-medium mr-3 text-gray-500" do %>
+            <%= tag.label t('company.we_speak')%> 
+            <% company.languages.each do |language|%>
+                <%= language != company.languages.last ? language.title + ',' : language.title%>
+            <% end %>
+        <% end %>
+    </div>
+    <!-- Message -->
+    <%= render 'feedbacks/rooms/form', company: company%>
+    <!-- Contacts -->
+    <%= render 'contents/companies/contacts_section', company: company%>
+    
+</section>

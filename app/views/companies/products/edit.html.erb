@@ -1,0 +1,20 @@
+<% currently_at t('company_menu.edit_product') %>
+<% provide :page_title, t('company_menu.edit_product') %>
+<% provide :main_title, t('company_menu.edit_product') %>
+<% provide :parent_title, t('company_menu.products') %>
+<% provide :parent_path, companies_products_path %>
+<% provide :nav_title, t('company_menu.edit_product') %>
+<% provide :nav_path, edit_companies_product_path(@product) %>
+
+<!-- Form new truck -->
+<div class="w-full mx-auto">
+    <%= render 'form'%>
+    
+    <%= link_to t('company_menu.products'), companies_products_path, 
+        class: "mt-6 rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-200 inline-block font-medium"
+    %>
+</div>
+
+
+
+

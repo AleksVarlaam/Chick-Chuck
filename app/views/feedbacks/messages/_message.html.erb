@@ -1,0 +1,54 @@
+<!-- message -->
+<%= turbo_frame_tag "room_#{message.room.id}_message_#{message.id}" do %>
+    <div class="flex mb-1.5"
+      data-controller="message"
+      data-message-target="box"
+      data-message-owner-id-value="<%= message.user_id %>"
+    >
+        <div class="relative mr-6" data-controller="dropdown">
+            <!-- Attachments -->
+            <% if message.images.present? %>
+                <div class="flex items-center my-1 overflow-x-auto max-w-[22rem]">
+                    <% message.images.each do |img| %>
+                        <%= image_tag(img, class: 'pr-1 max-h-[18rem] max-w-[18rem] object-cover rounded-md')%>
+                    <% end %>
+                </div>
+            <% end %>
+            <!-- Content -->
+            <%= tag.div class: 'mr-2 py-3 px-4 text-white', data: {'message-target': 'text'} do %>
+                <%= message.content%>
+                <%= tag.span message.created_at.strftime("%H:%M"), class: 'flex justify-end text-xs text-gray-200 -mr-1.5'%>
+            <% end %>
+            <!-- Options button -->
+            <button data-message-target="btn" 
+                data-action="dropdown#toggle click@window->dropdown#hide" 
+                class="absolute -right-6 bottom-3 inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 rounded-lg" type="button"> 
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownDots" 
+                class="hidden z-10 w-44 bg-white rounded-md divide-y divide-gray-100 shadow transition transform origin-top-right absolute right-0"
+                data-dropdown-target="menu"
+                data-transition-enter-from="opacity-0 scale-95"
+                data-transition-enter-to="opacity-100 scale-100"
+                data-transition-leave-from="opacity-100 scale-100"
+                data-transition-leave-to="opacity-0 scale-95"
+            >
+                <ul class="py-1 text-sm text-gray-700">
+                  <li>
+                      <%= link_to t('global.edit_btn'), edit_room_message_path(message.room, message.id), 
+                       locals: {room: message.room, message: message}, 
+                       class: "block py-2 px-4 hover:bg-gray-100",
+                       data: { turbo_frame: 'message-form' }%>
+                  </li>
+                  <li>
+                      <%= link_to t('global.destroy_btn'), room_message_path(message.room, message.id), 
+                       class: "block py-2 px-4 hover:bg-gray-100",
+                       data: { turbo_method: :delete, turbo_confirm: t('global.are_you_sure') }%>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<% end %>
+

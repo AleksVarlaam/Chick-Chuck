@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-50">
+  <head>
+    <title><%= full_title(yield(:page_title)) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    
+    <%= favicon_link_tag asset_path('icons/laavor/laavor_favicon_64.png'), class: 'w-100 h-100'%>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <%= render 'layouts/current_user_meta'%>
+  </head>
+
+  <body class="flex flex-col h-screen justify-between">
+      <% if user_signed_in? %>
+        <%= turbo_stream_from "broadcast_to_user_#{current_user.id}" %>
+      <% end %>
+      <!-- Header -->
+      <%= yield :navbar%>
+      <!-- Main -->
+      <main class="flex w-full mt-20 grid grid-flow-row auto-rows-max relative" id="top">
+          <!-- Flash messages -->
+          <% unless ['new', 'create'].include?(action_name) %>
+              <%= tag.div (render 'shared/flash_messages'), class: "absolute right-6 top-3 z-20", id: "flash_messages"%>
+          <% end %>
+          <!-- Modal -->
+          <%= turbo_frame_tag 'modal'%>
+          <!-- Content -->
+          <div class="min-h-screen">
+              <%= yield %>
+          </div>
+          <%= link_to '#top', class: 'fixed right-3 bottom-5 z-20', data: {controller: 'scroll-to'} do %>
+              <%= image_tag(asset_path('icons/icons8-up-2-50.png'), class: 'w-10 h-auto')%>
+          <% end %>
+      </main>      
+      <!-- Footer -->
+      <%= yield :footer%>
+  </body>
+</html>

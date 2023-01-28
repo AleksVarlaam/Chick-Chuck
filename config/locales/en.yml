@@ -1,0 +1,317 @@
+en:
+  en: 'English'
+  ru: 'Русский'
+  he: 'עברית'
+  # Active Record section
+  activerecord:
+      models:
+          admin:        'Admin'
+          client:       'User'
+          company:      'Company'
+          category:     'Category'
+          thing:        'Thing'
+          district:     'District'
+          language:     'Language'
+          news:         'New'
+          truck:        'Truck'
+          product:      'Product'
+          calculator:   'Calculator'
+          price:        'Price'
+          message:      'Message'
+      errors:
+            messages:
+                in:         "%{value} is not valid, enter a value in range %{count}"
+      attributes:
+          user:
+              login:            'Login'
+              password:         'Password'
+              new_password:     'New password'
+              current_password: 'Current password'
+              phone:            'Phone'
+              password_confirmation: 'Password confirmation'
+              first_name:       'First name'
+              last_name:        'Last name'
+              city:             'City'
+              gender:           'Gender'
+              male:             'Male'
+              female:           'Female'
+              birthday:         'Birthday'
+              avatar:           'Avatar'
+              password_popover: "%{length} characters minimum."
+              current_popover:  'We need your current password to confirm your changes.'
+          company:
+              districts:        'District'
+              languages:        'Languages'
+              title:            'Title'
+              working_area:     'District'
+              description:      'Description or slogan'
+              contacts:         'Contacts'
+              additional_phone: 'Additional phone'
+          calculator:
+              distance:             'Distance'
+              floor_down:           'Floor down'
+              floor_down_elevator:  'Floor down(elevator)'
+              floor_up:             'Floor up'
+              floor_up_elevator:    'Floor down(elevator)'
+          truck:
+              districts:        'District'
+              body_type:        'Body Type'
+              assembly:         'Assembly | disassmbly'
+              packing:          'Packing'
+              length:           'Body length'
+              width:            'Body width'
+              height:           'Body height'
+              load_capacity:    'Load capacity'
+              images:           'Images'
+          product:
+              category:         'Category'
+              things:           'Type'
+              title:            'Title'
+              description:      'Description'
+              price:            'Price'
+              condition:        'Condition'
+              images:           'Images'
+          review:
+              politeness:       'Politeness'
+              punctuality:      'Punctuality'
+              sociability:      'Sociability'
+              wholeness_things: 'The safety of things'
+              speed:            'Speed'
+              value_money:      'Value for money'
+          news:
+              title:            'Title'
+              description:      'Description'
+              content:          'Content'
+              images:           'Images'
+          language:
+              title:            'Title'
+  # Global
+  global:
+      save_btn:         'Save'
+      delete_account:   'Delete my account'
+      are_you_sure:     'Are you sure?'
+      select:           'Select: '
+      destroy_btn:      'Destroy'
+      edit_btn:         'Edit'
+      read_more:        'Read more'
+      view_all:         'View all'
+      send_btn:         'Send'
+      dismiss_btn:      'Dismiss' 
+      views:            'Views count'
+      publish_btn:      'Publish in general view'
+      hide_btn:         'Hide from general view'
+      image:            'Image'
+      unavailable_html: "Our service is just launched and the %{model} are currently unavailable, please come back later.<br>
+Subscribe to our news to monitor our progress."
+  # Flash
+  flash:
+      type:
+          success:      'Success'
+          info:         'Info'
+          danger:       'Danger'
+          warning:      'Warning'
+          notice:       'Notice'
+      account:      'Your account'
+      success:
+          created:      "%{model} has been created successfully."
+          updated:      "%{model} has been updated successfully." 
+          destroyed:    "%{model} has been destroyed successfully."
+          published:    "%{model} has been published successfully to general view." 
+          hided:        "%{model} has been hided successfully from general view."
+      alert:       'Something went wrong.'
+  # Popover
+  popover:
+      telegram:     'Your telegram username as it is'
+      facebook:     'Copy and past your Facebook link'
+  # Contents section
+  pages: 
+      home:         'Home'
+      calculator:   'Calculator'
+      trucks:       'Trucks'
+      preparation:  'Preparation'
+      market:       'Market'
+      news:         'News'
+      become:       'Become a Carrier'
+  guest_menu:   
+      sign_in:          'Sign In'
+      sign_up:          'Sign Up'
+  sign_in:
+      title:            'Sign In'
+      title_as_company: 'Sign In as company'
+      as_company:       'To sign in as company'
+      click_here:       'Click here'
+      login_place:      'Enter your email or phone number'
+      password_place:   'Enter password'
+      remember_me:      'Remember me'
+      forgot:           'Forgot password?'
+      or:               'Or'
+      facebook:         'Sign in with Facebook'
+      google:           'Sign in with Google'
+      btn:              'Log In'
+      account:          "Don't have an account?"
+      register:         'Register'
+  reset_password:
+      title:            'Password recovery'
+      email_place:      'Enter your email'
+      send_btn:         'Send me reset password instructions'
+  sign_up:
+      title:    'Registration'
+      btn:      'Create account'
+  user_menu:
+      dashboard:    'Dashboard'
+      chats:        'Chats'
+      profile:      'Profile'
+      credential:   'Credential Info'
+      sign_out:     'Sign Out'
+  admin_menu:
+      lang_dist:    'Languages and districts'
+      add_news:     'Add news'
+      news:         'News'
+      catalog:      'Catalog'
+  company_menu:
+      add_truck:    'Add truck'
+      edit_truck:   'Edit truck'
+      trucks:       'Trucks'
+      truck:        'Truck'
+      add_product:  'Add product'
+      edit_product: 'Edit product'
+      products:     'My products'
+      company_info: 'Company info'
+  admin:    
+      add_language:     'Add language'
+      edit_language:    'Edit language'
+      add_category:     'Add category'
+      edit_category:    'Изменить категорию'
+      add_thing:        'Add thing'
+      edit_new:         'Edit new'
+      add_district:     'Add district'
+      add_body_type:    'Add type'
+  chat:
+      search:           'Search chatting'
+  truck:
+      da:               'Yes'
+      net:              'No'
+      only_assembly:    'Only assembly'
+      only_disassembly: 'Only disassembly'
+      body_type:
+          tent:              'Tent'
+          isometric:         'Isometric'
+          side_body:         'Side body(open)'
+          trailer_tent:      'Trailer(Tent)'
+          trailer_isometric: 'Trailer(isometric)'
+          trailer_side_body: 'Trailer(open)' 
+  product:
+      condition:
+          below_average:    'Below average'
+          average:          'Average'
+          above_average:    'Above average'
+          like_new:         'Like new'
+  review:
+      review_desc:      'Leave your review if you have already used the services of this company and truck. Your opinion is very important to us and helps other users to find an honest professional carrier!'
+      add_btn:          'Estimate'
+      edit_btn:         'Edit review'
+  calculator:
+      title:        'Cost Calculator'
+      btn:          'Calculate'
+      km_span:      '₪ per 1 km'
+      floor_span:   '% per 1 floor'
+      options:      'Options'
+      find_btn:     'Find truck'
+      price:        'Price per unit'
+  price:
+      title:        'Title'
+      price:        'Price'
+  market:
+      products:     'products'
+  comment:
+      comments:     'Comments'
+      reply:        'Reply'
+      edit:         'Edit'
+      delete:       'Delete'
+      placeholder:  'Your message...'
+      updated:      'Updated'
+      need_to_signin: 'To add a comment you need to '
+  become_a_carrier:
+      title:        'Company registration'
+      credential:   'Credential information'
+      personal:     'Personal information'
+      contacts:     'Contacts'
+      company:      'About company'
+      languages:    'Select languages which you speak'
+  company:
+      we_speak:     'We speak on: '
+      message:      'Message'
+      all_trucks:   'All trucks'
+      contacts:     'Show contacts'
+      say_truck_number: 'Note: say truck number to order this current truck!'
+  notification:
+      comment:        'Commented on the'
+      reply:          'Reply on your comment on the'
+      reply_truck:    'Truck'
+      review_truck:   'Rated the truck'
+      no_notice:      'No notice'
+  # Home page
+  home_page: 
+      h1:           'Easy way to find the right carrier.'
+      h2:           'Laavor is a service that helps customer and carrier find each other.'
+      calculate:    'calculate the cost of moving'
+      top_features:
+          title:        'What do we have to offer?'
+          combining:    'Combining multiple carriers in one place'
+          reviews:      'Real Reviews and Comments'
+          market:       'Market of used things'
+          calculator:   'Calculator the cost of moving'
+          use:          'Simplicity and ease of use'
+          improvement:  'Continuous development and improvement'
+      top_trucks:   'Top trucks'
+      main_features:
+          title_html:       'explore our <br> awesome features'
+          combining_desc:   'No more need to search all over the internet or ask friends. Many carriers in one place, just choose the right one for you!'
+          reviews_desc:     'Leave your real review of carrier services to help other people choose the right and professional carrier. The rating of the company is calculated based on the feedback about each truck.'
+          calculator_desc:  'Calculate the approximate (at this stage) cost of transportation to calculate your upcoming costs and select the suitable carrier for you.'
+          market_desc:      'You can buy supported things directly from the carrier and do not bother how to deliver them.'
+      latest_trucks: 'Latest trucks'
+      market:        'Market'
+      newslatter:
+          title:     'Want to follow our updates?'
+          desc:      'Subscribe to our news to keep up to date on our development and receive only current information!'
+          subscribe: 'Subscribe'
+  # Moving Preparation
+  moving_preparation:
+      title:        'Preparation for relocation'
+      list:         'List of contents: '
+      header:       'Moving into a new home means starting a new life. However, there is an opinion that it is easier to survive two fires than one move. But if everything is carefully planned and prepared beforehand, then everything will pass quickly, clearly and even bring pleasure. We tell you how to prepare for independent moving and do not miss anything.'
+      #
+      content_1_t:  'Get rid of unnecessary'
+      content_1_c:  'Great opportunity to arrange a global revision of things, furniture and equipment. Critically assess the acquired and think about what is really needed and what is not. The golden rule is, you haven’t used a thing in over a year, you probably won’t need it at all. If things are in good condition, but there is no place for them in your new life, they can be exchanged, given for processing and charity or even sold by arranging a «garage sale» or placing ads on special sites for a small price. Also, many stores take back the furniture and equipment they have bought and pay for it. In the extreme case - throw it away. Otherwise, you’re overpaying to move garbage.'
+      #
+      content_2_t:  'Measure furniture and machinery dimensions'
+      content_2_c:  'Take a tape measure of all the large equipment and furniture you take with you: you will appreciate the scale of transportation and be sure that a bulky piano or a huge double bed will pass through the doorways of the new apartment.'
+      #
+      content_3_t:  'Make deployment plan'
+      content_3_c:  'Make a rough layout of equipment and furniture in the new apartment. This way you won’t have to drag large objects from one room to another several times and stumble over countless boxes.'
+      #
+      content_4_t:  'Find the right carrier on our website'
+      content_4_c:  'After you have estimated the scale of what you need to transport, you can look for a company that will deal with freight. The cost will depend on the time spent on the work and the amount of labor you need. It’s always better to choose a proven company. Read reviews, and do not forget to leave your own review about the services of the carrier, because it helps other people find a conscientious and professional carrier, as helped you once. Inform the carrier in advance of all the details: date, time, distance between areas, floor, the presence of a freight elevator and size of things - you will immediately know the exact cost of services and you can avoid unpleasant surprises. Make a contract and carefully read the conditions of work of the company - what responsibility for things, failure of deadlines, damage to the house property it takes.'
+      #
+      content_5_t:  'Handle receipts and bills at the old address'
+      content_5_c:  'Входите в новую квартиру, как и в новый год — без долгов. Перед переездом проверьте, оплачены ли счета ЖКХ, запишите или сфотографируйте показания счетчиков. Также заранее решите вопрос с интернетом и телевидением — будете ли вы расторгать договор, переносить услуги провайдера на новый адрес или передавать будущим жильцам. Попрощайтесь с соседями и по возможности оставьте свои контакты на случай, если кто-то будет искать вас по старому адресу.'
+      #
+      content_6_t:  'Pack and pack things'
+      content_6_c:  'It is important not to forget about packaging materials - they should be in abundance. It is better if something is not useful, than in the last minutes to look for alternatives or risk the preservation of things. Fragile things will protect ordinary and puffy film, clothes can be transported in special compartments. Order cardboard boxes and sheets online or arrange with furniture and grocery stores. You will also need rope, duct tape, signature markers, garbage bags, a knife and scissors. Packing things should not be postponed for the last days. Eat elephant in pieces - start with things that will not be needed «here and now»: small appliances, books, Christmas toys.Move in the summer - start with packing winter clothes and shoes, in the cold season - the opposite. So a couple of days before moving will be packed most of the things. Boxes sign on all sides and mark stickers - Textile. Bedroom», «Clothes. Children’s Room» - this can help the movers and you will be easier to sort things out. Put the parts of the dismantled furniture together with the fastening hardware in separate boxes, put the assembly instructions there.'
+      #
+      content_7_t:  'Prepare a new apartment'
+      content_7_c:  'Before entering the new apartment, clean it. You will have to clean after, but doing everything from scratch among the boxes and bags will be more difficult. Protect door slopes from damage with cardboard, it is better to cover the floors with protective film. Also check all communications in advance: sockets work, light turns on, water pours. Check the operation of the freight elevators, meet the concierge, walk around the area - in case you urgently need a hardware store or pharmacy. This will greatly facilitate the first few hours of life in a new place.'
+      #
+      content_8_t:  'Clean up the old apartment'
+      content_8_c:  'You must be pleased to drive into a clean apartment - so after yourself and leave the maximum order. You may have to do a small cosmetic repair - glue the wallpaper or replace the plinth. We could call the cleaning company and leave the keys with the concierge.'
+      #
+      content_9_t:  'Take care of children and pets'
+      content_9_c:  'If you have small children or animals, think beforehand about how they will be involved in the move. For them it will be a great stress, and for you - unnecessary worries and worries. Perhaps the children for a couple of days is better to send to visit grandparents, and animals to give up for a while to friends or on a paid stretch.'
+      #
+      content_10_t: 'Collect the required minimum'
+      content_10_c: 'Separately, pack a bag or backpack with items that will be needed on the day of the move: necessary clothes and shoes, documents, chargers for phones, first aid kit, toiletries, basic utensils, household chemicals. Prepare snack food, water and put in a thermal bag.'
+      #
+      footer:       'Hurrah! Exhale, let the cat into the house and get ready for a housewarming party 🥳'
+      
+          

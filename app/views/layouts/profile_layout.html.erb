@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-50">
+  <head>
+    <title><%= full_title(yield(:page_title)) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    
+    <%= favicon_link_tag asset_path('icons/laavor/laavor_favicon_64.png'), class: 'w-100 h-100'%>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <%= render 'layouts/current_user_meta'%>
+  </head>
+
+  <body class="flex flex-col h-screen justify-between">
+      <% if user_signed_in? %>
+        <%= turbo_stream_from "broadcast_to_user_#{current_user.id}" %>
+      <% end %>
+      <!-- Header -->
+      <%= yield :navbar%>
+      <!-- Main -->
+      <main class="flex w-full mt-20 grid grid-flow-row auto-rows-max grid grid-cols-4">
+          <!-- Profile sidebar -->
+          <%= tag.div (render 'clients/shared/client_profile_sidebar'), class: "col-span-1 w-full hover:shadow-lg" if client_signed_in?%>
+          <%= tag.div (render 'companies/shared/company_profile_sidebar'), class: "col-span-1 w-full hover:shadow-lg" if company_signed_in?%>
+          <%= tag.div (render 'admins/shared/admin_profile_sidebar'), class: "col-span-1 w-full hover:shadow-lg" if admin_signed_in?%>
+          <div class="w-full col-span-full lg:col-span-3">
+              <div class="p-4 text-gray-700 relative">
+                  <!-- Page Navigation -->
+                  <%= render 'shared/profile_navigation' %>
+                  <!-- Flash messages -->
+                  <%= tag.div (render 'shared/flash_messages'), class: 'absolute right-6 top-3 z-20', id: "flash_messages"%>
+                  <section class="w-full p-6 mx-auto rounded-md shadow-md hover:shadow-lg min-h-screen">
+                      <%= tag.h1 yield(:main_title), class:"mb-6 text-xl font-bold text-white capitalize dark:text-gray-700"%>
+                      <!-- Content -->
+                      <%= yield %>
+                  </section>
+              </div>
+          </div>
+      </main>
+      <!-- Footer -->
+      <%= yield :footer%>
+  </body>
+</html>

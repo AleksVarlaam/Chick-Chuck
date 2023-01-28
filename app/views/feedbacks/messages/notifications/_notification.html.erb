@@ -1,0 +1,17 @@
+<li>
+    <%= link_to notification.to_notification.url, data: {turbo_frame: '_top'}, class: "flex items-center font-medium block px-4 py-2 text-gray-800 hover:bg-gray-100" do %>
+        <%= image_tag (notification.to_notification.avatar), class: 'w-7 h-7 mr-3 rounded-full object-cover'%>
+        <div>
+            <p class="text-gray-800 mr-3 font-semibold">
+              <%= notification.to_notification.author %>
+            </p>
+            <p class="text-gray-600 mr-3">
+              <%= notification.to_notification.message %>
+            </p>
+            <span class="text-gray-400 text-xs -ml-1">
+                <%= created_at(notification) %>
+            </span>
+        </div>
+    <% end %>
+</li>
+<hr>

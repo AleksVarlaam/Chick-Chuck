@@ -1,0 +1,62 @@
+<%= provide :navbar do %>
+    <header class="bg-white bg-opacity-90 fixed top-0 z-50 w-full">
+        <div class="relative" data-controller="dropdown">
+          <div class="w-full mx-auto px-4 sm:px-6">
+            <div class="nav-container flex items-center border-b-2 border-gray-100 py-4">
+              <!-- Logotype -->
+              <div class="flex justify-start w-auto flex-auto">
+                  <%= link_to root_path, class: 'flex items-center', data: {turbo_frame: '_top'} do %>
+                      <%= image_tag(asset_path('icons/laavor/Laavor_logo.png'), class: "h-10 w-auto object-cover")%>
+                  <% end %>
+              </div>
+              <!-- Mobile menu button -->
+              <div class="flex justify-center flex-none lg:hidden w-auto">
+                <button data-action="dropdown#toggle click@window->dropdown#hide" type="button" class=" rounded-lg p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                  <span class="sr-only">Open menu</span>
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+              <!-- Navigations -->
+              <nav class="hidden lg:flex space-x-6">
+                  <%= nav_tab t('pages.home'), root_path, 
+                      class: "text-base font-medium hover:text-gray-900", current_page: current_page, 
+                      data: {turbo_frame: '_top'} %>
+                  <%= nav_tab t('pages.calculator'), contents_calculator_path,
+                      class: "text-base font-medium hover:text-gray-900", current_page: current_page, 
+                      data: {turbo_frame: '_top'} %>
+                  <%= nav_tab t('pages.trucks'), contents_trucks_path, 
+                      class: "text-base font-medium hover:text-gray-900", current_page: current_page, 
+                      data: {turbo_frame: '_top'} %>
+                  <%= nav_tab t('pages.preparation'), contents_moving_preparation_path, 
+                      class: "text-base font-medium hover:text-gray-900", current_page: current_page, 
+                      data: {turbo_frame: '_top'} %>
+                  <%= nav_tab t('pages.market'), contents_products_path, 
+                      class: "text-base font-medium hover:text-gray-900", current_page: current_page, 
+                      data: {turbo_frame: '_top'} %>
+                  <%= nav_tab t('pages.news'), contents_news_index_path, 
+                      class: "text-base font-medium hover:text-gray-900", current_page: current_page, 
+                      data: {turbo_frame: '_top'} %>
+              </nav>
+              <!-- Guest/User/Company menu -->
+              <div class="flex items-center justify-end flex-auto w-auto space-x-5">
+                  <!-- Locales -->
+                  <%= render 'shared/locales'%>
+                  <!-- Message Notifications -->
+                  <%= render 'feedbacks/messages/notifications/notifications_section' if user_signed_in?%>
+                  <!-- Notifications -->
+                  <%= render 'feedbacks/notifications/notifications_section' if user_signed_in?%>
+                  <!-- Menu -->
+                  <%= render 'shared/guest_menu' unless user_signed_in?%>
+                  <%= render 'clients/shared/client_menu' if client_signed_in?%>
+                  <%= render 'companies/shared/company_menu' if company_signed_in?%>
+                  <%= render 'admins/shared/admin_menu' if admin_signed_in?%>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile menu -->
+          <%= render 'shared/mobile_menu', current_page: current_page %>
+        </div>
+    </header>
+<% end %>

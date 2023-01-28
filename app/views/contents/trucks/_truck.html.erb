@@ -1,0 +1,18 @@
+<%= turbo_frame_tag truck, class: "w-full h-auto block bg-white rounded-lg shadow-md col-span-1 hover:shadow-xl" do %>
+    <!-- Truck carousel images -->
+    <%= render 'active_storage/attachments/carousel', object: truck %>
+    <!-- Truck Info -->
+    <%= link_to truck_path(truck), data: { turbo_frame: '_top' } do %>
+        <!-- Rating -->
+        <%= render 'feedbacks/reviews/review', truck: truck.decorate%> 
+        <!-- Truck card body -->
+        <%= render 'contents/trucks/card_body', truck: truck.decorate%>
+    <% end %>
+    <!-- Truck card footer -->
+    <%= render 'contents/trucks/card_footer', truck: truck.decorate%>
+    <!-- Control Buttons -->
+    <% if company_signed_in? && current_company.trucks.all.include?(truck) %>
+        <%= render 'shared/buttons/control_buttons', model: truck, 
+            edit_path: [:edit, :companies, truck], publish_path: [:companies, :publish, truck], del_path: [:companies, truck]%>
+    <% end %>
+<% end %>

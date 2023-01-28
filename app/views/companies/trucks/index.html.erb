@@ -1,0 +1,19 @@
+<% currently_at t('company_menu.trucks') %>
+<% provide :page_title, t('company_menu.trucks') %>
+<% provide :main_title, "#{t('company_menu.trucks')}: #{@trucks.count}" %>
+<% provide :nav_title, t('company_menu.trucks') %>
+<% provide :nav_path, companies_trucks_path %>
+
+<!-- Trucks Cards -->
+<%= turbo_frame_tag 'trucks',
+    class: "grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 xl:grid-cols-3 justify-center mx-auto" do 
+%>
+    <%= render partial: 'contents/trucks/truck', collection: @trucks, company: current_company %>
+<% end %>
+
+<!-- Pagy -->
+<%== pagy_nav(@pagy) if @trucks.count > 10%>
+
+<!-- New truck -->
+<hr class="my-6">
+<%= render 'shared/buttons/add', id: current_company.trucks.new, title: t('company_menu.add_truck'), path: new_companies_truck_path%>

@@ -1,0 +1,17 @@
+<!-- News section-->
+<div class="items-center flex container mx-auto w-full justify-center relative">
+    <!-- Title -->
+    <%= tag.h3 t('pages.news'), class: 'text-3xl font-semibold text-gray-800  my-6 text-center'%>
+    <!-- View all -->
+    <%= link_to contents_news_index_path, class: "absolute w-[7rem] sm:w-full right-0 flex py-0 mr-2 text-base font-medium justify-end items-center text-end text-gray-500 hover:text-gray-700 hover:underline", data: {turbo_frame: '_top'} do %>
+        <%= t('global.view_all')%>
+        <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    <% end %>
+</div>
+
+<!-- Latest News -->
+<%= turbo_frame_tag 'news',
+    class: "grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 container w-full mx-auto" do 
+%>
+    <%= render partial: 'contents/news/news', collection: @news %>
+<% end %>

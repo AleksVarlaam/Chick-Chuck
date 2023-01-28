@@ -1,0 +1,14 @@
+<%= turbo_frame_tag category do %>
+    <!-- Category title -->
+    <%= tag.div class: 'items-center flex mx-auto my-4 w-full relative border-b border-b-gray-300' do %>
+        <%= tag.p category.title, class: "text-start text-gray-500 text-xl font-bold uppercase" %>
+    <% end %>
+    <!-- Things -->
+    <%= tag.div class: "overflow-x-auto mb-4" do %>
+        <div class="grid grid-cols-3 gap-6 bg-gray-200 p-1">
+            <%= tag.div t('price.title'), class: 'col-span-1'%>
+            <%= tag.div t('calculator.price'), class: 'col-span-2'%>
+        </div>
+        <%= render partial: 'companies/prices/thing', collection: category.things.decorate%>
+    <% end %>
+<% end %>

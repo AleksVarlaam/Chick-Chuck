@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@rails/actiontext": "^7.0.4",
+    "stimulus-popover": "^6.1.0",
+    "trix": "^2.0.2"
+  }
+}

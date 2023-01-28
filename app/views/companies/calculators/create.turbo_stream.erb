@@ -1,0 +1,5 @@
+<%= turbo_stream.replace dom_id(current_company, :calculator) do %>
+    <%= render 'companies/calculators/calculator'%>
+<% end %>
+
+<%= prepend_flash%>

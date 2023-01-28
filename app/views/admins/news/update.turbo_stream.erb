@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@new, 'form'), render('form', news: @new, path: admins_news_path, method: :put)%>
+
+<%= prepend_flash%>

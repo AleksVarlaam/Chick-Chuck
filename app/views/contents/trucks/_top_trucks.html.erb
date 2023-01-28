@@ -1,0 +1,15 @@
+<!-- Title -->
+<%= tag.h3 t('home_page.top_trucks'), class: 'text-3xl font-semibold text-gray-800  my-6 text-center'%>
+<!-- Trucks -->
+<% if @top_trucks.present?%>
+    <%= turbo_frame_tag 'top_trucks', class: "container sm:mx-auto grid grid-cols-1 gap-6 sm:grid-cols-6 lg:grid-cols-3 2xl:grid-cols-8 justify-center mb-6" do %>
+        <% @top_trucks.each_with_index do |truck, index|%>
+            <%= tag.div (render 'contents/trucks/truck', truck: truck), 
+                class: 'sm:col-start-2 sm:col-span-4 lg:col-span-1 2xl:col-start-2 2xl:col-span-2' if index == 0%>
+             <%= tag.div (render 'contents/trucks/truck', truck: truck), 
+                class: 'sm:col-span-3 lg:col-span-1 2xl:col-span-2' if index > 0%>
+        <% end %>
+    <% end %>
+<% else %>
+    <%= render 'contents/shared/unavailable', model: t('home_page.top_trucks').split(' ').last%>
+<% end %>

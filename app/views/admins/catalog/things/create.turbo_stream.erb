@@ -1,0 +1,6 @@
+<%= turbo_stream.replace dom_id(@category, "thing_form") do %>
+    <%= render 'shared/buttons/add', id: dom_id(@category, "thing_form"), title: t('admin.add_thing'), path: new_admins_category_thing_path(@category)%>
+<% end %>
+
+<%= turbo_stream.append dom_id(@category, 'things'), render(@thing)%>
+<%= prepend_flash%>

@@ -1,0 +1,24 @@
+<!-- Market filter -->
+<div class="w-full sm:w-2/3 md:w-4/5 lg:w-1/2 inline-flex items-center z-10 mx-auto grid grid-cols-1 md:grid-cols-2 border-gray-300 bg-gray-700 rounded-xl p-3 md:p-0 mb-2">
+     <%= form_with url: path, method: :get, data: {turbo_frame: '_top'} do |f| %>
+        <!-- Category -->
+        <div class="w-full h-14 items-center flex border-0 border-b border-gray-600 md:border-r md:border-b-0 pl-2.5">
+            <label for="countries" class="sr-only">Select an option</label>
+            <%= image_tag(asset_path('icons/icons8-sorting-64.png'), class: 'w-6 h-6 mr-1')%>
+            <%= f.collection_select(:category_id, @categories, :id, :title, 
+            { prompt: Category.model_name.human, selected: @selected_category}, 
+            {onchange: 'this.form.submit()', class: "h-full text-base md:rounded-l-xl block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-gray-400 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0"})%>
+        </div>
+    <% end %>
+    
+    <%= form_with url: path, method: :get, data: {turbo_frame: '_top'} do |f| %>
+        <!-- Thing -->
+        <div class="w-full h-14 items-center flex md:border-0 border-b border-gray-600 pl-2.5">
+            <label for="countries" class="sr-only">Select an option</label>
+            <%= image_tag(asset_path('icons/icons8-sorting-64.png'), class: 'w-6 h-6 mr-1')%>
+            <%= f.collection_select(:thing_id, @things, :id, :title, 
+            { prompt: Thing.model_name.human,  selected: params[:thing_id]}, 
+            {onchange: 'this.form.submit()', class: "h-full text-base md:rounded-r-xl block w-full p-2.5 bg-gray-700  placeholder-gray-400 text-gray-400 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0"})%>
+        </div>
+    <% end %>
+</div>

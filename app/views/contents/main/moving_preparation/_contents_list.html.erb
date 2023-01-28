@@ -1,0 +1,14 @@
+<section class="flex flex-col w-full mx-4 text-center h-full px-6 py-8 bg-gray-50 lg:border-l col-span-1">
+        <!-- Title -->
+        <%= tag.h2 t('moving_preparation.list'), class: "text-2xl font-semibold text-gray-800"%>
+
+        <!-- Content list -->
+        <ul class="mx-3 space-y-3 text-center justify-center mt-6 list-disc">
+            <% 10.times do |i| %>
+                <li>
+                    <%= link_to t("moving_preparation.content_#{i+1}_t"), "#content_#{i+1}",
+                         class: 'text-gray-500 hover:text-gray-800', data: {controller: "scroll-to"}%>
+                </li>
+            <% end %>
+        </ul>
+</section>

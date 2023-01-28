@@ -1,0 +1,60 @@
+<div class="grid grid-cols-3 gap-0">
+    <div class="ml-3 col-span-2">
+        <!-- Working area -->
+        <div class="flex items-center text-gray-600 justify-start mb-2">
+            <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('districts'), icon: 'icons/icons8-address-50.png' %>
+            <%= tag.label "#{Truck.human_attribute_name('districts')}: ", class: 'text-gray-500 ml-2 hidden sm:block md:hidden xl:block' if [action_name, controller_name].eql?(['show', 'trucks'])%>
+            <%= tag.p class: "text-gray-600 italic break-words px-1 w-full break-words" do %>
+                <% truck.districts.decorate.each do |district|%>
+                    <%= district != truck.districts.last ? district.title + ',' : district.title%>
+                <% end %>
+            <% end %>
+        </div>
+        <!-- Body type -->
+        <div class="flex items-center text-gray-600 justify-start mb-2">
+            <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('body_type'), icon: 'icons/icons8-truck-weight-empty-80.png' %>
+            <%= tag.label "#{Truck.human_attribute_name('body_type')}: ", class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
+            <%= tag.p truck.body_type_name, class: "text-gray-600 italic"%>
+        </div>
+        <!-- Assembly -->
+        <div class="flex items-center text-gray-600 justify-start mb-2">
+            <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('assembly'), icon: 'icons/icons8-job-50.png' %>
+            <%= tag.label "#{Truck.human_attribute_name('assembly')}: ", class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
+            <%= truck.formatted_assembly%>
+        </div>
+        <!-- Packing -->
+        <div class="flex items-center text-gray-600 justify-start mb-2">
+            <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('packing'), icon: 'icons/icons8-packing-50.png' %>
+            <%= tag.label "#{Truck.human_attribute_name('packing')}: ", class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
+            <%= truck.formatted_packing%>
+        </div>
+    </div>
+    <div class="ml-3 col-span-1">
+        <!-- Length -->
+        <div class="flex items-center text-gray-600 justify-start mb-2">
+            <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('length'), icon: 'icons/icons8-truck-length-50.png' %>
+            <%= tag.label "#{Truck.human_attribute_name('length')}: " , class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
+            <%= tag.p "#{truck.length} m.", class: "text-gray-600 italic" %>
+        </div>
+        <!-- Width -->
+        <div class="flex items-center text-gray-600 justify-start mb-2">
+            <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('width'), icon: 'icons/icons8-width-50.png' %>
+            <%= tag.label "#{Truck.human_attribute_name('width')}: " , class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
+            <%= tag.p "#{truck.height} m.", class: "text-gray-600 italic" %>
+        </div>
+        <!-- Height -->
+        <div class="flex items-center text-gray-600 justify-start mb-2">
+            <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('height'), icon: 'icons/icons8-truck-height-50.png' %>
+            <%= tag.label "#{Truck.human_attribute_name('height')}: " , class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
+            <%= tag.p "#{truck.height} m.", class: "text-gray-600 italic" %>
+        </div>
+        <!-- Load capacity -->
+        <div class="flex items-center text-gray-600 justify-start mb-2">
+            <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('load_capacity'), icon: 'icons/icons8-load-capacity.png' %>
+            <%= tag.label "#{Truck.human_attribute_name('load_capacity')}: ", class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
+            <%= tag.p "#{truck.load_capacity} t.", class: "text-gray-600 italic"%>
+        </div>
+    </div>
+    <!-- Views -->
+    <%= render 'shared/buttons/views', object: truck%>
+</div>

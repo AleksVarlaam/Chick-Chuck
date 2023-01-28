@@ -1,0 +1,12 @@
+<!-- News list -->
+<div class="mt-8 lg:w-1/4 lg:mt-0 lg:px-6">
+    <% @news.each do |news|%>
+        <%= link_to contents_news_path(news) do %>
+            <%= tag.h3 news.title, class: "text-blue-500 capitalize"%>
+
+            <%= tag.p news.description, class: "block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 "%>
+                
+        <% end %>
+        <hr class="my-6 border-gray-200 dark:border-gray-700">
+    <% end %>
+</div>

@@ -1,0 +1,23 @@
+<%= turbo_frame_tag dom_id(@truck, 'review_form'), class: 'w-full h-auto block col-span-full md:col-start-2 md:col-span-4 relative justify-center text-center mt-5' do %>
+    <%= tag.div class: "p-4 mb-4 border border-blue-300 rounded-lg bg-blue-50 dark:bg-blue-100",
+     role: "alert",
+     data: { controller: "turbo-modal", turbo_modal_target: "modal"} do 
+    %> 
+      <%= tag.div t('review.review_desc'), class: "mt-2 mb-4 text-md text-gray-900" %>
+      <div class="flex justify-center">
+        <button type="button" class="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-blue-800 dark:hover:bg-blue-900">
+          <svg aria-hidden="true" class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+          <% if user_signed_in? %>
+              <%= create_or_update_review(@truck)%>
+          <% else %>
+              <%= link_to(t('sign_in.btn'), new_client_session_path, data: {turbo_frame: 'modal'})%>
+          <% end %>
+        </button>
+        <%= button_tag t('global.dismiss_btn'), 
+            data: { action: "turbo-modal#hideModal" }, 
+            type: "button", 
+            class:"text-blue-900 bg-transparent border border-blue-900 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:border-blue-800 dark:text-blue-800 dark:hover:text-white" 
+        %>
+      </div>
+    <% end %>
+<% end %>

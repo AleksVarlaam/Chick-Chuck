@@ -1,0 +1,60 @@
+<!-- Trucks filter -->
+<%= form_with url: path, method: :get do |f| %>
+    <% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 md:grid-cols-2 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto" do %>
+        <!-- Working area -->
+        <div class="w-full h-14 items-center flex border-0 border-b border-gray-500 md:border-r pl-3 ">
+            <label for="countries" class="sr-only">Select an option</label>
+            <%= image_tag(asset_path('icons/icons8-address-gray-50.png'), class: 'w-6 h-6 mr-1')%>
+            <%= f.collection_select(:district_id, District.all.decorate, :id, :title, 
+            { prompt: Truck.human_attribute_name('districts'), selected: params[:district_id]}, 
+            {class: "h-full text-base md:rounded-l-xl block w-full p-2.5  placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rounded-tr-xl bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
+        </div>
+        <!-- Body type -->
+        <div class="w-full h-14 items-center flex border-0 border-b border-gray-500  pl-3 relative ">
+            <label for="countries" class="sr-only">Select an option</label>
+            <%= image_tag(asset_path('icons/icons8-truck-weight-empty-gray-50.png'), class: 'w-6 h-6 mr-1')%>
+            <%= f.select(:body_type, options_for_select(Truck.body_type_select, params[:body_type]), {include_blank: Truck.human_attribute_name('body_type')}, {class: "h-full text-base block w-full p-2.5  placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 md:rounded-tr-xl bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
+        </div>
+        
+        <!-- Search button -->
+        <div class=" w-full h-auto p-3 col-span-full">
+            <%= button_tag class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-500 border-blue-500 hover:bg-blue-600 text-gray-200'}" do %>
+                <%= tag.p t('calculator.find_btn'), class: 'w-full text-center mr-2' %>
+            <% end %>
+        </div>
+        
+        <% unless controller_name == 'companies'%>
+            <!-- Calculator link -->
+            <div class=" w-full h-auto pb-3 px-3 col-span-full">
+                <%= link_to contents_calculator_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                    <%= t('home_page.calculate')%>
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <% end %>
+            </div>
+        <% else %>
+            <!-- Calculator modal -->
+            <div class=" w-full h-auto pb-3 px-3 col-span-full">
+                <%= link_to contents_calculator_modal_path(@company), data: {turbo_frame: 'modal'},
+                class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                    <%= t('home_page.calculate')%>
+                <% end %>
+            </div>
+        <% end %>
+        <% if controller_name == 'main'%>
+            <!-- Preparation link -->
+            <div class=" w-full h-auto pb-3 px-3 col-span-full">
+                <%= link_to contents_moving_preparation_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                    <%= t('moving_preparation.title')%>
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <% end %>
+            </div>
+            <!-- Market link -->
+            <div class=" w-full h-auto pb-3 px-3 col-span-full">
+                <%= link_to contents_products_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                    <%= t('pages.market')%>
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <% end %>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>

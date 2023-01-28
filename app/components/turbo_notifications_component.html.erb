@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "modal" do %>
+    <%= tag.div data: { 
+        controller: "turbo-modal", 
+        action: "turbo:submit-end->turbo-modal#submitEnd keyup@window->turbo-modal#closeWithKeyboard click@window->turbo-modal#closeBackground",
+        turbo_modal_target: "modal"},
+        class: "transition transform origin-top-right absolute right-0 w-[17rem] max-h-[25rem] overflow-auto border shadow-md rounded-xl z-50" do 
+    %>
+      <ul class="py-1 text-sm text-gray-700 bg-white rounded-lg shadow-lg">
+        <%= content %>
+      </ul>
+    <% end%>
+<% end %>

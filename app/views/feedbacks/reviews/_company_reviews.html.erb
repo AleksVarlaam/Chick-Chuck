@@ -1,0 +1,10 @@
+<div class="flex justify-center items-center mb-3">
+    <p class="bg-blue-200 text-blue-800 text-sm font-semibold inline-flex items-center p-1.5 rounded">
+        <%= company.rating %>
+    </p>
+    <%= tag.p 'Excellent!', class: "ml-2 font-medium text-gray-700" if (company.rating.present? && company.rating > 9)%>
+    <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full"></span>
+    <p class="text-sm font-medium text-gray-400"><%= company.decorate.reviews_count%></p>
+    <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full"></span>
+    <p class="text-sm font-medium text-gray-400"><%= company.decorate.comments_count %></p>
+</div>

@@ -1,0 +1,11 @@
+<hr class="mt-2">
+<div class="flex items-center p-2 justify-center">
+    <!-- Avatar -->
+    <%= image_tag(truck.company.avatar_attachment_path,
+        class: "object-cover h-7 w-7 rounded-full border border-gray-500 m-1", alt: "avatar")%>
+    <!-- Company_name -->
+    <%= link_to (tag.h5 truck.company.title, class: "text-2xl text-gray-700"), contents_company_modal_path(id: truck.company), 
+        data: { turbo_frame: 'modal' } if !['show', 'trucks'].eql?([action_name, controller_name])%>
+    <%= link_to (tag.h5 truck.company.title, class: "text-2xl text-gray-700"), contents_company_path(id: truck.company), 
+        data: { turbo: false } if ['show', 'trucks'].eql?([action_name, controller_name])%>
+</div>
