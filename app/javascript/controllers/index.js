@@ -11,19 +11,19 @@ eagerLoadControllersFrom("controllers", application)
 // lazyLoadControllersFrom("controllers", application)
 
 import Dropdown from 'stimulus-dropdown'
-application.register('dropdown', Dropdown)
+Stimulus.register('dropdown', Dropdown)
 
 import Popover from 'stimulus-popover'
-application.register('stimulus-popover', Popover)
+Stimulus.register('stimulus-popover', Popover)
 
 import ScrollTo from 'stimulus-scroll-to'
-application.register('scroll-to', ScrollTo)
+Stimulus.register('scroll-to', ScrollTo)
 
 import MessageController from "./message_controller.js"
-application.register("message", MessageController)
+Stimulus.register("message", MessageController)
 
 import CommentController from "./comment_controller.js"
-application.register("comment", CommentController)
+Stimulus.register("comment", CommentController)
 
 import ScrollController from "./scroll_controller.js"
-application.register("scroll", ScrollController)
+Stimulus.register("scroll", ScrollController)
