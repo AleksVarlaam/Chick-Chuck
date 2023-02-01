@@ -9,21 +9,3 @@ eagerLoadControllersFrom("controllers", application)
 // Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
-
-import Dropdown from 'stimulus-dropdown'
-Stimulus.register('dropdown', Dropdown)
-
-import Popover from 'stimulus-popover'
-Stimulus.register('stimulus-popover', Popover)
-
-import ScrollTo from 'stimulus-scroll-to'
-Stimulus.register('scroll-to', ScrollTo)
-
-import MessageController from "./message_controller.js"
-Stimulus.register("message", MessageController)
-
-import CommentController from "./comment_controller.js"
-Stimulus.register("comment", CommentController)
-
-import ScrollController from "./scroll_controller.js"
-Stimulus.register("scroll", ScrollController)
