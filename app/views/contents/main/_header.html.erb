@@ -1,12 +1,12 @@
 <section 
-    class="relative h-screen w-full bg-cover -mt-20 bg-center" 
+    class="relative min-h-screen w-full bg-cover -mt-20 bg-center" 
     style="background-image: url(<%= asset_path('bg/main_header_bg.webp') %>)"
 >
     <!-- Photo by -->
     <span class="sr-only"> Photo by Steve Johnson on Unsplash - https://unsplash.com/photos/gBv0ikRUuLI</span>
     <!-- Content -->
-    <div class="text-center pt-48">
-        <%= tag.h1 t('home_page.h1'), class: "mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl "%>
+    <div class="text-center pt-24 sm:pt-48">
+        <%= tag.h1 t('home_page.h1'), class: "mb-4 px-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl "%>
         <%= tag.h2 t('home_page.h2'), class: "mb-6 px-2 text-lg font-normal text-gray-400 lg:text-xl sm:px-16 xl:px-48"%>
         <!-- Filter -->
         <%= render 'contents/trucks/trucks_filter', path: contents_trucks_path%>

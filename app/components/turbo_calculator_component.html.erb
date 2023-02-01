@@ -3,7 +3,7 @@
       controller: "turbo-modal", 
       action: "turbo:submit-end->turbo-modal#submitEnd keyup@window->turbo-modal#closeWithKeyboard click@window->turbo-modal#closeBackground",
       turbo_modal_target: "modal"},
-      class: "h-modal h-auto justify-center items-center
+      class: "h-modal h-auto max-h-screen justify-center items-center
               fixed w-4/5 sm:w-2/3 md:w-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 mx-auto" do 
   %>
       <div class="relative p-6 w-full max-w-lg h-full sm:h-auto bg-gray-50 border shadow-md hover:shadow-xl rounded-xl">
