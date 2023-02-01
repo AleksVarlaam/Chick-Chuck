@@ -264,6 +264,11 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sidekiq (7.0.3)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -332,6 +337,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0, >= 6.0.1)
   rubocop
   sassc-rails
+  sidekiq (~> 7.0)
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
