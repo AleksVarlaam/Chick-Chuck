@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: laavor_production
-  username: laavor
-  password: <%= ENV["LAAVOR_DATABASE_PASSWORD"]
+  url: <%= ENV['DATABASE_URL'] %>
