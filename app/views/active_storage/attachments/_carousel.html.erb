@@ -2,7 +2,7 @@
 <%= turbo_frame_tag "carousel" do %>
     <div id="indicators-carousel" class="relative" data-controller="carousel">
         <!-- Carousel wrapper -->
-        <%= tag.div class: "#{(['show', 'edit', 'update'].include?(action_name) && controller_name != 'companies' ? 'h-[24rem]' : 'h-[16rem]')} relative overflow-hidden rounded-lg" do %>
+        <%= tag.div class: "#{(['show', 'edit', 'update'].include?(action_name) && controller_name != 'companies' ? 'h-[16rem] lg:h-[24rem]' : 'h-[16rem]')} relative overflow-hidden rounded-lg" do %>
             <% object.images.each do |image| %>
                 <%= render 'active_storage/attachments/image', image: image %>
             <% end %>
