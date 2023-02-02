@@ -42,6 +42,5 @@ module HamovilFinder
 
     # Active storage
     config.active_storage.replace_on_assign_to_many = false
-    config.active_storage.variant_processor = :mini_magick
   end
 end
