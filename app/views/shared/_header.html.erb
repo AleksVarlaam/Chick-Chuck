@@ -6,7 +6,12 @@
               <!-- Logotype -->
               <div class="flex justify-start w-auto flex-auto">
                   <%= link_to root_path, class: 'flex items-center', data: {turbo_frame: '_top'} do %>
-                      <%= image_tag('icons/laavor/Laavor_logo.png', class: "h-10 w-auto object-cover")%>
+                      <% if user_signed_in?%>
+                          <%= image_tag('icons/laavor/Laavor_logo_mobile.png', class: "h-10 w-auto object-cover sm:hidden") %>
+                          <%= image_tag('icons/laavor/Laavor_logo.png', class: "h-10 w-auto object-cover hidden sm:block")%>
+                      <% else %>
+                          <%= image_tag('icons/laavor/Laavor_logo.png', class: "h-10 w-auto object-cover")%>
+                      <% end%>
                   <% end %>
               </div>
               <!-- Mobile menu button -->
@@ -43,15 +48,9 @@
               <div class="flex items-center justify-end flex-auto w-auto space-x-5">
                   <!-- Locales -->
                   <%= render 'shared/locales'%>
-                  <!-- Message Notifications -->
-                  <%= render 'feedbacks/messages/notifications/notifications_section' if user_signed_in?%>
-                  <!-- Notifications -->
-                  <%= render 'feedbacks/notifications/notifications_section' if user_signed_in?%>
                   <!-- Menu -->
                   <%= render 'shared/guest_menu' unless user_signed_in?%>
-                  <%= render 'clients/shared/client_menu' if client_signed_in?%>
-                  <%= render 'companies/shared/company_menu' if company_signed_in?%>
-                  <%= render 'admins/shared/admin_menu' if admin_signed_in?%>
+                  <%= render 'shared/user_menu' if user_signed_in?%>
               </div>
             </div>
           </div>
