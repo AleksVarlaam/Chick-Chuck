@@ -4,7 +4,7 @@ class Admin < User
   has_many :news, class_name: 'News', foreign_key: :user_id
 
   def avatar_attachment_path
-    avatar.attached? ? avatar.variant(resize_to_limit: [300, 300], convert: 'webp') : 'icons/avatar-m.png'
+    avatar.attached? ? avatar.variant(:avatar) : 'icons/avatar-m.png'
   end
 
   def user_name

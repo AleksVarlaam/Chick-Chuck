@@ -15,7 +15,7 @@ class Company < User
   has_many :prices, class_name: 'Price', dependent: :destroy, foreign_key: :user_id
 
   def avatar_attachment_path
-    avatar.attached? ? avatar.variant(resize_to_limit: [300, 300], convert: 'webp') : 'icons/laavor/laavor_favicon.png'
+    avatar.attached? ? avatar.variant(:avatar) : 'icons/laavor/laavor_favicon.png'
   end
 
   def user_name

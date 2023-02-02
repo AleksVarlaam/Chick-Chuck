@@ -74,10 +74,10 @@ module Companies
     end
 
     # The path used after sign up.
-    # def after_sign_up_path_for(_resource)
-    #      flash[:success] = "You are welcome, #{current_company.title}!" if company_signed_in?
-    #      root_path
-    #    end
+    def after_sign_up_path_for(_resource)
+      flash[:success] = "You are welcome, #{current_company.title}!" if company_signed_in?
+      root_path
+    end
 
     # The path used after sign up for inactive accounts.
     # def after_inactive_sign_up_path_for(resource)

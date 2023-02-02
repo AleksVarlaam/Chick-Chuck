@@ -3,7 +3,7 @@
 class Client < User
   def avatar_attachment_path
     if avatar.attached?
-      avatar.variant(resize_to_limit: [300, 300], convert: 'webp')
+      avatar.variant(:avatar)
     else
       gender == 'Male' ? 'icons/avatar-m.png' : 'icons/avatar-f.png'
     end

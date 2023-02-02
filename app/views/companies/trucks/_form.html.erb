@@ -66,7 +66,7 @@
               <!-- Load capacity -->
               <div class="flex items-center text-gray-600 justify-center mb-3">
                   <%= image_tag(asset_path('icons/icons8-load-capacity.png'), class: "w-5 h-5 mr-2")%>
-                  <%= f.label "#{Truck.human_attribute_name("load_capacity")}: ", class: "text-lg mr-2" %>
+                  <%= f.label :load_capacity, "#{Truck.human_attribute_name("load_capacity")}: ", class: "text-lg mr-2" %>
                   <%= f.number_field :load_capacity, step: :any, class: "block w-20 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %> ton.
               </div>
           </div>
