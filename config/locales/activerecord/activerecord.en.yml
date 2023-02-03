@@ -1,0 +1,84 @@
+en:
+    # Active Record section
+    activerecord:
+        models:
+            admin:        'Admin'
+            client:       'User'
+            company:      'Company'
+            category:     'Category'
+            thing:        'Thing'
+            district:     'District'
+            language:     'Language'
+            news:         'New'
+            truck:        'Truck'
+            product:      'Product'
+            calculator:   'Calculator'
+            price:        'Price'
+            message:      'Message'
+        errors:
+              messages:
+                  in:         "%{value} is not valid, enter a value in range %{count}"
+        attributes:
+            user:
+                login:            'Login'
+                password:         'Password'
+                new_password:     'New password'
+                current_password: 'Current password'
+                phone:            'Phone'
+                password_confirmation: 'Password confirmation'
+                first_name:       'First name'
+                last_name:        'Last name'
+                city:             'City'
+                gender:           'Gender'
+                male:             'Male'
+                female:           'Female'
+                birthday:         'Birthday'
+                avatar:           'Avatar'
+                password_popover: "%{length} characters minimum."
+                current_popover:  'We need your current password to confirm your changes.'
+            company:
+                districts:        'District'
+                languages:        'Languages'
+                title:            'Title'
+                working_area:     'District'
+                description:      'Description or slogan'
+                contacts:         'Contacts'
+                additional_phone: 'Additional phone'
+            calculator:
+                distance:             'Distance'
+                floor_down:           'Floor down'
+                floor_down_elevator:  'Floor down(elevator)'
+                floor_up:             'Floor up'
+                floor_up_elevator:    'Floor down(elevator)'
+            truck:
+                districts:        'District'
+                body_type:        'Body Type'
+                assembly:         'Assembly | disassmbly'
+                packing:          'Packing'
+                length:           'Body length'
+                width:            'Body width'
+                height:           'Body height'
+                load_capacity:    'Load capacity'
+                images:           'Images'
+            product:
+                category:         'Category'
+                things:           'Type'
+                title:            'Title'
+                description:      'Description'
+                price:            'Price'
+                condition:        'Condition'
+                images:           'Images'
+            review:
+                politeness:       'Politeness'
+                punctuality:      'Punctuality'
+                sociability:      'Sociability'
+                wholeness_things: 'The safety of things'
+                speed:            'Speed'
+                value_money:      'Value for money'
+            news:
+                title:            'Title'
+                description:      'Description'
+                content:          'Content'
+                images:           'Images'
+            language:
+                title:            'Title'

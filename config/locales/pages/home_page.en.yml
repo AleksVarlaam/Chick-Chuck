@@ -1,0 +1,28 @@
+en:
+    # Home page
+    home_page: 
+        h1:           'Easy way to find the right carrier.'
+        h2:           'Laavor is a service that helps customer and carrier find each other.'
+        calculate:    'calculate the cost of moving'
+        top_features:
+            title:        'What do we have to offer?'
+            combining:    'Combining multiple carriers in one place'
+            reviews:      'Real Reviews and Comments'
+            market:       'Market of used things'
+            calculator:   'Calculator the cost of moving'
+            use:          'Simplicity and ease of use'
+            improvement:  'Continuous development and improvement'
+        top_trucks:   'Top trucks'
+        main_features:
+            title_html:       'explore our <br> awesome features'
+            combining_desc:   'No more need to search all over the internet or ask friends. Many carriers in one place, just choose the right one for you!'
+            reviews_desc:     'Leave your real review of carrier services to help other people choose the right and professional carrier. The rating of the company is calculated based on the feedback about each truck.'
+            calculator_desc:  'Calculate the approximate (at this stage) cost of transportation to calculate your upcoming costs and select the suitable carrier for you.'
+            market_desc:      'You can buy supported things directly from the carrier and do not bother how to deliver them.'
+        latest_trucks: 'Latest trucks'
+        market:        'Market'
+        newslatter:
+            title:     'Want to follow our updates?'
+            desc:      'Subscribe to our news to keep up to date on our development and receive only current information!'
+            subscribe: 'Subscribe'
+    
