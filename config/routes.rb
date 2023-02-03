@@ -1,13 +1,24 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
+class AdminConstraint
+  def matches?(request)
+    request.env["warden"].user(:admin).present?
+  end
+end
+
 Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
+    # Sidekiq
+    mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
+    
     # Admins
     devise_for :admins, controllers: { registrations: 'admins/registrations' } # , skip: [:registrations]
     as :admin do
       # get 'admins/edit',  to: 'admins/registrations#edit',    as: 'edit_admin_registration'
       # put 'admins',       to: 'admins/registrations#update',  as: 'admin_registration'
-      namespace :admins do
+      namespace :admins, constraints: AdminConstraint.new do
         resources :categories, except: %i[show], controller: 'catalog/categories' do
           resources :things, except: %i[show], controller: 'catalog/things'
         end

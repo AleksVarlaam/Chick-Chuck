@@ -20,22 +20,21 @@ require 'action_cable/engine'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module HamovilFinder
+module Laavor
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
+    
+    # ActiveJob adapter
+    config.active_job.queue_adapter = :sidekiq
+    
+    # TimeZone
     config.time_zone = "Asia/Jerusalem"
-    # config.eager_load_paths << Rails.root.join("extras")
 
     # I18n
     config.i18n.available_locales = %i[en ru he]
     config.i18n.default_locale = :en
+    # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
     config.generators.system_tests = nil
