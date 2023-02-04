@@ -10,6 +10,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable,
          :validatable, authentication_keys: [:login]
+         
+  after_create :send_welcome_email
 
   validates :first_name, :last_name, :city, allow_blank: true, length: { in: 2..25 }
   validates :avatar, file_size: { less_than_or_equal_to: 10.megabytes },
@@ -21,4 +23,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :rooms, class_name: 'Room', dependent: :destroy
   has_many :comments, class_name: 'Comment', dependent: :destroy
   has_many :messages, class_name: 'Message', dependent: :destroy
+  
+  def send_welcome_email
+     UserMailer.welcome(self).deliver_now
+  end
 end
