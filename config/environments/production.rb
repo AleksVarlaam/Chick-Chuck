@@ -69,12 +69,12 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "Hamovil_Finder_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = {host:'phaybin.com'}
+  config.action_mailer.default_url_options = {host:'laavor.onrender.com'}
   
   ActionMailer::Base.smtp_settings = {
     :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
     :password => ENV['SENDGRID_API_KEY'], # This is the secret sendgrid API key which was issued during API key creation
-    :domain => 'phaybin.com',
+    :domain => 'laavor.onrender.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,

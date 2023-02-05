@@ -25,6 +25,6 @@ class User < ApplicationRecord
   has_many :messages, class_name: 'Message', dependent: :destroy
   
   def send_welcome_email
-     UserMailer.welcome(self).deliver_now
+     UserMailer.welcome(self).deliver_later
   end
 end

@@ -21,7 +21,7 @@ module NavigationHelper
   end
 
   def full_title(page_title = '')
-    base_title = 'Laavor'
+    base_title = 'Chick-Chuck'
     if page_title.present?
       "#{page_title} | #{base_title}"
     else

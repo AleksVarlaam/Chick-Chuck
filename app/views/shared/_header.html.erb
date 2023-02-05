@@ -6,12 +6,8 @@
               <!-- Logotype -->
               <div class="flex justify-start w-auto flex-auto">
                   <%= link_to root_path, class: 'flex items-center', data: {turbo_frame: '_top'} do %>
-                      <% if user_signed_in?%>
-                          <%= image_tag('icons/laavor/Laavor_logo_mobile.png', class: "h-10 w-auto object-cover sm:hidden") %>
-                          <%= image_tag('icons/laavor/Laavor_logo.png', class: "h-10 w-auto object-cover hidden sm:block")%>
-                      <% else %>
-                          <%= image_tag('icons/laavor/Laavor_logo.png', class: "h-10 w-auto object-cover")%>
-                      <% end%>
+                      <%= image_tag('icons/chick-chuck/chick-chuck-mobile-logo.png', class: "h-10 w-auto object-cover sm:hidden") %>
+                      <%= image_tag('icons/chick-chuck/chick-chuck-logo.png', class: "h-10 w-auto object-cover hidden sm:block")%>
                   <% end %>
               </div>
               <!-- Mobile menu button -->
