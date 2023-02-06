@@ -2,7 +2,7 @@
 
 require 'active_support/core_ext/integer/time'
 
-ENV['SENDMAIL_USERNAME'] = 'Laavor@info.com'
+ENV['SENDMAIL_USERNAME'] = 'Chick-Chuck@info.com'
 ENV['SENDMAIL_PASSWORD'] = 'password'
 ENV['MAIL_HOST'] = 'localhost:3000'
 

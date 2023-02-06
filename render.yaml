@@ -1,12 +1,12 @@
 services:
   - type: redis
-    name: Laavor-redis
+    name: Chick-Chuck-redis
     region: Frankfurt
     maxmemoryPolicy: noeviction
     ipAllowList: [] # only allow internal connections
 
   - type: worker
-    name: Laavor-worker
+    name: Chick-Chuck-worker
     env: ruby
     region: Frankfurt
     buildCommand: bundle install
@@ -15,12 +15,12 @@ services:
       - key: REDIS_URL
         fromService:
           type: redis
-          name: Laavor-redis
+          name: Chick-Chuck-redis
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
   - type: web
-    name: Laavor
+    name: Chick-Chuck
     env: ruby
     region: Frankfurt
     buildCommand: bundle install; bundle exec rake assets:precompile; bundle exec rake assets:clean;
@@ -29,7 +29,7 @@ services:
       - key: REDIS_URL
         fromService:
           type: redis
-          name: Laavor-redis
+          name: Chick-Chuck-redis
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
