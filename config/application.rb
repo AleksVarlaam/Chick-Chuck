@@ -32,7 +32,7 @@ module ChickChuck
     config.time_zone = "Asia/Jerusalem"
 
     # I18n
-    config.i18n.available_locales = %i[en ru he]
+    config.i18n.available_locales = %i[en he ru ua]
     config.i18n.default_locale = :en
     # config.eager_load_paths << Rails.root.join("extras")
 

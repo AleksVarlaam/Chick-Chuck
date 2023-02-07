@@ -1,7 +1,8 @@
 ru:
   en: 'English'
-  ru: 'Русский'
   he: 'עברית'
+  ru: 'Русский'
+  ua: 'Українська'
   # Global
   global:
       save_btn:         'Сохранить'
