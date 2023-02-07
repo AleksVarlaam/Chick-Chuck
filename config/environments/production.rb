@@ -71,11 +71,12 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = {host:'chick-chuck.com'}
   
-  ActionMailer::Base.smtp_settings = {
-    :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
-    :password => ENV['SENDGRID_API_KEY'], # This is the secret sendgrid API key which was issued during API key creation
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV['SMTP_USER_NAME'],
+    :password => ENV['SMTP_PASSWORD'],
     :domain => 'chick-chuck.com',
-    :address => 'smtp.sendgrid.net',
+    :address => 'smtp.dreamhost.com',
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true

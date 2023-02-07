@@ -2,10 +2,6 @@
 
 require 'active_support/core_ext/integer/time'
 
-ENV['SENDMAIL_USERNAME'] = 'Chick-Chuck@info.com'
-ENV['SENDMAIL_PASSWORD'] = 'password'
-ENV['MAIL_HOST'] = 'localhost:3000'
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
