@@ -16,11 +16,12 @@ module Feedbacks
 
       # Create room to recipient
       if @room.messages.count == 1
-        @room.broadcast_append_to [recipient, :rooms], partial: 'feedbacks/rooms/room', locals: { room: @room, current_user: recipient }
+        @room.broadcast_append_to [recipient, :rooms], partial: 'feedbacks/rooms/room',
+                                                       locals: { room: @room, current_user: recipient }
       end
       # Update room view to recipient in rooms
       @new_message.broadcast_update_to [recipient, @room], target: helpers.dom_id(@room),
-                                                        partial: 'feedbacks/rooms/room', locals: { room: @room, current_user: recipient }
+                                                           partial: 'feedbacks/rooms/room', locals: { room: @room, current_user: recipient }
       # Append new message in room
       @new_message.broadcast_append_to @room, target: "room_#{@room.id}_messages",
                                               partial: 'feedbacks/messages/message'

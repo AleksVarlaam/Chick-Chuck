@@ -51,12 +51,13 @@ module Feedbacks
       @current_user = current_user
       @rooms =  search_chat || current_user.rooms.includes(:messages).order('messages.created_at DESC')
     end
-    
+
     def search_chat
       return unless params[:chatname].present?
+
       rooms = []
       current_user.rooms.each do |room|
-        room.users.select {|user| rooms << room if user.user_name.downcase == params[:chatname].downcase }
+        room.users.select { |user| rooms << room if user.user_name.downcase == params[:chatname].downcase }
       end
       rooms
     end

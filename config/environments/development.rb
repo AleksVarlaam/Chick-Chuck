@@ -63,7 +63,7 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-  
+
   # Assets debug
   config.assets.debug = true
 

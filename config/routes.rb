@@ -4,7 +4,7 @@ require 'sidekiq/web'
 
 class AdminConstraint
   def matches?(request)
-    request.env["warden"].user(:admin).present?
+    request.env['warden'].user(:admin).present?
   end
 end
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     # Sidekiq
     mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
-    
+
     # Admins
     devise_for :admins, controllers: { registrations: 'admins/registrations' } # , skip: [:registrations]
     as :admin do

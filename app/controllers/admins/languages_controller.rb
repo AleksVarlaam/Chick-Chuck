@@ -16,7 +16,7 @@ module Admins
         if @language.save
           format.turbo_stream do
             flash.now[:success] =
-              t('flash.success.created', model: @language.model_name.human + ' ' + @language.title)
+              t('flash.success.created', model: "#{@language.model_name.human} #{@language.title}")
           end
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -31,7 +31,7 @@ module Admins
         if @language.update(language_params)
           format.turbo_stream do
             flash.now[:success] =
-              t('flash.success.updated', model: @language.model_name.human + ' ' + @language.title)
+              t('flash.success.updated', model: "#{@language.model_name.human} #{@language.title}")
           end
         else
           format.html { render :edit, status: :unprocessable_entity }
