@@ -8,7 +8,7 @@ module Login
     attr_writer :login
 
     def login
-      @login || phone || email
+      @login || email || phone
     end
 
     # Database authentication

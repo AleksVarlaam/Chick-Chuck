@@ -6,7 +6,10 @@ class Client < User
   
   def self.from_omniauth(auth)
     user = Client.where(email: auth.info.email).first
-    user ||= Client.create!(provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0, 20])
+    user ||= Client.create!(
+      provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0, 20],
+      first_name: auth.info.first_name, last_name: auth.info.last_name, confirmed_at: Time.now
+    )
     user
   end
   

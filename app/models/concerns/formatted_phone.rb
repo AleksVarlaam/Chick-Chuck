@@ -7,7 +7,6 @@ module FormattedPhone
     before_save :normalize_phone
 
     validates :phone, phone: true, allow_blank: true
-    validates :phone, presence: true, uniqueness: { case_sensitive: false }
     validates :additional_phone, phone: true, allow_blank: true
     validates :whatsapp, phone: true, allow_blank: true
 
