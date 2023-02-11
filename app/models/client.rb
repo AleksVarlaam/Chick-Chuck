@@ -1,11 +1,20 @@
 # frozen_string_literal: true
 
 class Client < User
+  
+  devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  
+  def self.from_omniauth(auth)
+    user = Client.where(email: auth.info.email).first
+    user ||= Client.create!(provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0, 20])
+    user
+  end
+  
   def avatar_attachment_path
     if avatar.attached?
       avatar.variant(:avatar)
     else
-      gender == 'Male' ? 'icons/avatar-m.png' : 'icons/avatar-f.png'
+      gender == 'Female' ? 'icons/avatar-f.png' : 'icons/avatar-m.png'
     end
   end
 

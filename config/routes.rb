@@ -9,12 +9,14 @@ class AdminConstraint
 end
 
 Rails.application.routes.draw do
+  devise_for :clients, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'clients/omniauth_callbacks'}
+  
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     # Sidekiq
     mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
 
     # Admins
-    devise_for :admins, controllers: { registrations: 'admins/registrations' } # , skip: [:registrations]
+    devise_for :admins, controllers: { registrations: 'admins/registrations' }, skip: :omniauth_callbacks # , skip: [:registrations]
     as :admin do
       # get 'admins/edit',  to: 'admins/registrations#edit',    as: 'edit_admin_registration'
       # put 'admins',       to: 'admins/registrations#update',  as: 'admin_registration'
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
     end
 
     # Companies
-    devise_for :companies, controllers: { registrations: 'companies/registrations' }
+    devise_for :companies, controllers: { registrations: 'companies/registrations' }, skip: :omniauth_callbacks
     namespace :companies do
       resources :trucks, except: %i[show]
       post '/publish/truck/:id', to: 'trucks#publish', as: 'publish_truck'
@@ -47,7 +49,7 @@ Rails.application.routes.draw do
     end
 
     # Clients
-    devise_for :clients, controllers: { registrations: 'clients/registrations' }
+    devise_for :clients, controllers: { registrations: 'clients/registrations' }, skip: :omniauth_callbacks
     namespace :clients do
       get '/dashboard',       to: 'dashboard#index', as: 'dashboard'
       resource :profile, only: %i[edit update]

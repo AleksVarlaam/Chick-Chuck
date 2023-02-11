@@ -8,7 +8,6 @@ ruby '3.2.0'
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
 gem 'bootsnap', require: false
-gem 'devise'
 gem 'draper'
 gem 'file_validators'
 gem 'image_processing', '~> 1.2'
@@ -29,6 +28,11 @@ gem 'tailwindcss-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component', '~> 2.74'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
