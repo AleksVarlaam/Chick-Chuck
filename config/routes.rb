@@ -28,7 +28,11 @@ Rails.application.routes.draw do
         post '/publish/news/:id', to: 'news#publish', as: 'publish_news'
         resources :languages, except: %i[index show]
         resources :districts, except: %i[show]
-        get '/dashboard', to: 'dashboard#index', as: 'dashboard'
+        
+        resource :dashboard, only: :show do
+          get :users
+        end
+
       end
     end
 

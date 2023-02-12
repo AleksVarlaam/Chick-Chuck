@@ -11,5 +11,13 @@ module Filterable
       end
       results
     end
+    
+    def user_filter(filtering_params)
+      results = where.not(type: 'Admin')
+      filtering_params.each do |key, value|
+        results = results.public_send("filter_by_#{key}", value) if value.present?
+      end
+      results
+    end
   end
 end

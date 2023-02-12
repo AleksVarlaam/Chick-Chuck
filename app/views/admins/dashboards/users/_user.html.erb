@@ -1,0 +1,39 @@
+<tr>
+    <!-- User avatar -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <div class="flex items-center">
+            <div class="flex-shrink-0 w-10 h-10">
+                <%= image_tag(user.avatar_attachment_path,
+                class: 'mt-2 object-cover rounded-full w-8 h-8 sm:w-10 sm:h-10', alt: 'avatar')%>
+            </div>
+
+            <div class="ml-3">
+                <%= tag.p user.user_name, class: "text-gray-900 whitespace-no-wrap"%>
+            </div>
+        </div>
+    </td>
+    <!-- User type -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <%= tag.p user.type, class: "text-gray-900 whitespace-no-wrap"%>
+    </td>
+    <!-- Created at -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <%= tag.p (l user.created_at, format: :short), class: "text-gray-900 whitespace-no-wrap"%>
+    </td>
+    <!-- Status -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+            <% if user.confirmed? %>
+                <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                <span class="relative">Confirmed</span>
+            <% else %>
+                <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+                <span class="relative">Unconfirmed</span>
+            <% end %>
+        </span>
+    </td>
+    <!-- Options -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <%= render 'feedbacks/rooms/form', recipient: user%>
+    </td>
+</tr>

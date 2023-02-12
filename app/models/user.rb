@@ -4,6 +4,7 @@ class User < ApplicationRecord
   include Login
   include FormattedPhone
   include Notificable
+  include Filterable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -21,5 +22,9 @@ class User < ApplicationRecord
   has_and_belongs_to_many :rooms, class_name: 'Room', dependent: :destroy
   has_many :comments, class_name: 'Comment', dependent: :destroy
   has_many :messages, class_name: 'Message', dependent: :destroy
+  
+  # Scopes
+  scope :filter_by_type, ->(type) { where type: }
+  scope :filter_by_user_name, ->(user_name) { User.all.select {|user| user.user_name == user_name} }
 
 end
