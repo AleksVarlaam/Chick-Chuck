@@ -1,14 +1,25 @@
 <tr>
-    <!-- User avatar -->
     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <div class="flex items-center">
+            <!-- User avatar -->
             <div class="flex-shrink-0 w-10 h-10">
                 <%= image_tag(user.avatar_attachment_path,
                 class: 'mt-2 object-cover rounded-full w-8 h-8 sm:w-10 sm:h-10', alt: 'avatar')%>
             </div>
+            <!-- Username & email -->
+            <div data-controller="popover" class="ml-3 items-center flex">
+                <span class="relative cursor-pointer" data-action="mouseenter->popover#show mouseleave->popover#hide">
+                    <%= tag.p user.user_name, class: "text-gray-900 whitespace-no-wrap"%>
+                </span>
 
-            <div class="ml-3">
-                <%= tag.p user.user_name, class: "text-gray-900 whitespace-no-wrap"%>
+                <template data-popover-target="content">
+                   <div class="w-auto rounded shadow-lg bg-white absolute left-0 z-20 p-3"
+                     data-popover-target="card"
+                     style="bottom: 1.2rem; width: max-content;"
+                   >
+                         <%= link_to user.email, "mailto:#{user.email}", class: "flex px-0 text-gray-500 text-sm break-all"%>
+                   </div>
+                </template>
             </div>
         </div>
     </td>
@@ -23,7 +34,10 @@
     <!-- Status -->
     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-            <% if user.confirmed? %>
+            <% if user.provider.present? %>
+                <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                <span class="relative"><%= user.provider.capitalize%></span>
+            <% elsif user.confirmed? %>
                 <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
                 <span class="relative">Confirmed</span>
             <% else %>
