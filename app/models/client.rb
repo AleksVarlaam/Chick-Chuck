@@ -5,10 +5,12 @@ class Client < User
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   
   def self.from_omniauth(auth)
+    name_split = auth.info.name.split(' ')
+    
     user = Client.where(email: auth.info.email).first
     user ||= Client.create!(
       provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0, 20],
-      first_name: auth.info.first_name, last_name: auth.info.last_name, confirmed_at: Time.now
+      first_name: name_split.first, last_name: name_split.last, confirmed_at: Time.now
     )
     user
   end
