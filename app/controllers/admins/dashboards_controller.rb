@@ -7,7 +7,7 @@ module Admins
     before_action :set_admin, only: %i[index]
 
     def show
-      @users = User.where.not(type: 'Admin').count
+      @users_count = User.where.not(type: 'Admin').count
     end
     
     def users

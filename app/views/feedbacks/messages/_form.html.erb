@@ -4,8 +4,7 @@
     <!-- Form -->
     <%= form_with model: [room, message], remote: true, data: { controller: :form, action: "turbo:submit-end->form#clear" } do |f| %>
     
-      <label for="chat" class="sr-only">Your message</label>
-      <div class="flex items-center mb-3 py-2 px-3 bg-gray-100 rounded-lg shadow-md h-12 w-full" data-controller="image" >
+      <div class="flex items-center py-2 px-3 bg-gray-100 rounded-lg shadow-md h-12 w-full" data-controller="image" >
           <!-- Upload Images -->
           <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
                 <div class="space-y-1 text-center">

@@ -7,40 +7,41 @@
 
 <%= turbo_stream_from @room%>
 
-<div class="-mt-12 -mx-4 rounded-lg">
+<div class="-mt-10  rounded-lg flex flex-row justify-between bg-gray-50">
     <!-- Chatting -->
-    <div class="flex flex-row justify-between bg-gray-50">
-      <div class="w-full h-[40rem] flex flex-col justify-between">
-          <!-- Room header -->
-          <div class="flex items-center w-full justify-center border-b-2 relative">
-              <%= link_to rooms_path, data: {turbo_frame: '_top'}, class: 'absolute left-3 ' do %>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
-                  </svg>
-              <% end%>
-              <% if @room.recipient(@current_user).instance_of?(Company) %>
-                  <%= link_to [:contents, @room.recipient(@current_user)], data: {turbo_frame: '_top'} do %>
-                      <div class="flex flex-row py-4 px-2 items-center">
-                          <%= image_tag @room.recipient(@current_user).avatar_attachment_path, class: "object-cover h-12 w-12 rounded-full mr-2"%>
-                          <%= tag.div @room.recipient(@current_user).user_name, class: "text-lg font-semibold"%>
-                      </div>
-                  <% end %>
-              <% else %>
+    <div class="w-full h-screen flex flex-col justify-between">
+      <!-- Room header -->
+      <div class="flex items-center w-full justify-center border-b-2 relative">
+          <%= link_to rooms_path, data: {turbo_frame: '_top'}, class: 'absolute left-3 ' do %>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+              </svg>
+          <% end%>
+          <% if @room.recipient(@current_user).instance_of?(Company) %>
+              <%= link_to [:contents, @room.recipient(@current_user)], data: {turbo_frame: '_top'} do %>
                   <div class="flex flex-row py-4 px-2 items-center">
                       <%= image_tag @room.recipient(@current_user).avatar_attachment_path, class: "object-cover h-12 w-12 rounded-full mr-2"%>
                       <%= tag.div @room.recipient(@current_user).user_name, class: "text-lg font-semibold"%>
                   </div>
               <% end %>
-          </div>
-          <!-- Messages -->
-          <div class="flex flex-col my-2 h-full overflow-auto"
-              data-controller="scroll"
-              data-scroll-target="messages"
-          >
-              <%= turbo_frame_tag "room_#{@room.id}_messages" do %>
-                  <%= render @messages %>
-              <% end %>
-          </div>
+          <% else %>
+              <div class="flex flex-row py-4 px-2 items-center">
+                  <%= image_tag @room.recipient(@current_user).avatar_attachment_path, class: "object-cover h-12 w-12 rounded-full mr-2"%>
+                  <%= tag.div @room.recipient(@current_user).user_name, class: "text-lg font-semibold"%>
+              </div>
+          <% end %>
+      </div>
+      <!-- Messages -->
+      <div class="flex flex-col py-2 h-full overflow-auto"
+          data-controller="scroll"
+          data-scroll-target="messages"
+      >
+          <%= turbo_frame_tag "room_#{@room.id}_messages" do %>
+              <%= render @messages %>
+          <% end %>
+      </div>
+      <!-- Form -->
+      <div class='sticky bottom-0'>
           <%= render 'feedbacks/messages/form', room: @room, message: @new_message%>
       </div>
     </div>

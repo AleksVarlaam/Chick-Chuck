@@ -7,7 +7,6 @@
                     <%= link_to 'Chick-Chuck', root_path, class: "text-3xl font-bold text-gray-800 hover:text-gray-700"%>
                     <%= tag.div (render 'shared/locales'), class: "absolute right-2"%>
                 </div>
-
                 <!-- Main navigations -->
                 <div class="flex flex-wrap justify-center mt-5 -mx-4">
                     <%= nav_tab t('pages.home'), root_path, 
@@ -28,13 +27,11 @@
                     <%= nav_tab t('pages.news'), contents_news_index_path, 
                         class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900", 
                         current_page: current_page, data: {turbo_frame: '_top'} %>
-                        
                 </div>
-
             </div>
 
             <hr class="my-6 border-gray-400 md:my-10" />
-
+            <!-- Copyright -->
             <div class="flex flex-col items-center w-full md:relative">
                 <%= link_to 'info@chick-chuck.com', "mailto:info@chick-chuck.com", 
                     class:"text-gray-500 md:absolute md:right-0 hover:underline mb-4 md:mb-0"%>

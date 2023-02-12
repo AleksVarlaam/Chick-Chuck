@@ -3,20 +3,20 @@
   <head>
     <title><%= full_title(yield(:page_title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- CSRF & stylesheets -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    
+    <!-- Favicon -->
     <%= favicon_link_tag asset_path('icons/chick-chuck/chick-chuck-favicon.png'), class: 'w-100 h-100'%>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    
+    <!-- Current user -->
     <%= render 'layouts/current_user_meta'%>
   </head>
 
-  <body class="flex flex-col h-screen justify-between">
+  <body class="flex flex-col h-screen w-screen justify-between">
       <% if user_signed_in? %>
         <%= turbo_stream_from "broadcast_to_user_#{current_user.id}" %>
       <% end %>

@@ -3,20 +3,20 @@
   <head>
     <title><%= full_title(yield(:page_title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- CSRF & stylesheets -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    
+    <!-- Favicon -->
     <%= favicon_link_tag asset_path('icons/chick-chuck/chick-chuck-favicon.png'), class: 'w-100 h-100'%>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    
+    <!-- Current user -->
     <%= render 'layouts/current_user_meta'%>
   </head>
 
-  <body class="flex flex-col h-screen justify-between">
+  <body class="flex flex-col h-screen w-screen justify-between">
       <% if user_signed_in? %>
         <%= turbo_stream_from "broadcast_to_user_#{current_user.id}" %>
       <% end %>
@@ -31,10 +31,11 @@
           <div class="w-full col-span-full lg:col-span-3">
               <div class="p-4 text-gray-700 relative">
                   <!-- Page Navigation -->
-                  <%= render 'shared/profile_navigation' %>
+                  <%= render 'shared/profile_navigation' unless [controller_name, action_name].eql?(['rooms', 'show'])%>
                   <!-- Flash messages -->
                   <%= tag.div (render 'shared/flash_messages'), class: 'absolute right-6 top-3 z-20', id: "flash_messages"%>
-                  <section class="w-full p-6 mx-auto rounded-md shadow-md hover:shadow-lg min-h-screen">
+                  <section class="w-full p-6 mx-auto rounded-md shadow-md hover:shadow-lg 
+                      <%= [controller_name, action_name].eql?(['rooms', 'show']) ? 'p-0 h-screen' : 'min-h-screen'%> ">
                       <%= tag.h1 yield(:main_title), class:"mb-6 text-xl font-bold text-gray-700 capitalize"%>
                       <!-- Content -->
                       <%= yield %>
@@ -43,6 +44,6 @@
           </div>
       </main>
       <!-- Footer -->
-      <%= yield :footer%>
+      <%= yield :footer unless [controller_name, action_name].eql?(['rooms', 'show'])%>
   </body>
 </html>
