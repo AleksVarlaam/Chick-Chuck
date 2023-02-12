@@ -9,9 +9,16 @@ class Client < User
     
     user = Client.where(email: auth.info.email).first
     user ||= Client.create!(
-      provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0, 20],
-      first_name: name_split.first, last_name: name_split.last, confirmed_at: Time.now
+      provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0, 20], confirmed_at: Time.now,
+      first_name: name_split.first, last_name: name_split.last
     )
+    
+    if auth.info.image
+      require 'open-uri'
+      
+      user.avatar.attach(io: URI.parse(auth.info.image).open, filename: "user_#{user.id}_avatar") 
+      user.save
+    end
     user
   end
   
@@ -19,7 +26,7 @@ class Client < User
     if avatar.attached?
       avatar.variant(:avatar)
     else
-      gender == 'Female' ? 'icons/avatar-f.png' : 'icons/avatar-m.png'
+      gender == 'female' ? 'icons/avatar-f.png' : 'icons/avatar-m.png'
     end
   end
 
