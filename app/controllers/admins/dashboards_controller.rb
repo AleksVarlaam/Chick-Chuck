@@ -7,7 +7,7 @@ module Admins
     before_action :set_models
 
     def show; end
-    
+
     def users
       @pagy_a, @users_pagy = pagy_array(@users, items: 10, fragment: '#users')
     end

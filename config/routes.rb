@@ -9,8 +9,8 @@ class AdminConstraint
 end
 
 Rails.application.routes.draw do
-  devise_for :clients, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'clients/omniauth_callbacks'}
-  
+  devise_for :clients, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'clients/omniauth_callbacks' }
+
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     # Sidekiq
     mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
@@ -28,11 +28,9 @@ Rails.application.routes.draw do
         post '/publish/news/:id', to: 'news#publish', as: 'publish_news'
         resources :languages, except: %i[index show]
         resources :districts, except: %i[show]
-        
         resource :dashboard, only: :show do
           get :users
         end
-
       end
     end
 

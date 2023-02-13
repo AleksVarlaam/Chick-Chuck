@@ -47,10 +47,11 @@ module Clients
     end
 
     protected
-    
+
     def update_resource(resource, params)
       # Allows user to update registration information without password.
-      return resource.update_without_password(params.except("current_password")) if resource.provider.present?
+      return resource.update_without_password(params.except('current_password')) if resource.provider.present?
+
       super
     end
 

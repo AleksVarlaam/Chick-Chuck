@@ -11,7 +11,7 @@ module Filterable
       end
       results
     end
-    
+
     def user_filter(filtering_params)
       results = where.not(type: 'Admin')
       filtering_params.each do |key, value|
