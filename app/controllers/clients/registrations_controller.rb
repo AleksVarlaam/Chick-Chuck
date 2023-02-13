@@ -47,6 +47,12 @@ module Clients
     end
 
     protected
+    
+    def update_resource(resource, params)
+      # Allows user to update registration information without password.
+      return resource.update_without_password(params.except("current_password")) if resource.provider.present?
+      super
+    end
 
     # If you have extra params to permit, append them to the sanitizer.
 
@@ -63,7 +69,6 @@ module Clients
           first_name last_name avatar gender birthday city]
     end
 
-    # If you have extra params to permit, append them to the sanitizer.
     def configure_account_update_params
       devise_parameter_sanitizer.permit(:account_update, keys: permitted_attributes)
     end
