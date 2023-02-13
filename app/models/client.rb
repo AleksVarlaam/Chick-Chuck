@@ -12,7 +12,7 @@ class Client < User
       first_name: name_split.first, last_name: name_split.last
     )
 
-    if auth.info.image
+    if user.avatar != auth.info.image
       require 'open-uri'
 
       user.avatar.attach(io: URI.parse(auth.info.image).open, filename: "user_#{user.id}_avatar")

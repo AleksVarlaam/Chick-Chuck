@@ -5,8 +5,8 @@ module ImagesAttachments
 
   included do
     has_many_attached :images, dependent: :purge do |attachable|
-      attachable.variant(:medium, resize_to_limit: [500, 500])
-      attachable.variant(:large,  resize_to_limit: [1000, 1000])
+      attachable.variant(:medium, resize_to_limit: [600, 600])
+      attachable.variant(:large,  resize_to_limit: [1200, 1200])
     end
 
     validates :images, file_size: { less_than_or_equal_to: 10.megabytes },

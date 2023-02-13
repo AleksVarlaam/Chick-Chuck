@@ -17,7 +17,7 @@ class User < ApplicationRecord
                      file_content_type: { allow: ['image/jpeg', 'image/png', 'image/gif'] }
 
   has_one_attached :avatar, dependent: :purge do |attachable|
-    attachable.variant(:avatar, resize_to_limit: [400, 400], convert: 'webp')
+    attachable.variant(:avatar, resize_to_limit: [400, 400], convert: 'png')
   end
   has_and_belongs_to_many :rooms, class_name: 'Room', dependent: :destroy
   has_many :comments, class_name: 'Comment', dependent: :destroy
