@@ -4,14 +4,12 @@ module Admins
   class DashboardsController < ApplicationController
     layout 'profile_layout'
     before_action :authenticate_admin!
-    before_action :set_admin, only: %i[index]
+    before_action :set_models
 
-    def show
-      @users_count = User.where.not(type: 'Admin').count
-    end
+    def show; end
     
     def users
-      @pagy_a, @users = pagy_array(User.user_filter(filter_params), items: 10, fragment: '#users')
+      @pagy_a, @users_pagy = pagy_array(@users, items: 10, fragment: '#users')
     end
 
     private
@@ -20,8 +18,8 @@ module Admins
       params.permit(:type, :user_name)
     end
 
-    def set_admin
-      @admin = current_admin
+    def set_models
+      @users = User.user_filter(filter_params)
     end
   end
 end

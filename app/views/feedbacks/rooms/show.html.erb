@@ -7,9 +7,9 @@
 
 <%= turbo_stream_from @room%>
 
-<div class="-mt-10  rounded-lg flex flex-row justify-between bg-gray-50">
+<div class="-mt-8 h-full rounded-lg flex flex-row justify-between bg-gray-50">
     <!-- Chatting -->
-    <div class="w-full h-screen flex flex-col justify-between">
+    <div class="w-full h-full flex flex-col justify-between">
       <!-- Room header -->
       <div class="flex items-center w-full justify-center border-b-2 relative">
           <%= link_to rooms_path, data: {turbo_frame: '_top'}, class: 'absolute left-3 ' do %>
