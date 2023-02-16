@@ -23,7 +23,7 @@
       <!-- Header -->
       <%= yield :navbar%>
       <!-- Main -->
-      <main class="flex w-full mt-20 grid grid-flow-row auto-rows-max relative" id="top">
+      <main class="flex w-full grid grid-flow-row auto-rows-max relative <%= 'mt-20' unless controller_name == 'errors' %>" id="top">
           <!-- Flash messages -->
           <% unless ['new', 'create'].include?(action_name) %>
               <%= tag.div (render 'shared/flash_messages'), class: "absolute right-6 top-3 z-20", id: "flash_messages"%>
@@ -36,9 +36,9 @@
           </div>
           <%= link_to '#top', class: 'fixed right-3 bottom-5 z-20', data: {controller: 'scroll-to'} do %>
               <%= image_tag('icons/icons8-up-2-50.png', class: 'w-10 h-auto')%>
-          <% end %>
+          <% end unless controller_name == 'errors'%>
       </main>      
       <!-- Footer -->
-      <%= yield :footer%>
+      <%= yield :footer %>
   </body>
 </html>
