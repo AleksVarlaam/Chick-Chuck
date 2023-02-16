@@ -46,6 +46,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'ffaker'
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
+  gem "letter_opener"
 end
 
 group :development do
