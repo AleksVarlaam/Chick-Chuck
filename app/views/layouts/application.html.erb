@@ -34,9 +34,6 @@
           <div class="min-h-screen">
               <%= yield %>
           </div>
-          <%= link_to '#top', class: 'fixed right-3 bottom-5 z-20', data: {controller: 'scroll-to'} do %>
-              <%= image_tag('icons/icons8-up-2-50.png', class: 'w-10 h-auto')%>
-          <% end unless controller_name == 'errors'%>
       </main>      
       <!-- Footer -->
       <%= yield :footer %>

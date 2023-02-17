@@ -23,7 +23,7 @@
       <!-- Header -->
       <%= yield :navbar%>
       <!-- Main -->
-      <main class="flex w-full mt-20 grid grid-flow-row auto-rows-max grid grid-cols-4">
+      <main class="flex w-full mt-20 grid grid-flow-row auto-rows-max grid grid-cols-4"  id="top">
           <!-- Profile sidebar -->
           <%= tag.div (render 'clients/shared/client_profile_sidebar'), class: "col-span-1 w-full hover:shadow-lg" if client_signed_in?%>
           <%= tag.div (render 'companies/shared/company_profile_sidebar'), class: "col-span-1 w-full hover:shadow-lg" if company_signed_in?%>
