@@ -6,7 +6,7 @@ module FormattedPhone
   included do
     before_save :normalize_phone
 
-    validates :phone, phone: true, allow_blank: true
+    validates :phone, phone: true, allow_blank: true, uniqueness: true
     validates :additional_phone, phone: true, allow_blank: true
     validates :whatsapp, phone: true, allow_blank: true
 
