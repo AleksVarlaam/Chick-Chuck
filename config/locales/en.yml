@@ -28,6 +28,7 @@ Subscribe to our news to monitor our progress."
           info:         'Info'
           danger:       'Danger'
           warning:      'Warning'
+          alert:        'Alert'
           notice:       'Notice'
       account:      'Your account'
       success:
@@ -169,3 +170,7 @@ Subscribe to our news to monitor our progress."
       review_truck:   'Rated the truck'
       no_notice:      'No notice'
   sure_to_del_account:  'Are you sure you want to delete your account?'
+  mailers:
+      flash:
+          success:  'You have successfully subscribed to our news!'
+          info:     'This email already exists, please check your email or expect new news from us!'

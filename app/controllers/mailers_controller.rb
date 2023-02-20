@@ -1,18 +1,13 @@
 class MailersController < ApplicationController
-  before_action :check_email_dublicate, only: :create
   
   def create
     subscriber = Subscriber.new(subscriber_params)
 
     respond_to do |format|
-      if subscriber.save
-        format.turbo_stream { flash.now[:success] = 'Subscribe success!'}
+      unless Subscriber.find_by(email: subscriber_params[:email]).present? || User.where(email: subscriber_params[:email]).present?
+        format.turbo_stream { flash.now[:success] = t('mailers.flash.success')} if subscriber.save
       else
-        if Subscriber.find_by(email: subscriber_params[:email]).present?
-          format.turbo_stream { flash.now[:info] = 'This email already exists!'}
-        else
-          format.turbo_stream { flash.now[:alert] = "This field can't be blunk!"}
-        end
+        format.turbo_stream { flash.now[:alert] = t('mailers.flash.info')}        
       end
     end
   end
@@ -23,7 +18,4 @@ class MailersController < ApplicationController
     params.require(:subscriber).permit(:email)
   end
   
-  def check_email_dublicate
-    
-  end
 end

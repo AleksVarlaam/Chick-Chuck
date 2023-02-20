@@ -202,9 +202,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_075547) do
   end
 
   create_table "subscribers", force: :cascade do |t|
-    t.string "email"
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_subscribers_on_email", unique: true
   end
 
   create_table "things", force: :cascade do |t|

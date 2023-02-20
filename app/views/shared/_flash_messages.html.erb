@@ -33,6 +33,7 @@
             <div class="mx-3">
                 <%= tag.span t("flash.type.#{type.to_s}"), class: "font-semibold text-emerald-500 capitalize"%>
                 <%= tag.p msg, class: "text-sm text-gray-600 pr-3"%>
+                <input class="sr-only" autofocus="true"/> 
             </div>
             <%= render 'shared/buttons/close'%>
         </div>
