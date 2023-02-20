@@ -1,0 +1,5 @@
+<% if flash[:success].present? %>
+    <%= turbo_stream.replace dom_id(Subscriber.new), render('shared/flash_messages') %>
+<% else%>
+    <%= turbo_stream.prepend dom_id(Subscriber.new), render('shared/flash_messages') %>
+<% end %>

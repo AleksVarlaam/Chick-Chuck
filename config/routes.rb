@@ -102,6 +102,9 @@ Rails.application.routes.draw do
 
     # Notifications
     resources :notifications, only: [:index], controller: 'feedbacks/notifications'
+    
+    # Email subscribers
+    resources :mailers, only: [:create]
 
     # Root path
     root to: 'contents/main#index'
