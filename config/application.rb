@@ -33,8 +33,8 @@ module ChickChuck
     config.time_zone = 'Asia/Jerusalem'
 
     # I18n
-    config.i18n.available_locales = %i[en he ru ua]
-    config.i18n.default_locale = :en
+    config.i18n.available_locales = %i[en he ru uk]
+    config.i18n.default_locale = :ru
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.

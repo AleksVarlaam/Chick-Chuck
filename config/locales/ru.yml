@@ -2,7 +2,7 @@ ru:
   en: 'English'
   he: 'עברית'
   ru: 'Русский'
-  ua: 'Українська'
+  uk: 'Українська'
   # Global
   global:
       save_btn:         'Сохранить'
