@@ -16,6 +16,12 @@ class NewsDecorator < ApplicationDecorator
       when 2, 3, 4    then "#{news.comments.count} Комментария"
       when 0, 4..nil  then "#{news.comments.count} Комментариев"
       end
+    when :uk
+      case news.comments.count
+      when 1          then "#{count} Коментар"
+      when 2, 3, 4    then "#{count} Коментара"
+      when 0, 4..nil  then "#{count} Коментарів"
+      end
     when :he
       case news.comments.count
       when 1          then "#{news.comments.count} Комментарий"

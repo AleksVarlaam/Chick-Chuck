@@ -10,10 +10,11 @@
     class: "grid grid-flow-row auto-rows-max w-full mb-6" do 
 %>
     <%= tag.p Truck.human_attribute_name('districts'), class: "text-start text-gray-500 text-xl font-bold uppercase mb-2" %>
-    <div class="grid grid-cols-7 gap-6 bg-gray-200 p-1">
+    <div class="grid grid-cols-9 gap-6 bg-gray-200 p-1">
         <%= tag.div 'Ru', class: 'col-span-2'%>
         <%= tag.div 'En', class: 'col-span-2'%>
         <%= tag.div 'He', class: 'col-span-2'%>
+        <%= tag.div 'Uk', class: 'col-span-2'%>
     </div>
     <%= render @districts %>
 <% end %>

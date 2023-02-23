@@ -57,7 +57,7 @@ module Admins
     private
 
     def district_params
-      params.require(:district).permit(:ru, :en, :he)
+      params.require(:district).permit(:ru, :en, :he, :uk)
     end
 
     def set_district

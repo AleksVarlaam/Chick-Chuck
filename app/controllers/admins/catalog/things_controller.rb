@@ -58,7 +58,7 @@ module Admins
       private
 
       def thing_params
-        params.require(:thing).permit(:ru, :en, :he)
+        params.require(:thing).permit(:ru, :en, :he, :uk)
       end
 
       def set_category

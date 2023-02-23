@@ -59,7 +59,7 @@ module Admins
       private
 
       def category_params
-        params.require(:category).permit(:ru, :en, :he)
+        params.require(:category).permit(:ru, :en, :he, :uk)
       end
 
       def set_category

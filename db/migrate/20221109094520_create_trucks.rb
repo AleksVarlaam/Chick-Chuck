@@ -5,6 +5,7 @@ class CreateTrucks < ActiveRecord::Migration[7.0]
     # Districts
     create_table :districts do |t|
       t.string :ru, null: false
+      t.string :uk, null: false
       t.string :en, null: false
       t.string :he, null: false
     end

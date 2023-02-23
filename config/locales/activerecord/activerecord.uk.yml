@@ -1,0 +1,85 @@
+# Active Record section
+uk:
+    activerecord:
+        models:
+            admin:        'Адмін'
+            client:       'Користувач'
+            company:      'Компанія'
+            category:     'Категорія'
+            thing:        'Тип'
+            district:     'Регіон'
+            language:     'Мова'
+            news:         'Новини'
+            truck:        'Вантажівка'
+            product:      'Товар'
+            calculator:   'Калькулятор'
+            price:        'Ціна'
+            message:      'Повідомлення'
+        errors:
+              messages:
+                  in:         "%{value} неприпустиме значення, введіть значення в діапазоні %{count}"
+        attributes:
+            user:
+                login:            'Логін'
+                password:         'Пароль'
+                new_password:     'Новий пароль'
+                current_password: 'Ваш пароль'
+                phone:            'Телефон'
+                password_confirmation: 'Подтвердження пароля'
+                first_name:       'Імʼя'
+                last_name:        'Прізвище'
+                city:             'Місто'
+                gender:           'Стать'
+                male:             'Чоловіча'
+                female:           'Жіноча'
+                birthday:         'День народження'
+                avatar:           'Аватар'
+                password_popover: "%{length} значень мінімум."
+                current_popover:  'Нам потрібен ваш поточний пароль, для того щоб підтвердити внесені зміни.'
+                delete_account:   'Видалити акаунт'
+            company:
+                districts:        'Регіон'
+                languages:        'Мови'
+                title:            'Назва'
+                working_area:     'Регіон'
+                description:      'Опис або слоган'
+                contacts:         'Контакти'
+                additional_phone: 'Дод. телефон'
+            calculator:
+                distance:             'Дистанція'
+                floor_down:           'Поверхів вниз'
+                floor_down_elevator:  'Поверхів вниз(ліфт)'
+                floor_up:             'Поверхів вгору'
+                floor_up_elevator:    'Поверхів вгору(ліфт)'
+            truck:
+                districts:        'Регіон'
+                body_type:        'Тип кузова'
+                assembly:         'Збір | Розбір'
+                packing:          'Упакування'
+                length:           'Довжина кузова'
+                width:            'Ширина кузова'
+                height:           'Висота кузова' 
+                load_capacity:    'Вантажопідйом. '
+                images:           'Зображення'
+            product:
+                category:         'Категорія'
+                things:           'Тип'
+                title:            'Заголовок'
+                description:      'Опис'
+                price:            'Ціна'
+                condition:        'Стан'
+                images:           'Зображення'
+            review:
+                politeness:       'Вічливість'
+                punctuality:      'Пунктуальність'
+                sociability:      'Комунікабельність'
+                wholeness_things: 'Збереження речей'
+                speed:            'Швидкість'
+                value_money:      'Ціна якість'
+            news:
+                title:            'Заголовок'
+                description:      'Опис'
+                content:          'Зміст'
+                images:           'Зображення'
+            language:
+                title:            'Заголовок'

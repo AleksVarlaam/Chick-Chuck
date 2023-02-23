@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_075547) do
 
   create_table "categories", force: :cascade do |t|
     t.string "ru", null: false
+    t.string "uk", null: false
     t.string "en", null: false
     t.string "he", null: false
   end
@@ -84,6 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_075547) do
 
   create_table "districts", force: :cascade do |t|
     t.string "ru", null: false
+    t.string "uk", null: false
     t.string "en", null: false
     t.string "he", null: false
   end
@@ -211,6 +213,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_075547) do
   create_table "things", force: :cascade do |t|
     t.bigint "category_id", null: false
     t.string "ru", null: false
+    t.string "uk", null: false
     t.string "en", null: false
     t.string "he", null: false
     t.index ["category_id"], name: "index_things_on_category_id"
@@ -261,10 +264,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_075547) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

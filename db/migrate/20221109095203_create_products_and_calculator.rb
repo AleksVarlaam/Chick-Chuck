@@ -5,6 +5,7 @@ class CreateProductsAndCalculator < ActiveRecord::Migration[7.0]
     # Categories
     create_table :categories do |t|
       t.string :ru, null: false
+      t.string :uk, null: false
       t.string :en, null: false
       t.string :he, null: false
     end
@@ -13,6 +14,7 @@ class CreateProductsAndCalculator < ActiveRecord::Migration[7.0]
     create_table :things do |t|
       t.references :category, null: false, foreign_key: true
       t.string :ru, null: false
+      t.string :uk, null: false
       t.string :en, null: false
       t.string :he, null: false
     end
