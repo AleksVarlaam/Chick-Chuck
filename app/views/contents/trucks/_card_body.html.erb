@@ -6,7 +6,14 @@
             <%= tag.label "#{Truck.human_attribute_name('districts')}: ", class: 'text-gray-500 ml-2 hidden sm:block md:hidden xl:block' if [action_name, controller_name].eql?(['show', 'trucks'])%>
             <%= tag.p class: "text-gray-600 italic break-words px-1 w-full break-words" do %>
                 <% truck.districts.decorate.each do |district|%>
-                    <%= district != truck.districts.last ? district.title + ',' : district.title%>
+                    <!-- If action_name == show, add link to filter trucks -->
+                    <% if [action_name, controller_name].eql?(['show', 'trucks']) %>
+                        <%= link_to contents_trucks_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
+                            <%= district != truck.districts.last ? district.title + ',' : district.title%>
+                        <% end %>
+                    <% else %>
+                        <%= district != truck.districts.last ? district.title + ',' : district.title%>
+                    <% end %>
                 <% end %>
             <% end %>
         </div>
@@ -14,7 +21,13 @@
         <div class="flex items-center text-gray-600 justify-start mb-2">
             <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('body_type'), icon: 'icons/icons8-truck-weight-empty-80.png' %>
             <%= tag.label "#{Truck.human_attribute_name('body_type')}: ", class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
-            <%= tag.p truck.body_type_name, class: "text-gray-600 italic"%>
+            <!-- If action_name == show, add link to filter trucks -->
+            <% if [action_name, controller_name].eql?(['show', 'trucks']) %>
+                <%= link_to truck.body_type_name, contents_trucks_path(body_type: truck.body_type), 
+                    class: 'text-gray-600 italic hover:underline', data: {turbo_frame: '_top'} %>
+            <% else%>
+                <%= tag.p truck.body_type_name, class: "text-gray-600 italic"%>
+            <% end %>
         </div>
         <!-- Assembly -->
         <div class="flex items-center text-gray-600 justify-start mb-2">

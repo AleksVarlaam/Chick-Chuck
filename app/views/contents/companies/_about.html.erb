@@ -14,7 +14,9 @@
         <%= tag.p class: "text-md font-medium mr-3 text-gray-500" do %>
             <%= Company.human_attribute_name('working_area') + ': '%> 
             <% company.districts.decorate.each do |district|%>
-                <%= district != company.districts.last ? district.title + ',' : district.title%>
+                <%= link_to contents_trucks_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
+                    <%= district != company.districts.last ? district.title + ',' : district.title%>
+                <% end %>
             <% end %>
         <% end %>
     </div>

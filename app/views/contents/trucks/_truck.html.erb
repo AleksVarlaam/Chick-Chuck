@@ -2,11 +2,18 @@
     <!-- Truck carousel images -->
     <%= render 'active_storage/attachments/carousel', object: truck %>
     <!-- Truck Info -->
-    <%= link_to truck_path(truck), data: { turbo_frame: '_top' } do %>
+    <% if [action_name, controller_name].eql?(['show', 'trucks']) %>
         <!-- Rating -->
         <%= render 'feedbacks/reviews/review', truck: truck.decorate%> 
         <!-- Truck card body -->
         <%= render 'contents/trucks/card_body', truck: truck.decorate%>
+    <% else %>
+        <%= link_to truck_path(truck), data: { turbo_frame: '_top' } do %>
+            <!-- Rating -->
+            <%= render 'feedbacks/reviews/review', truck: truck.decorate%> 
+            <!-- Truck card body -->
+            <%= render 'contents/trucks/card_body', truck: truck.decorate%>
+        <% end %>
     <% end %>
     <!-- Truck card footer -->
     <%= render 'contents/trucks/card_footer', truck: truck.decorate%>
