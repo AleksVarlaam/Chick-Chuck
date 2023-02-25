@@ -20,5 +20,5 @@
     <!-- Newsletter -->
     <%= render 'newsletter'%>
     <!-- Latest news -->
-    <%= render 'latest_news'%>
+    <%= render 'latest_news' if News.count.positive?%>
 <% end %>

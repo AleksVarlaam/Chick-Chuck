@@ -71,7 +71,7 @@ Leaving: "duration-100 ease-in"
             <%= nav_tab t('pages.news'), contents_news_index_path, 
                 class: "text-base font-medium text-gray-500 hover:text-gray-900 pb-3 border-b border-gray-200", 
                 data: { action: "dropdown#toggle", turbo_frame: '_top'},
-                current_page: current_page 
+                current_page: current_page if News.count.positive?
             %>
             <!-- Become a carrier -->
             <%= nav_tab t('pages.become'), new_company_registration_path, 

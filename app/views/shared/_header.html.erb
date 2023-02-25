@@ -38,7 +38,7 @@
                       data: {turbo_frame: '_top'} %>
                   <%= nav_tab t('pages.news'), contents_news_index_path, 
                       class: "text-base font-medium hover:text-gray-900", current_page: current_page, 
-                      data: {turbo_frame: '_top'} %>
+                      data: {turbo_frame: '_top'}  if News.count.positive?%>
               </nav>
               <!-- Guest/User/Company menu -->
               <div class="flex items-center justify-end flex-auto w-auto space-x-5">

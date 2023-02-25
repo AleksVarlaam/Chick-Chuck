@@ -29,7 +29,7 @@
                         current_page: current_page, data: {turbo_frame: '_top'} %>
                     <%= nav_tab t('pages.news'), contents_news_index_path, 
                         class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900", 
-                        current_page: current_page, data: {turbo_frame: '_top'} %>
+                        current_page: current_page, data: {turbo_frame: '_top'} if News.count.positive? %>
                 </div>
             </div>
 
