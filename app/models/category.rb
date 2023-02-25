@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Category < ApplicationRecord
-  validates :ru, :en, :he, presence: true
+  validates :ru, :en, :he, presence: true, uniqueness: true
   has_many :things, dependent: :destroy
   has_many :products
 end
