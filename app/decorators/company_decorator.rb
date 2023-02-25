@@ -38,7 +38,7 @@ class CompanyDecorator < ApplicationDecorator
       when 2, 3, 4    then "#{count} Отзыва"
       when 0, 4..nil  then "#{count} Отзывов"
       end
-    when :uk 
+    when :uk
       case count
       when 1          then "#{count} Відгук"
       when 2, 3, 4    then "#{count} Відгука"

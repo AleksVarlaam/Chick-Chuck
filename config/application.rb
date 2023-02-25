@@ -24,7 +24,7 @@ module ChickChuck
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
 
     # ActiveJob adapter
     config.active_job.queue_adapter = :sidekiq

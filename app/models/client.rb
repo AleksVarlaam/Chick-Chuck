@@ -24,7 +24,7 @@ class Client < User
   def truck_review(truck)
     Review.find_by(user_id: self, reviewable_id: truck)
   end
-  
+
   # Mailer
   def after_confirmation
     Subscriber.create(email: self.email) unless Subscriber.where(email: self.email).present?
