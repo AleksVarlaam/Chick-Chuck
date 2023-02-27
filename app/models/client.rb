@@ -27,7 +27,7 @@ class Client < User
 
   # Mailer
   def after_confirmation
-    Subscriber.create(email: self.email) unless Subscriber.where(email: self.email).present?
+    Subscriber.create(email:) unless Subscriber.where(email:).present?
   end
 
   # Decorators

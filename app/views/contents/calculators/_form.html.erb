@@ -2,7 +2,7 @@
 <%= form_with url: path, method: :get, turbo: {turbo_frame: frame},
     class: 'flex items-center justify-center grid grid-flow-row auto-rows-max w-full px-auto' do |f| 
 %>
-<div class="overflow-y-auto overflow-x-hidden max-h-[24rem] w-full grid grid-flow-row auto-rows-max">
+<div class="overflow-y-auto overflow-x-hidden max-h-[24rem] w-full px-2 grid grid-flow-row auto-rows-max">
     <!-- Distance -->
     <%= tag.div class: "items-center grid grid-cols-3 mx-auto px-1 lg:min-w-[24rem] w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
         <!-- Title -->
@@ -54,7 +54,7 @@
     <% @categories.each do |category| %>
         <%= turbo_frame_tag category do %>
             <!-- Category title -->
-            <%= tag.div class: 'items-center flex mx-auto my-4 w-full relative border-b border-b-gray-300' do %>
+            <%= tag.div class: 'items-center flex my-4 mx-1 w-full relative border-b border-b-gray-300' do %>
                 <%= tag.p category.title, class: "text-start text-gray-500 text-xl font-bold uppercase" %>
             <% end %>
             <!-- Things -->
