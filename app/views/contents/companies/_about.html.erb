@@ -3,16 +3,24 @@
     <!-- Avatar -->
     <%= image_tag(company.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
     <!-- Name -->
-    <%= tag.h4 (link_to company.title, contents_company_path(id: company), target: "_blank"), 
-        class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800",
-        data: { turbo_frame: '_top' } 
-    %>
+    <% if ['show', 'companies'].eql?([action_name, controller_name])%>
+        <%= tag.h4 company.title , class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" %>
+    <% else %>
+        <%= tag.h4 class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" do %>
+            <%= link_to contents_company_path(id: company), target: "_blank", data: { turbo_frame: '_top' }, class: 'flex items-center' do %>
+                <%= company.title %>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 w-6 h-6 text-orange-700 hover:text-gray-800">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                </svg>
+            <% end %>
+        <% end %>
+    <% end %>
     <!-- Rating -->
     <%= render 'feedbacks/reviews/company_reviews', company: company%> 
     <!-- Districts -->
     <div class="flex items-center justify-center text-center mb-3">
         <%= tag.p class: "text-md font-medium mr-3 text-gray-500" do %>
-            <%= Company.human_attribute_name('working_area') + ': '%> 
+            <%= Company.human_attribute_name('districts') + ': '%> 
             <% company.districts.decorate.each do |district|%>
                 <%= link_to contents_trucks_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
                     <%= district != company.districts.last ? district.title + ',' : district.title%>
@@ -42,5 +50,4 @@
     <%= render 'feedbacks/rooms/form', recipient: company%>
     <!-- Contacts -->
     <%= render 'contents/companies/contacts_section', company: company%>
-    
 </section>
