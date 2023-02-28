@@ -120,6 +120,7 @@ Subscribe to our news to monitor our progress."
           trailer_isometric: 'Trailer(isometric)'
           trailer_side_body: 'Trailer(open)' 
   product:
+      mark_as_sold:     'Mark as sold'
       condition:
           below_average:    'Below average'
           average:          'Average'

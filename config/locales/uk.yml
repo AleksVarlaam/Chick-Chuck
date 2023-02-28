@@ -138,6 +138,7 @@ uk:
       user_products: 'Продукти з %{user_name}'
       all_products:  'Всі товари'
   product:
+      mark_as_sold:     'Марка як продана'
       condition:
           below_average:    'Нижче середнього'
           average:          'Середнє'

@@ -69,6 +69,7 @@ uk:
                 price:            'Ціна'
                 condition:        'Стан'
                 images:           'Зображення'
+                sold:             'Продано'
             review:
                 politeness:       'Вічливість'
                 punctuality:      'Пунктуальність'

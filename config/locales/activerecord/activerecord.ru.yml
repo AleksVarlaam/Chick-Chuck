@@ -69,6 +69,7 @@ ru:
                 price:            'Цена'
                 condition:        'Состояние'
                 images:           'Изображения'
+                sold:             'Продано'
             review:
                 politeness:       'Вежливость'
                 punctuality:      'Пунктуальность'

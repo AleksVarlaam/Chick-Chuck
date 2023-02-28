@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       post '/publish/truck/:id', to: 'trucks#publish', as: 'publish_truck'
       resources :products, except: %i[show]
       post '/publish/product/:id', to: 'products#publish', as: 'publish_product'
+      post '/mark_as_sold/product/:id', to: 'products#mark_as_sold', as: 'mark_as_sold'
       resources :prices, only: %i[index create update]
       resource  :calculator, only: %i[create update]
       get '/dashboard',       to: 'dashboard#index',              as: 'dashboard'

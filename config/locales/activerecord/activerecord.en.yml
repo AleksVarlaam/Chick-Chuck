@@ -68,6 +68,7 @@ en:
                 price:            'Price'
                 condition:        'Condition'
                 images:           'Images'
+                sold:             'Sold'
             review:
                 politeness:       'Politeness'
                 punctuality:      'Punctuality'

@@ -5,7 +5,7 @@ module Companies
     include Feedbacks::ReviewsHelper
     layout 'profile_layout'
     before_action :authenticate_company!
-    before_action :set_product, only: %i[edit update publish destroy]
+    before_action :set_product, only: %i[edit update publish mark_as_sold destroy]
     before_action :filter_product, only: %i[new create edit update]
 
     def index
@@ -57,6 +57,25 @@ module Companies
         elsif @product.update(published: false)
           format.turbo_stream do
             flash.now[:success] = t('flash.success.hided', model: "#{@product.model_name.human} #{@product.title}")
+          end
+        end
+      end
+    end
+    
+    def mark_as_sold
+      return unless current_company.products.include?(@product)
+
+      respond_to do |format|
+        if @product.sold == false
+          @product.update(sold: true, published: false)
+          format.turbo_stream do
+            flash.now[:success] = t('flash.success.hided', model: "#{@product.model_name.human} #{@product.title}")
+          end
+        else
+          @product.update(sold: false, published: true)
+          format.turbo_stream do
+            flash.now[:success] =
+              t('flash.success.published', model: "#{@product.model_name.human} #{@product.title}")
           end
         end
       end

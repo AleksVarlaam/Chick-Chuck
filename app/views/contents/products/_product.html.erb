@@ -29,6 +29,18 @@
         <%= render 'shared/buttons/views', object: product%>
         <!-- Control buttons -->
         <% if company_signed_in? && current_company.products.all.include?(product) %>
+            <hr class="mb-3">
+            <!-- Mark as sold -->
+            <div class="flex justify-center w-full -mb-3">
+                <%= link_to companies_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
+                    <% if product.sold == true%>
+                        <%= Product.human_attribute_name('sold') %>
+                        <%= image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5')%>
+                    <% else%>
+                        <%= t('product.mark_as_sold') %>
+                    <% end%>
+                <% end %>
+            </div>
             <%= render 'shared/buttons/control_buttons', model: product, 
                 edit_path: [:edit, :companies, product], publish_path: [:companies, :publish, product], del_path: [:companies, product]%>
         <% end %>

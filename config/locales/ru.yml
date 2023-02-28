@@ -138,6 +138,7 @@ ru:
       user_products: 'Товары от %{user_name}'
       all_products:  'Все товары'
   product:
+      mark_as_sold:     'Отметить как продано'
       condition:
           below_average:    'Ниже среднего'
           average:          'Среднее'
