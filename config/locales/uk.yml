@@ -135,6 +135,8 @@ uk:
       price:        'Ціна'     
   market:
       products:     'товари'
+      user_products: 'Продукти з %{user_name}'
+      all_products:  'Всі товари'
   product:
       condition:
           below_average:    'Нижче середнього'

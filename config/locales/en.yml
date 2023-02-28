@@ -141,7 +141,9 @@ Subscribe to our news to monitor our progress."
       title:        'Title'
       price:        'Price'
   market:
-      products:     'products'
+      products:      'products'
+      user_products: 'Products from %{user_name}'
+      all_products:  'All products'
   comment:
       comments:     'Comments'
       reply:        'Reply'

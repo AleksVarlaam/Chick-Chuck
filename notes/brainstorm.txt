@@ -14,10 +14,10 @@ v.1.0:
 11. Change logotype and name of project ✅
 12. Check actioncable and servise channel ✅
 13. Create reset password functional ✅
-14. Create email functional 
+14. Create email functional ✅
 15. Create omniauth with login from facebook and google ✅
 16. Deploy project on heroku or render ✅
-17. Just to enjoy and wait success
+17. Create page with company products
 
 
 v.1.1:

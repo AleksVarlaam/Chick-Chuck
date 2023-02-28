@@ -63,11 +63,12 @@ Rails.application.routes.draw do
 
     # Contents
     namespace :contents, path: '' do
-      resources :companies, only: %i[show]
+      resources :companies, only: %i[show] 
       resource  :calculator, only: %i[show]
       resources :news, only: %i[index show]
       resources :trucks, only: %i[index show]
       resources :products, only: %i[index show]
+      get 'user/:user_id/products',       to: 'products#user_products',     as: 'user_products'
       get '/company_modal/:id',           to: 'companies#modal',            as: 'company_modal'
       get '/company/:id/contacts',        to: 'companies#contacts',         as: 'contacts'
       get 'company/:id/calculator_modal', to: 'companies#calculator_modal', as: 'calculator_modal'

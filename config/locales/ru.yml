@@ -134,7 +134,9 @@ ru:
       title:        'Название'
       price:        'Цена'     
   market:
-      products:     'товары'
+      products:      'товары'
+      user_products: 'Товары от %{user_name}'
+      all_products:  'Все товары'
   product:
       condition:
           below_average:    'Ниже среднего'

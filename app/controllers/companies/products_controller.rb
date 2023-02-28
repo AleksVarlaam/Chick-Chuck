@@ -22,9 +22,7 @@ module Companies
 
       respond_to do |format|
         if @product.save
-          format.turbo_stream do
-            flash.now[:success] = t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}")
-          end
+          format.html { redirect_to companies_products_path, success: t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}") }
         else
           format.html { render :new, status: :unprocessable_entity }
         end
