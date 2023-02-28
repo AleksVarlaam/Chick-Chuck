@@ -1,0 +1,143 @@
+Furniture
+    Kitchen furniture
+        Kitchens
+        Kitchen sofa
+        Chairs
+        Kitchen table
+        Dinner parties
+    Upholstered furniture
+        Sofas
+        Couches
+        Armchairs
+        Poufs, banquets
+        Upholstered furniture set
+        Frameless furniture
+    Cabinet furniture
+        Closets
+        Wall
+        Dressing rooms
+        Swing cabinets
+        Tables
+        Pedestal
+        Drawers
+        Racking
+        Convertible furniture
+    Office furniture
+        Office Desks
+        Office racks, reception desk
+        Office cabinets
+        Office drawers
+        Office sofas
+        Frameless furniture
+        Office seats
+        Office kitchens
+    Children’s furniture
+        Cabinets
+        Racks
+        Beds
+        Sofas
+        Сots for newborns
+        Tables
+        Highchairs
+        Feeding chairs
+        Changing cabinets
+    Bedroom furniture
+        Bed
+        Bedroom set
+        Mattress 
+        Orthopedic grounds
+        Pillow
+        Bedside cabinets
+    Solid furniture
+        Array tables
+        Bed array
+        Solid Furniture Sets
+        Solid Case Cabinets
+        Solid Shelving
+        Buffets from the array
+        Array cabinets
+        Array chest of drawers
+        Array ladder  
+    Garden furniture
+        Forged furniture
+        Vacation furniture
+        Wicker furniture
+        Plastic furniture
+    Door
+        Partitions
+        Front door
+        Interior doors
+    Furniture accessories
+        Countertops, bar counters
+        Furniture facades
+        Accessories
+        Sinks, sinks
+    Interior
+        Looking glass
+        Coat hangers
+        Wall shelves
+        Vases, florists
+        Fire place
+        Decor elements
+        
+Home appliances
+    Kitchen appliances
+        Refrigerators up to 100 liters.
+        Refrigerators 200-300 liters.
+        Refrigerators 300-500 liters.
+        Refrigerators over 500 liters.
+        Built-in oven
+        Plate
+        Microwave ovens, electric ovens
+        Kitchen harvesters, shredders
+        Steamer
+        Mixers
+        Airgrills
+        Electric grills
+        Waffle irons, pancakes, sandwiches
+        Vegetable and Fruit Dryers
+        Embedded work surfaces
+        Extracts
+        Dishwashers
+        Electric kettles and thermopots
+        Meat grinder
+        Bread presses, toasters
+        Slicery
+        Yogurts and Ice Creams
+        Food Waste Disposal
+        Marinators
+        Coffeemakers
+        Coffee grinder
+        Crock-pot
+        Juicers
+        Wine cabinets
+        Deep fryer
+    Home appliances
+        Washing machine
+        Drying machines
+        Everything for cutting and sewing
+        Vacuum cleaners
+    Climatic equipment
+        Air conditioners, thermal curtains
+        Channel fans
+        Heaters and electric fireplaces
+        Heat guns
+        Water heater
+        Air purifiers and humidifiers
+        Fans
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+    
+    

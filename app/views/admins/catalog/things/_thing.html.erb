@@ -5,10 +5,10 @@
         <%= tag.div thing.ru, class: "ml-1 col-span-2 py-1.5"%>
         <!-- En -->
         <%= tag.div thing.en, class: "col-span-2 py-1.5"%>
+        <!-- Uk -->
+        <%= tag.div thing.uk, class: "col-span-2 py-1.5"%>
         <!-- He -->
         <%= tag.div thing.he, class: "col-span-2 py-1.5"%>
-        <!-- Uk -->
-        <%= tag.div thing.uk, class: "ml-1 col-span-2 py-1.5"%>
         <div class="flex items-center justify-end -ml-2 sm:mr-1">
             <!-- Edit -->
             <%= link_to edit_admins_category_thing_path(thing.category, thing), data: {turbo_frame: dom_id(thing)},

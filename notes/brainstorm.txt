@@ -1,0 +1,30 @@
+hamaavir, laavir
+
+v.1.0:
+1. Create Message notifications in real time ✅
+2. Check English language and add Hebrow and Ukraina languages
+3. Edit modal window cost calculator on company page ✅
+4. Add languages which company own; Add options for floors with elevator that add price ✅
+5. Add phone number validates ✅
+6. Translate preparation for relacation page ✅
+7. Add type of truck Forklift
+8. Create global refactoring ✅
+9. Create global testing ✅
+10. Create footer panel ✅
+11. Change logotype and name of project ✅
+12. Check actioncable and servise channel ✅
+13. Create reset password functional ✅
+14. Create email functional 
+15. Create omniauth with login from facebook and google ✅
+16. Deploy project on heroku or render ✅
+17. Just to enjoy and wait success
+
+
+v.1.1:
+1. Create chats in modal window 
+2. Create dashboard for company and admin, perhaps and client
+3. Update comments, add button show/hide replies
+4. 
+5. Add ReCaptcha
+
+
