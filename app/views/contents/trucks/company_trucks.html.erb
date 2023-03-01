@@ -1,0 +1,19 @@
+<% currently_at t('pages.trucks') %>
+<% provide :page_title, t('pages.trucks') %>
+
+<script>
+  window.location = window.location.href + "#trucks";
+</script>
+  
+<%= tag.section (render 'contents/companies/about', company: @company), class: "relative pt-3 w-full h-auto block"%>
+<%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2", id: 'trucks' do %>
+    <!-- Filter -->
+    <%= tag.div (render 'contents/trucks/trucks_filter', path: contents_company_trucks_path(@company)), class: 'mt-8'%>
+    <!-- Trucks -->
+    <%= turbo_frame_tag 'trucks',
+        class: "grid grid-flow-row auto-rows-max flex w-full px-2" do 
+    %>
+        <!-- Top trucks -->
+        <%= render 'latest_trucks', collection: @trucks%>
+    <% end %>
+<% end %>

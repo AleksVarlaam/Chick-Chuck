@@ -7,13 +7,13 @@
     <%= tag.div (render 'about', company: @company), class: 'mb-3 pt-3 col-span-full' %>
     
     <!-- Trucks filter -->
-    <%= render 'contents/trucks/trucks_filter', path: contents_company_path(@company)%>
+    <%= render 'contents/trucks/trucks_filter', path: contents_company_trucks_path(@company)%>
     
     <!-- trucks -->
     <%= turbo_frame_tag 'trucks',
         class: "grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center mx-auto w-full container" do 
     %>
-        <%= render partial: 'contents/trucks/truck', collection: @trucks%>
+
     <% end %>
     <!-- Pagy trucks -->
     <%== pagy_nav(@pagy) if @company.trucks.count > 8%>

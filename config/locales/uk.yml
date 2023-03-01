@@ -135,7 +135,7 @@ uk:
       price:        'Ціна'     
   market:
       products:     'товари'
-      user_products: 'Продукти з %{user_name}'
+      user_products: 'Товари %{user_name}'
       all_products:  'Всі товари'
   product:
       mark_as_sold:     'Марка як продана'

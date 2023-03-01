@@ -135,7 +135,7 @@ ru:
       price:        'Цена'     
   market:
       products:      'товары'
-      user_products: 'Товары от %{user_name}'
+      user_products: 'Товары %{user_name}'
       all_products:  'Все товары'
   product:
       mark_as_sold:     'Отметить как продано'

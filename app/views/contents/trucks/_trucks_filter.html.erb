@@ -1,6 +1,6 @@
 <!-- Trucks filter -->
-<%= form_with url: path, method: :get do |f| %>
-    <% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 md:grid-cols-2 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto" do %>
+<%= form_with url: path, method: :get, data: {turbo_frame: '_top'} do |f| %>
+    <% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 md:grid-cols-2 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto #{'-mt-5' if action_name == 'company_trucks'}" do %>
         <!-- Working area -->
         <div class="w-full h-14 items-center flex border-0 border-b border-gray-500 md:border-r pl-3 ">
             <label for="countries" class="sr-only">Select an option</label>
@@ -18,16 +18,20 @@
         <!-- Search button -->
         <div class=" w-full h-auto p-3 col-span-full">
             <%= button_tag class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-500 border-blue-500 hover:bg-blue-600 text-gray-200'}" do %>
-                <%= tag.p t('calculator.find_btn'), class: 'w-full text-center mr-2' %>
+                <% unless controller_name == 'companies' || action_name == 'company_trucks' %>
+                    <%= tag.p t('calculator.find_btn'), class: 'w-full text-center mr-2' %>
+                <% else %>
+                    <%= tag.p t('calculator.find_btn') + ' ' + @company.title, class: 'w-full text-center mr-2' %>
+                <% end %>
             <% end %>
         </div>
         
-        <% if controller_name == 'companies'%>
+        <% if controller_name == 'companies' || action_name == 'company_trucks'%>
             <!-- Calculator modal -->
             <div class=" w-full h-auto pb-3 px-3 col-span-full">
                 <%= link_to contents_calculator_modal_path(@company), data: {turbo_frame: 'modal'},
                 class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
-                    <%= t('home_page.calculate')%>
+                    <%= t('home_page.calculate') + ' ' + @company.title%>
                 <% end %>
             </div>
             <!-- Market link -->
@@ -39,7 +43,7 @@
             <% end if @company.products.count.positive?%>
             <!-- Comments -->
             <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to contents_calculator_modal_path(@company), data: {turbo_frame: 'modal'},
+                <%= link_to contents_company_path(@company), data: {turbo_frame: '_top'},
                 class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= t('comment.comments')%>
                 <% end %>

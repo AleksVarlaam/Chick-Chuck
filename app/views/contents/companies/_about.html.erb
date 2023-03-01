@@ -3,7 +3,7 @@
     <!-- Avatar -->
     <%= image_tag(company.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
     <!-- Name -->
-    <% if ['show', 'companies'].eql?([action_name, controller_name])%>
+    <% if ['show', 'companies'].eql?([action_name, controller_name]) || action_name == 'company_trucks'%>
         <%= tag.h4 company.title , class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" %>
     <% else %>
         <%= tag.h4 class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" do %>

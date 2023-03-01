@@ -69,6 +69,7 @@ Rails.application.routes.draw do
       resources :news, only: %i[index show]
       resources :trucks, only: %i[index show]
       resources :products, only: %i[index show]
+      get 'company/:company_id/trucks',   to: 'trucks#company_trucks',      as: 'company_trucks'
       get 'user/:user_id/products',       to: 'products#user_products',     as: 'user_products'
       get '/company_modal/:id',           to: 'companies#modal',            as: 'company_modal'
       get '/company/:id/contacts',        to: 'companies#contacts',         as: 'contacts'
