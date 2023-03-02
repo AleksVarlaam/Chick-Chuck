@@ -10,7 +10,7 @@ module Contents
       @top_trucks = trucks.take(3)
       @pagy_a, @trucks = pagy_array(trucks.drop(3), items: 4, fragment: '#trucks')
     end
-    
+
     def company_trucks
       @company = Company.find(params[:company_id])
       @pagy, @trucks = pagy_array(Truck.company_trucks_filter(@company, filter_params), items: 4, fragment: '#trucks')

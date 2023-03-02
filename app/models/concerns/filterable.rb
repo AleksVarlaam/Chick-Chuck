@@ -19,7 +19,7 @@ module Filterable
       end
       results
     end
-    
+
     def user_products_filter(user, filtering_params)
       results = where(user_id: user, published: true)
       filtering_params.each do |key, value|
@@ -27,7 +27,7 @@ module Filterable
       end
       results
     end
-    
+
     def company_trucks_filter(company, filtering_params)
       results = where(user_id: company, published: true)
       filtering_params.each do |key, value|

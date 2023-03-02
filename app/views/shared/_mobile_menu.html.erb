@@ -50,7 +50,7 @@ Leaving: "duration-100 ease-in"
                 current_page: current_page 
             %>
             <!-- Trucks -->
-            <%= nav_tab t('pages.trucks'), contents_trucks_path, 
+            <%= nav_tab t('pages.trucks'), trucks_path, 
                 class: "text-base font-medium text-gray-500 hover:text-gray-900 pb-3 border-b border-gray-200", 
                 data: { action: "dropdown#toggle", turbo_frame: '_top'},
                 current_page: current_page 
@@ -62,13 +62,13 @@ Leaving: "duration-100 ease-in"
                 current_page: current_page 
             %>
             <!-- Market -->
-            <%= nav_tab t('pages.market'), contents_products_path, 
+            <%= nav_tab t('pages.market'), products_path, 
                 class: "text-base font-medium text-gray-500 hover:text-gray-900 pb-3 border-b border-gray-200", 
                 data: { action: "dropdown#toggle", turbo_frame: '_top'},
                 current_page: current_page 
             %>
             <!-- News -->
-            <%= nav_tab t('pages.news'), contents_news_index_path, 
+            <%= nav_tab t('pages.news'), news_index_path, 
                 class: "text-base font-medium text-gray-500 hover:text-gray-900 pb-3 border-b border-gray-200", 
                 data: { action: "dropdown#toggle", turbo_frame: '_top'},
                 current_page: current_page if News.count.positive?

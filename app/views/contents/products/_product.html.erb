@@ -22,7 +22,7 @@
                 <%= tag.p "#{Product.human_attribute_name('price')}: #{product.price} ₪", 
                     class: "mb-2 text-xl text-end font-medium  text-gray-600" if ['show', 'products'].eql?([action_name, controller_name])%>
                 <!-- View more button -->
-                <%= render 'shared/buttons/view_more', path: contents_product_path(product) unless ['show', 'products'].eql?([action_name, controller_name]) %>
+                <%= render 'shared/buttons/view_more', path: product_path(product) unless ['show', 'products'].eql?([action_name, controller_name]) %>
             </div>
         </div>
         <!-- Views -->

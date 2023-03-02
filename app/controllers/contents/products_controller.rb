@@ -12,10 +12,11 @@ module Contents
     end
 
     def show; end
-    
+
     def user_products
       @user = User.find(params[:user_id])
-      @pagy, @products = pagy(Product.user_products_filter(@user, filter_params).newest, items: 8, fragment: '#products')
+      @pagy, @products = pagy(Product.user_products_filter(@user, filter_params).newest, items: 8,
+                                                                                         fragment: '#products')
       @products = @products.decorate
     end
 
@@ -37,7 +38,7 @@ module Contents
     def params_for_select
       @categories = Category.all.decorate
       @selected_category = params[:category_id] || Thing.find_by(id: params[:thing_id])&.category&.id
-      
+
       @things = if params[:thing_id].present?
                   Thing.find_by(id: params[:thing_id])&.category&.things&.decorate
                 elsif params[:category_id].present?

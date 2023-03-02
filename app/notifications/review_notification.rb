@@ -28,7 +28,7 @@ class ReviewNotification < Noticed::Base
   end
 
   def url
-    [:contents, object]
+    [object]
   end
 
   def avatar

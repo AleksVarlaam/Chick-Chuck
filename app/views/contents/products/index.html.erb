@@ -5,7 +5,7 @@
 <%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
     <!-- Title -->
     <%= tag.h4 t('pages.market'), class: 'text-3xl font-semibold text-gray-800  my-6 text-center'%>
-    <%= render 'filter', path: contents_products_path%>
+    <%= render 'filter', path: products_path%>
     <!-- Products -->
     <% if @products.present? %>
         <%= turbo_frame_tag 'products',

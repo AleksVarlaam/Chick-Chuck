@@ -29,12 +29,12 @@ Rails.application.routes.draw do
           resources :things, except: %i[show], controller: 'catalog/things'
         end
         resources :news, except: %i[show]
-        post '/publish/news/:id', to: 'news#publish', as: 'publish_news'
         resources :languages, except: %i[index show]
         resources :districts, except: %i[show]
         resource :dashboard, only: :show do
           get :users
         end
+        post '/publish/news/:id', to: 'news#publish', as: 'publish_news'
       end
     end
 
@@ -42,56 +42,55 @@ Rails.application.routes.draw do
     devise_for :companies, controllers: { registrations: 'companies/registrations' }, skip: :omniauth_callbacks
     namespace :companies do
       resources :trucks, except: %i[show]
-      post '/publish/truck/:id', to: 'trucks#publish', as: 'publish_truck'
       resources :products, except: %i[show]
-      post '/publish/product/:id', to: 'products#publish', as: 'publish_product'
-      post '/mark_as_sold/product/:id', to: 'products#mark_as_sold', as: 'mark_as_sold'
       resources :prices, only: %i[index create update]
       resource  :calculator, only: %i[create update]
-      get '/dashboard',       to: 'dashboard#index',              as: 'dashboard'
-      get '/profile',         to: 'profiles#profile',             as: 'edit_profile'
-      put '/profile',         to: 'profiles#profile_update',      as: 'profile'
-      get '/company_info',    to: 'profiles#company_info',        as: 'edit_company_info'
-      put '/company_info',    to: 'profiles#company_info_update', as: 'company_info'
+      post '/publish/product/:id',      to: 'products#publish',             as: 'publish_product'
+      post '/publish/truck/:id',        to: 'trucks#publish',               as: 'publish_truck'
+      post '/mark_as_sold/product/:id', to: 'products#mark_as_sold',        as: 'mark_as_sold'
+      get  '/dashboard',                to: 'dashboard#index',              as: 'dashboard'
+      get  '/profile',                  to: 'profiles#profile',             as: 'edit_profile'
+      put  '/profile',                  to: 'profiles#profile_update',      as: 'profile'
+      get  '/company_info',             to: 'profiles#company_info',        as: 'edit_company_info'
+      put  '/company_info',             to: 'profiles#company_info_update', as: 'company_info'
     end
 
     # Clients
     devise_for :clients, controllers: { registrations: 'clients/registrations' }, skip: :omniauth_callbacks
     namespace :clients do
-      get '/dashboard',       to: 'dashboard#index', as: 'dashboard'
       resource :profile, only: %i[edit update]
+      get '/dashboard', to: 'dashboard#index', as: 'dashboard'
     end
 
     # Contents
     namespace :contents, path: '' do
-      resources :companies, only: %i[show] 
-      resource  :calculator, only: %i[show]
-      resources :news, only: %i[index show]
-      resources :trucks, only: %i[index show]
-      resources :products, only: %i[index show]
-      get 'company/:company_id/trucks',   to: 'trucks#company_trucks',      as: 'company_trucks'
-      get 'user/:user_id/products',       to: 'products#user_products',     as: 'user_products'
-      get '/company_modal/:id',           to: 'companies#modal',            as: 'company_modal'
-      get '/company/:id/contacts',        to: 'companies#contacts',         as: 'contacts'
-      get 'company/:id/calculator_modal', to: 'companies#calculator_modal', as: 'calculator_modal'
-      get '/moving_preparation',          to: 'main#moving_preparation'
+      resource :calculator, only: %i[show]
+      get 'company/:company_id/trucks',    to: 'trucks#company_trucks',      as: 'company_trucks'
+      get '/user/:user_id/products',       to: 'products#user_products',     as: 'user_products'
+      get '/company_modal/:id',            to: 'companies#modal',            as: 'company_modal'
+      get '/company/:id/contacts',         to: 'companies#contacts',         as: 'contacts'
+      get '/company/:id/calculator_modal', to: 'companies#calculator_modal', as: 'calculator_modal'
+      get '/moving_preparation',           to: 'main#moving_preparation'
     end
 
-    # Trucks feedbacks
+    # Trucks content
     resources :trucks, only: %i[show index], controller: 'contents/trucks' do
       resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
     end
 
-    # News feedbacks
+    # News content
     resources :news, only: %i[show index], controller: 'contents/news' do
       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
     end
-    
-    # News feedbacks
-    resources :companies, only: %i[show index], controller: 'contents/companies' do
+
+    # Company content
+    resources :companies, only: %i[show], controller: 'contents/companies' do
       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
     end
+
+    # Products content
+    resources :products, only: %i[index show], controller: 'contents/products'
 
     # Comments
     resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do

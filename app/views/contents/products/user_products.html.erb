@@ -5,7 +5,7 @@
 <%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
     <!-- Title -->
     <%= tag.h4 t('market.user_products', user_name: @user.user_name), class: 'capitalize text-3xl font-semibold text-gray-800 my-6 text-center'%>
-    <%= render 'filter', path: contents_user_products_path(@user)%>
+    <%= render 'filter', path: user_products_path(@user)%>
     <!-- Products -->
     <% if @products.present? %>
         <%= turbo_frame_tag 'products',

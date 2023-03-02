@@ -22,7 +22,10 @@ module Companies
 
       respond_to do |format|
         if @product.save
-          format.html { redirect_to companies_products_path, success: t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}") }
+          format.html do
+            redirect_to companies_products_path,
+                        success: t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}")
+          end
         else
           format.html { render :new, status: :unprocessable_entity }
         end
@@ -61,7 +64,7 @@ module Companies
         end
       end
     end
-    
+
     def mark_as_sold
       return unless current_company.products.include?(@product)
 

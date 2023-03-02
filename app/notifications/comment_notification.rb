@@ -40,7 +40,7 @@ class CommentNotification < Noticed::Base
   end
 
   def url
-    [:contents, comment.object, { anchor: "comment_#{comment.id}" }]
+    [comment.object, { anchor: "comment_#{comment.id}" }]
   end
 
   def avatar

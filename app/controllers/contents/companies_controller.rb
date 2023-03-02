@@ -10,7 +10,7 @@ module Contents
       @commentable = @company
       @comment = Comment.new
       @pagy, @comments = pagy(Comment.where(commentable_type: 'User', commentable_id: @company.id).newest, items: 10,
-                                                                                          fragment: '#comments')
+                                                                                                           fragment: '#comments')
     end
 
     def modal; end
