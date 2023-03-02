@@ -59,6 +59,9 @@ Rails.application.routes.draw do
     devise_for :clients, controllers: { registrations: 'clients/registrations' }, skip: :omniauth_callbacks
     namespace :clients do
       resource :profile, only: %i[edit update]
+      resources :products, except: %i[show]
+      post '/publish/product/:id',      to: 'products#publish',             as: 'publish_product'
+      post '/mark_as_sold/product/:id', to: 'products#mark_as_sold',        as: 'mark_as_sold'
       get '/dashboard', to: 'dashboard#index', as: 'dashboard'
     end
 

@@ -3,6 +3,10 @@
             flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl">
         <%= render 'active_storage/attachments/carousel', object: product %>
         <div class="p-5">
+            <%= tag.div class: "flex justify-center items-center" do %>
+                <%= "Product from carrier"%>
+                <%= image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5')%>
+            <% end  if product.user.type == Company.name%>
             <!-- Title -->
             <%= tag.h5 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
             <!-- Category -->
@@ -28,23 +32,23 @@
         <!-- Views -->
         <%= render 'shared/buttons/views', object: product%>
         <!-- Control buttons -->
-        <% if company_signed_in? && current_company.products.all.include?(product) %>
+        <% if current_user.products.all.include?(product) %>
             <hr class="mb-3">
             <!-- Mark as sold -->
             <div class="flex justify-center w-full -mb-3">
                 <% if product.sold == true%>
-                    <%= link_to companies_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
+                    <%= link_to clients_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
                         <%= Product.human_attribute_name('sold') %>
                         <%= image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5')%>
                     <% end%>
                 <% else%>
-                    <%= link_to companies_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
+                    <%= link_to clients_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
                         <%= t('product.mark_as_sold') %>
                     <% end %>
                 <% end %>
             </div>
             <%= render 'shared/buttons/control_buttons', model: product, 
-                edit_path: [:edit, :companies, product], publish_path: [:companies, :publish, product], del_path: [:companies, product]%>
+                edit_path: [:edit, :clients, product], publish_path: [:clients, :publish, product], del_path: [:clients, product]%>
         <% end %>
     </div>
 <% end %>

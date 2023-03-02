@@ -1,0 +1,19 @@
+<% currently_at t('company_menu.products') %>
+<% provide :page_title, t('company_menu.products') %>
+<% provide :main_title, "#{t('company_menu.products')}: #{@products.count}" %>
+<% provide :nav_title, t('company_menu.products') %>
+<% provide :nav_path, clients_products_path %>
+
+<!-- Products Cards -->
+<%= turbo_frame_tag 'products',
+    class: "grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 xl:grid-cols-3 justify-center mx-auto" do 
+%>
+    <%= render partial: 'contents/products/product', collection: @products%>
+<% end %>
+
+<!-- Pagy -->
+<%== pagy_nav(@pagy) if current_client.products.count > 6%>
+
+<!-- New truck -->
+<hr class="my-6">
+<%= render 'shared/buttons/add', id: Product.new, title: t('company_menu.add_product'), path: new_clients_product_path%>

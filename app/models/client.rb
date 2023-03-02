@@ -2,6 +2,8 @@
 
 class Client < User
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  
+  has_many :products, class_name: 'Product', dependent: :destroy, foreign_key: :user_id
 
   def self.from_omniauth(auth)
     name_split = auth.info.name.split(' ')

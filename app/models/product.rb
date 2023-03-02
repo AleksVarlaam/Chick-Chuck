@@ -3,10 +3,10 @@
 class Product < ApplicationRecord
   include ImagesAttachments
   include Filterable
-  validates_associated :company, :category, :thing
+  validates_associated :user, :category, :thing
   validates :title, :condition, :description, :price, :images, presence: true
 
-  belongs_to :company, foreign_key: :user_id
+  belongs_to :user, foreign_key: :user_id
   belongs_to :category
   belongs_to :thing
 

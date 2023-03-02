@@ -30,7 +30,7 @@ module Contents
       @product = Product.find_by_id(params[:id]).decorate
       @company = Company.find_by_id(@product.user_id)
 
-      return if current_admin || current_company&.products&.include?(@product)
+      return if current_user&.products&.include?(@product)
 
       @product.update(views: @product.views + 1)
     end

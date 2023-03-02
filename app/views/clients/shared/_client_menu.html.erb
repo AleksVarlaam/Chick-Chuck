@@ -30,6 +30,35 @@
  <%= t('user_menu.chats')%>
 <% end %>
 
+<hr>
+<!-- New product page -->
+<%= link_to new_clients_product_path, 
+   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   data: {action: "dropdown#toggle"}, 
+   role: "menuitem",
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+   </svg>
+   <%= t('company_menu.add_product')%>
+<% end %>
+
+<!-- All products trucks -->
+<%= link_to clients_products_path, 
+   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   data: { action: "dropdown#toggle" }, 
+   role: "menuitem",
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= image_tag(asset_path('icons/icons8-lounge-50.png'), class: "w-4 h-4 mr-2")%>
+   <%= t('company_menu.products')%>
+<% end %>
+
+<hr>
+
 <!-- Dashboard page -->
 <!-- <%= link_to clients_dashboard_path,
   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center",
