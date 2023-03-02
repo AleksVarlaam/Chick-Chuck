@@ -62,8 +62,9 @@ module Feedbacks
     end
 
     def set_commentable
-      @commentable = Truck.find_by_id(params[:truck_id]) if params[:truck_id].present?
-      @commentable = News.find_by_id(params[:news_id]) if params[:news_id].present?
+      @commentable = Company.find_by_id(params[:company_id]) if params[:company_id].present?
+      @commentable = Truck.find_by_id(params[:truck_id])     if params[:truck_id].present?
+      @commentable = News.find_by_id(params[:news_id])       if params[:news_id].present?
       @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id].present?
     end
 

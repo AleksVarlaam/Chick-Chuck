@@ -21,6 +21,8 @@ class Comment < ApplicationRecord
       CommentNotification.with(comment: self).deliver_later(commentable.company) if user != commentable.company
     when News.name
       CommentNotification.with(comment: self).deliver_later(commentable.admin) if user != commentable.admin
+    when User.name
+      CommentNotification.with(comment: self).deliver_later(commentable) if user != commentable
     else
       CommentNotification.with(comment: self).deliver_later(commentable.user) if user != commentable.user
     end

@@ -32,9 +32,10 @@ class CommentNotification < Noticed::Base
   end
 
   def object_title
-    case comment.object.class.name
+    case comment.object_type
     when Truck.name then "#{comment.object.model_name.human.downcase}: '#{comment.object.decorate.number}'"
     when News.name then "#{comment.object.model_name.human.downcase}: '#{comment.object.title}'"
+    when User.name then "#{comment.object.model_name.human.downcase}: '#{comment.object.title}'"
     end
   end
 

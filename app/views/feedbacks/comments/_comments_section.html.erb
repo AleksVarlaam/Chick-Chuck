@@ -1,7 +1,7 @@
 <!-- Comments section-->
 <section class="w-full col-span-full">
   <!-- Count -->
-  <%= tag.h3 "#{t('comment.comments')}: #{@commentable.comments.count}", class: "my-5 text-xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
+  <%= tag.h3 "#{t('comment.comments')}: #{@comments.count}", class: "my-5 text-xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
   <!-- Content -->
   <div class="overflow-auto max-h-screen">
       <%= turbo_frame_tag dom_id(@commentable, :comments) do %>

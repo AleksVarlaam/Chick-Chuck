@@ -43,7 +43,7 @@
             <% end if @company.products.count.positive?%>
             <!-- Comments -->
             <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to contents_company_path(@company), data: {turbo_frame: '_top'},
+                <%= link_to contents_company_path(@company, anchor: 'comments_title'), data: {turbo_frame: '_top'},
                 class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= t('comment.comments')%>
                 <% end %>

@@ -7,8 +7,10 @@ module Contents
     before_action :set_company, only: %i[show modal contacts calculator_modal]
 
     def show
-      trucks = Truck.filter(filter_params)
-      @pagy, @trucks = pagy(trucks, items: 8, fragment: '#trucks')
+      @commentable = @company
+      @comment = Comment.new
+      @pagy, @comments = pagy(Comment.where(commentable_type: 'User', commentable_id: @company.id).newest, items: 10,
+                                                                                          fragment: '#comments')
     end
 
     def modal; end

@@ -13,7 +13,10 @@
     <%= turbo_frame_tag 'trucks',
         class: "grid grid-flow-row auto-rows-max flex w-full px-2" do 
     %>
-        <!-- Top trucks -->
+        <!-- Trucks -->
         <%= render 'latest_trucks', collection: @trucks%>
     <% end %>
+    
+    <!-- Pagy trucks -->
+    <%== pagy_nav(@pagy) if @trucks.count > 8%>
 <% end %>
