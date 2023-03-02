@@ -9,8 +9,8 @@ module Contents
     def show
       @commentable = @company
       @comment = Comment.new
-      @pagy, @comments = pagy(Comment.where(commentable_type: 'User', commentable_id: @company.id).newest, items: 10,
-                                                                                                           fragment: '#comments')
+      @pagy, @comments = pagy(Comment.where(commentable: @company).newest, items: 10, fragment: '#comments')
+      @comments_count = Comment.where(object: @company).count
     end
 
     def modal; end

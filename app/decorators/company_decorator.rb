@@ -2,7 +2,7 @@
 
 class CompanyDecorator < ApplicationDecorator
   def comments_count
-    count = company.trucks.map { |truck| truck.comments.count }.sum
+    count = Comment.where(object: company).count
 
     case I18n.locale
     when :en then "#{count} Comments"

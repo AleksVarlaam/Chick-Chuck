@@ -8,7 +8,7 @@
                 <% truck.districts.decorate.each do |district|%>
                     <!-- If action_name == show, add link to filter trucks -->
                     <% if [action_name, controller_name].eql?(['show', 'trucks']) %>
-                        <%= link_to contents_trucks_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
+                        <%= link_to trucks_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
                             <%= district != truck.districts.last ? district.title + ',' : district.title%>
                         <% end %>
                     <% else %>
@@ -23,7 +23,7 @@
             <%= tag.label "#{Truck.human_attribute_name('body_type')}: ", class: "text-gray-500 mr-1 hidden sm:block md:hidden xl:block" if [action_name, controller_name].eql?(['show', 'trucks'])%>
             <!-- If action_name == show, add link to filter trucks -->
             <% if [action_name, controller_name].eql?(['show', 'trucks']) %>
-                <%= link_to truck.body_type_name, contents_trucks_path(body_type: truck.body_type), 
+                <%= link_to truck.body_type_name, trucks_path(body_type: truck.body_type), 
                     class: 'text-gray-600 italic hover:underline', data: {turbo_frame: '_top'} %>
             <% else%>
                 <%= tag.p truck.body_type_name, class: "text-gray-600 italic"%>
