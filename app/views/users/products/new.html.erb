@@ -2,14 +2,14 @@
 <% provide :page_title, t('company_menu.add_product') %>
 <% provide :main_title, t('company_menu.add_product') %>
 <% provide :parent_title, t('company_menu.products') %>
-<% provide :parent_path, companies_products_path %>
+<% provide :parent_path, users_products_path %>
 <% provide :nav_title, t('company_menu.add_product') %>
-<% provide :nav_path, new_companies_product_path %>
+<% provide :nav_path, new_users_product_path %>
 
 <!-- Form new truck -->
 <%= render "form" %>
 
-<%= link_to t('company_menu.products'), companies_products_path, 
+<%= link_to t('company_menu.products'), users_products_path, 
     class: "mt-6 rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-200 inline-block font-medium"
 %>
 

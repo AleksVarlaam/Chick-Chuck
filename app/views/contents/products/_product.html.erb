@@ -37,18 +37,18 @@
             <!-- Mark as sold -->
             <div class="flex justify-center w-full -mb-3">
                 <% if product.sold == true%>
-                    <%= link_to clients_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
+                    <%= link_to users_product_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
                         <%= Product.human_attribute_name('sold') %>
                         <%= image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5')%>
                     <% end%>
                 <% else%>
-                    <%= link_to clients_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
+                    <%= link_to users_product_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
                         <%= t('product.mark_as_sold') %>
                     <% end %>
                 <% end %>
             </div>
             <%= render 'shared/buttons/control_buttons', model: product, 
-                edit_path: [:edit, :clients, product], publish_path: [:clients, :publish, product], del_path: [:clients, product]%>
+                edit_path: [:edit, :users, product], publish_path: [:users, product, :publish], del_path: [:users, product]%>
         <% end %>
     </div>
 <% end %>

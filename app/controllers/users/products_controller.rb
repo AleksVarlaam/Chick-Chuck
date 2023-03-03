@@ -1,29 +1,29 @@
 # frozen_string_literal: true
 
-module Clients
+module Users
   class ProductsController < ApplicationController
     include Feedbacks::ReviewsHelper
     layout 'profile_layout'
-    before_action :authenticate_client!
+    before_action :authenticate_user!
     before_action :set_product, only: %i[edit update publish mark_as_sold destroy]
     before_action :filter_product, only: %i[new create edit update]
 
     def index
-      @pagy, @products = pagy(current_client.products.newest, items: 8, fragment: '#products')
+      @pagy, @products = pagy(current_user.products.newest, items: 8, fragment: '#products')
       @products = @products.decorate
     end
 
     def new
-      @product = current_client.products.new.decorate
+      @product = current_user.products.new.decorate
     end
 
     def create
-      @product = current_client.products.build(product_params).decorate
+      @product = current_user.products.build(product_params).decorate
 
       respond_to do |format|
         if @product.save
           format.html do
-            redirect_to clients_products_path,
+            redirect_to users_products_path,
                         success: t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}")
           end
         else
@@ -47,7 +47,7 @@ module Clients
     end
 
     def publish
-      return unless current_client.products.include?(@product)
+      return unless current_user.products.include?(@product)
 
       respond_to do |format|
         if @product.published == false
@@ -66,7 +66,7 @@ module Clients
     end
 
     def mark_as_sold
-      return unless current_client.products.include?(@product)
+      return unless current_user.products.include?(@product)
 
       respond_to do |format|
         if @product.sold == false
@@ -107,7 +107,7 @@ module Clients
     end
 
     def set_product
-      @product = Product.find_by_id(params[:id]).decorate
+      @product = Product.find_by_id(params[:product_id] || params[:id]).decorate
     end
   end
 end

@@ -4,10 +4,10 @@
     <%= tag.div (render 'active_storage/attachments/carousel', object: @product), 
         class: "col-span-full md:px-[14rem] w-full justify-center mb-4" if ['edit', 'update'].include?(action_name) %>
     <!-- Select Category -->
-    <%= render 'select_category', path: ['edit', 'update'].include?(action_name) ? edit_companies_product_path : new_companies_product_path%>
+    <%= render 'select_category', path: ['edit', 'update'].include?(action_name) ? edit_users_product_path : new_users_product_path%>
 
     <!-- Product form -->
-    <%= form_with model: [:companies, @product], class: "contents" do |f| %>
+    <%= form_with model: [:users, @product], class: "contents" do |f| %>
       <!-- Errors -->
       <%= render 'shared/error_messages', resource: @product %>
       <!-- Category id -->

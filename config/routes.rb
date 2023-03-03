@@ -42,12 +42,8 @@ Rails.application.routes.draw do
     devise_for :companies, controllers: { registrations: 'companies/registrations' }, skip: :omniauth_callbacks
     namespace :companies do
       resources :trucks, except: %i[show]
-      resources :products, except: %i[show]
       resources :prices, only: %i[index create update]
       resource  :calculator, only: %i[create update]
-      post '/publish/product/:id',      to: 'products#publish',             as: 'publish_product'
-      post '/publish/truck/:id',        to: 'trucks#publish',               as: 'publish_truck'
-      post '/mark_as_sold/product/:id', to: 'products#mark_as_sold',        as: 'mark_as_sold'
       get  '/dashboard',                to: 'dashboard#index',              as: 'dashboard'
       get  '/profile',                  to: 'profiles#profile',             as: 'edit_profile'
       put  '/profile',                  to: 'profiles#profile_update',      as: 'profile'
@@ -59,10 +55,15 @@ Rails.application.routes.draw do
     devise_for :clients, controllers: { registrations: 'clients/registrations' }, skip: :omniauth_callbacks
     namespace :clients do
       resource :profile, only: %i[edit update]
-      resources :products, except: %i[show]
-      post '/publish/product/:id',      to: 'products#publish',             as: 'publish_product'
-      post '/mark_as_sold/product/:id', to: 'products#mark_as_sold',        as: 'mark_as_sold'
       get '/dashboard', to: 'dashboard#index', as: 'dashboard'
+    end
+    
+    # Users
+    namespace :users do 
+      resources :products, except: %i[show] do 
+        post '/publish',      to: 'products#publish',             as: 'publish'
+        post '/mark_as_sold', to: 'products#mark_as_sold',        as: 'mark_as_sold'
+      end
     end
 
     # Contents

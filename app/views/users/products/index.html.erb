@@ -2,7 +2,7 @@
 <% provide :page_title, t('company_menu.products') %>
 <% provide :main_title, "#{t('company_menu.products')}: #{@products.count}" %>
 <% provide :nav_title, t('company_menu.products') %>
-<% provide :nav_path, clients_products_path %>
+<% provide :nav_path, users_products_path %>
 
 <!-- Products Cards -->
 <%= turbo_frame_tag 'products',
@@ -12,8 +12,8 @@
 <% end %>
 
 <!-- Pagy -->
-<%== pagy_nav(@pagy) if current_client.products.count > 6%>
+<%== pagy_nav(@pagy) if current_user.products.count > 6%>
 
 <!-- New truck -->
 <hr class="my-6">
-<%= render 'shared/buttons/add', id: Product.new, title: t('company_menu.add_product'), path: new_clients_product_path%>
+<%= render 'shared/buttons/add', id: Product.new, title: t('company_menu.add_product'), path: new_users_product_path%>
