@@ -26,32 +26,12 @@
             <% end %>
         </div>
         
-        <% if controller_name == 'companies' || action_name == 'company_trucks'%>
-            <!-- Calculator modal -->
-            <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to contents_calculator_modal_path(@company), data: {turbo_frame: 'modal'},
-                class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
-                    <%= t('home_page.calculate') + ' ' + @company.title%>
-                <% end %>
-            </div>
-            <!-- Market link -->
-            <%= tag.div class: "w-full h-auto pb-3 px-3 col-span-full" do %>
-                <%= link_to contents_user_products_path(@company), target: '_blank', class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
-                    <%= t('market.user_products', user_name: @company.user_name)%>
-                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                <% end %>
-            <% end if @company.products.count.positive?%>
-            <!-- Comments -->
-            <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to company_path(@company, anchor: 'comments_title'), data: {turbo_frame: '_top'},
-                class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
-                    <%= t('comment.comments')%>
-                <% end %>
-            </div>
+        <% if @company || company%>
+            <%= render 'companies/shared/links_board', company: @company || company%>
         <% else %>
             <!-- Calculator link -->
             <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to contents_calculator_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                <%= link_to calculator_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= t('home_page.calculate')%>
                     <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 <% end %>
@@ -62,7 +42,7 @@
         <% if controller_name == 'main'%>
             <!-- Preparation link -->
             <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to contents_moving_preparation_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                <%= link_to moving_preparation_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= t('moving_preparation.title')%>
                     <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 <% end %>

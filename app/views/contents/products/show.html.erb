@@ -5,6 +5,10 @@
 <div class="flex grid grid-cols-1 md:grid-cols-6 gap-6 w-full my-6 px-2 lg:px-6 mx-auto justify-center">
     <!-- Truck card -->
     <%= tag.section (render @product), class: "col-span-1 md:col-span-3"%>
-    <!-- About Company -->
-    <%= tag.section (render 'contents/companies/about', company: @company), class: "relative w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl pt-3"%>
+    <!-- About Seller -->
+    <% if @product.user.class.name == Company.name %>
+        <%= tag.section (render 'companies/shared/about_company', company: @company), class: "relative w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl pt-3"%>
+    <% else %>
+        <%= tag.section (render 'clients/shared/about_client', client: @product.user), class: "relative w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl pt-3"%>
+    <% end %>
 </div>

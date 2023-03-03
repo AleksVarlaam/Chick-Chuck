@@ -41,7 +41,9 @@ Rails.application.routes.draw do
     # Companies
     devise_for :companies, controllers: { registrations: 'companies/registrations' }, skip: :omniauth_callbacks
     namespace :companies do
-      resources :trucks, except: %i[show]
+      resources :trucks, except: %i[show] do 
+        post '/publish',      to: 'trucks#publish',             as: 'publish'
+      end
       resources :prices, only: %i[index create update]
       resource  :calculator, only: %i[create update]
       get  '/dashboard',                to: 'dashboard#index',              as: 'dashboard'
@@ -67,38 +69,45 @@ Rails.application.routes.draw do
     end
 
     # Contents
-    namespace :contents, path: '' do
-      resource :calculator, only: %i[show]
-      get 'company/:company_id/trucks',    to: 'trucks#company_trucks',      as: 'company_trucks'
-      get '/user/:user_id/products',       to: 'products#user_products',     as: 'user_products'
-      get '/company_modal/:id',            to: 'companies#modal',            as: 'company_modal'
-      get '/company/:id/contacts',         to: 'companies#contacts',         as: 'contacts'
-      get '/company/:id/calculator_modal', to: 'companies#calculator_modal', as: 'calculator_modal'
-      get '/moving_preparation',           to: 'main#moving_preparation'
-    end
+    scope :contents do
+      # Users
+      resources :users, only: %i[show], controller: 'users/users' do 
+        get '/modal',         to: 'users/users#modal',                  as: 'modal'
+        get '/contacts',      to: 'users/users#contacts',               as: 'contacts'
+      end
+      
+      # Trucks content
+      resources :trucks, only: %i[show index], controller: 'contents/trucks' do
+        resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
+        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+      end
+      get 'company/:company_id/trucks',   to: 'contents/trucks#company_trucks',   as: 'company_trucks'
+      
+      # News content
+      resources :news, only: %i[show index], controller: 'contents/news' do
+        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+      end
 
-    # Trucks content
-    resources :trucks, only: %i[show index], controller: 'contents/trucks' do
-      resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
-      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-    end
+      # Company content
+      resources :companies, only: %i[show], controller: 'contents/companies' do
+        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+      end
 
-    # News content
-    resources :news, only: %i[show index], controller: 'contents/news' do
-      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-    end
-
-    # Company content
-    resources :companies, only: %i[show], controller: 'contents/companies' do
-      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-    end
-
-    # Products content
-    resources :products, only: %i[index show], controller: 'contents/products'
-
-    # Comments
-    resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
-      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+      # Comments
+      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
+        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+      end
+      # Products
+      resources :products, only: %i[index show], controller: 'contents/products'
+      get 'seller/:user_id/user_products', to: 'contents/products#user_products', as: 'user_products'
+      
+      # Calculator
+      resource :calculator, only: %i[show], controller: 'contents/calculators' do
+        get '/company/:company_id/modal',  to: 'contents/calculators#modal',      as: 'modal'
+      end
+      
+      # Moving preparation
+      get '/moving_preparation',           to: 'contents/main#moving_preparation'
     end
 
     # Active storage attachments

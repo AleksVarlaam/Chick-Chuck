@@ -1,8 +1,8 @@
 <!-- Contacts -->
-<%= turbo_frame_tag dom_id(@company, 'contacts') do %>
-    <div class="flex justify-center items-center mb-3 hover:underline">
+<%= turbo_frame_tag dom_id(@user, 'contacts') do %>
+    <%= tag.div class:"flex justify-center items-center mb-3 hover:underline" do %>
         <%= tag.p t('company.say_truck_number'), class: "text-sm font-medium text-gray-400 text-center"%>
-    </div>
+    <% end if @user.class.name == Company.name%>
     <div class="flex justify-center items-center mb-3 rounded-md grid grid-cols-1 gap-0.5" role="group">
         <!-- Phone number -->
         <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
@@ -10,33 +10,33 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0l6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z" />
             </svg>
-            <%= link_to @company.formatted_phone, "tel:#{@company.phone}", target: "_blank"%>
-        <% end if @company.phone.present?%>
+            <%= link_to @user.formatted_phone, "tel:#{@user.phone}", target: "_blank"%>
+        <% end if @user.phone.present?%>
         <!-- Aditinal Phone number -->
         <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
             rounded border border-gray-300 hover:bg-gray-200 hover:text-gray-900 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white" do%>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0l6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z" />
             </svg>
-            <%= link_to @company.formatted_additional_phone, "tel:#{@company.additional_phone}", target: "_blank"%>
-        <% end if @company.additional_phone.present?%>
+            <%= link_to @user.formatted_additional_phone, "tel:#{@user.additional_phone}", target: "_blank"%>
+        <% end if @user.additional_phone.present?%>
             <!-- What's App -->
             <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
             border rounded border-gray-300 hover:bg-gray-200 hover:text-gray-900 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white" do%>
             <%= image_tag(asset_path('icons/icons8-whatsapp-48.png'), class: 'w-5 h-5 mr-2')%>
-            <%= link_to @company.formatted_whatsapp, "https://wa.me/#{@company.whatsapp.split('+')[1]}", target: "_blank"%>
-        <% end if @company.whatsapp.present?%>
+            <%= link_to @user.formatted_whatsapp, "https://wa.me/#{@user.whatsapp.split('+')[1]}", target: "_blank"%>
+        <% end if @user.whatsapp.present?%>
         <!-- Telegram -->
         <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
             rounded border border-gray-300 hover:bg-gray-200 hover:text-gray-900 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white" do%>
             <%= image_tag(asset_path('icons/icons8-telegram-app-48.png'), class: 'w-5 h-5 mr-2')%>
-            <%= link_to @company.telegram, "https://telegram.me/#{@company.telegram.split(/@/).last}", target: "_blank"%>
-        <% end if @company.telegram.present?%>
+            <%= link_to @user.telegram, "https://telegram.me/#{@user.telegram.split(/@/).last}", target: "_blank"%>
+        <% end if @user.telegram.present?%>
         <!-- Facebook -->
         <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
             rounded border border-gray-300 hover:bg-gray-200 hover:text-gray-900 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white" do%>
             <%= image_tag(asset_path('icons/icons8-facebook-48.png'), class: 'w-5 h-5 mr-2')%>
-            <%= link_to '@' + @company.title, @company.facebook, target: "_blank"%>
-        <% end if @company.facebook.present?%>
+            <%= link_to '@' + @user.title, @user.facebook, target: "_blank"%>
+        <% end if @user.facebook.present?%>
     </div>
 <% end %>

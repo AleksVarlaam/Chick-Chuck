@@ -2,6 +2,6 @@
 <% provide :page_title, @company.title %>
 
 <%= render TurboCalculatorComponent.new(title: t('calculator.title')) do %>
-    <%= render 'contents/calculators/form', path: contents_calculator_modal_path(@company), 
+    <%= render 'contents/calculators/form', path: modal_calculator_path(@company), 
         total_prices: (render 'company_price', company: @company), frame: 'modal'%>
 <% end %>

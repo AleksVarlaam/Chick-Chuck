@@ -73,7 +73,7 @@ module Companies
     private
 
     def set_truck
-      @truck = Truck.find_by_id(params[:id]).decorate
+      @truck = Truck.find_by_id(params[:truck_id] || params[:id]).decorate
     end
 
     def truck_params

@@ -3,11 +3,11 @@
     <!-- Avatar -->
     <%= image_tag(company.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
     <!-- Name -->
-    <% if ['show', 'companies'].eql?([action_name, controller_name]) || action_name == 'company_trucks'%>
+    <% if ['show', 'users'].eql?([action_name, controller_name]) || action_name == 'company_trucks'%>
         <%= tag.h4 company.title , class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" %>
     <% else %>
         <%= tag.h4 class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" do %>
-            <%= link_to company_path(id: company), target: "_blank", data: { turbo_frame: '_top' }, class: 'flex items-center' do %>
+            <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, class: 'flex items-center' do %>
                 <%= company.title %>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 w-6 h-6 text-orange-700 hover:text-gray-800">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
@@ -29,7 +29,7 @@
         <% end %>
     </div>
     <!-- All trucks -->
-    <%= link_to "#{t('company.all_trucks')}: #{company.trucks.published.count}", company_path(id: company), 
+    <%= link_to "#{t('company.all_trucks')}: #{company.trucks.published.count}", user_path(id: company), 
         class: "text-md font-medium hover:underline text-gray-500 mb-3", 
         data: { turbo_frame: '_top' }, target: "_blank"
     %>
@@ -49,5 +49,5 @@
     <!-- Message -->
     <%= render 'feedbacks/rooms/form', recipient: company%>
     <!-- Contacts -->
-    <%= render 'contents/companies/contacts_section', company: company%>
+    <%= render 'users/users/contacts_section', user: company%>
 </section>

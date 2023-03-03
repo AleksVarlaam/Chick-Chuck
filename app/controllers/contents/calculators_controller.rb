@@ -6,6 +6,11 @@ module Contents
     before_action :set_show, only: %i[show]
 
     def show; end
+    
+    def modal
+      @company = Company.find_by_id(params[:company_id])
+      @categories = Category.all.decorate
+    end
 
     private
 

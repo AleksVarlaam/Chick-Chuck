@@ -20,6 +20,6 @@
     <!-- Control Buttons -->
     <% if company_signed_in? && current_company.trucks.all.include?(truck) %>
         <%= render 'shared/buttons/control_buttons', model: truck, 
-            edit_path: [:edit, :companies, truck], publish_path: [:companies, :publish, truck], del_path: [:companies, truck]%>
+            edit_path: [:edit, :companies, truck], publish_path: [:companies, truck, :publish], del_path: [:companies, truck]%>
     <% end %>
 <% end %>

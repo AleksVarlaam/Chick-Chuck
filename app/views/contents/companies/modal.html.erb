@@ -1,6 +1,0 @@
-<% currently_at @company.title %>
-<% provide :page_title, @company.title %>
-
-<%= render TurboProfileComponent.new(title: 'About') do %>
-    <%= render 'about', company: @company%>
-<% end %>

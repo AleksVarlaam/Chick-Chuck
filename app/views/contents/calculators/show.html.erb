@@ -9,6 +9,6 @@
     <%= tag.h4 t('calculator.title'), class: 'text-3xl font-semibold text-gray-800 capitalize my-6 text-center mx-2'%>
     <!-- Form -->
     <div class="sm:min-w-[32rem] pb-6 shadow-md hover:shadow-xl rounded-xl">
-        <%= render 'form', path: contents_calculator_path, total_prices: (render 'companies_prices'), frame: '_top'%>
+        <%= render 'form', path: calculator_path, total_prices: (render 'companies_prices'), frame: '_top'%>
     </div>
 <% end %>
