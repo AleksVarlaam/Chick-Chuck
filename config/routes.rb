@@ -41,8 +41,8 @@ Rails.application.routes.draw do
     # Companies
     devise_for :companies, controllers: { registrations: 'companies/registrations' }, skip: :omniauth_callbacks
     namespace :companies do
-      resources :trucks, except: %i[show] do 
-        post '/publish',      to: 'trucks#publish',             as: 'publish'
+      resources :trucks, except: %i[show] do
+        post '/publish',      to: 'trucks#publish', as: 'publish'
       end
       resources :prices, only: %i[index create update]
       resource  :calculator, only: %i[create update]
@@ -59,10 +59,10 @@ Rails.application.routes.draw do
       resource :profile, only: %i[edit update]
       get '/dashboard', to: 'dashboard#index', as: 'dashboard'
     end
-    
+
     # Users
-    namespace :users do 
-      resources :products, except: %i[show] do 
+    namespace :users do
+      resources :products, except: %i[show] do
         post '/publish',      to: 'products#publish',             as: 'publish'
         post '/mark_as_sold', to: 'products#mark_as_sold',        as: 'mark_as_sold'
       end
@@ -71,18 +71,18 @@ Rails.application.routes.draw do
     # Contents
     scope :contents do
       # Users
-      resources :users, only: %i[show], controller: 'users/users' do 
+      resources :users, only: %i[show], controller: 'users/users' do
         get '/modal',         to: 'users/users#modal',                  as: 'modal'
         get '/contacts',      to: 'users/users#contacts',               as: 'contacts'
       end
-      
+
       # Trucks content
       resources :trucks, only: %i[show index], controller: 'contents/trucks' do
         resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
         resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
       end
-      get 'company/:company_id/trucks',   to: 'contents/trucks#company_trucks',   as: 'company_trucks'
-      
+      get 'company/:company_id/trucks', to: 'contents/trucks#company_trucks', as: 'company_trucks'
+
       # News content
       resources :news, only: %i[show index], controller: 'contents/news' do
         resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
@@ -100,14 +100,14 @@ Rails.application.routes.draw do
       # Products
       resources :products, only: %i[index show], controller: 'contents/products'
       get 'seller/:user_id/user_products', to: 'contents/products#user_products', as: 'user_products'
-      
+
       # Calculator
       resource :calculator, only: %i[show], controller: 'contents/calculators' do
-        get '/company/:company_id/modal',  to: 'contents/calculators#modal',      as: 'modal'
+        get '/company/:company_id/modal', to: 'contents/calculators#modal', as: 'modal'
       end
-      
+
       # Moving preparation
-      get '/moving_preparation',           to: 'contents/main#moving_preparation'
+      get '/moving_preparation', to: 'contents/main#moving_preparation'
     end
 
     # Active storage attachments

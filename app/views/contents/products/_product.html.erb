@@ -7,7 +7,7 @@
                 <%= tag.div class: "flex justify-center items-center" do %>
                     <%= tag.span t('product.product_by'), class: 'text-sm text-gray-600 font-medium'%>
                     <%# image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5')%>
-                <% end  if product.user.type == Company.name%>
+                <% end if product.user.type == Company.name%>
                 <!-- Title -->
                 <%= tag.h5 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
             </div>
@@ -48,9 +48,9 @@
         <%= render 'shared/buttons/views', object: product%>
         <!-- Control buttons -->
         <% if current_user == product.user %>
-            <hr class="mb-3">
+            <hr class="">
             <!-- Mark as sold -->
-            <div class="flex justify-center w-full -mb-3">
+            <div class="flex justify-center w-full py-3">
                 <% if product.sold == true%>
                     <%= link_to users_product_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
                         <%= Product.human_attribute_name('sold') %>

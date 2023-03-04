@@ -19,7 +19,7 @@ class Product < ApplicationRecord
       [I18n.t('product.condition.above_average'), 3], [I18n.t('product.condition.like_new'), 4]
     ]
   end
-  
+
   def self.delivery_select
     [
       [I18n.t('product.delivery.da'), 1], [I18n.t('product.delivery.net'), 2]
