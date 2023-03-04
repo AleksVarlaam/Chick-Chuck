@@ -1,5 +1,5 @@
 <!-- About user -->
-<section class="mx-5 flex flex-col items-center">
+<section class="mx-5 flex flex-col items-center relative">
     <!-- Avatar -->
     <%= image_tag(client.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
     <!-- Name -->
@@ -9,4 +9,8 @@
     <%= render 'feedbacks/rooms/form', recipient: client%>
     <!-- Contacts -->
     <%= render 'users/users/contacts_section', user: client%>
+    <!-- Created_at -->
+    <div class="flex justify-center">
+        <%= tag.span client.decorate.created_at, class: 'text-sm text-gray-500'%>
+    </div>
 </section>

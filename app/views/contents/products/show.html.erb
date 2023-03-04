@@ -6,9 +6,11 @@
     <!-- Truck card -->
     <%= tag.section (render @product), class: "col-span-1 md:col-span-3"%>
     <!-- About Seller -->
-    <% if @product.user.class.name == Company.name %>
-        <%= tag.section (render 'companies/shared/about_company', company: @company), class: "relative w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl pt-3"%>
-    <% else %>
-        <%= tag.section (render 'clients/shared/about_client', client: @product.user), class: "relative w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl pt-3"%>
+    <%= tag.section class: "relative w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl py-3" do %>
+        <% if @product.user.class.name == Company.name %>
+            <%= render 'companies/shared/about_company', company: @user %>
+        <% else %>
+            <%= render 'clients/shared/about_client', client: @user%>
+        <% end %>
     <% end %>
 </div>

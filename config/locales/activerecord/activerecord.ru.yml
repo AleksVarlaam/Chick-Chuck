@@ -37,6 +37,7 @@ ru:
                 password_popover: "%{length} значений минимум."
                 current_popover:  'Нам нужен ваш текущий пароль, чтобы подтвердить внесенные изменения.'
                 delete_account:   'Удалить аккаунт'
+                created_at:       'Дата регистрации'
             company:
                 districts:        'Регион'
                 languages:        'Языки'

@@ -28,9 +28,9 @@ module Contents
 
     def set_show
       @product = Product.find_by_id(params[:id]).decorate
-      @company = Company.find_by_id(@product.user_id)
+      @user = User.find(@product.user_id)
 
-      return if current_user&.products&.include?(@product)
+      return if @user == current_user
 
       @product.update(views: @product.views + 1)
     end

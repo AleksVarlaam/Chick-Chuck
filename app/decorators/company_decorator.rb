@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class CompanyDecorator < ApplicationDecorator
+  def created_at
+    "#{User.human_attribute_name('created_at')}: #{l company.created_at, format: :date}"
+  end
+  
   def comments_count
     count = Comment.where(object: company).count
 

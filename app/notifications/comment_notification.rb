@@ -40,7 +40,7 @@ class CommentNotification < Noticed::Base
   end
 
   def url
-    return user_path(id: comment.object_id) if comment.object_type == User.name
+    return user_path(id: comment.object_id, anchor: "comment_#{comment.id}") if comment.object_type == User.name
     [comment.object, { anchor: "comment_#{comment.id}" }]
   end
 

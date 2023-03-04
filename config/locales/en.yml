@@ -177,3 +177,6 @@ Subscribe to our news to monitor our progress."
       flash:
           success:  'You have successfully subscribed to our news!'
           info:     'This email already exists, please check your email or expect new news from us!'
+  time:
+      formats:
+        date: "%d %B %Y"

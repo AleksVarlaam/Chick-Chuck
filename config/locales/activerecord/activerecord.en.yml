@@ -36,6 +36,7 @@ en:
                 avatar:           'Avatar'
                 password_popover: "%{length} characters minimum."
                 current_popover:  'We need your current password to confirm your changes.'
+                created_at:       'Date of registration'
             company:
                 districts:        'District'
                 languages:        'Languages'

@@ -37,6 +37,7 @@ uk:
                 password_popover: "%{length} значень мінімум."
                 current_popover:  'Нам потрібен ваш поточний пароль, для того щоб підтвердити внесені зміни.'
                 delete_account:   'Видалити акаунт'
+                created_at:       'Дата реєстрації'
             company:
                 districts:        'Регіон'
                 languages:        'Мови'

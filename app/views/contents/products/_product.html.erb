@@ -32,7 +32,7 @@
         <!-- Views -->
         <%= render 'shared/buttons/views', object: product%>
         <!-- Control buttons -->
-        <% if user_signed_in? && current_user.products.all.include?(product) %>
+        <% if current_user == product.user %>
             <hr class="mb-3">
             <!-- Mark as sold -->
             <div class="flex justify-center w-full -mb-3">
