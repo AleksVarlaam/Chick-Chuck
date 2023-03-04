@@ -2,33 +2,48 @@
     <div class="<%= ['index', 'main'].eql?([action_name, controller_name]) ? 'w-screen w-[25rem] sm:w-[18rem]' : 'w-full'%>
             flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl">
         <%= render 'active_storage/attachments/carousel', object: product %>
-        <div class="p-5">
-            <%= tag.div class: "flex justify-center items-center" do %>
-                <%= "Product from carrier"%>
-                <%= image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5')%>
-            <% end  if product.user.type == Company.name%>
-            <!-- Title -->
-            <%= tag.h5 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
-            <!-- Category -->
-            <%= tag.p "#{Product.human_attribute_name('category')}: #{product.category_name}", class: "mb-3 font-normal text-gray-500" if ['show', 'products'].eql?([action_name, controller_name])%>
-            <!-- Type -->
-            <%= tag.p "#{Product.human_attribute_name('things')}: #{product.thing_name}", class: "mb-3 font-normal text-gray-500"%>
-            <!-- Condition -->
-            <%= tag.p "#{Product.human_attribute_name('condition')}: #{product.condition_name}", class: "mb-3 font-normal text-gray-500"%>
+        <%= tag.div class: "p-5 grid #{'sm:grid-cols-2' if ['show', 'products'].eql?([action_name, controller_name])}" do %>
+            <div class="col-span-full">
+                <%= tag.div class: "flex justify-center items-center" do %>
+                    <%= tag.span t('product.product_by'), class: 'text-sm text-gray-600 font-medium'%>
+                    <%# image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5')%>
+                <% end  if product.user.type == Company.name%>
+                <!-- Title -->
+                <%= tag.h5 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
+            </div>
+            <div>
+                <!-- Category -->
+                <%= tag.p "#{Product.human_attribute_name('category')}: #{product.category_name}", class: "mb-3 font-normal text-gray-500" if ['show', 'products'].eql?([action_name, controller_name])%>
+                <!-- Type -->
+                <%= tag.p "#{Product.human_attribute_name('things')}: #{product.thing_name}", class: "mb-3 font-normal text-gray-500"%>
+            </div>
+            <div>
+                <!-- Condition -->
+                <%= tag.p "#{Product.human_attribute_name('condition')}: #{product.condition_name}", class: "mb-3 font-normal text-gray-500"%>
+                <!-- Delivery -->
+                <%= tag.p class: "mb-3 font-normal text-gray-500 flex items-center" do %>
+                    <%= Product.human_attribute_name('delivery') + ': ' %>
+                    <%= product.delivery_name %>
+                <% end %>
+            </div>
             <!-- Description -->
-            <%= tag.p "#{Product.human_attribute_name('description')}: #{product.description}", 
-                class: "mb-3 font-normal text-gray-500" if ['show', 'products'].eql?([action_name, controller_name])%>
+            <% if ['show', 'products'].eql?([action_name, controller_name]) && product.description.present?%>
+                <%= tag.p "#{Product.human_attribute_name('description')}: #{product.description}", 
+                    class: "mb-3 font-normal text-gray-500 col-span-full"%>
+            <% end %>
             <!-- Card Footer -->
-            <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center justify-between mt-4 col-span-full">
                 <!-- Created at -->
                 <%= tag.p product.created_at, class: "text-sm text-gray-500"%>
                 <!-- Price -->
-                <%= tag.p "#{Product.human_attribute_name('price')}: #{product.price} ₪", 
-                    class: "mb-2 text-xl text-end font-medium  text-gray-600" if ['show', 'products'].eql?([action_name, controller_name])%>
+                <%= tag.label class: "mb-2 text-xl text-end font-medium text-gray-600 flex items-center" do %>
+                    <%= render 'shared/buttons/popover', text: t('product.delivery.price_popover'), icon: 'icons/icons8-info-50.png' %>
+                    <%= "#{Product.human_attribute_name('price')}: #{product.price} ₪" %>
+                <% end if ['show', 'products'].eql?([action_name, controller_name]) %>
                 <!-- View more button -->
                 <%= render 'shared/buttons/view_more', path: product_path(product) unless ['show', 'products'].eql?([action_name, controller_name]) %>
             </div>
-        </div>
+        <% end %>
         <!-- Views -->
         <%= render 'shared/buttons/views', object: product%>
         <!-- Control buttons -->

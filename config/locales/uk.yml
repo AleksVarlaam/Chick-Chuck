@@ -144,6 +144,11 @@ uk:
           average:          'Середнє'
           above_average:    'Вище середнього'
           like_new:         'Як новий'
+      delivery: 
+          da:            'Так'
+          net:           'Самовивіз'
+          price_popover: 'Ціна без врахування доставки'
+      product_by:        'Товар від перевізника'
   comment:
       comments:     'Коментарі'
       reply:        'Відповісти'

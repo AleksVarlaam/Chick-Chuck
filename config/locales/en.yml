@@ -126,6 +126,11 @@ Subscribe to our news to monitor our progress."
           average:          'Average'
           above_average:    'Above average'
           like_new:         'Like new'
+      delivery: 
+          da:            'Yes'
+          net:           'Pickup'
+          price_popover: 'Price excluding delivery'
+      product_by:        'Product by carrier'
   review:
       review_desc:      'Leave your review if you have already used the services of this company and truck. Your opinion is very important to us and helps other users to find an honest professional carrier!'
       add_btn:          'Estimate'

@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   include ImagesAttachments
   include Filterable
   validates_associated :user, :category, :thing
-  validates :title, :condition, :description, :price, :images, presence: true
+  validates :title, :condition, :delivery, :price, :images, presence: true
 
   belongs_to :user, foreign_key: :user_id
   belongs_to :category
@@ -17,6 +17,12 @@ class Product < ApplicationRecord
     [
       [I18n.t('product.condition.below_average'), 1], [I18n.t('product.condition.average'), 2],
       [I18n.t('product.condition.above_average'), 3], [I18n.t('product.condition.like_new'), 4]
+    ]
+  end
+  
+  def self.delivery_select
+    [
+      [I18n.t('product.delivery.da'), 1], [I18n.t('product.delivery.net'), 2]
     ]
   end
 end

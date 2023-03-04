@@ -69,6 +69,7 @@ uk:
                 description:      'Опис'
                 price:            'Ціна'
                 condition:        'Стан'
+                delivery:         'Доставка'
                 images:           'Зображення'
                 sold:             'Продано'
             review:

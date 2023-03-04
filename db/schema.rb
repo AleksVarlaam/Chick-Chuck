@@ -164,6 +164,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_222933) do
     t.string "title", null: false
     t.string "description"
     t.integer "condition", null: false
+    t.integer "delivery", null: false
     t.integer "price", null: false
     t.integer "views", default: 0, null: false
     t.boolean "published", default: true, null: false

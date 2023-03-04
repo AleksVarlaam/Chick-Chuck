@@ -97,7 +97,7 @@ module Users
     private
 
     def product_params
-      params.require(:product).permit(:category_id, :thing_id, :title, :condition, :description, :price, images: [],
+      params.require(:product).permit(:category_id, :thing_id, :title, :condition, :delivery, :description, :price, images: [],
                                                                                                          append_images: [])
     end
 

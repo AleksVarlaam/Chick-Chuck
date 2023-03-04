@@ -12,41 +12,37 @@
       <%= render 'shared/error_messages', resource: @product %>
       <!-- Category id -->
       <%= f.hidden_field :category_id, value: params[:category_id] || @product&.category&.id || @categories[0]%>
-      <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2">
           <!-- Thing type -->
           <div class="flex items-center text-gray-600 justify-center">
-              <div class="flex items-center text-center">
-                  <%= f.label :things, class: "text-lg mr-2" %>
-              </div>
+              <%= f.label :things, class: "text-lg mr-2" %>
               <%= f.collection_select(:thing_id, @things, :id, :title, { prompt: true,  selected: params[:thing_id] || @product&.thing&.id}, 
                 {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
+          <!-- Delivery -->
+          <div class="flex items-center text-gray-600 justify-center">
+              <%= f.label :delivery, class: "text-lg mr-2" %>
+              <%= f.select(:delivery, options_for_select(Product.delivery_select, @product.delivery), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
+          </div>
           <!-- Title -->
           <div class="flex items-center text-gray-600 justify-center">
-              <div class="flex items-center text-center">
-                  <%= f.label :title, class: "text-lg mr-2" %>
-              </div>
+              <%= f.label :title, class: "text-lg mr-2" %>
               <%= f.text_field :title, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", placeholder: Product.human_attribute_name('title'), required: false%>
           </div>
           <!-- Condition -->
           <div class="flex items-center text-gray-600 justify-center">
-              <div class="flex items-center text-center">
-                  <%= f.label :condition, class: "text-lg mr-2" %>
-              </div>
+              <%= f.label :condition, class: "text-lg mr-2" %>
               <%= f.select(:condition, options_for_select(Product.condition_select, @product.condition), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
           <!-- Description -->
           <div class="flex items-center text-gray-600 justify-center col-span-full">
-              <div class="flex items-center text-center">
-                  <%= f.label :description, class: "text-lg mr-2" %>
-              </div>
+              <%= f.label :description, class: "text-lg mr-2" %>
               <%= f.text_area :description, class: "w-full p-2 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", placeholder: Product.human_attribute_name('description'), required: false%>
           </div>
           <!-- Price -->
           <div class="flex items-center text-gray-600 justify-center">
-              <div class="flex items-center text-center">
-                  <%= f.label :price, class: "text-lg mr-2" %>
-              </div>
+              <%= render 'shared/buttons/popover', text: t('product.delivery.price_popover'), icon: 'icons/icons8-info-50.png' %>
+              <%= f.label :price, class: "text-lg mr-2 ml-1" %>
               <%= f.number_field :price, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", placeholder: Product.human_attribute_name('price'), required: false%> ₪
           </div>
       </div>

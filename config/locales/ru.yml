@@ -144,6 +144,11 @@ ru:
           average:          'Среднее'
           above_average:    'Выше среднего'
           like_new:         'Как новый'
+      delivery: 
+          da:            'Да'
+          net:           'Самовывоз'
+          price_popover: 'Цена без учета доставки'
+      product_by:        'Товар от перевозчика'
   comment:
       comments:     'Комментарии'
       reply:        'Ответить'

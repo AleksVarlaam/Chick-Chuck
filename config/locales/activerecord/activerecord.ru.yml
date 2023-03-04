@@ -69,6 +69,7 @@ ru:
                 description:      'Описание'
                 price:            'Цена'
                 condition:        'Состояние'
+                delivery:         'Доставка'
                 images:           'Изображения'
                 sold:             'Продано'
             review:
