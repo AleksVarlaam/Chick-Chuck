@@ -5,8 +5,7 @@
         <%= tag.div class: "p-5 grid #{'sm:grid-cols-2' if ['show', 'products'].eql?([action_name, controller_name])}" do %>
             <div class="col-span-full">
                 <%= tag.div class: "flex justify-center items-center" do %>
-                    <%= tag.span t('product.product_by'), class: 'text-sm text-gray-600 font-medium'%>
-                    <%# image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5')%>
+                    <%= render 'shared/buttons/popover', text: t('product.product_by'), icon: 'icons/icons8-in-transit-50.png' %>
                 <% end if product.user.type == Company.name%>
                 <!-- Title -->
                 <%= tag.h5 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>

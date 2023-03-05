@@ -6,7 +6,7 @@ export default class extends Controller {
 
     connect() {
       if (this.currentUserId && this.currentUserId === this.authorId) {
-        this.boxTarget.classList.add("justify-end")
+        this.boxTarget.classList.add("justify-end", "ml-3")
         this.textTarget.classList.add("bg-blue-400", "rounded-bl-3xl", "rounded-tl-3xl", "rounded-tr-xl")
       } else {
         this.boxTarget.classList.add("justify-start", "ml-3")

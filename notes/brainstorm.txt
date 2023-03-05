@@ -21,7 +21,8 @@ v.1.0:
 18. Create comments in company page ✅
 19. Update show company page ✅
 20. Add column Sold to Products ✅
-21. Create product functional to Clients
+21. Create product functional to Clients ✅
+22. Install gem heroicons and chech all icons
 
 
 v.1.1:
