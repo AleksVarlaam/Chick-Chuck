@@ -1,5 +1,5 @@
 <%= turbo_stream.replace current_company.trucks.new do %>
-  <%= render 'shared/buttons/add', id: current_company.trucks.new, title: t('company_menu.add_truck'), path: new_companies_truck_path%>
+  <%= render 'shared/buttons/add', id: current_company.trucks.new, title: t('truck.add_btn'), path: new_companies_truck_path%>
 <% end %>
 
 <%= turbo_stream.append 'trucks', render('contents/trucks/truck', truck: @truck)%>

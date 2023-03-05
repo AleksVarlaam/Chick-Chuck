@@ -35,14 +35,14 @@ class Truck < ApplicationRecord
 
   def self.assembly_select
     [
-      [I18n.t('truck.da'),
-       1], [I18n.t('truck.net'), 2], [I18n.t('truck.only_assembly'), 3], [I18n.t('truck.only_disassembly'), 4]
+      [I18n.t('global.da'),
+       1], [I18n.t('global.net'), 2], [I18n.t('truck.assembly.only_assembly'), 3], [I18n.t('truck.assembly.only_disassembly'), 4]
     ]
   end
 
   def self.packing_select
     [
-      [I18n.t('truck.da'), 1], [I18n.t('truck.net'), 2]
+      [I18n.t('global.da'), 1], [I18n.t('global.net'), 2]
     ]
   end
 end

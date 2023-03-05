@@ -2,7 +2,7 @@
 
 <div class="flex items-center">
     <!-- Became Carrier -->
-    <%= link_to t('pages.become'), new_company_registration_path, class: "hidden xl:block mr-4 whitespace-nowrap text-base font-medium  hover:text-gray-900 #{current_page?(new_company_registration_path) ? 'text-gray-900' : 'text-gray-500'}"%>
+    <%= link_to t('company.sign_up'), new_company_registration_path, class: "hidden xl:block mr-4 whitespace-nowrap text-base font-medium  hover:text-gray-900 #{current_page?(new_company_registration_path) ? 'text-gray-900' : 'text-gray-500'}"%>
     <!-- Guest menu dropdown -->
     <div 
       class="relative z-50"
@@ -45,7 +45,7 @@
         data-transition-leave-to="opacity-0 scale-95"
     >
         <!-- Sign In -->
-        <%= link_to t('guest_menu.sign_in'), new_client_session_path, 
+        <%= link_to t('user_menu.sign_in'), new_client_session_path, 
             class: "font-medium block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", 
             data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
             role: "menuitem",
@@ -54,7 +54,7 @@
         %>
     
         <!-- Sign Up -->
-        <%= link_to t('guest_menu.sign_up'), new_client_registration_path, 
+        <%= link_to t('user_menu.sign_up'), new_client_registration_path, 
             class: "font-medium block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", 
             data: {action: "dropdown#toggle"}, 
             role: "menuitem",
@@ -72,7 +72,7 @@
             id: "signInLink" do
         %>
             <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 mr-2")%>
-            <%= t('guest_menu.sign_in')%>
+            <%= t('user_menu.sign_in')%>
         <% end %>
     
         <!-- Become a Carrier -->
@@ -84,7 +84,7 @@
             id:"become-a-Carrier-link" do
         %>
             <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 mr-2")%>
-            <%= t('pages.become')%>
+            <%= t('company.sign_up')%>
         <% end %>
     
     </div>

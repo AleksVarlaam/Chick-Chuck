@@ -20,6 +20,8 @@ ru:
       image:            'Изображение'
       unavailable_html: "Наш сервис только запущен и на данный момент %{model} отсутствуют, пожалуйста, зайдите позже.<br> 
 Подпишитесь на наши новости чтобы следить за нашим развитием."
+      da:               'Да'
+      net:              'Нет' 
   # Flash
   flash:
       type:
@@ -36,151 +38,10 @@ ru:
           destroyed:    "%{model} успешно удален(а)."
           published:    "%{model} успешно опубликован(а) в общий просмотр." 
           hided:        "%{model} успешно скрыт(а) из общего просмотра."
-      alert:       'Что-то пошло не так.'
-  # Popover
-  popover:
-      telegram:     'Ваш telegram username как он есть'
-      facebook:     'Скопируйте и вставте ссылку на ваш Facebook'
-  # Contents section
-  pages: 
-      home:         'Главная'
-      calculator:   'Калькулятор'
-      trucks:       'Грузовики'
-      preparation:  'Подготовка'
-      market:       'Барахолка'
-      news:         'Новости'
-      become:       'Стать перевозчиком'
-  guest_menu:   
-      sign_in:          'Войти'
-      sign_up:          'Зарегистрироваться'
-  sign_in:
-      title:            'Вход'
-      title_as_company: 'Вход для компании'
-      as_company:       'Чтобы войти как компания'
-      click_here:       'Нажми здесь'
-      login_place:      'Введите email или номер телефона'
-      password_place:   'Введите пароль'
-      remember_me:      'Запомнить меня'
-      forgot:           'Забыли пароль?'
-      or:               'Или'
-      facebook:         'С помощью Facebook'
-      google:           'С помощью Google'
-      btn:              'Войти'
-      account:          'У вас нет аккаунта?'
-      register:         'Создать аккаунт'
-  reset_password:
-      title:            'Восстановление пароля'
-      email_place:      'Введите ваш email'
-      send_btn:         'Отправить мне инструкции по сбросу пароля'
-  sign_up:
-      title:    'Регистрация'
-      btn:      'Создать аккаунт'
-  user_menu:
-      dashboard:    'Панель управления'
-      chats:        'Чаты'
-      profile:      'Профиль'
-      credential:   'Безопасность'
-      sign_out:     'Выйти'
-  admin_menu:
-      lang_dist:    'Языки и регионы'
-      add_news:     'Добавить новость'
-      news:         'Новости'
-      catalog:      'Каталог'
-  company_menu:
-      add_truck:    'Добавить грузовик'
-      edit_truck:   'Изменить грузовик'
-      trucks:       'Мои грузовики'
-      truck:        'Грузовик'
-      add_product:  'Добавить товар'
-      edit_product: 'Изменить товар'
-      products:     'Мои товары'
-      company_info: 'О компании'
-  admin:   
-      add_language:     'Добавить язык'
-      edit_language:    'Изменить язык'
-      add_category:     'Добавить категорию'
-      edit_category:    'Изменить категорию'
-      add_thing:        'Добавить вещь'
-      edit_new:         'Редактировать новость'
-      add_district:     'Добавить регион'
-      add_body_type:    'Добавить тип'
-  chat:
-      search:           'Поиска чата'
-  truck:
-      da:               'Да'
-      net:              'Нет'
-      only_assembly:    'Только сборка'
-      only_disassembly: 'Только разборка'
-      body_type:
-          tent:              'Тент'
-          isometric:         'Изометрический'
-          side_body:         'Бортовой(открытый)'
-          trailer_tent:      'Прицеп(тент)'
-          trailer_isometric: 'Прицеп(изометрия)'
-          trailer_side_body: 'Прицеп(открытый)'   
-  review:
-      review_desc:      'Оставьте свой отзыв, если вы уже пользовались услугами этой компании и грузовика. Ваше мнение очень важно для нас и помогает другим пользователям найти честного профессионального перевозчика!'
-      add_btn:          'Оценить грузовик'
-      edit_btn:         'Изменить оценку'
-  calculator:
-      title:        'Калькулятор стоимости'
-      btn:          'Рассчитать'
-      km_span:      '₪ За 1 км.'
-      floor_span:   '% за 1 этаж'
-      options:      'Опции'
-      find_btn:     'Найти грузовик'
-      price:        'Цена за 1 шт.'
-  price:
-      title:        'Название'
-      price:        'Цена'     
-  market:
-      products:      'товары'
-      user_products: 'Товары %{user_name}'
-      all_products:  'Все товары'
-  product:
-      mark_as_sold:     'Отметить как продано'
-      condition:
-          below_average:    'Ниже среднего'
-          average:          'Среднее'
-          above_average:    'Выше среднего'
-          like_new:         'Как новый'
-      delivery: 
-          da:            'Да'
-          net:           'Самовывоз'
-          price_popover: 'Цена без учета доставки'
-      product_by:        'Товар от перевозчика'
-  comment:
-      comments:     'Комментарии'
-      reply:        'Ответить'
-      edit:         'Изменить'
-      delete:       'Удалить'
-      placeholder:  'Ваше сообщение...'
-      updated:      'Изменено'
-      need_to_signin: 'Чтобы оставить комментарий, необходимо '
-  become_a_carrier:
-      title:        'Регистрация компании'
-      credential:   'Данные входа'
-      personal:     'Персональные данные'
-      contacts:     'Контакты'
-      company:      'О компании'
-      languages:    'Выберите языки, на которых вы говорите'
-  company:
-      we_speak:     'Мы говорим на: '
-      message:      'Написать'
-      all_trucks:   'Всего грузовиков'
-      contacts:     'Показать Контакты'
-      say_truck_number: 'Примечание: скажите номер грузовика, чтобы заказать конкретный грузовик!'
-  notification:
-      comment:        'Прокомментировал'
-      reply:          'Ответил на ваш комментарий в'
-      reply_truck:    'Грузовике'    
-      review_truck:   'Поставил оценку грузовику'
-      no_notice:      'Нету уведомлений'
-  sure_to_del_account:  'Вы уверены, что хотите удалить ваш аккаунт?'
-  mailers:
-      flash:
+      alert:        'Что-то пошло не так.' 
+      mailers:
           success:  'Вы успешно подписались на наши новости!'
           info:     'Данный email уже существует, пожалуйста, проверьте ваш email или ждите от нас новых новостей!'
   time:
       formats:
-        date: "%d %B %Y"
+          date:         "%d %B %Y"

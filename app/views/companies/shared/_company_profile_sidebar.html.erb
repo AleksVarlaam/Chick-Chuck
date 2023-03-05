@@ -55,7 +55,7 @@
         </li>
         
         <hr>
-        <!-- New truck page -->
+        <!-- New truck -->
         <li>
         <%= link_to new_companies_truck_path, 
             class: "flex items-center text-base space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-100 focus:bg-gray-200 focus:shadow-outline", 
@@ -65,7 +65,7 @@
             id:"profilePageLink" do
         %>
             <%= heroicon "plus-circle", class: "w-4 h-4 mr-2" %>
-            <%= t('company_menu.add_truck')%>
+            <%= t('truck.add_btn')%>
         <% end %>
         </li>
         
@@ -79,7 +79,7 @@
             id:"profilePageLink" do
         %>
             <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 mr-2")%>
-            <%= t('company_menu.trucks')%>
+            <%= t('truck.my_trucks')%>
         <% end %>
         </li>
         
@@ -94,11 +94,11 @@
             id:"profilePageLink" do
         %>
             <%= heroicon "plus-circle", class: "w-4 h-4 mr-2" %>
-            <%= t('company_menu.add_product')%>
+            <%= t('product.add_btn')%>
         <% end %>
         </li>
         
-        <!-- All products -->
+        <!-- My products -->
         <li>
         <%= link_to users_products_path, 
             class: "flex items-center text-base space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-100 focus:bg-gray-200 focus:shadow-outline", 
@@ -108,7 +108,7 @@
             id:"profilePageLink" do
         %>
             <%= image_tag(asset_path('icons/icons8-lounge-50.png'), class: "w-4 h-4 mr-2")%>
-            <%= t('company_menu.products')%>
+            <%= t('product.my_products')%>
         <% end %>
         </li>
         
@@ -137,7 +137,7 @@
             id:"password&SecurityLink" do 
         %>
             <%= heroicon "building-office", class: "w-4 h-4 mr-2" %>
-            <%= t('company_menu.company_info')%>
+            <%= t('company.about')%>
         <% end %>
         </li>
 

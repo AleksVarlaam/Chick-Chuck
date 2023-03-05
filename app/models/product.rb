@@ -22,7 +22,7 @@ class Product < ApplicationRecord
 
   def self.delivery_select
     [
-      [I18n.t('product.delivery.da'), 1], [I18n.t('product.delivery.net'), 2]
+      [I18n.t('global.da'), 1], [I18n.t('product.delivery.pickup'), 2]
     ]
   end
 end

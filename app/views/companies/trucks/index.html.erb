@@ -1,7 +1,7 @@
-<% currently_at t('company_menu.trucks') %>
-<% provide :page_title, t('company_menu.trucks') %>
-<% provide :main_title, "#{t('company_menu.trucks')}: #{@trucks.count}" %>
-<% provide :nav_title, t('company_menu.trucks') %>
+<% currently_at t('truck.my_trucks') %>
+<% provide :page_title, t('truck.my_trucks') %>
+<% provide :main_title, "#{t('truck.my_trucks')}: #{@trucks.count}" %>
+<% provide :nav_title, t('truck.my_trucks') %>
 <% provide :nav_path, companies_trucks_path %>
 
 <!-- Trucks Cards -->
@@ -16,4 +16,4 @@
 
 <!-- New truck -->
 <hr class="my-6">
-<%= render 'shared/buttons/add', id: current_company.trucks.new, title: t('company_menu.add_truck'), path: new_companies_truck_path%>
+<%= render 'shared/buttons/add', id: current_company.trucks.new, title: t('truck.add_btn'), path: new_companies_truck_path%>

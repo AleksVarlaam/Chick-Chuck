@@ -126,7 +126,7 @@
  
   <!-- Delete account -->
   <div class="flex justify-end col-span-1 -mt-7">
-      <%= link_to admin_registration_path, data: { turbo_method: :delete, turbo_confirm: t('global.are_you_sure') }, class: "justify-end items-center flex mx-0 leading-5 text-gray-700 " do %>
+      <%= link_to admin_registration_path, data: { turbo_method: :delete, turbo_confirm: t('sure_to_del_account') }, class: "justify-end items-center flex mx-0 leading-5 text-gray-700 " do %>
           <%= image_tag(asset_path('icons/icons8-remove-32.png'), class: 'w-5 h-5 mr-2')%>
           <%= User.human_attribute_name('delete_account')%>
       <% end %>

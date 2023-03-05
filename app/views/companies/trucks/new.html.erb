@@ -1,15 +1,15 @@
-<% currently_at t('company_menu.add_truck') %>
-<% provide :page_title, t('company_menu.add_truck') %>
-<% provide :main_title, t('company_menu.add_truck') %>
-<% provide :parent_title, t('company_menu.trucks') %>
+<% currently_at t('truck.add_btn') %>
+<% provide :page_title, t('truck.add_btn') %>
+<% provide :main_title, t('truck.add_btn') %>
+<% provide :parent_title, t('truck.my_trucks') %>
 <% provide :parent_path, companies_trucks_path %>
-<% provide :nav_title, t('company_menu.add_truck') %>
+<% provide :nav_title, t('truck.add_btn') %>
 <% provide :nav_path, new_companies_truck_path %>
 
 <!-- Form new truck -->
 <%= render "form"%>
 
-<%= link_to t('company_menu.trucks'), companies_trucks_path, 
+<%= link_to t('truck.my_trucks'), companies_trucks_path, 
     class: "mt-6 rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-200 inline-block font-medium"
 %>
 

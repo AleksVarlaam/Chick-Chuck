@@ -25,7 +25,7 @@
         <%= render partial: 'admins/catalog/things/thing', collection: category.things%>
     <% end %>
     <!-- Add thing -->
-    <%= render 'shared/buttons/add', id: dom_id(category, "thing_form"), title: t('admin.add_thing'), path: new_admins_category_thing_path(category)%>
+    <%= render 'shared/buttons/add', id: dom_id(category, "thing_form"), title: t('thing.add_btn'), path: new_admins_category_thing_path(category)%>
 <% end %>
 
 

@@ -20,7 +20,7 @@
 <% end %>
 
 <!-- Add district -->
-<%= render 'shared/buttons/add', id: dom_id(District.new), title: t('admin.add_district'), path: new_admins_district_path%>
+<%= render 'shared/buttons/add', id: dom_id(District.new), title: t('district.add_btn'), path: new_admins_district_path%>
 
 <div class="my-6"><hr></div>
 
@@ -34,5 +34,5 @@
 
 <!-- New language -->
 <div class="mt-6">
-    <%= render 'shared/buttons/add', id: dom_id(Language.new), title: t('admin.add_language'), path: new_admins_language_path%>
+    <%= render 'shared/buttons/add', id: dom_id(Language.new), title: t('language.add_btn'), path: new_admins_language_path%>
 </div>
