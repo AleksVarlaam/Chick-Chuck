@@ -59,7 +59,6 @@ Rails.application.routes.draw do
       resource :profile, only: %i[edit update]
       get '/dashboard', to: 'dashboard#index', as: 'dashboard'
     end
-
     # Users
     namespace :users do
       resources :products, except: %i[show] do
@@ -99,6 +98,7 @@ Rails.application.routes.draw do
       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
         resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
       end
+
       # Products
       resources :products, only: %i[index show], controller: 'contents/products'
       get 'seller/:user_id/user_products', to: 'contents/products#user_products', as: 'user_products'

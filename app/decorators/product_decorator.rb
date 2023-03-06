@@ -32,7 +32,7 @@ class ProductDecorator < ApplicationDecorator
   def delivery_name
     case product.delivery
     when 1 then h.image_tag(h.asset_path('icons/icons8-done-40.png'), class: 'ml-2 w-5 h-5')
-    when 2 then h.image_tag(h.asset_path('icons/icons8-cancel-40.png'), class: 'ml-2 w-5 h-5')
+    when 2 then (h.heroicon 'x-mark', class: 'ml-2 w-5 h-5 text-red-700')
     end
   end
 end

@@ -29,7 +29,7 @@
         <% end %>
     </div>
     <!-- All trucks -->
-    <%= link_to "#{t('company.all_trucks')}: #{company.trucks.published.count}", user_path(id: company), 
+    <%= link_to "#{t('company.all_trucks')}: #{company.trucks.published.count}", company_trucks_path(company), 
         class: "text-md font-medium hover:underline text-gray-500 mb-3", 
         data: { turbo_frame: '_top' }, target: "_blank"
     %>
