@@ -42,6 +42,7 @@ Subscribe to our news to monitor our progress."
       mailers:
           success:      'You have successfully subscribed to our news!'
           info:         'This email already exists, please check your email or expect new news from us!'
+  # Date and Time
   time:
       formats:
-          date: "%d %B %Y"
+          date:         "%d %B %Y"

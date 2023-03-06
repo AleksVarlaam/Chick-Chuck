@@ -32,3 +32,5 @@ ru:
         reply_truck:      'Грузовике'    
         review_truck:     'Поставил оценку грузовику'
         no_notice:        'Нету уведомлений'
+    price:
+        title:            'Название'

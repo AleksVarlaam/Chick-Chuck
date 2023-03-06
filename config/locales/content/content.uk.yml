@@ -1,0 +1,52 @@
+uk:
+    pages: 
+        home:             'Головна'
+        calculator:       'Калькулятор'
+        trucks:           'Вантажівки'
+        preparation:      'Підготовка'
+        market:           'Барахолка'
+        news:             'Новини'
+    truck:
+        add_btn:          'Додати вантажівку'
+        edit_btn:         'Змінити вантажівку'
+        my_trucks:        'Мої вантажівки'
+        assembly:
+            only_assembly:     'Тільки зібрати'
+            only_disassembly:  'Тільки розібрати'
+        body_type:
+            tent:              'Тент'
+            isometric:         'Ізометричний'
+            side_body:         'Бортовий(відкритий)'
+            trailer_tent:      'Причіп(тент)'
+            trailer_isometric: 'Причіп(ізометрія)'
+            trailer_side_body: 'Причіп(відкритий)'
+    product:
+        add_btn:          'Додати товар'
+        edit_btn:         'Змінити товар'
+        my_products:      'Мої товари'
+        title:            'Назва'
+        mark_as_sold:     'Марка як продана'
+        product_by:       'Товар від перевізника'
+        products:         'товари'
+        user_products:    'Товари %{user_name}'
+        all_products:     'Всі товари'
+        condition:
+            below_average:    'Нижче середнього'
+            average:          'Середнє'
+            above_average:    'Вище середнього'
+            like_new:         'Як новий'
+        delivery: 
+            pickup:           'Самовивіз'
+            price_popover:    'Ціна без врахування доставки'
+    calculator:
+        title:            'Калькулятор вартості'
+        btn:              'Розрахувати'
+        km_span:          '₪ За 1 км.'
+        floor_span:       '% за 1 поверх'
+        options:          'Опції'
+        find_btn:         'Знайти вантажівку'
+        price:            'Ціна за 1 шт.'
+    news:
+        all_news:         'Новини'
+        add_btn:          'Додати новини'
+        edit_btn:         'Редагувати новину'

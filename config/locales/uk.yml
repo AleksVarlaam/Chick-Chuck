@@ -20,6 +20,8 @@ uk:
       image:            'Зображення'
       unavailable_html: "Наш сервіс тільки запущений і на даний момент %{model} відсутні, будь ласка, зайдіть пізніше.<br> 
 Підпишіться на наші новини щоб слідкувати за нашим развитком."
+      da:               'Так'
+      net:              'Ні'
   # Flash
   flash:
       type:
@@ -37,150 +39,10 @@ uk:
           published:    "%{model} успішно опублікований(а) в загальний перегляд." 
           hided:        "%{model} успішно прихований(а) з загального перегляду."
       alert:       'Щось пішло не так.'
-  # Popover
-  popover:
-      telegram:     'Ваш telegram username як він є'
-      facebook:     'Скопіюйте і вставте посилання на ваш Facebook'
-  # Contents section
-  pages: 
-      home:         'Головна'
-      calculator:   'Калькулятор'
-      trucks:       'Вантажівки'
-      preparation:  'Підготовка'
-      market:       'Барахолка'
-      news:         'Новини'
-      become:       'Стати перевізником'
-  guest_menu:   
-      sign_in:          'Увійти'
-      sign_up:          'Зареєструватися'
-  sign_in:
-      title:            'Вхід'
-      title_as_company: 'Вхід для компанії'
-      as_company:       'Для того щоб увійти як компанія'
-      click_here:       'Натисни тут'
-      login_place:      'Введіть email або номер телефону'
-      password_place:   'Введіть пароль'
-      remember_me:      'Запамʼятати мене'
-      forgot:           'Забули пароль?'
-      or:               'Або'
-      facebook:         'За допомогою Facebook'
-      google:           'За допомогою Google'
-      btn:              'Увійти'
-      account:          'У вас немає акаунту?'
-      register:         'Створити акаунт'
-  reset_password:
-      title:            'Відновлення пароля'
-      email_place:      'Введіть ваш email'
-      send_btn:         'Надіслати мені інструкції зі скидання пароля'
-  sign_up:
-      title:    'Реєстрація'
-      btn:      'Створити акаунт'
-  user_menu:
-      dashboard:    'Панель управління'
-      chats:        'Чати'
-      profile:      'Профіль'
-      credential:   'Безпека'
-      sign_out:     'Увійти'
-  admin_menu:
-      lang_dist:    'Мови та регіони'
-      add_news:     'Додати новини'
-      news:         'Новини'
-      catalog:      'Каталог'
-  company_menu:
-      add_truck:    'Додати вантажівку'
-      edit_truck:   'Змінити вантажівку'
-      trucks:       'Мої вантажівки'
-      truck:        'Вантажівка'
-      add_product:  'Додати товар'
-      edit_product: 'Змінити товар'
-      products:     'Мої товари'
-      company_info: 'Про компанію'
-  admin:   
-      add_language:     'Додати мову'
-      edit_language:    'Змінити мову'
-      add_category:     'Додати категорію'
-      edit_category:    'Змінити категорію'
-      add_thing:        'Додати річ'
-      edit_new:         'Редагувати новину'
-      add_district:     'Додати регіон'
-      add_body_type:    'Додати тип'
-  chat:
-      search:           'Пошук чату'
-  truck:
-      da:               'Так'
-      net:              'Ні'
-      only_assembly:    'Тільки зібрати'
-      only_disassembly: 'Тільки розібрати'
-      body_type:
-          tent:              'Тент'
-          isometric:         'Ізометричний'
-          side_body:         'Бортовий(відкритий)'
-          trailer_tent:      'Причіп(тент)'
-          trailer_isometric: 'Причіп(ізометрія)'
-          trailer_side_body: 'Причіп(відкритий)'   
-  review:
-      review_desc:      'Залишіть свій відгук, якщо ви вже користувалися послугами цієї компанії та вантажівки. Ваша думка дуже важлива для нас і допомагає іншим користувачам знайти чесного професійного перевізника!'
-      add_btn:          'Оцінити вантажівку'
-      edit_btn:         'Змінити оцінку'
-  calculator:
-      title:        'Калькулятор вартості'
-      btn:          'Розрахувати'
-      km_span:      '₪ За 1 км.'
-      floor_span:   '% за 1 поверх'
-      options:      'Опції'
-      find_btn:     'Знайти вантажівку'
-      price:        'Ціна за 1 шт.'
-  price:
-      title:        'Назва'
-      price:        'Ціна'     
-  market:
-      products:     'товари'
-      user_products: 'Товари %{user_name}'
-      all_products:  'Всі товари'
-  product:
-      mark_as_sold:     'Марка як продана'
-      condition:
-          below_average:    'Нижче середнього'
-          average:          'Середнє'
-          above_average:    'Вище середнього'
-          like_new:         'Як новий'
-      delivery: 
-          da:            'Так'
-          net:           'Самовивіз'
-          price_popover: 'Ціна без врахування доставки'
-      product_by:        'Товар від перевізника'
-  comment:
-      comments:     'Коментарі'
-      reply:        'Відповісти'
-      edit:         'Змінити'
-      delete:       'Видалити'
-      placeholder:  'Ваше повідомлення...'
-      updated:      'Змінено'
-      need_to_signin: 'Для того щоб залишити коментар, необхідно '
-  become_a_carrier:
-      title:        'Реєстрація компанії'
-      credential:   'Дані входу'
-      personal:     'Персональні дані'
-      contacts:     'Контакти'
-      company:      'Про компанію'
-      languages:    'Оберіть мови, на яких ви спілкуєтесь'
-  company:
-      we_speak:     'Ми спілкуємось на: '
-      message:      'Написати'
-      all_trucks:   'Всього вантажівок'
-      contacts:     'Показати Контакти'
-      say_truck_number: 'Примітка: вкажіть номер вантажівки, для того щоб замовити конкретну вантажівку!'
-  notification:
-      comment:        'Прокоментував'
-      reply:          'Відповів на ваш коментар у'
-      reply_truck:    'Вантажівці'    
-      review_truck:   'Поставив оцінку вантажівці'
-      no_notice:      'Немає повідомлень'
-  sure_to_del_account:  'Ви впевнені, що хочете видалити ваш акаунт?'
-  mailers:
-      flash:
-          success:  'Ви успішно підписалися на наші новини!'
-          info:     'Даний email вже існує, будь ласка, перевірте ваш email або чекайте від нас нових новин!'
+      mailers:
+          success:      'Ви успішно підписалися на наші новини!'
+          info:         'Даний email вже існує, будь ласка, перевірте ваш email або чекайте від нас нових новин!'
+  # Date and Time
   time:
       formats:
-        date: "%d %B %Y"
+          date:         "%d %B %Y"
