@@ -1,7 +1,7 @@
-<% currently_at t('admin.edit_new') %>
-<% provide :page_title, t('admin.edit_new') %>
-<% provide :nav_title, t('admin.edit_new') %>
-<% provide :nav_path, edit_admins_news_path(@new) %>
-<% provide :main_title, t('admin.edit_new') %>
+<% currently_at t('news.edit_btn') %>
+<% provide :page_title, t('news.edit_btn') %>
+<% provide :nav_title, t('news.edit_btn') %>
+<% provide :nav_path, edit_newss_news_pbtn(@new) %>
+<% provide :main_title, t('news.edit_btn') %>
 
 <%= render 'form', path: admins_news_path, method: :put%>

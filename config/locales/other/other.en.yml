@@ -1,0 +1,34 @@
+en:
+    chat:
+        search:           'Search chatting'
+    language:
+        language_select:  'Select the languages you speak'
+        add_btn:          'Add language'
+        edit_btn:         'Edit language'
+    category:
+        add_btn:          'Add category'
+        edit_btn:         'Edit category'
+    thing:
+        add_btn:          'Add thing'
+    district:
+        add_btn:          'Add district'
+    body_type:
+        add_btn:          'Add type'
+    review:
+        review_desc:      'Leave your review if you have already used the services of this company and truck. Your opinion is very important to us and helps other users to find an honest professional carrier!'
+        add_btn:          'Estimate %{model}'
+        edit_btn:         'Edit review'   
+    comment:
+        comments:         'Comments'
+        reply:            'Reply'
+        edit:             'Edit'
+        delete:           'Delete'
+        placeholder:      'Your message...'
+        updated:          'Edited'
+        need_to_signin:   'To add a comment you need to '
+    notification:
+        comment:          'Commented on the'
+        reply:            'Reply on your comment on the'
+        reply_truck:      'Truck'
+        review_truck:     'Rated the truck'
+        no_notice:        'No notice'

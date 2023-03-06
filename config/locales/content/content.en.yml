@@ -1,0 +1,52 @@
+en:
+    pages: 
+        home:             'Home'
+        calculator:       'Calculator'
+        trucks:           'Trucks'
+        preparation:      'Preparation'
+        market:           'Market'
+        news:             'News'    
+    truck:
+        add_btn:          'Add truck'
+        edit_btn:         'Edit truck'
+        my_trucks:        'My trucks'
+        assembly:
+            only_assembly:     'Only assembly'
+            only_disassembly:  'Only disassembly'
+        body_type:
+            tent:              'Tent'
+            isometric:         'Isometric'
+            side_body:         'Side body(open)'
+            trailer_tent:      'Trailer(Tent)'
+            trailer_isometric: 'Trailer(isometric)'
+            trailer_side_body: 'Trailer(open)'    
+    product:
+        add_btn:          'Add product'
+        edit_btn:         'Edit product'
+        my_products:      'My products'
+        title:            'Title'
+        mark_as_sold:     'Mark as sold'
+        product_by:       'Product by carrier'
+        products:         'products'
+        user_products:    'Products %{user_name}'
+        all_products:     'All products'
+        condition:
+            below_average:    'Below average'
+            average:          'Average'
+            above_average:    'Above average'
+            like_new:         'Like new'
+        delivery: 
+            pickup:           'Pickup'
+            price_popover:    'Price excluding delivery'
+    calculator:
+        title:            'Cost Calculator'
+        btn:              'Calculate'
+        km_span:          '₪ per 1 km'
+        floor_span:       '% per 1 floor'
+        options:          'Options'
+        find_btn:         'Find truck'
+        price:            'Price per unit'
+    news:
+        all_news:         'News'
+        add_btn:          'Add news'
+        edit_btn:         'Edit new'

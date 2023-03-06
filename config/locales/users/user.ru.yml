@@ -9,8 +9,6 @@ ru:
         credential:       'Безопасность'
     admin_menu:
         lang_dist:        'Языки и регионы'
-        add_news:         'Добавить новость'
-        news:             'Новости'
         catalog:          'Каталог'
     company:
         sign_up:          'Стать перевозчиком'
@@ -47,7 +45,6 @@ ru:
         credential:       'Данные входа'
         personal:         'Персональные данные'
         contacts:         'Контакты'
-        company:          'О компании'
     telegram:
         telegram_popover: 'Ваш telegram username как он есть'
     facebook:

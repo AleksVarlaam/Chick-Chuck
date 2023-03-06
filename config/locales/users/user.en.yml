@@ -1,0 +1,53 @@
+en:
+    user_menu:   
+        sign_in:          'Sign In'
+        sign_up:          'Sign Up'
+        sign_out:         'Sign Out'
+        dashboard:        'Dashboard'
+        chats:            'Chats'
+        profile:          'Profile'
+        credential:       'Credentials'
+    admin_menu:
+        lang_dist:        'Languages and districts'
+        catalog:          'Catalog'
+    company:
+        sign_up:          'Become a Carrier'
+        about:            'About company'
+        we_speak:         'We speak on: '
+        message:          'Write'
+        all_trucks:       'Total trucks'
+        contacts:         'Show contacts'
+        say_truck_number: 'Note: say truck number to order this current truck!'
+    sign_in:
+        title:            'Sign In'
+        title_as_company: 'Sign In as company'
+        as_company:       'To sign in as company'
+        click_here:       'Click here'
+        login_place:      'Enter your email or phone number'
+        password_place:   'Enter password'
+        remember_me:      'Remember me'
+        forgot:           'Forgot password?'
+        or:               'Or'
+        facebook:         'Sign in with Facebook'
+        google:           'Sign in with Google'
+        btn:              'Log In'
+        account:          "Don't have an account?"
+        register:         'Register'
+    reset_password:
+        title:            'Password recovery'
+        email_place:      'Enter your email'
+        send_btn:         'Send me reset password instructions'
+    sign_up:
+        title:            'Registration'
+        btn:              'Create account'
+    become_a_carrier:
+        title:            'Company registration'
+        credential:       'Credential information'
+        personal:         'Personal information'
+        contacts:         'Contacts'
+    telegram:
+        telegram_popover: 'Your telegram username as it is'
+    facebook:
+        facebook_popover: 'Copy and past your Facebook link'
+    sure_to_del_account:  'Are you sure you want to delete your account?'
+        

@@ -1,8 +1,8 @@
-<% currently_at t('admin_menu.news') %>
-<% provide :page_title, t('admin_menu.news') %>
-<% provide :nav_title, t('admin_menu.news') %>
+<% currently_at t('news.all_news') %>
+<% provide :page_title, t('news.all_news') %>
+<% provide :nav_title, t('news.all_news') %>
 <% provide :nav_path, admins_news_index_path %>
-<% provide :main_title, t('admin_menu.news') %>
+<% provide :main_title, t('news.all_news') %>
 
 <!-- Latest News -->
 <%= turbo_frame_tag 'news',
@@ -15,5 +15,5 @@
 
 <!-- Add New -->
 <hr class="my-6">
-<%= render 'shared/buttons/add', id: dom_id(News.new, 'form'), title: t('admin_menu.add_news'), path: new_admins_news_path%>
+<%= render 'shared/buttons/add', id: dom_id(News.new, 'form'), title: t('news.add_news'), path: new_admins_news_path%>
 

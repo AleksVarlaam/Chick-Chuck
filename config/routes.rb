@@ -66,6 +66,8 @@ Rails.application.routes.draw do
         post '/publish',      to: 'products#publish',             as: 'publish'
         post '/mark_as_sold', to: 'products#mark_as_sold',        as: 'mark_as_sold'
       end
+      # Email subscribers
+      resources :mailers, only: [:create]
     end
 
     # Contents
@@ -122,9 +124,6 @@ Rails.application.routes.draw do
 
     # Notifications
     resources :notifications, only: [:index], controller: 'feedbacks/notifications'
-
-    # Email subscribers
-    resources :mailers, only: [:create]
 
     # Root path
     root to: 'contents/main#index'

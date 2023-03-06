@@ -6,7 +6,6 @@ en:
   # Global
   global:
       save_btn:         'Save'
-      delete_account:   'Delete my account'
       are_you_sure:     'Are you sure?'
       select:           'Select: '
       destroy_btn:      'Destroy'
@@ -21,6 +20,8 @@ en:
       image:            'Image'
       unavailable_html: "Our service is just launched and the %{model} are currently unavailable, please come back later.<br>
 Subscribe to our news to monitor our progress."
+      da:               'Yes'
+      net:              'No'
   # Flash
   flash:
       type:
@@ -38,150 +39,9 @@ Subscribe to our news to monitor our progress."
           published:    "%{model} has been published successfully to general view." 
           hided:        "%{model} has been hided successfully from general view."
       alert:       'Something went wrong.'
-  # Popover
-  popover:
-      telegram:     'Your telegram username as it is'
-      facebook:     'Copy and past your Facebook link'
-  # Contents section
-  pages: 
-      home:         'Home'
-      calculator:   'Calculator'
-      trucks:       'Trucks'
-      preparation:  'Preparation'
-      market:       'Market'
-      news:         'News'
-      become:       'Become a Carrier'
-  guest_menu:   
-      sign_in:          'Sign In'
-      sign_up:          'Sign Up'
-  sign_in:
-      title:            'Sign In'
-      title_as_company: 'Sign In as company'
-      as_company:       'To sign in as company'
-      click_here:       'Click here'
-      login_place:      'Enter your email or phone number'
-      password_place:   'Enter password'
-      remember_me:      'Remember me'
-      forgot:           'Forgot password?'
-      or:               'Or'
-      facebook:         'Sign in with Facebook'
-      google:           'Sign in with Google'
-      btn:              'Log In'
-      account:          "Don't have an account?"
-      register:         'Register'
-  reset_password:
-      title:            'Password recovery'
-      email_place:      'Enter your email'
-      send_btn:         'Send me reset password instructions'
-  sign_up:
-      title:    'Registration'
-      btn:      'Create account'
-  user_menu:
-      dashboard:    'Dashboard'
-      chats:        'Chats'
-      profile:      'Profile'
-      credential:   'Credentials'
-      sign_out:     'Sign Out'
-  admin_menu:
-      lang_dist:    'Languages and districts'
-      add_news:     'Add news'
-      news:         'News'
-      catalog:      'Catalog'
-  company_menu:
-      add_truck:    'Add truck'
-      edit_truck:   'Edit truck'
-      trucks:       'Trucks'
-      truck:        'Truck'
-      add_product:  'Add product'
-      edit_product: 'Edit product'
-      products:     'My products'
-      company_info: 'Company info'
-  admin:    
-      add_language:     'Add language'
-      edit_language:    'Edit language'
-      add_category:     'Add category'
-      edit_category:    'Изменить категорию'
-      add_thing:        'Add thing'
-      edit_new:         'Edit new'
-      add_district:     'Add district'
-      add_body_type:    'Add type'
-  chat:
-      search:           'Search chatting'
-  truck:
-      da:               'Yes'
-      net:              'No'
-      only_assembly:    'Only assembly'
-      only_disassembly: 'Only disassembly'
-      body_type:
-          tent:              'Tent'
-          isometric:         'Isometric'
-          side_body:         'Side body(open)'
-          trailer_tent:      'Trailer(Tent)'
-          trailer_isometric: 'Trailer(isometric)'
-          trailer_side_body: 'Trailer(open)' 
-  product:
-      mark_as_sold:     'Mark as sold'
-      condition:
-          below_average:    'Below average'
-          average:          'Average'
-          above_average:    'Above average'
-          like_new:         'Like new'
-      delivery: 
-          da:            'Yes'
-          net:           'Pickup'
-          price_popover: 'Price excluding delivery'
-      product_by:        'Product by carrier'
-  review:
-      review_desc:      'Leave your review if you have already used the services of this company and truck. Your opinion is very important to us and helps other users to find an honest professional carrier!'
-      add_btn:          'Estimate'
-      edit_btn:         'Edit review'
-  calculator:
-      title:        'Cost Calculator'
-      btn:          'Calculate'
-      km_span:      '₪ per 1 km'
-      floor_span:   '% per 1 floor'
-      options:      'Options'
-      find_btn:     'Find truck'
-      price:        'Price per unit'
-  price:
-      title:        'Title'
-      price:        'Price'
-  market:
-      products:      'products'
-      user_products: 'Products %{user_name}'
-      all_products:  'All products'
-  comment:
-      comments:     'Comments'
-      reply:        'Reply'
-      edit:         'Edit'
-      delete:       'Delete'
-      placeholder:  'Your message...'
-      updated:      'Updated'
-      need_to_signin: 'To add a comment you need to '
-  become_a_carrier:
-      title:        'Company registration'
-      credential:   'Credential information'
-      personal:     'Personal information'
-      contacts:     'Contacts'
-      company:      'About company'
-      languages:    'Select languages which you speak'
-  company:
-      we_speak:     'We speak on: '
-      message:      'Message'
-      all_trucks:   'All trucks'
-      contacts:     'Show contacts'
-      say_truck_number: 'Note: say truck number to order this current truck!'
-  notification:
-      comment:        'Commented on the'
-      reply:          'Reply on your comment on the'
-      reply_truck:    'Truck'
-      review_truck:   'Rated the truck'
-      no_notice:      'No notice'
-  sure_to_del_account:  'Are you sure you want to delete your account?'
-  mailers:
-      flash:
-          success:  'You have successfully subscribed to our news!'
-          info:     'This email already exists, please check your email or expect new news from us!'
+      mailers:
+          success:      'You have successfully subscribed to our news!'
+          info:         'This email already exists, please check your email or expect new news from us!'
   time:
       formats:
-        date: "%d %B %Y"
+          date: "%d %B %Y"
