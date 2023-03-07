@@ -7,6 +7,7 @@ module Users
     before_action :set_user, only: %i[show modal contacts]
 
     def show
+      return redirect_to root_path unless @user.class.name == Company.name
       @commentable = @user
       @comment = Comment.new
       @pagy, @comments = pagy(Comment.where(commentable: @user).newest, items: 10, fragment: '#comments')

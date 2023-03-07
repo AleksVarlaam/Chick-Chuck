@@ -10,6 +10,7 @@ en:
         add_btn:          'Add truck'
         edit_btn:         'Edit truck'
         my_trucks:        'My trucks'
+        total_trucks:     'Total trucks'
         assembly:
             only_assembly:     'Only assembly'
             only_disassembly:  'Only disassembly'
@@ -30,6 +31,7 @@ en:
         products:         'products'
         user_products:    'Products %{user_name}'
         all_products:     'All products'
+        total_products:   'Total products'
         condition:
             below_average:    'Below average'
             average:          'Average'

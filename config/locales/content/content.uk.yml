@@ -10,6 +10,7 @@ uk:
         add_btn:          'Додати вантажівку'
         edit_btn:         'Змінити вантажівку'
         my_trucks:        'Мої вантажівки'
+        total_trucks:     'Всього вантажівок'
         assembly:
             only_assembly:     'Тільки зібрати'
             only_disassembly:  'Тільки розібрати'
@@ -30,6 +31,7 @@ uk:
         products:         'товари'
         user_products:    'Товари %{user_name}'
         all_products:     'Всі товари'
+        total_products:   'Всього товарів'
         condition:
             below_average:    'Нижче середнього'
             average:          'Середнє'

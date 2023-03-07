@@ -4,6 +4,19 @@
     <%= image_tag(client.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
     <!-- Name -->
     <%= tag.h4 client.user_name , class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" %>
+    <!-- Total products -->
+    <% if client.products.where(published: true).count.positive? && action_name != 'modal'%>
+        <%= link_to user_products_path(client), 
+            class: "flex items-center text-md font-medium hover:underline text-gray-500 mb-3", 
+            data: { turbo_frame: '_top' }, target: "_blank" do
+        %>
+            <%= "#{t('product.total_products')}: #{client.products.where(published: true).count}" %>
+            <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
+        <% end  %>
+    <% elsif client.products.where(published: true).count.positive? %>
+        <%= tag.span ("#{t('product.total_products')}: #{client.products.where(published: true).count}"), 
+            class: "text-md font-medium hover:underline text-gray-500 mb-3" %>
+    <% end %>
     
     <!-- Message -->
     <%= render 'feedbacks/rooms/form', recipient: client%>

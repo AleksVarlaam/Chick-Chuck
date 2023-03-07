@@ -15,7 +15,6 @@ en:
         about:            'About company'
         we_speak:         'We speak on: '
         message:          'Write'
-        all_trucks:       'Total trucks'
         contacts:         'Show contacts'
         say_truck_number: 'Note: say truck number to order this current truck!'
     sign_in:

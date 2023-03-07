@@ -10,6 +10,7 @@ ru:
         add_btn:          'Добавить грузовик'
         edit_btn:         'Изменить грузовик'
         my_trucks:        'Мои грузовики'
+        total_trucks:     'Всего грузовиков'
         assembly:
             only_assembly:     'Только сборка'
             only_disassembly:  'Только разборка'
@@ -30,6 +31,7 @@ ru:
         products:         'товары'
         user_products:    'Товары %{user_name}'
         all_products:     'Все товары'
+        total_products:   'Всего товаров'
         condition:
             below_average:    'Ниже среднего'
             average:          'Среднее'
