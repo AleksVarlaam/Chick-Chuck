@@ -34,7 +34,7 @@ module ChickChuck
 
     # I18n
     config.i18n.available_locales = %i[en he ru uk]
-    config.i18n.default_locale = :ru
+    config.i18n.default_locale = :en
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.

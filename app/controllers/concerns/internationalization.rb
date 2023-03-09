@@ -5,6 +5,7 @@ module Internationalization
 
   # rubocop:disable Metrics/BlockLength
   included do
+    before_action { I18n.locale = locale_from_url || locale_from_headers || I18n.default_locale }
     around_action :switch_locale
 
     private

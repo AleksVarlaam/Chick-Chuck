@@ -9,6 +9,7 @@ gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
 gem 'bootsnap', require: false
 gem 'devise'
+gem 'devise-i18n'
 gem 'draper'
 gem 'file_validators'
 gem 'image_processing', '~> 1.2'
