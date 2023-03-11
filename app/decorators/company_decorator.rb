@@ -24,9 +24,8 @@ class CompanyDecorator < ApplicationDecorator
       end
     when :he
       case count
-      when 1          then "#{count} Комментарий"
-      when 2, 3, 4    then "#{count} Комментария"
-      when 0, 4..nil  then "#{count} Комментариев"
+      when 1          then "#{count} הערה"
+      when 0, 2..nil  then "#{count} הערות"
       end
     end
   end
@@ -50,9 +49,8 @@ class CompanyDecorator < ApplicationDecorator
       end
     when :he
       case count
-      when 1          then "#{count} Отзыв"
-      when 2, 3, 4    then "#{count} Отзыва"
-      when 0, 4..nil  then "#{count} Отзывов"
+      when 1          then "#{count} תגובה"
+      when 0, 2..nil  then "#{count} תגובות"
       end
     end
   end

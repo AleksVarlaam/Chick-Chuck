@@ -30,7 +30,7 @@ uk:
         facebook:         'За допомогою Facebook'
         google:           'За допомогою Google'
         btn:              'Увійти'
-        account:          'У вас немає акаунту?'
+        account:          'У вас немає акаунту'
         register:         'Створити акаунт'
     reset_password:
         title:            'Відновлення пароля'

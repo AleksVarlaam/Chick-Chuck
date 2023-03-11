@@ -1,0 +1,36 @@
+he:
+    chat:
+        search:           "חיפוש בצ'אט"
+    language:
+        language_select:  "בחר את השפות שאתה מדבר"
+        add_btn:          "הוסף שפה"
+        edit_btn:         "לשנות שפה"
+    category:
+        add_btn:          "הוסף קטגוריה"
+        edit_btn:         "שנה קטגוריה"
+    thing:
+        add_btn:          "תוסיף משהו"
+    district:
+        add_btn:          "הוסף אזור"
+    body_type:
+        add_btn:          "הוסף סוג"
+    review:
+        review_desc:      "תן את המשוב שלך אם כבר השתמשת בשירותים של חברה זו ומשאית. דעתך חשובה לנו מאוד ומסייעת למשתמשים אחרים למצוא מוביל מקצועי ישר"
+        add_btn:          "%{model} דרג"
+        edit_btn:         "שנה את הציון"   
+    comment:
+        comments:         "הערות"
+        reply:            "להשיב"
+        edit:             "לשנות את"
+        delete:           "להסיר"
+        placeholder:      "...ההודעה שלך"
+        updated:          "שונה"
+        need_to_signin:   " כדי להשאיר תגובה, אתה חייב"
+    notification:
+        comment:          "הגיב על"
+        reply:            "תגובה לתגובה שלך"
+        reply_truck:      "במשאית"    
+        review_truck:     "דירג את המשאית"
+        no_notice:        "אין הודעה מוקדמת"
+    price:
+        title:            "שם"

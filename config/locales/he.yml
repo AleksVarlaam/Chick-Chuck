@@ -1,0 +1,48 @@
+he:
+  en: 'English'
+  he: 'עברית'
+  ru: 'Русский'
+  uk: 'Українська'
+  # Global
+  global:
+      save_btn:         'לשמור'
+      are_you_sure:     'אתה בטוח?'
+      select:           ' :בחר'
+      destroy_btn:      'להסיר'
+      edit_btn:         'לערוך'
+      read_more:        'עוד'
+      view_all:         'צפייה בכל'
+      send_btn:         'לשלוח'
+      dismiss_btn:      'להחמיץ את'
+      views:            'מספר הצפיות'
+      publish_btn:      'תחלוק'
+      hide_btn:         'הסתר מתצוגה כללית'
+      image:            'תמונה'
+      unavailable_html: ".השירות שלנו הוא רק התחיל וברגע %{model} חסר, אנא בקר מאוחר יותר<br> 
+הירשמו לחדשות שלנו כדי לעקוב אחר ההתקדמות שלנו."
+      da:               'כן'
+      net:              'לא' 
+  # Flash
+  flash:
+      type:
+          success:      'בהצלחה'
+          info:         'מידע'
+          danger:       'סכנה'
+          warning:      'בחשבון'
+          alert:        'בחשבון'
+          notice:       'הודעה'
+      account:      'החשבון שלך'
+      success:
+          created:      "%{model} נוצר בהצלחה"
+          updated:      "%{model} עודכן בהצלחה" 
+          destroyed:    "%{model} הוסר בהצלחה"
+          published:    "%{model} פורסם בהצלחה בתצוגה כללית" 
+          hided:        "%{model} מוסתר בהצלחה מהתצוגה הכללית"
+      alert:        'משהו השתבש' 
+      mailers:
+          success:      'נרשמת בהצלחה לחדשות שלנו'
+          info:         'דוא"ל זה כבר קיים, בדוק את הדוא"ל שלך או המתן לחדשות חדשות מאיתנו'
+  # Date and Time
+  time:
+      formats:
+          date:         "%d %B %Y"

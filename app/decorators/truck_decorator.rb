@@ -24,9 +24,8 @@ class TruckDecorator < ApplicationDecorator
       end
     when :he
       case truck.comments.count
-      when 1          then "#{truck.comments.count} Комментарий"
-      when 2, 3, 4    then "#{truck.comments.count} Комментария"
-      when 0, 4..nil  then "#{truck.comments.count} Комментариев"
+      when 1          then "#{truck.comments.count} הערה"
+      when 0, 2..nil  then "#{truck.comments.count} הערות"
       end
     end
   end
@@ -48,9 +47,8 @@ class TruckDecorator < ApplicationDecorator
       end
     when :he
       case truck.reviews.count
-      when 1          then "#{truck.reviews.count} Отзыв"
-      when 2, 3, 4    then "#{truck.reviews.count} Отзыва"
-      when 0, 4..nil  then "#{truck.reviews.count} Отзывов"
+      when 1          then "#{truck.reviews.count} תגובה"
+      when 0, 2..nil  then "#{truck.reviews.count} תגובות"
       end
     end
   end

@@ -30,7 +30,7 @@ ru:
         facebook:         'С помощью Facebook'
         google:           'С помощью Google'
         btn:              'Войти'
-        account:          'У вас нет аккаунта?'
+        account:          'У вас нет аккаунта'
         register:         'Создать аккаунт'
     reset_password:
         title:            'Восстановление пароля'

@@ -1,0 +1,52 @@
+he:
+    user_menu:   
+        sign_in:          "להיכנס"
+        sign_up:          "להירשם"
+        sign_out:         "לצאת"
+        dashboard:        "לוח הבקרה"
+        chats:            "צ'אטים"
+        profile:          "פרופיל"
+        credential:       "ביטחון"
+    admin_menu:
+        lang_dist:        "שפות ואזורים"
+        catalog:          "קטלוג"
+    company:
+        sign_up:          "להפוך לנושאת מטוסים"
+        about:            "אודות החברה"
+        we_speak:         " :אנחנו דוברים"
+        message:          "לכתוב"
+        contacts:         "הצג אנשי קשר"
+        say_truck_number: "הערה: אמור למספר המשאית להזמין משאית מסוימת"
+    sign_in:
+        title:            "כניסה"
+        title_as_company: "כניסת החברה"
+        as_company:       "להיכנס כחברה"
+        click_here:       "לחץ כאן"
+        login_place:      "הזן דואר אלקטרוני או מספר טלפון"
+        password_place:   "הכנס סיסמה"
+        remember_me:      "לזכור אותי"
+        forgot:           "?שכחת את הסיסמא"
+        or:               "או"
+        facebook:         "Facebook באמצעות"
+        google:           "Google באמצעות"
+        btn:              "להיכנס"
+        account:          "אין לך חשבון"
+        register:         "יוצרים פרופיל"
+    reset_password:
+        title:            "שחזור סיסמה"
+        email_place:      "הזן את הדואר האלקטרוני שלך"
+        send_btn:         "שלח לי הוראות לאיפוס סיסמה"
+    sign_up:
+        title:            "הרשמה"
+        btn:              "יוצרים פרופיל"
+    become_a_carrier:
+        title:            "רישום החברה"
+        credential:       "נתוני כניסה"
+        personal:         "מידע אישי"
+        contacts:         "אנשי קשר"
+    telegram:
+        telegram_popover: "שם המשתמש של המברק כפי שהוא"
+    facebook:
+        facebook_popover: "העתק והדבק קישור ל- Facebook שלך"
+    sure_to_del_account:  "?האם אתה בטוח שברצונך למחוק את החשבון שלך"
+        

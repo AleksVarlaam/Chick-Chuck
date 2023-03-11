@@ -1,0 +1,54 @@
+he:
+    pages: 
+        home:             "ראש"
+        calculator:       "מחשבון"
+        trucks:           "משאיות"
+        preparation:      "הכנה"
+        market:           "שוק"
+        news:             "חדשות"
+    truck:
+        add_btn:          "הוסף משאית"
+        edit_btn:         "תחליף משאית"
+        my_trucks:        "המשאיות שלי"
+        total_trucks:     "משאיות מלאות"
+        assembly:
+            only_assembly:     "סתם אוסף"
+            only_disassembly:  "פירוק בלבד"
+        body_type:
+            tent:              "גגון"
+            isometric:         "איזומטרי"
+            side_body:         "משולב (פתוח)"
+            trailer_tent:      "טרפולין (גגון)"
+            trailer_isometric: "טריילר (איזומטרי)"
+            trailer_side_body: "טריילר (פתוח)"
+    product:
+        add_btn:          "הוסף מוצר"
+        edit_btn:         "שנה פריט"
+        my_products:      "הסחורה שלי"
+        title:            "שם"
+        mark_as_sold:     "מארק נמכר"
+        product_by:       "מוצרים של המוביל"
+        products:         "מוצרים"
+        user_products:    "%{user_name} מוצרים"
+        all_products:     "כל המוצרים"
+        total_products:   "סך הכל"
+        condition:
+            below_average:    "מתחת לממוצע"
+            average:          "ממוצע"
+            above_average:    "מעל לממוצע"
+            like_new:         "כמו חדש"
+        delivery: 
+            pickup:           "איסוף עצמי"
+            price_popover:    "מחיר לא כולל משלוח"
+    calculator:
+        title:            "מחשבון עלויות"
+        btn:              "לחשב את"
+        km_span:          "1 לק'מ ₪"
+        floor_span:       "לכל קומה %"
+        options:          "אפשרויות"
+        find_btn:         "למצוא את המשאית"
+        price:            "מחיר לחתיכה אחת"
+    news:
+        all_news:             "חדשות"
+        add_btn:              "הוסף חדשות"
+        edit_btn:             "ערוך חדשות"
