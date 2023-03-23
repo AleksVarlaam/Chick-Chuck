@@ -1,6 +1,3 @@
-❓
-    Чтобы пофиксить turbo_devise form поменять devise parent controller на ApplicationController и еще что-то...
-❓
 
 v.1.0:
 1. Create Message notifications in real time ✅
@@ -25,6 +22,7 @@ v.1.0:
 20. Add column Sold to Products ✅
 21. Create product functional to Clients ✅
 22. Install gem heroicons and chech all icons ✅
+23. Update cost calculator on full screen
 
 
 v.1.1:
