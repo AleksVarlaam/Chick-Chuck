@@ -25,8 +25,40 @@ module Devisable
      :first_name, :last_name, :avatar, :gender, :birthday, :city,
      :additional_phone, :whatsapp, :telegram, :facebook, :title, :website, :description, { district_ids: [], language_ids: [] }]
   end
-
-  # def after_sign_in_path_for(resource)
-  #     stored_location_for(resource) || request.referer || root_path
-  #   end
+  
+  # def after_sign_up_path_for(resource)
+#     root_path
+#   end
+#
+#   def after_inactive_sign_up_path_for(resource)
+#     root_path
+#   end
+#
+  def after_sign_in_path_for(resource)
+    flash[:success] = "You are welcome, #{current_user.user_name}!"
+  
+    unless (request.referer.include?("/clients/sign_in")        ||
+            request.referer.include?("/clients/sign_up")        ||
+            request.referer.include?("/clients/password")       ||
+            request.referer.include?("/clients/confirmation")   ||
+            request.referer.include?("/clients/sign_out")       ||
+            request.referer.include?("/clients/auth")           ||
+            request.referer.include?("/companies/sign_in")      ||
+            request.referer.include?("/companies/sign_up")      ||
+            request.referer.include?("/companies/password")     ||
+            request.referer.include?("/companies/confirmation") ||
+            request.referer.include?("/companies/sign_out")     ||
+            request.referer.include?("/companies/auth")         ||
+            request.referer.include?("/admins/sign_in")         ||
+            request.referer.include?("/admins/sign_up")         ||
+            request.referer.include?("/admins/password")        ||
+            request.referer.include?("/admins/confirmation")    ||
+            request.referer.include?("/admins/sign_out")        ||
+            request.referer.include?("/admins/auth")
+            )
+      request.referer
+    else
+      root_path
+    end
+  end
 end

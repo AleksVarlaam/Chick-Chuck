@@ -1,4 +1,6 @@
-hamaavir, laavir
+❓
+    Чтобы пофиксить turbo_devise form поменять devise parent controller на ApplicationController и еще что-то...
+❓
 
 v.1.0:
 1. Create Message notifications in real time ✅
@@ -22,14 +24,14 @@ v.1.0:
 19. Update show company page ✅
 20. Add column Sold to Products ✅
 21. Create product functional to Clients ✅
-22. Install gem heroicons and chech all icons
+22. Install gem heroicons and chech all icons ✅
 
 
 v.1.1:
 1. Create chats in modal window 
 2. Create dashboard for company and admin, perhaps and client
 3. Update comments, add button show/hide replies
-4. 
+4. Create list of favorites for Client model
 5. Add ReCaptcha
 
 
