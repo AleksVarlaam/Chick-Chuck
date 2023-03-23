@@ -1,0 +1,19 @@
+<!-- Content links list -->
+<%= nav_tab t('pages.home'), root_path, 
+  class: link_class, current_page: current_page, 
+  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<%= nav_tab t('pages.calculator'), calculator_path,
+  class: link_class, current_page: current_page, 
+  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<%= nav_tab t('pages.trucks'), trucks_path, 
+  class: link_class, current_page: current_page, 
+  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<%= nav_tab t('pages.preparation'), moving_preparation_path, 
+  class: link_class, current_page: current_page, 
+  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<%= nav_tab t('pages.market'), products_path, 
+  class: link_class, current_page: current_page, 
+  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<%= nav_tab t('pages.news'), news_index_path, 
+  class: link_class, current_page: current_page, 
+  data: {action: "dropdown#toggle", turbo_frame: '_top'}  if News.count.positive?%>

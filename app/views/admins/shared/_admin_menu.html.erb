@@ -1,23 +1,8 @@
-<!-- Admin menu -->
-<%= link_to admins_dashboard_path, 
-  class: "font-medium flex flex-col items-center my-3 mx-2", 
-  data: {action: "dropdown#toggle"}, 
-  role: "menuitem",
-  tabindex:"-1",
-  id:"personalInfoLink" do
-%>
-  <!-- Avatar -->
-  <%= image_tag(current_admin.avatar_attachment_path, class: "object-cover w-16 h-16 mx-2 mb-3 rounded-full", alt: "avatar")%>
-  <!-- Company name -->
-  <%= tag.h4 ('Admin'), class: "px-4 -mt-1 font-medium text-gray-800 text-center hover:underline"%>
-  <!-- Email -->
-  <%= tag.p current_admin.user_name, class: "px-4 py-2 text-sm font-medium text-gray-600 text-center hover:underline"%>
-<% end %>
-
+<!-- Admin menu links list -->
 <hr>
 <!-- Chats -->
 <%= link_to rooms_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: {action: "dropdown#toggle"}, 
    role: "menuitem",
    tabindex:"-1",
@@ -29,7 +14,7 @@
 
 <!-- Dashboard -->
 <%= link_to admins_dashboard_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: { action: "dropdown#toggle" }, 
    role: "menuitem",
    tabindex:"-1",
@@ -42,7 +27,7 @@
 <hr>
 <!-- Add News -->
 <%= link_to new_admins_news_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: { action: "dropdown#toggle" }, 
    role: "menuitem",
    tabindex:"-1",
@@ -54,7 +39,7 @@
 
 <!-- News -->
 <%= link_to admins_news_index_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: { action: "dropdown#toggle" }, 
    role: "menuitem",
    tabindex:"-1",
@@ -67,7 +52,7 @@
 <hr>
 <!-- Catalog -->
 <%= link_to admins_categories_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: { action: "dropdown#toggle" }, 
    role: "menuitem",
    tabindex:"-1",
@@ -79,7 +64,7 @@
 
 <!-- Languages and districts -->
 <%= link_to admins_districts_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: { action: "dropdown#toggle" }, 
    role: "menuitem",
    tabindex:"-1",
@@ -92,7 +77,7 @@
 <hr>
 <!-- Credential Info -->
 <%= link_to edit_admin_registration_path, 
-  class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+  class: link_class, 
   data: { action: "dropdown#toggle" }, 
   role: "menuitem",
   tabindex:"-1",
@@ -105,7 +90,7 @@
 <hr>
 <!-- Sign Out -->
 <%= link_to destroy_admin_session_path, 
-  class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center",
+  class: link_class,
   data: {action: "dropdown#toggle", turbo_method: :delete, turbo_confirm: t('global.are_you_sure')}, 
   role: "menuitem", 
   tabindex:"-1", 

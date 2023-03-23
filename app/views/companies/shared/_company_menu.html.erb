@@ -1,25 +1,8 @@
-<!-- Company menu -->
-<%= link_to companies_profile_path, 
-  class: "font-medium flex flex-col items-center my-3 mx-2", 
-  data: {action: "dropdown#toggle"}, 
-  role: "menuitem",
-  tabindex:"-1",
-  id:"personalInfoLink" do
-%>
-  <!-- Avatar -->
-  <%= image_tag(current_company.avatar_attachment_path, class: "object-cover w-16 h-16 mx-2 mb-3 rounded-full", alt: "avatar")%>
-  <!-- Rating -->
-  <%= tag.div (render 'feedbacks/reviews/company_reviews', company: current_company), class: 'px-4' %>
-  <!-- Company name -->
-  <%= tag.h4 (current_company.title), class: "px-4 -mt-1 font-medium text-gray-800 text-center hover:underline"%>
-  <!-- Email -->
-  <%= tag.p current_company.email, class: "px-4 py-2 text-sm font-medium text-gray-600 text-center hover:underline"%>
-<% end %>
-
+<!-- Company menu links list -->
 <hr>
 <!-- Chats -->
 <%= link_to rooms_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: {action: "dropdown#toggle"}, 
    role: "menuitem",
    tabindex:"-1",
@@ -31,7 +14,7 @@
 
 <!-- Dashboard page -->
 <!-- <%= link_to companies_dashboard_path,
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center",
+   class: link_class,
    data: {action: "dropdown#toggle"},
    role: "menuitem",
    tabindex:"-1",
@@ -43,7 +26,7 @@
 
 <!-- Calculator -->
 <%= link_to companies_prices_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: { action: "dropdown#toggle" }, 
    role: "menuitem",
    tabindex:"-1",
@@ -56,7 +39,7 @@
 <hr>
 <!-- New truck page -->
 <%= link_to new_companies_truck_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: {action: "dropdown#toggle"}, 
    role: "menuitem",
    tabindex:"-1",
@@ -68,7 +51,7 @@
 
 <!-- All company trucks -->
 <%= link_to companies_trucks_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: { action: "dropdown#toggle" }, 
    role: "menuitem",
    tabindex:"-1",
@@ -81,7 +64,7 @@
 <hr>
 <!-- New product -->
 <%= link_to new_users_product_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: {action: "dropdown#toggle"}, 
    role: "menuitem",
    tabindex:"-1",
@@ -93,7 +76,7 @@
 
 <!-- All products -->
 <%= link_to users_products_path, 
-   class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+   class: link_class, 
    data: { action: "dropdown#toggle" }, 
    role: "menuitem",
    tabindex:"-1",
@@ -106,7 +89,7 @@
 <hr>
 <!-- Personal Info -->
 <%= link_to companies_edit_profile_path, 
-  class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+  class: link_class, 
   data: {action: "dropdown#toggle"}, 
   role: "menuitem",
   tabindex:"-1",
@@ -118,7 +101,7 @@
 
 <!-- Company Info -->
 <%= link_to companies_edit_company_info_path, 
-  class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+  class: link_class, 
   data: {action: "dropdown#toggle"}, 
   role: "menuitem",
   tabindex:"-1",
@@ -130,7 +113,7 @@
 
 <!-- Credential Info -->
 <%= link_to edit_company_registration_path, 
-  class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+  class: link_class, 
   data: { action: "dropdown#toggle" }, 
   role: "menuitem",
   tabindex:"-1",
@@ -143,7 +126,7 @@
 <hr>
 <!-- Sign Out -->
 <%= link_to destroy_company_session_path, 
-  class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center",
+  class: link_class,
   data: {action: "dropdown#toggle", turbo_method: :delete, turbo_confirm: t('global.are_you_sure')}, 
   role: "menuitem", 
   tabindex:"-1", 

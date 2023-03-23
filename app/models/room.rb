@@ -8,6 +8,6 @@ class Room < ApplicationRecord
   before_create { self.title = SecureRandom.hex(5) }
 
   def recipient(current_user)
-    users.where.not(id: current_user)[0]
+    users.where.not(id: current_user).first
   end
 end

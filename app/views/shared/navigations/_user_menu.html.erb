@@ -1,0 +1,113 @@
+<% if user_signed_in? %>
+    <!-- Message Notifications -->
+    <%= render 'feedbacks/messages/notifications/notifications_section'%>
+    <!-- Notifications -->
+    <%= render 'feedbacks/notifications/notifications_section'%>
+<% end %>
+
+<div class="flex items-center">
+    <!-- Became Carrier -->
+    <%= link_to t('company.sign_up'), new_company_registration_path, 
+        class: "hidden xl:block mr-4 whitespace-nowrap text-base font-medium  hover:text-gray-900 #{current_page?(new_company_registration_path) ? 'text-gray-900' : 'text-gray-500'}" unless user_signed_in?%>
+    <!-- User menu -->
+    <div class="relative z-50" data-controller="dropdown">
+        <!-- User menu button -->
+        <div>
+          <button 
+            data-action="dropdown#toggle click@window->dropdown#hide"
+            class="flex text-sm rounded-full border-2 border-gray-300 hover:border-gray-400 focus:outline-none drop-shadow-2xl hover:drop-shadow-lg items-center" 
+            id="user-menu-button" 
+            type="button" 
+            aria-expanded="false" 
+            aria-haspopup="true"
+          >
+            <%= heroicon "bars-3", class: "mx-2 hidden sm:block", size: 20%>
+            <!-- Avatar -->
+            <% if user_signed_in? %>
+                <%= image_tag(current_user.avatar_attachment_path, 
+                    class: "object-cover h-8 w-8 rounded-full border border-gray-500 m-1", alt: "avatar")%>
+            <% else %>
+                <%= heroicon "user-circle", class: "w-8 h-8 text-gray-600 rounded-full border m-1" %>
+            <% end %>
+          </button>
+        </div>
+
+        <!-- User menu dropdown -->
+        <div 
+            data-dropdown-target="menu"
+            class="hidden origin-top-right absolute z-50 right-0 mt-2 min-w-[14rem] w-auto rounded-lg shadow-md hover:shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" 
+            role="menu" 
+            aria-orientation="vertical" 
+            aria-labelledby="user-menu-button" 
+            tabindex="-1"
+            data-transition-enter-from="opacity-0 scale-95"
+            data-transition-enter-to="opacity-100 scale-100"
+            data-transition-leave-from="opacity-100 scale-100"
+            data-transition-leave-to="opacity-0 scale-95"
+        >
+            <% if user_signed_in? %>
+                <!-- User menu header -->
+                <%= tag.div class: "flex flex-col items-center my-3 mx-2", 
+                  data: {action: "dropdown#toggle"}, 
+                  role: "menuitem",
+                  tabindex:"-1",
+                  id:"personalInfoLink" do
+                %>
+                    <!-- Avatar -->
+                    <%= image_tag(current_user.avatar_attachment_path, class: "object-cover w-16 h-16 mx-2 mb-3 rounded-full", alt: "avatar")%>
+                    <!-- User name -->
+                    <%= tag.h4 (current_user.user_name), class: "px-4 font-medium text-gray-800 text-center hover:underline"%>
+                    <!-- Email -->
+                    <%= tag.p current_user.email, class: "px-4 py-2 text-sm font-medium text-gray-600 text-center hover:underline"%>
+                <% end %>
+                <!-- Links list -->
+                <%= render 'clients/shared/client_menu', 
+                    link_class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center" if client_signed_in?%>
+                <%= render 'companies/shared/company_menu', 
+                    link_class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center" if company_signed_in?%>
+                <%= render 'admins/shared/admin_menu', 
+                    link_class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center" if admin_signed_in?%> 
+            <% else %>
+                <!-- Sign In -->
+                <%= link_to t('user_menu.sign_in'), new_client_session_path, 
+                    class: "font-medium block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", 
+                    data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
+                    role: "menuitem",
+                    tabindex:"-1",
+                    id: "signInLink"
+                %>
+                <!-- Sign Up -->
+                <%= link_to t('user_menu.sign_up'), new_client_registration_path, 
+                    class: "font-medium block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", 
+                    data: {action: "dropdown#toggle"}, 
+                    role: "menuitem",
+                    tabindex:"-1",
+                    id: "signUpLink"
+                %>
+                <hr>
+                <!-- Sign In As Company-->
+                <%= link_to new_company_session_path, 
+                    class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+                    data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
+                    role: "menuitem",
+                    tabindex:"-1",
+                    id: "signInLink" do
+                %>
+                    <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 mr-2")%>
+                    <%= t('user_menu.sign_in')%>
+                <% end %>
+                <!-- Become a Carrier -->
+                <%= link_to new_company_registration_path, 
+                    class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+                    data: {action: "dropdown#toggle"}, 
+                    role: "menuitem",
+                    tabindex:"-1",
+                    id:"become-a-Carrier-link" do
+                %>
+                    <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 mr-2")%>
+                    <%= t('company.sign_up')%>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
