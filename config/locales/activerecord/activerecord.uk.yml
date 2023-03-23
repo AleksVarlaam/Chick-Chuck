@@ -15,6 +15,9 @@ uk:
             calculator:   'Калькулятор'
             price:        'Ціна'
             message:      'Повідомлення'
+            review:       'Відгук'
+            comment:      'Коментування'
+            notification: 'Сповіщення'
         errors:
               messages:
                   in:         "%{value} неприпустиме значення, введіть значення в діапазоні %{count}"

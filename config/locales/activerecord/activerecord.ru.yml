@@ -15,6 +15,9 @@ ru:
             calculator:   'Калькулятор'
             price:        'Цена'
             message:      'Сообщение'
+            review:       'Отзыв'
+            comment:      'Комментарий'
+            notification: 'Уведомление'
         errors:
               messages:
                   in:         "%{value} недопустимое значение, введите значение в диапозоне %{count}"

@@ -15,6 +15,9 @@ en:
             calculator:   'Calculator'
             price:        'Price'
             message:      'Message'
+            review:       'Review'
+            comment:      'Comment'
+            notification: 'Notification'
         errors:
               messages:
                   in:         "%{value} is not valid, enter a value in range %{count}"

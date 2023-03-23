@@ -20,9 +20,9 @@ module Feedbacks
         if @review.save
           set_truck_rating(@reviewable)
           set_company_rating(@reviewable.user_id)
-          format.turbo_stream { flash.now[:success] = 'Review created!' }
+          format.turbo_stream { flash.now[:success] = t('flash.success.created', model: "#{@review.model_name.human}") }
         else
-          format.html { redirect_to @reviewable, alert: 'Something went wrong' }
+          format.html { redirect_to @reviewable, alert: t('flash.alert') }
         end
       end
     end
@@ -34,9 +34,9 @@ module Feedbacks
         if @review.update(review_params)
           set_truck_rating(@reviewable)
           set_company_rating(@reviewable.user_id)
-          format.turbo_stream { flash.now[:success] = 'Review updated!' }
+          format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: "#{@review.model_name.human}") }
         else
-          format.html { redirect_to @reviewable, alert: 'Something went wrong' }
+          format.html { redirect_to @reviewable, alert: t('flash.alert') }
         end
       end
     end

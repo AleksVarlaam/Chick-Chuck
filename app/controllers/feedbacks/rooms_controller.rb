@@ -33,7 +33,7 @@ module Feedbacks
       if @new_room.save
         redirect_to room_path(@new_room.title)
       else
-        redirect_to rooms_path, alert: 'Something went wrong'
+        redirect_to rooms_path, alert: t('flash.alert')
       end
     end
 

@@ -14,11 +14,11 @@ module Feedbacks
       user_review = current_client.truck_review(truck) if client_signed_in?
 
       if user_review.present?
-        link_to(t('review.edit_btn'), edit_truck_review_path(truck, user_review),
+        link_to(t('review.edit_btn', model: Truck.model_name.human), edit_truck_review_path(truck, user_review),
                 class: '',
                 data: { turbo_frame: dom_id(truck, 'review_form') })
       else
-        link_to(t('review.add_btn'), new_truck_review_path(truck),
+        link_to(t('review.add_btn', model: Truck.model_name.human), new_truck_review_path(truck),
                 class: '',
                 data: { turbo_frame: dom_id(truck, 'review_form') })
       end

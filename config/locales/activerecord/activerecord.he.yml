@@ -15,6 +15,9 @@ he:
             calculator:   "מחשבון"
             price:        "מחיר"
             message:      "מסר"
+            review:       "תגובה"
+            comment:      "תגובה"
+            notification: "הודעה"
         errors:
               messages:
                   in:         "%{count} אינו חוקי, הזן ערך בטווח %{value}"
