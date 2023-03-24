@@ -105,7 +105,7 @@ Rails.application.routes.draw do
 
       # Calculator
       resource :calculator, only: %i[show], controller: 'contents/calculators' do
-        get '/company/:company_id/modal', to: 'contents/calculators#modal', as: 'modal'
+        get '/company/:company_id/calculator', to: 'contents/calculators#company_calculator', as: 'company'
       end
 
       # Moving preparation

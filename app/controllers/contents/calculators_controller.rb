@@ -7,7 +7,7 @@ module Contents
 
     def show; end
 
-    def modal
+    def company_calculator
       @company = Company.find_by_id(params[:company_id])
       @categories = Category.all.decorate
     end

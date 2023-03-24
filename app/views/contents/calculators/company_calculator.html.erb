@@ -1,0 +1,32 @@
+<% currently_at @company.title %>
+<% provide :page_title, @company.title %>
+
+
+<!-- About company -->
+<%= tag.section class: "mx-5 my-3 flex flex-col items-center" do %>
+    <!-- Avatar -->
+    <%= image_tag(@company.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
+    <!-- Name -->
+    <%= tag.h4 class: "font-medium text-2xl text-center hover:underline text-gray-800" do %>
+        <%= link_to user_modal_path(@company), data: { turbo_frame: 'modal' }, class: 'flex items-center' do %>
+            <%= @company.user_name %>
+            <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<!-- Calculator -->
+<%= turbo_frame_tag 'calculation',
+    class: "container mx-auto grid grid-flow-row auto-rows-max w-full justify-center" do 
+%>
+    <!-- Title -->
+    <%= tag.h4 t('calculator.title'), class: 'text-3xl font-semibold text-gray-800 capitalize mb-6 text-center mx-2'%>
+    <%= tag.p class: 'text-center text-gray-500 mb-6 px-4' do %>
+        Примечание: данный калькулятор позволяет рассчитать предварительную стоимость переезда, которая является приблизительной. <br>Точная стоимость согласовывается непросредственно с перевозчиком.
+    <% end %>
+    <!-- Form -->
+    <div class="sm:min-w-[32rem] pb-6 shadow-md hover:shadow-xl rounded-xl">
+        <%= render 'contents/calculators/form', path: company_calculator_path(@company), 
+            total_prices: (render 'company_price', company: @company), frame: '_top'%>
+    </div>
+<% end %>
