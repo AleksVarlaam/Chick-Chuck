@@ -6,6 +6,7 @@
             class: "object-cover h-7 w-7 rounded-full border border-gray-500 m-1", alt: "avatar")%>
         <!-- Company_name -->
         <%= tag.p company.title, class: 'text-2xl' %>
+        <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
         <!-- Company total price -->
         <%= tag.p class: "absolute right-1 block w-full md:w-[8rem] text-xl text-end" do %>
             <%= total_price(company)%><span class="ml-1">₪</span>

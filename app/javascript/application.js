@@ -16,6 +16,8 @@ Turbo.session.drive = true
 import "trix"
 import "@rails/actiontext"
 
+import 'flowbite';
+
 // Hotwire/Turbo 1.4.0 redirect
 document.addEventListener("turbo:frame-missing", (event) => {
   const { detail: { response, visit } } = event;

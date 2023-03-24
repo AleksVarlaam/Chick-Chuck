@@ -48,6 +48,7 @@ uk:
         options:          'Опції'
         find_btn:         'Знайти вантажівку'
         price:            'Ціна за 1 шт.'
+        elevator:         'ліфт'
     news:
         all_news:         'Новини'
         add_btn:          'Додати новини'

@@ -48,6 +48,7 @@ ru:
         options:          'Опции'
         find_btn:         'Найти грузовик'
         price:            'Цена за 1 шт.'
+        elevator:         'лифт'
     news:
         all_news:             'Новости'
         add_btn:              'Добавить новость'

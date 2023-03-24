@@ -17,3 +17,4 @@ pin 'stimulus-scroll-to', to: 'https://ga.jspm.io/npm:stimulus-scroll-to@4.1.0/d
 pin 'trix', to: 'https://ga.jspm.io/npm:trix@2.0.4/dist/trix.esm.min.js', preload: true
 pin '@rails/actiontext', to: 'https://ga.jspm.io/npm:@rails/actiontext@7.0.4-2/app/assets/javascripts/actiontext.js',
                          preload: true
+pin 'flowbite', to: 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.turbo.min.js', preload: true

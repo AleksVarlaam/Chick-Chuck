@@ -48,6 +48,7 @@ he:
         options:          "אפשרויות"
         find_btn:         "למצוא את המשאית"
         price:            "מחיר לחתיכה אחת"
+        elevator:         "מעלית"
     news:
         all_news:             "חדשות"
         add_btn:              "הוסף חדשות"

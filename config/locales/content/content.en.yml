@@ -48,6 +48,7 @@ en:
         options:          'Options'
         find_btn:         'Find truck'
         price:            'Price per unit'
+        elevator:         'elevator'
     news:
         all_news:         'News'
         add_btn:          'Add news'
