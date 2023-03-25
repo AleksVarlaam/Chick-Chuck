@@ -22,7 +22,8 @@ v.1.0:
 20. Add column Sold to Products ✅
 21. Create product functional to Clients ✅
 22. Install gem heroicons and chech all icons ✅
-23. Update cost calculator on full screen
+23. Update cost calculator on full screen ✅
+24. Create page about Chick-Chuck.com with conctacts form
 
 
 v.1.1:
