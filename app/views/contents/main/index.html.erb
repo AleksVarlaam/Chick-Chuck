@@ -4,21 +4,21 @@
 
 <%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
     <!-- Header -->
-    <%= tag.div (render 'header'), class: "mb-6 -mx-2"%>
+    <%= tag.div (render 'contents/main/index/header'), class: "mb-6 -mx-2"%>
     <!-- Top features -->
-    <%= render 'top_features'%>
+    <%= render 'contents/main/index/top_features'%>
     <!-- Top trucks -->
     <%= render 'contents/trucks/top_trucks'%>
     <!-- Features -->
-    <%= render 'main_features'%>
+    <%= render 'contents/main/index/main_features'%>
     <!-- Latest trucks -->
     <%= render 'contents/trucks/latest_trucks'%>
     <!-- Note -->
-    <%= render 'moving_preparation'%>
+    <%= render 'contents/main/index/moving_preparation'%>
     <!-- Market -->
-    <%= render 'market'%>
+    <%= render 'contents/main/index/market'%>
     <!-- Newsletter -->
-    <%= render 'newsletter'%>
+    <%= render 'contents/main/index/newsletter'%>
     <!-- Latest news -->
-    <%= render 'latest_news' if News.count.positive?%>
+    <%= render 'contents/main/index/latest_news' if News.count.positive?%>
 <% end %>

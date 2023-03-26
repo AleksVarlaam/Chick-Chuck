@@ -11,5 +11,7 @@ module Contents
     end
 
     def moving_preparation; end
+    
+    def about; end
   end
 end

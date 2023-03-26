@@ -1,0 +1,38 @@
+
+<div class="w-full bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg">
+    <ul class="text-lg font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex">
+        <li class="w-full">
+            <span class=" inline-block w-full p-4 rounded-tl-lg border-b border-b-gray-100">Статистика</span>
+        </li>
+    </ul>
+    <div class="border-t border-gray-200">
+        <div class="p-4 bg-white rounded-lg md:p-8">
+            <dl class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-6 sm:p-8">
+                <div class="flex flex-col items-center justify-center">
+                    <dt class="mb-2 text-3xl font-extrabold"><%= Client.all.count%></dt>
+                    <dd class="text-gray-500">Посещений</dd>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <dt class="mb-2 text-3xl font-extrabold"><%= Client.all.count%></dt>
+                    <dd class="text-gray-500">Клиентов</dd>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <dt class="mb-2 text-3xl font-extrabold"><%= Company.all.count%></dt>
+                    <dd class="text-gray-500">Перевозчиков</dd>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <dt class="mb-2 text-3xl font-extrabold"><%= Product.all.count%></dt>
+                    <dd class="text-gray-500">Товаров</dd>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <dt class="mb-2 text-3xl font-extrabold"><%= Client.all.count%></dt>
+                    <dd class="text-gray-500">Отзывов</dd>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <dt class="mb-2 text-3xl font-extrabold">11</dt>
+                    <dd class="text-gray-500">Дней со старта</dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>

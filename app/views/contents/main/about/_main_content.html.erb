@@ -1,0 +1,85 @@
+<section class="lg:mt-6" id="content">
+    <div class="container py-10 mx-auto">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <!-- Calculator -->
+            <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl">
+                <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
+                    <%= heroicon 'calculator', class: "w-6 h-6" %>
+                </span>
+
+                <h1 class="text-xl font-semibold text-gray-700 capitalize">Предварительный рассчет стоимости переезда</h1>
+
+                <p class="text-gray-500">
+                    Нелья недооценивать тяжелую физическую работу грузчиков и расходы на топливо при перевозке ваших вещей, поэтому сервис позволяет перевозчику указать стоимость за преодолимую дистанцию и перевозку опредленных предметов разной категории за каждый преодлимый этаж вниз и вверх. <br>
+                    Переезд дело не простое и очень затратное, калькулятор стоимости перевозки позволяет клиентку узнать предварительную стоимость переезда среди компаний, зарегистрированных в нашем сервисе. Невозможно рассчитать все ньюансы при переезде, поэтому предварительная стоимость является приблизительной, точная стоимость переезда согласовывается непосредственно с перевозчиком.
+                </p>
+                
+                <!-- Link -->
+                <%= link_to calculator_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
+                    <span class="mx-1">Рассчитать стоимость</span>
+                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
+                <% end %>
+            </div>
+
+            <!-- Trucks filter -->
+            <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl">
+                <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
+                    <%= heroicon 'truck', class: "w-6 h-6" %>
+                </span>
+
+                <h1 class="text-xl font-semibold text-gray-700 capitalize">Фильтр грузовиков</h1>
+
+                <p class="text-gray-500">
+                    Клиент может отсортировать все грузовики исходя из необходимого региона где работает перевозчик и типа кузова грузовика в порядке рейтинга от отзывов других клиентов. <br>
+                    Так же не забывайте оставить свой отзыв об услугах перевозчика, это поможет другим клиентам выбрать добросовестного и профессионального перевозчика, как когда-то это помогло вам.
+                </p>
+                
+                <!-- Link -->
+                <%= link_to trucks_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
+                    <span class="mx-1">Найти грузовик</span>
+                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
+                <% end %>
+            </div>
+
+            <!-- Market -->
+            <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl">
+                <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
+                    <%= heroicon 'shopping-bag', class: "w-6 h-6" %>
+                </span>
+
+                <h1 class="text-xl font-semibold text-gray-700 capitalize">Возможность купить/продать поддержаные вещи</h1>
+
+                <p class="text-gray-500">
+                    Любой зарегистрированный пользователь может подать объявление о продаже поддержанных вещей, указывая регион местоположения, состояние и категорию предмета. <br>
+                    Так же можно купить поддержаные вещи напрямую у перевозчика, что очень удобно, ведь перевозчики знают толк в поддержаных вещах и с ними можно напрямую договориться о доставке.
+                </p>
+                
+                <!-- Link -->
+                <%= link_to products_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
+                    <span class="mx-1">Барахолка</span>
+                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
+                <% end %>
+            </div>
+            
+            <!-- Mooving preparation -->
+            <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl">
+                <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
+                    <%= heroicon 'newspaper', class: "w-6 h-6" %>
+                </span>
+
+                <h1 class="text-xl font-semibold text-gray-700 capitalize">Подготовка к переезду</h1>
+
+                <p class="text-gray-500">
+                    Если вам не приходилось ранее сталкиваться с переездом в другую квартиру или имеете недосточно опыта в этом не простом деле, то вы можете ознакомиться с нашей статьей о подготовке к переезду, чтобы тщательнее спланировать свой переезд и чувствовать себя уверенее.
+                </p>
+                
+                <!-- Link -->
+                <%= link_to moving_preparation_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
+                    <span class="mx-1">Подготовка к переезду</span>
+                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
