@@ -23,9 +23,11 @@ he:
         reply:            "להשיב"
         edit:             "לשנות את"
         delete:           "להסיר"
+        delete_as_admin:  'Delete as admin'
         placeholder:      "...ההודעה שלך"
         updated:          "שונה"
         need_to_signin:   " כדי להשאיר תגובה, אתה חייב"
+        about_page_title: ".שלח את המשוב או ההצעה שלך כדי לשפר את השירות"
     notification:
         comment:          "הגיב על"
         reply:            "תגובה לתגובה שלך"

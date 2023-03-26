@@ -23,9 +23,11 @@ en:
         reply:            'Reply'
         edit:             'Edit'
         delete:           'Delete'
+        delete_as_admin:  'Delete as admin'
         placeholder:      'Your message...'
         updated:          'Edited'
         need_to_signin:   'To add a comment you need to '
+        about_page_title: "Leave your feedback or suggestion to improve the service."
     notification:
         comment:          'Commented on the'
         reply:            'Reply on your comment on the'

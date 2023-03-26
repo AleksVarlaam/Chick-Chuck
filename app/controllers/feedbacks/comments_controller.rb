@@ -39,19 +39,19 @@ module Feedbacks
                                    target: helpers.dom_id(@comment),
                                    partial: 'feedbacks/comments/comment', locals: { comment: @comment.decorate }
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = 'Comment updated!' }
+        format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: "#{@comment.model_name.human}") }
       end
     end
 
     def destroy
-      return unless current_user.comments.include?(@comment)
+      return unless current_user.comments.include?(@comment) || current_admin
       return unless @comment.destroy
 
       @comment.broadcast_remove_to @comment.commentable,
                                    target: helpers.dom_id(@comment)
 
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = 'Comment deleted!' }
+        format.turbo_stream { flash.now[:success] = t('flash.success.destroyed', model: "#{@comment.model_name.human}") }
       end
     end
 
@@ -66,6 +66,7 @@ module Feedbacks
       @commentable = Truck.find_by_id(params[:truck_id])     if params[:truck_id].present?
       @commentable = News.find_by_id(params[:news_id])       if params[:news_id].present?
       @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id].present?
+      @commentable = Statistic.find_by_id(params[:statistic_id]) if params[:statistic_id].present?
     end
 
     def set_comment

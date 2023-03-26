@@ -98,6 +98,11 @@ Rails.application.routes.draw do
       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
         resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
       end
+      
+      # Main Comments
+      resources :statistic, only: :show do
+        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+      end
 
       # Products
       resources :products, only: %i[index show], controller: 'contents/products'

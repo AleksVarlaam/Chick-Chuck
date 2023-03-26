@@ -1,6 +1,8 @@
 <% currently_at t('pages.preparation') %>
 <% provide :page_title, t('pages.preparation') %>
 
+<%= turbo_stream_from @statistic%>
+
 
 <%= tag.section class: "grid grid-cols-4 flex w-full mx-auto h-full " do %>
     <!-- Main content -->
@@ -13,7 +15,7 @@
                 <%= render 'contents/main/about/header_content'%>
                 <!-- Arrow down -->
                 <div class="flex justify-center mt-16">
-                    <%= link_to '#content', data: {controller: 'scroll-to'} do %>
+                    <%= link_to '#content', data: {controller: 'scroll-to', 'scroll-to-offset-value' => "50"} do %>
                         <%= heroicon 'chevron-double-down', class: 'w-6 h-6 text-gray-500 hover:text-gray-900'%>
                     <% end %>
                 </div>
@@ -22,6 +24,10 @@
                 <!-- Statistic -->
                 <%= render 'contents/main/about/statistic'%>
             </div>
+        </div>
+        <!-- Comments section-->
+        <div class="px-6 ">
+            <%= render 'feedbacks/comments/comments_section' %>
         </div>
     </section>
 <% end %>
