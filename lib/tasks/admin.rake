@@ -24,11 +24,14 @@ namespace :admin do
       p 'Districts already exists!'
     else
       districts_array = [
-        { ru: 'Весь Израиль',        en: 'All Israel',         uk: 'Весь Ізраїль',        he: 'כל ישראל' },
-        { ru: 'Северный Округ',      en: 'Northern District',  uk: 'Північний Округ',     he: 'מחוז הצפון' },
-        { ru: 'Центральный Округ',   en: 'Central District',   uk: 'Центральний округ',   he: 'מחוז המרכז' },
-        { ru: 'Южный Округ',         en: 'Southern District',  uk: 'Південний Округ',     he: 'מחוז הדרומי' },
-        { ru: 'Иерусалимский Округ', en: 'Jerusalem District', uk: 'Єрусалимський Округ', he: 'מחוז ירושלים' }
+        { ru: 'Весь Израиль',          en: 'All Israel',                 uk: 'Весь Ізраїль',         he: 'כל ישראל' },
+        { ru: 'Северный Округ',        en: 'Northern District',          uk: 'Північний Округ',      he: 'מחוז הצפון‏' },
+        { ru: 'Хайфский округ',        en: 'Haifa District',             uk: 'Хайфський округ',      he: 'מחוז חיפה' },
+        { ru: 'Тель-Авивский округ',   en: 'Tel-Aviv District',          uk: 'Тель-Авівський Округ', he: 'מחוז תל אביב‏‏' },
+        { ru: 'Центральный Округ',     en: 'Central District',           uk: 'Центральний округ',    he: 'מחוז המרכז‏' },
+        { ru: 'Иерусалимский округ',   en: 'Jerusalem District',         uk: 'Єрусалимський округ',  he: 'מחוז ירושלים‏‏' },
+        { ru: 'Южный Округ',           en: 'Southern District',          uk: 'Південний Округ',      he: 'מחוז הדרום' },
+        { ru: 'Округ Иудея и Самария', en: 'Judea and Samaria District', uk: 'Округ Юдея і Самарія', he: 'מחוז יהודה ושומרון' }
       ]
 
       districts_array.each { |dis| District.create(dis) }

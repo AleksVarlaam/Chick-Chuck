@@ -68,6 +68,7 @@ he:
             product:
                 category:         "קטגוריה"
                 things:           "סוג"
+                thing:            "סוג"
                 title:            "כותרת"
                 description:      "תיאור"
                 price:            "מחיר"
@@ -75,6 +76,8 @@ he:
                 delivery:         "משלוח"
                 images:           "תמונות"
                 sold:             "נמכר"
+                district:         "אזור"
+                city:             "עיר"
             review:
                 politeness:       "אדיבות"
                 punctuality:      "דייקנות"

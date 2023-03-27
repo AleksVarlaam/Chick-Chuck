@@ -20,7 +20,7 @@
                 <!-- Condition -->
                 <%= tag.p "#{Product.human_attribute_name('condition')}: #{product.condition_name}", class: "mb-3 font-normal text-gray-500"%>
                 <!-- Delivery -->
-                <%= tag.p class: "mb-3 font-normal text-gray-500 flex items-center" do %>
+                <%= tag.p class: "font-normal text-gray-500 flex items-center" do %>
                     <%= Product.human_attribute_name('delivery') + ': ' %>
                     <%= product.delivery_name %>
                 <% end %>
@@ -30,6 +30,11 @@
                 <%= tag.p "#{Product.human_attribute_name('description')}: #{product.description}", 
                     class: "mb-3 font-normal text-gray-500 col-span-full"%>
             <% end %>
+            <div class="col-span-full text-center mt-3">
+                <!-- City -->
+                <%= tag.p "#{product.district_name}, #{product.city}",
+                    class: "text-sm text-gray-500" if product.city.present?%>
+            </div>
             <!-- Card Footer -->
             <div class="flex items-center justify-between mt-4 col-span-full">
                 <!-- Created at -->

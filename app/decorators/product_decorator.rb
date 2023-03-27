@@ -24,7 +24,16 @@ class ProductDecorator < ApplicationDecorator
     when :he then product.thing.he
     end
   end
-
+  
+  def district_name
+    case I18n.locale
+    when :ru then product.district.ru
+    when :uk then product.district.uk
+    when :en then product.district.en
+    when :he then product.district.he
+    end
+  end
+  
   def condition_name
     Product.condition_select.select { |item| return item[0] if item[1] == product.condition }
   end

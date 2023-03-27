@@ -19,12 +19,11 @@ module Users
 
     def create
       @product = current_user.products.build(product_params).decorate
-
+      
       respond_to do |format|
         if @product.save
-          format.html do
-            redirect_to users_products_path,
-                        success: t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}")
+          format.turbo_stream do
+            flash.now[:success] = t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}")
           end
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -97,7 +96,7 @@ module Users
     private
 
     def product_params
-      params.require(:product).permit(:category_id, :thing_id, :title, :condition, :delivery, :description, :price, images: [],
+      params.require(:product).permit(:category_id, :thing_id, :district_id, :city, :title, :condition, :delivery, :description, :price, images: [],
                                                                                                                     append_images: [])
     end
 

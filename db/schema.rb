@@ -161,8 +161,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.bigint "thing_id", null: false
+    t.bigint "district_id", null: false
     t.string "title", null: false
     t.string "description"
+    t.string "city"
     t.integer "condition", null: false
     t.integer "delivery", null: false
     t.integer "price", null: false
@@ -172,6 +174,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["district_id"], name: "index_products_on_district_id"
     t.index ["thing_id"], name: "index_products_on_thing_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -297,6 +300,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
   add_foreign_key "prices", "things"
   add_foreign_key "prices", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "districts"
   add_foreign_key "products", "things"
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "users"

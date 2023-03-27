@@ -67,6 +67,7 @@ en:
             product:
                 category:         'Category'
                 things:           'Type'
+                thing:            'Type'
                 title:            'Title'
                 description:      'Description'
                 price:            'Price'
@@ -74,6 +75,8 @@ en:
                 delivery:         'Delivery'
                 images:           'Images'
                 sold:             'Sold'
+                district:         'District'
+                city:             'City'
             review:
                 politeness:       'Politeness'
                 punctuality:      'Punctuality'

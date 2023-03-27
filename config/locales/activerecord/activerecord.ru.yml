@@ -68,6 +68,7 @@ ru:
             product:
                 category:         'Категория'
                 things:           'Тип'
+                thing:            'Тип'
                 title:            'Заголовок'
                 description:      'Описание'
                 price:            'Цена'
@@ -75,6 +76,8 @@ ru:
                 delivery:         'Доставка'
                 images:           'Изображения'
                 sold:             'Продано'
+                district:         'Регион'
+                city:             'Город'
             review:
                 politeness:       'Вежливость'
                 punctuality:      'Пунктуальность'

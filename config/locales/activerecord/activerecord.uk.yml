@@ -68,6 +68,7 @@ uk:
             product:
                 category:         'Категорія'
                 things:           'Тип'
+                thing:            'Тип'
                 title:            'Заголовок'
                 description:      'Опис'
                 price:            'Ціна'
@@ -75,6 +76,8 @@ uk:
                 delivery:         'Доставка'
                 images:           'Зображення'
                 sold:             'Продано'
+                district:         'Регіон'
+                city:             'Міста'
             review:
                 politeness:       'Вічливість'
                 punctuality:      'Пунктуальність'
