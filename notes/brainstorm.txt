@@ -23,8 +23,9 @@ v.1.0:
 21. Create product functional to Clients ✅
 22. Install gem heroicons and chech all icons ✅
 23. Update cost calculator on full screen ✅
-24. Create page about Chick-Chuck.com with conctacts form
-25. Create statistics of Chick-Chuck.com
+24. Create page about Chick-Chuck.com ✅
+25. Create statistics of Chick-Chuck.com ✅
+26. Add districts in products model
 
 
 v.1.1:

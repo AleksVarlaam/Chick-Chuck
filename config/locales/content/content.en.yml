@@ -5,7 +5,8 @@ en:
         trucks:           'Trucks'
         preparation:      'Preparation'
         market:           'Market'
-        news:             'News'    
+        news:             'News'   
+        about:            'About' 
     truck:
         add_btn:          'Add truck'
         edit_btn:         'Edit truck'

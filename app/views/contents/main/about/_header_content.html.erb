@@ -3,16 +3,13 @@
         <div class="lg:px-32 lg:flex lg:items-center">
             <div class="lg:w-2/3 lg:px-10 mb-6">
                 <!-- Title -->
-                <h1 class="text-2xl font-semibold text-gray-800 text-center">
-                    Идея создания сервиса
-                </h1>
+                <%= tag.h1 t('about.header.title'), class: "text-2xl font-semibold text-gray-800 text-center" %>
                 <!-- Description -->
-                <p class="w-full mt-6 text-gray-500">
-                    Здравствуйте, меня зовут Александр. Я основатель и создатель сервиса Chick-Chuck.com. Проживая в Израиле, на личном опыте и опыте окружащих меня людей я столкнулся с задачей постоянных переездов внутри страны. Я заметил насколько много в Израиле перевозчиков и насколько это востребованная сфера. Затем я понял, что было бы удобно взять и объединить всех перевозчиков на одном сайте, чтобы облегчить поиск перевозчика, исходя из нужных клиенту критериев, а главное реальных рейтингов и отзывов от клиентов, чтобы не напороться на недобросовестного перевозчика и остаться довольным своим переездом. Те, кто не имеет собственного жилья и вынужден постоянно переезжать с одной арендованной квартиры в другую, понимают, о чем я. Ниже я расскажу немного о моем сервисе. 
-                </p>
-
-                <h3 class="mt-6 text-lg font-medium text-blue-500">Александр Варламов</h3>
-                <p class="text-gray-600">Основатель Chick-Chuck.com</p>
+                <%= tag.p t('about.header.desc'), class: "w-full mt-6 text-gray-500" %>
+                <!-- Founder name -->
+                <%= tag.h3 t('about.header.founder_name'), class: "mt-6 text-lg font-medium text-blue-500"%>
+                <!-- Founder title -->
+                <%= tag.p t('about.header.founder_title'), class: "text-gray-600"%>
             </div>
             <!-- Image -->
             <div class="w-auto lg:w-1/3 h-[20rem] sm:h-[30rem] lg:h-auto flex justify-center lg:block">

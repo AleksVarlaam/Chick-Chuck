@@ -6,6 +6,7 @@ he:
         preparation:      "הכנה"
         market:           "שוק"
         news:             "חדשות"
+        about:            "על השירות"
     truck:
         add_btn:          "הוסף משאית"
         edit_btn:         "תחליף משאית"

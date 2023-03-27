@@ -6,6 +6,7 @@ ru:
         preparation:      'Подготовка'
         market:           'Барахолка'
         news:             'Новости'
+        about:            'О сервисе'
     truck:
         add_btn:          'Добавить грузовик'
         edit_btn:         'Изменить грузовик'

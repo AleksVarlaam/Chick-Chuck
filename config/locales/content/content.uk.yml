@@ -6,6 +6,7 @@ uk:
         preparation:      'Підготовка'
         market:           'Барахолка'
         news:             'Новини'
+        about:            'Про сервіс'
     truck:
         add_btn:          'Додати вантажівку'
         edit_btn:         'Змінити вантажівку'

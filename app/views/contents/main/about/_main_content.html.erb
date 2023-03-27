@@ -7,17 +7,13 @@
                 <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
                     <%= heroicon 'calculator', class: "w-6 h-6" %>
                 </span>
-
-                <h1 class="text-xl font-semibold text-gray-700 capitalize">Предварительный рассчет стоимости переезда</h1>
-
-                <p class="text-gray-500">
-                    Нелья недооценивать тяжелую физическую работу грузчиков и расходы на топливо при перевозке ваших вещей, поэтому сервис позволяет перевозчику указать стоимость за преодолимую дистанцию и перевозку опредленных предметов разной категории за каждый преодлимый этаж вниз и вверх. <br>
-                    Переезд дело не простое и очень затратное, калькулятор стоимости перевозки позволяет клиентку узнать предварительную стоимость переезда среди компаний, зарегистрированных в нашем сервисе. Невозможно рассчитать все ньюансы при переезде, поэтому предварительная стоимость является приблизительной, точная стоимость переезда согласовывается непосредственно с перевозчиком.
-                </p>
-                
+                <!-- Title -->
+                <%= tag.h1 t('about.calculator.title'), class: "text-xl font-semibold text-gray-700 capitalize" %>
+                <!-- Desc -->
+                <%= tag.p t('about.calculator.desc_html'), class: "text-gray-500" %>
                 <!-- Link -->
                 <%= link_to calculator_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
-                    <span class="mx-1">Рассчитать стоимость</span>
+                    <%= tag.span t('home_page.calculate'), class: "mx-1" %>
                     <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
                 <% end %>
             </div>
@@ -27,17 +23,13 @@
                 <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
                     <%= heroicon 'truck', class: "w-6 h-6" %>
                 </span>
-
-                <h1 class="text-xl font-semibold text-gray-700 capitalize">Фильтр грузовиков</h1>
-
-                <p class="text-gray-500">
-                    Клиент может отсортировать все грузовики исходя из необходимого региона где работает перевозчик и типа кузова грузовика в порядке рейтинга от отзывов других клиентов. <br>
-                    Так же не забывайте оставить свой отзыв об услугах перевозчика, это поможет другим клиентам выбрать добросовестного и профессионального перевозчика, как когда-то это помогло вам.
-                </p>
-                
+                <!-- Title -->
+                <%= tag.h1 t('about.trucks.title'), class: "text-xl font-semibold text-gray-700 capitalize" %>
+                <!-- Desc -->
+                <%= tag.p t('about.trucks.desc_html'), class: "text-gray-500" %>
                 <!-- Link -->
                 <%= link_to trucks_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
-                    <span class="mx-1">Найти грузовик</span>
+                    <%= tag.span t('calculator.find_btn'), class: "mx-1" %>
                     <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
                 <% end %>
             </div>
@@ -47,17 +39,13 @@
                 <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
                     <%= heroicon 'shopping-bag', class: "w-6 h-6" %>
                 </span>
-
-                <h1 class="text-xl font-semibold text-gray-700 capitalize">Возможность купить/продать поддержаные вещи</h1>
-
-                <p class="text-gray-500">
-                    Любой зарегистрированный пользователь может подать объявление о продаже поддержанных вещей, указывая регион местоположения, состояние и категорию предмета. <br>
-                    Так же можно купить поддержаные вещи напрямую у перевозчика, что очень удобно, ведь перевозчики знают толк в поддержаных вещах и с ними можно напрямую договориться о доставке.
-                </p>
-                
+                <!-- Title -->
+                <%= tag.h1 t('about.market.title'), class: "text-xl font-semibold text-gray-700 capitalize" %>
+                <!-- Desc -->
+                <%= tag.p t('about.market.desc_html'), class: "text-gray-500" %>
                 <!-- Link -->
                 <%= link_to products_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
-                    <span class="mx-1">Барахолка</span>
+                    <%= tag.span t('pages.market'), class: "mx-1" %>
                     <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
                 <% end %>
             </div>
@@ -67,16 +55,13 @@
                 <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
                     <%= heroicon 'newspaper', class: "w-6 h-6" %>
                 </span>
-
-                <h1 class="text-xl font-semibold text-gray-700 capitalize">Подготовка к переезду</h1>
-
-                <p class="text-gray-500">
-                    Если вам не приходилось ранее сталкиваться с переездом в другую квартиру или имеете недосточно опыта в этом не простом деле, то вы можете ознакомиться с нашей статьей о подготовке к переезду, чтобы тщательнее спланировать свой переезд и чувствовать себя уверенее.
-                </p>
-                
+                <!-- Title -->
+                <%= tag.h1 t('about.moving_preparation.title'), class: "text-xl font-semibold text-gray-700 capitalize" %>
+                <!-- Desc -->
+                <%= tag.p t('about.moving_preparation.desc_html'), class: "text-gray-500" %>
                 <!-- Link -->
                 <%= link_to moving_preparation_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
-                    <span class="mx-1">Подготовка к переезду</span>
+                    <%= tag.span t('moving_preparation.title'), class: "mx-1" %>
                     <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
                 <% end %>
             </div>
