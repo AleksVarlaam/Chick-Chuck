@@ -20,6 +20,6 @@
   class: link_class, current_page: current_page, 
   data: {action: "dropdown#toggle", turbo_frame: '_top'}  if News.count.positive?%>
   <!-- About -->
-<%= nav_tab 'О сервисе', about_path, 
+<%= nav_tab t('pages.about'), statistic_path, 
 class: link_class, current_page: current_page, 
 data: {action: "dropdown#toggle", turbo_frame: '_top'} %>

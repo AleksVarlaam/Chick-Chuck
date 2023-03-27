@@ -99,8 +99,8 @@ Rails.application.routes.draw do
         resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
       end
       
-      # Main Comments
-      resources :statistic, only: :show do
+      # About page and comments
+      resource :statistic, only: :show, path: '/about', controller: 'contents/statistics' do
         resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
       end
 
@@ -116,8 +116,6 @@ Rails.application.routes.draw do
       # Moving preparation
       get '/moving_preparation', to: 'contents/main#moving_preparation'
       
-      # About
-      get '/about', to: 'contents/main#about', as: 'about'
     end
 
     # Active storage attachments

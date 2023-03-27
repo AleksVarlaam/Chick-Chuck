@@ -7,7 +7,7 @@ module Contents
     before_action :params_for_select, only: %i[index user_products]
 
     def index
-      Statistic.first.update(products: Statistic.first.products + 1) unless user_signed_in?
+      Statistic.first.update(market: Statistic.first.market + 1) unless user_signed_in?
       @pagy, @products = pagy(Product.filter(filter_params).newest, items: 8, fragment: '#products')
       @products = @products.decorate
     end
