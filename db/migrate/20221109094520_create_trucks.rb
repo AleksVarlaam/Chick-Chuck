@@ -2,14 +2,6 @@
 
 class CreateTrucks < ActiveRecord::Migration[7.0]
   def change
-    # Districts
-    create_table :districts do |t|
-      t.string :ru, null: false
-      t.string :uk, null: false
-      t.string :en, null: false
-      t.string :he, null: false
-    end
-
     # Districts company
     create_table :districts_users, id: false do |t|
       t.belongs_to :district

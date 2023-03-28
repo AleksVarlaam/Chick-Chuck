@@ -69,6 +69,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
     t.string "he", null: false
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "ru", null: false
+    t.string "en", null: false
+    t.string "uk", null: false
+    t.string "he", null: false
+    t.bigint "district_id", null: false
+    t.index ["district_id"], name: "index_cities_on_district_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id"
@@ -162,6 +171,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
     t.bigint "category_id", null: false
     t.bigint "thing_id", null: false
     t.bigint "district_id", null: false
+    t.bigint "city_id", null: false
     t.string "title", null: false
     t.string "description"
     t.string "city"
@@ -174,6 +184,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["city_id"], name: "index_products_on_city_id"
     t.index ["district_id"], name: "index_products_on_district_id"
     t.index ["thing_id"], name: "index_products_on_thing_id"
     t.index ["user_id"], name: "index_products_on_user_id"
@@ -293,6 +304,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "calculators", "users"
+  add_foreign_key "cities", "districts"
   add_foreign_key "comments", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
@@ -300,6 +312,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
   add_foreign_key "prices", "things"
   add_foreign_key "prices", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "cities"
   add_foreign_key "products", "districts"
   add_foreign_key "products", "things"
   add_foreign_key "products", "users"

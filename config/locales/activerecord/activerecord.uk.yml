@@ -8,6 +8,7 @@ uk:
             category:     'Категорія'
             thing:        'Тип'
             district:     'Регіон'
+            city:         'Місто'
             language:     'Мова'
             news:         'Новини'
             truck:        'Вантажівка'

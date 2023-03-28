@@ -8,6 +8,7 @@ en:
             category:     'Category'
             thing:        'Thing'
             district:     'District'
+            city:         'City'
             language:     'Language'
             news:         'New'
             truck:        'Truck'
