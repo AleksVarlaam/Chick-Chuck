@@ -3,13 +3,14 @@
 class Product < ApplicationRecord
   include ImagesAttachments
   include Filterable
-  validates_associated :user, :category, :thing, :district
-  validates :city, :title, :condition, :delivery, :price, :images, presence: true
+  validates_associated :user, :category, :thing, :district, :city
+  validates  :title, :condition, :delivery, :price, :images, presence: true
 
   belongs_to :user, foreign_key: :user_id
   belongs_to :category
   belongs_to :thing
   belongs_to :district
+  belongs_to :city
 
   scope :filter_by_category_id, ->(category_id) { where category_id:, published: true }
   scope :filter_by_thing_id, ->(thing_id) { where thing_id:, published: true }
