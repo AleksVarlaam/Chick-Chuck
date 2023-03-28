@@ -24,7 +24,7 @@ module Contents
     private
 
     def filter_params
-      params.permit(:category_id, :thing_id)
+      params.permit(:category_id, :thing_id, :district_id, :city_id)
     end
 
     def set_show
@@ -38,15 +38,19 @@ module Contents
 
     def params_for_select
       @categories = Category.all.decorate
-      @selected_category = params[:category_id] || Thing.find_by(id: params[:thing_id])&.category&.id
-
-      @things = if params[:thing_id].present?
-                  Thing.find_by(id: params[:thing_id])&.category&.things&.decorate
-                elsif params[:category_id].present?
-                  Thing.where(category_id: params[:category_id]).decorate
-                else
-                  Thing.all.decorate
-                end
+      @things = Thing.all.decorate
+      @districts = District.all.decorate
+      @cities = City.all.decorate
+            #
+      # @selected_category = params[:category_id] || Thing.find_by(id: params[:thing_id])&.category&.id
+      #
+      # @things = if params[:thing_id].present?
+      #             Thing.find_by(id: params[:thing_id])&.category&.things&.decorate
+      #           elsif params[:category_id].present?
+      #             Thing.where(category_id: params[:category_id]).decorate
+      #           else
+      #             Thing.all.decorate
+      #           end
     end
   end
 end

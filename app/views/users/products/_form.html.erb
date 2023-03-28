@@ -4,25 +4,26 @@
     <%= tag.div (render 'active_storage/attachments/carousel', object: @product), 
         class: "col-span-full md:px-[14rem] w-full justify-center mb-4" if ['edit', 'update'].include?(action_name) %>
     <!-- Select Category -->
-    <%= render 'select_category', path: ['edit', 'update'].include?(action_name) ? edit_users_product_path : new_users_product_path%>
+    <%# render 'select_category', path: ['edit', 'update'].include?(action_name) ? edit_users_product_path : new_users_product_path%>
 
     <!-- Product form -->
     <%= form_with model: [:users, @product], class: "contents" do |f| %>
       <!-- Errors -->
       <%= render 'shared/error_messages', resource: @product %>
       <!-- Category id -->
-      <%= f.hidden_field :category_id, value: params[:category_id] || @product&.category&.id || @categories[0]%>
+      <%# f.hidden_field :category_id, value: params[:category_id] || @product&.category&.id || @categories[0]%>
       <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2">
+          <!-- Category type -->
+          <div class="flex items-center text-gray-600 justify-center">
+              <%= f.label :category, class: "text-lg mr-2" %>
+              <%= f.collection_select(:category_id, @categories, :id, :title, { prompt: true,  selected: params[:category_id] || @product&.category&.id}, 
+                {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
+          </div>
           <!-- Thing type -->
           <div class="flex items-center text-gray-600 justify-center">
               <%= f.label :things, class: "text-lg mr-2" %>
               <%= f.collection_select(:thing_id, @things, :id, :title, { prompt: true,  selected: params[:thing_id] || @product&.thing&.id}, 
                 {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
-          </div>
-          <!-- Condition -->
-          <div class="flex items-center text-gray-600 justify-center">
-              <%= f.label :condition, class: "text-lg mr-2" %>
-              <%= f.select(:condition, options_for_select(Product.condition_select, @product.condition), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
           <!-- District -->
           <div class="flex items-center text-gray-600 justify-center">
@@ -34,15 +35,20 @@
               <%= f.label :city, class: "text-lg mr-2" %>
               <%= f.select(:city_id, options_from_collection_for_select(City.all.decorate, 'id', 'title', @product.city_id), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
-          <!-- Title -->
+          <!-- Condition -->
           <div class="flex items-center text-gray-600 justify-center">
-              <%= f.label :title, class: "text-lg mr-2" %>
-              <%= f.text_field :title, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", placeholder: Product.human_attribute_name('title'), required: false%>
+              <%= f.label :condition, class: "text-lg mr-2" %>
+              <%= f.select(:condition, options_for_select(Product.condition_select, @product.condition), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
           <!-- Delivery -->
           <div class="flex items-center text-gray-600 justify-center">
               <%= f.label :delivery, class: "text-lg mr-2" %>
               <%= f.select(:delivery, options_for_select(Product.delivery_select, @product.delivery), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
+          </div>
+          <!-- Title -->
+          <div class="flex items-center text-gray-600 justify-center col-span-full">
+              <%= f.label :title, class: "text-lg mr-2" %>
+              <%= f.text_field :title, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", placeholder: Product.human_attribute_name('title'), required: false%>
           </div>
           <!-- Description -->
           <div class="flex items-center text-gray-600 justify-center col-span-full">

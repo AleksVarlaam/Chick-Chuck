@@ -3,7 +3,7 @@
 class Product < ApplicationRecord
   include ImagesAttachments
   include Filterable
-  validates_associated :user, :category, :thing, :district, :city
+  validates_associated :category, :thing, :district, :city
   validates  :title, :condition, :delivery, :price, :images, presence: true
 
   belongs_to :user, foreign_key: :user_id
@@ -14,6 +14,8 @@ class Product < ApplicationRecord
 
   scope :filter_by_category_id, ->(category_id) { where category_id:, published: true }
   scope :filter_by_thing_id, ->(thing_id) { where thing_id:, published: true }
+  scope :filter_by_district_id, ->(district_id) { where district_id:, published: true }
+  scope :filter_by_city_id, ->(city_id) { where city_id:, published: true }
 
   def self.condition_select
     [

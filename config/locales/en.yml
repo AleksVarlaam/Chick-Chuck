@@ -22,6 +22,7 @@ en:
 Subscribe to our news to monitor our progress."
       da:               'Yes'
       net:              'No'
+      find_btn:         "Find %{model}"
   # Flash
   flash:
       type:

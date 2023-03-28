@@ -3,7 +3,6 @@
 class Truck < ApplicationRecord
   include ImagesAttachments
   include Filterable
-  validates_associated :company
   validates :districts, presence: true
   validates :length, allow_blank: false, numericality: { in: 1..20 }
   validates :load_capacity, allow_blank: false, numericality: { in: 0.1..20 }

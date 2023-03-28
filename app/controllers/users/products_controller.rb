@@ -96,13 +96,14 @@ module Users
     private
 
     def product_params
-      params.require(:product).permit(:category_id, :thing_id, :district_id, :city, :title, :condition, :delivery, :description, :price, images: [],
+      params.require(:product).permit(:category_id, :thing_id, :district_id, :city_id, :title, :condition, :delivery, :description, :price, images: [],
                                                                                                                     append_images: [])
     end
 
     def filter_product
       @categories = Category.all.decorate
-      @things = Category.find_by(id: params[:category_id])&.things&.decorate || @product&.category&.things&.decorate || Thing.all.decorate
+      @things = Thing.all.decorate
+      # @things = Category.find_by(id: params[:category_id])&.things&.decorate || @product&.category&.things&.decorate || Thing.all.decorate
     end
 
     def set_product

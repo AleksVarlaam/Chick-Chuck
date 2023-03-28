@@ -19,9 +19,9 @@
         <div class=" w-full h-auto p-3 col-span-full">
             <%= button_tag class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-500 border-blue-500 hover:bg-blue-600 text-gray-200'}" do %>
                 <% unless controller_name == 'companies' || action_name == 'company_trucks' %>
-                    <%= tag.p t('calculator.find_btn'), class: 'w-full text-center mr-2' %>
+                    <%= tag.p t('global.find_btn', model: Truck.model_name.human), class: 'w-full text-center mr-2' %>
                 <% else %>
-                    <%= tag.p t('calculator.find_btn') + ' ' + @company.title, class: 'w-full text-center mr-2' %>
+                    <%= tag.p t('global.find_btn', model: Truck.model_name.human) + ' ' + @company.title, class: 'w-full text-center mr-2' %>
                 <% end %>
             <% end %>
         </div>

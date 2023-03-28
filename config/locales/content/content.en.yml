@@ -47,7 +47,6 @@ en:
         km_span:          '₪ per 1 km'
         floor_span:       '% per 1 floor'
         options:          'Options'
-        find_btn:         'Find truck'
         price:            'Price per unit'
         elevator:         'elevator'
         note_html:        "Note: This calculator allows you to calculate a preliminary moving cost, which is approximate. <br> The exact cost is agreed with the carrier."
