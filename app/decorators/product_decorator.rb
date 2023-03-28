@@ -43,14 +43,25 @@ class ProductDecorator < ApplicationDecorator
     end
   end
   
+  def delivery_name 
+    return I18n.t('product.delivery.pickup') if product.delivery == 0
+    district = District.find(product.delivery).decorate
+    case I18n.locale
+    when :ru then district.ru
+    when :uk then district.uk
+    when :en then district.en
+    when :he then district.he
+    end
+  end
+  
   def condition_name
     Product.condition_select.select { |item| return item[0] if item[1] == product.condition }
   end
 
-  def delivery_name
-    case product.delivery
-    when 1 then h.image_tag(h.asset_path('icons/icons8-done-40.png'), class: 'ml-2 w-5 h-5')
-    when 2 then (h.heroicon 'x-mark', class: 'ml-2 w-5 h-5 text-red-700')
-    end
-  end
+  # def delivery_name
+#     case product.delivery
+#     when 1 then h.image_tag(h.asset_path('icons/icons8-done-40.png'), class: 'ml-2 w-5 h-5')
+#     when 2 then (h.heroicon 'x-mark', class: 'ml-2 w-5 h-5 text-red-700')
+#     end
+#   end
 end

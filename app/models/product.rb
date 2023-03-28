@@ -25,8 +25,12 @@ class Product < ApplicationRecord
   end
 
   def self.delivery_select
-    [
-      [I18n.t('global.da'), 1], [I18n.t('product.delivery.pickup'), 2]
+    delivery_select = [
+      [I18n.t('product.delivery.pickup'), 0]
     ]
+    District.all.decorate.each do |district|
+      delivery_select << [district.title, district.id]
+    end
+    delivery_select
   end
 end
