@@ -10,23 +10,27 @@
                 <!-- Title -->
                 <%= tag.h5 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
             </div>
-            <div>
-                <!-- Category -->
-                <%= tag.p "#{Product.human_attribute_name('category')}: #{product.category_name}", class: "mb-3 font-normal text-gray-500" if ['show', 'products'].eql?([action_name, controller_name])%>
-                <!-- Type -->
-                <%= tag.p "#{Product.human_attribute_name('things')}: #{product.thing_name}", class: "mb-3 font-normal text-gray-500"%>
-            </div>
-            <div>
-                <!-- Condition -->
-                <%= tag.p "#{Product.human_attribute_name('condition')}: #{product.condition_name}", class: "mb-3 font-normal text-gray-500"%>
-                <!-- Delivery -->
-                <%= tag.p class: "mb-3 font-normal text-gray-500 flex items-center" do %>
-                    <%= Product.human_attribute_name('delivery') + ': ' %>
-                    <%= product.delivery_name %>
-                <% end %>
-            </div>
-            <!-- Description -->
             <% if ['show', 'products'].eql?([action_name, controller_name]) && product.description.present?%>
+                <div>
+                    <!-- Category -->
+                    <%= tag.p "#{Product.human_attribute_name('category')}: #{product.category_name}", 
+                        class: "mb-3 font-normal text-gray-500"%>
+                    <!-- Type -->
+                    <%= tag.p "#{Product.human_attribute_name('things')}: #{product.thing_name}",
+                        class: "mb-3 font-normal text-gray-500"%>
+                </div>
+            
+                <div>
+                    <!-- Condition -->
+                    <%= tag.p "#{Product.human_attribute_name('condition')}: #{product.condition_name}", 
+                        class: "mb-3 font-normal text-gray-500"%>
+                    <!-- Delivery -->
+                    <%= tag.p class: "mb-3 font-normal text-gray-500 flex items-center" do %>
+                        <%= Product.human_attribute_name('delivery') + ': ' %>
+                        <%= product.delivery_name %>
+                    <% end %>
+                </div>
+                <!-- Description -->
                 <%= tag.p "#{Product.human_attribute_name('description')}: #{product.description}", 
                     class: "mb-3 font-normal text-gray-500 col-span-full"%>
             <% end %>

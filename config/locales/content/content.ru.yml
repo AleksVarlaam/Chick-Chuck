@@ -34,10 +34,9 @@ ru:
         all_products:     'Все товары'
         total_products:   'Всего товаров'
         condition:
-            below_average:    'Ниже среднего'
-            average:          'Среднее'
-            above_average:    'Выше среднего'
-            like_new:         'Как новый'
+            any:              'Любое'
+            second_hand:      'Б/У'
+            new:              'Новое'
         delivery: 
             pickup:           'Самовывоз'
             price_popover:    'Цена без учета доставки'

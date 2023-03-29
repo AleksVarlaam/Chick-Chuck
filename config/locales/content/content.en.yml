@@ -34,10 +34,9 @@ en:
         all_products:     'All products'
         total_products:   'Total products'
         condition:
-            below_average:    'Below average'
-            average:          'Average'
-            above_average:    'Above average'
-            like_new:         'Like new'
+            any:              'Any'
+            second_hand:      'Second hand'
+            new:              'New'
         delivery: 
             pickup:           'Pickup'
             price_popover:    'Price excluding delivery'

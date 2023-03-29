@@ -34,10 +34,9 @@ he:
         all_products:     "כל המוצרים"
         total_products:   "סך הכל"
         condition:
-            below_average:    "מתחת לממוצע"
-            average:          "ממוצע"
-            above_average:    "מעל לממוצע"
-            like_new:         "כמו חדש"
+            any:              "בכל"
+            second_hand:      "שימוש לשעבר"
+            new:              "חדש"
         delivery: 
             pickup:           "איסוף עצמי"
             price_popover:    "מחיר לא כולל משלוח"

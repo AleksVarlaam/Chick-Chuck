@@ -38,7 +38,7 @@
           <!-- Condition -->
           <div class="flex items-center text-gray-600 justify-center">
               <%= f.label :condition, class: "text-lg mr-2" %>
-              <%= f.select(:condition, options_for_select(Product.condition_select, @product.condition), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
+              <%= f.select(:condition, options_for_select(Product.condition_select[1..], @product.condition), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
           <!-- Delivery -->
           <div class="flex items-center text-gray-600 justify-center">

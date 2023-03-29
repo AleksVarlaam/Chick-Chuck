@@ -19,8 +19,8 @@ class Product < ApplicationRecord
 
   def self.condition_select
     [
-      [I18n.t('product.condition.below_average'), 1], [I18n.t('product.condition.average'), 2],
-      [I18n.t('product.condition.above_average'), 3], [I18n.t('product.condition.like_new'), 4]
+      [I18n.t('product.condition.any'), 0],
+      [I18n.t('product.condition.second_hand'), 1], [I18n.t('product.condition.new'), 2]
     ]
   end
 

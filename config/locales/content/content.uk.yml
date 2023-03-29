@@ -34,10 +34,9 @@ uk:
         all_products:     'Всі товари'
         total_products:   'Всього товарів'
         condition:
-            below_average:    'Нижче середнього'
-            average:          'Середнє'
-            above_average:    'Вище середнього'
-            like_new:         'Як новий'
+            any:              'Любе'
+            second_hand:      'Вживане'
+            new:              'Нове'
         delivery: 
             pickup:           'Самовивіз'
             price_popover:    'Ціна без врахування доставки'
