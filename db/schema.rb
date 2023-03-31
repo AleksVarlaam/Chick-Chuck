@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
     t.string "uk", null: false
     t.string "en", null: false
     t.string "he", null: false
+    t.string "category"
   end
 
   create_table "cities", force: :cascade do |t|

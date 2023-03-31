@@ -8,6 +8,7 @@ class CreateCatalogAndCalculator < ActiveRecord::Migration[7.0]
       t.string :uk, null: false
       t.string :en, null: false
       t.string :he, null: false
+      t.string :category
     end
 
     # Things
