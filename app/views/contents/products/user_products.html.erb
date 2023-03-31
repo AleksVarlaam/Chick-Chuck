@@ -18,17 +18,18 @@
 <%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
     <!-- Title -->
     <%= tag.h4 t('product.user_products', user_name: nil), class: 'capitalize text-3xl font-semibold text-gray-800 mb-6 text-center'%>
-    <!-- Filter -->
-    <%= render 'filter', path: user_products_path(@user)%>
-    <!-- Products -->
-    <% if @products.present? %>
-        <%= turbo_frame_tag 'products',
-            class: "grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center mx-auto w-full container" do 
-        %>
+    <!-- Content -->
+    <%= turbo_frame_tag 'products',
+        class: "grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center mx-auto w-full container" do 
+    %>
+        <!-- Filter -->
+        <%= render 'filter', path: user_products_path(@user)%>
+        <!-- Products -->
+        <% if @products.present? %>
             <%= render partial: 'contents/products/product', collection: @products%>
+        <% else %>
+            <%= render 'contents/shared/unavailable', model: t('product.all_products')%>
         <% end %>
-        <%== pagy_nav(@pagy) if Product.count > 7%>
-    <% else %>
-        <%= render 'contents/shared/unavailable', model: t('product.all_products')%>
     <% end %>
+    <%== pagy_nav(@pagy) if Product.count > 7%>
 <% end %>

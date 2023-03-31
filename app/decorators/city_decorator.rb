@@ -11,7 +11,7 @@ class CityDecorator < ApplicationDecorator
     when :he then city.he
     end
   end
-  
+
   def district_name
     case I18n.locale
     when :ru then city.district.ru

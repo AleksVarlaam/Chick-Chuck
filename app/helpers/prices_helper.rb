@@ -14,7 +14,7 @@ module PricesHelper
     thing_prices = thing_prices.sum
     distance = company.calculator.distance * params[:distance].to_i || 1
 
-    floor_down = if params[:elevator_down].to_i == 0
+    floor_down = if params[:elevator_down].to_i.zero?
                    thing_prices / 100 * (company.calculator.floor_down * params[:floor_down].to_i || 1)
                  elsif params[:elevator_down].to_i == 1
                    thing_prices / 100 * (company.calculator.floor_down_elevator * params[:floor_down].to_i || 1)
@@ -22,7 +22,7 @@ module PricesHelper
                    0
                  end
 
-    floor_up = if params[:elevator_up].to_i == 0
+    floor_up = if params[:elevator_up].to_i.zero?
                  thing_prices / 100 * (company.calculator.floor_up * params[:floor_up].to_i || 1)
                elsif params[:elevator_up].to_i == 1
                  thing_prices / 100 * (company.calculator.floor_up_elevator * params[:floor_up].to_i || 1)

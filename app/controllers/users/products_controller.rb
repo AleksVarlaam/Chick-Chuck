@@ -19,7 +19,7 @@ module Users
 
     def create
       @product = current_user.products.build(product_params).decorate
-      
+
       respond_to do |format|
         if @product.save
           format.turbo_stream do
@@ -97,7 +97,7 @@ module Users
 
     def product_params
       params.require(:product).permit(:category_id, :thing_id, :district_id, :city_id, :title, :condition, :delivery, :description, :price, images: [],
-                                                                                                                    append_images: [])
+                                                                                                                                            append_images: [])
     end
 
     def filter_product

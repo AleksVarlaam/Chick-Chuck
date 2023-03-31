@@ -10,9 +10,9 @@ namespace :admin do
     else
       Statistic.create
 
-      p "Statistic created"
+      p 'Statistic created'
     end
-    
+
     # Languages
     if Language.exists?
       p 'Languages already exists!'
@@ -26,5 +26,4 @@ namespace :admin do
       p "Created #{Language.count} languages"
     end
   end
-
 end

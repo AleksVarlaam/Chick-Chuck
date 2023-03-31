@@ -2,7 +2,6 @@
 
 module Contents
   class StatisticsController < ApplicationController
-    
     def show
       Statistic.first.update(about: Statistic.first.about + 1) unless user_signed_in?
       @statistic = @commentable = Statistic.first
@@ -14,8 +13,7 @@ module Contents
       @comments = @statistic.comments
       @comment = Comment.new
       @pagy, @comments = pagy(@statistic.comments.where(commentable_type: Statistic.name).newest, items: 10,
-                                                                                          fragment: '#comments')
+                                                                                                  fragment: '#comments')
     end
-    
   end
 end

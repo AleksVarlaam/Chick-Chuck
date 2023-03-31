@@ -10,7 +10,8 @@ namespace :catalog do
       catalog_hash = [
         # Мебель
         { # Мебель для кухни
-          name: { ru: 'Мебель для кухни', en: 'Kitchen furniture', uk: 'Кухонні меблі', he: 'Мебель для кухни', category: 'furniture' },
+          name: { ru: 'Мебель для кухни', en: 'Kitchen furniture', uk: 'Кухонні меблі', he: 'Мебель для кухни',
+                  category: 'furniture' },
           things: [
             { ru: 'Кухни',            en: 'Kitchens',       uk: 'Кухні',          he: 'Кухни' },
             { ru: 'Диваны для кухни', en: 'Kitchen sofa',   uk: 'Кухонний диван', he: 'Диваны для кухни' },
@@ -20,7 +21,8 @@ namespace :catalog do
           ]
         },
         { # Мягкая мебель
-          name: { ru: 'Мягкая мебель', en: 'Upholstered furniture', uk: "М'які меблі", he: 'Мягкая мебель', category: 'furniture' },
+          name: { ru: 'Мягкая мебель', en: 'Upholstered furniture', uk: "М'які меблі", he: 'Мягкая мебель',
+                  category: 'furniture' },
           things: [
             { ru: 'Диваны',              en: 'Sofas',                     uk: 'Дивани',                 he: 'Диваны' },
             { ru: 'Тахты',               en: 'Couches',                   uk: 'Кушети',                 he: 'Тахты' },
@@ -34,7 +36,8 @@ namespace :catalog do
           ]
         },
         { # Корпусная мебель
-          name: { ru: 'Корпусная мебель', en: 'Cabinet furniture', uk: 'Корпусні меблі', he: 'Корпусная мебель', category: 'furniture' },
+          name: { ru: 'Корпусная мебель', en: 'Cabinet furniture', uk: 'Корпусні меблі', he: 'Корпусная мебель',
+                  category: 'furniture' },
           things: [
             { ru: 'Шкафы-купе',              en: 'Closets',               uk: 'Шафи',                he: 'Шкафы-купе' },
             { ru: 'Стенки',                  en: 'Wall',                  uk: 'Стінка',              he: 'Стенки' },
@@ -51,7 +54,8 @@ namespace :catalog do
           ]
         },
         { # Офисная мебель
-          name: { ru: 'Офисная мебель', en: 'Office furniture', uk: 'Офісні меблі', he: 'Офисная мебель', category: 'furniture' },
+          name: { ru: 'Офисная мебель', en: 'Office furniture', uk: 'Офісні меблі', he: 'Офисная мебель',
+                  category: 'furniture' },
           things: [
             { ru: 'Офисные столы',              en: 'Office Desks',                 uk: 'Офісні столи',
               he: 'Офисные столы' },
@@ -72,7 +76,8 @@ namespace :catalog do
           ]
         },
         { # Детская мебель
-          name: { ru: 'Детская мебель', en: 'Children’s furniture', uk: 'Дитячі меблі', he: 'Детская мебель', category: 'furniture' },
+          name: { ru: 'Детская мебель', en: 'Children’s furniture', uk: 'Дитячі меблі', he: 'Детская мебель',
+                  category: 'furniture' },
           things: [
             { ru: 'Шкафы для детской',          en: 'Cabinets',          uk: 'Дитячі шафи',
               he: 'Шкафы для детской' },
@@ -110,7 +115,8 @@ namespace :catalog do
           ]
         },
         { # Мебель из массива
-          name: { ru: 'Мебель из массива', en: 'Solid furniture', uk: 'Деревʼяні меблі', he: 'Мебель из массива', category: 'furniture' },
+          name: { ru: 'Мебель из массива', en: 'Solid furniture', uk: 'Деревʼяні меблі', he: 'Мебель из массива',
+                  category: 'furniture' },
           things: [
             { ru: 'Столы из массива',         en: 'Array tables',           uk: 'Деревʼяні столи',
               he: 'Столы из массива' },
@@ -133,7 +139,8 @@ namespace :catalog do
           ]
         },
         { # Садовая мебель
-          name: { ru: 'Садовая мебель', en: 'Garden furniture', uk: 'Садові меблі', he: 'Садовая мебель', category: 'furniture' },
+          name: { ru: 'Садовая мебель', en: 'Garden furniture', uk: 'Садові меблі', he: 'Садовая мебель',
+                  category: 'furniture' },
           things: [
             { ru: 'Кованая мебель',     en: 'Forged furniture',   uk: 'Ковані меблі',         he: 'Кованая мебель' },
             { ru: 'Мебель для отдыха',  en: 'Vacation furniture', uk: 'Меблі для відпочинку', he: 'Мебель для отдыха' },
@@ -164,7 +171,8 @@ namespace :catalog do
           ]
         },
         { # Предметы интерьера
-          name: { ru: 'Предметы интерьера', en: 'Interior', uk: "Інтер'єр", he: 'Предметы интерьера', category: 'interior' },
+          name: { ru: 'Предметы интерьера', en: 'Interior', uk: "Інтер'єр", he: 'Предметы интерьера',
+                  category: 'interior' },
           things: [
             { ru: 'Зеркала',            en: 'Looking glass',   uk: 'Дзеркало',        he: 'Зеркала' },
             { ru: 'Вешалки',            en: 'Coat hangers',    uk: 'Вішаки',          he: 'Вешалки' },

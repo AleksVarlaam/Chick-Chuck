@@ -1,9 +1,10 @@
 <!-- Market filter -->
 <%= form_with url: path, method: :get, data: {turbo_frame: '_top'} do |f| %> 
-    <div class="w-full z-10 mx-auto border-gray-300 bg-white divide-y rounded-xl p-3 border border-gray-300 text-gray-500">
+    <div class="w-full z-10 mx-auto border-gray-300 bg-white divide-y rounded-lg shadow-md hover:shadow-lg p-3 border border-gray-300 text-gray-500">
         <!-- Category -->
         <button id="CategoryMultiLevelDropdownButton" data-dropdown-toggle="<%= Category.model_name.human%>" class="h-full text-base md:rounded-l-xl block w-full p-2.5 hover:text-gray-900 focus:ring-0 focus:border-gray-100 focus:text-gray-900 border-0 flex items-center" type="button">
             <%= image_tag(asset_path('icons/icons8-sorting-64.png'), class: 'w-6 h-6 mr-3')%>
+            <!-- Main Title -->
             <%= Category.find_by(id: params[:category_id])&.decorate&.title || Thing.find_by(id: params[:thing_id])&.decorate&.title || Category.model_name.human %>
         </button>
         <!-- Dropdown menu -->
@@ -12,22 +13,21 @@
                 <% @categories.each do |category| %>
                   <li>
                     <button id="CategoryDoubleDropdownButton" data-dropdown-toggle="<%= category.title%>" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100">
+                        <!-- Title -->
                         <%= category.title%>
-                        <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        <%= heroicon 'chevron-right', class: 'w-3 h-3 text-black ml-1'%>
                     </button>
                       <div id="<%= category.title%>" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto">
                         <ul class="py-2 text-sm text-gray-700 max-h-[30rem] overflow-y-auto" aria-labelledby="CategoryDoubleDropdownButton">
-                            <li>
-                                <%= link_to 'Все товары категории', 
-                                    products_path(category_id: category.id, district_id: params[:district_id], city_id: params[:city_id]), 
-                                    class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'}%>
-                            </li>
+                            <!-- All products of category -->
+                            <%= tag.li( link_to 'Все товары категории', 
+                                products_path(category_id: category.id, district_id: params[:district_id], city_id: params[:city_id]), 
+                                class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'} )%>
+                            <!-- List of categories -->
                             <% category.things.decorate.each do |thing|%>
-                                <li>
-                                    <%= link_to thing.title, 
-                                        products_path(thing_id: thing.id, district_id: params[:district_id], city_id: params[:city_id]), 
-                                        class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'}%>
-                                </li>
+                                <%= tag.li( link_to thing.title, 
+                                    products_path(thing_id: thing.id, district_id: params[:district_id], city_id: params[:city_id]), 
+                                    class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'} )%>
                             <% end %>
                         </ul>
                     </div>
@@ -37,50 +37,49 @@
         </div>
         
         <!-- Districts -->
-        <button id="DistrictMultiLevelDropdownButton" data-dropdown-toggle="<%= District.model_name.human%>" class="h-full text-base md:rounded-l-xl block w-full p-2.5 hover:text-gray-900 focus:ring-0 focus:border-gray-100 focus:text-gray-900 border-0 flex items-center" type="button">
-            <%= heroicon 'map-pin', class: 'w-6 h-6 mr-1 text-gray-500'%>
+        <button id="DistrictMultiLevelDropdownButton" data-dropdown-toggle="<%= District.model_name.human%>" class="h-full text-base block w-full p-2.5 hover:text-gray-900 focus:ring-0 focus:border-gray-100 focus:text-gray-900 border-0 flex items-center" type="button">
+            <%= heroicon 'map-pin', class: 'w-6 h-6 mr-3 text-gray-500'%>
+            <!-- Main Title -->
             <%= District.find_by(id: params[:district_id])&.decorate&.title || City.find_by(id: params[:city_id])&.decorate&.title || District.model_name.human %>
         </button>
         <!-- Dropdown menu -->
         <div id="<%= District.model_name.human%>" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto">
             <ul class="py-2 text-sm text-gray-700" aria-labelledby="DistrictMultiLevelDropdownButton">
                 <% @districts.each do |district| %>
-                    <% if district.en == 'All Israel'%>
-                        <li>
-                            <%= link_to district.title, 
-                                products_path(district_id: nil, category_id: params[:category_id], thing_id: params[:thing_id]), 
-                                class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'}%>
-                        </li>
-                    <% else %>
-                        <li>
-                            <button id="DistrictDoubleDropdownButton" data-dropdown-toggle="<%= district.title%>" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100">
-                                <%= district.title%>
-                                <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                            </button>
-                              <div id="<%= district.title%>" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto">
-                                <ul class="py-2 text-sm text-gray-700 max-h-[23rem] overflow-y-auto" aria-labelledby="DistrictDoubleDropdownButton">
-                                    <li>
-                                        <%= link_to 'Все товары в регионе', 
-                                            products_path(district_id: district.id, category_id: params[:category_id], thing_id: params[:thing_id]), 
-                                            class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'}%>
-                                    </li>
-                                    <% district.cities.decorate.each do |city|%>
-                                        <li>
-                                            <%= link_to city.title, 
-                                                products_path(city_id: city.id, category_id: params[:category_id], thing_id: params[:thing_id]), 
-                                                class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'}%>
-                                        </li>
-                                    <% end %>
-                                </ul>
-                            </div>
-                        </li>
-                    <% end %>
+                    <!-- All israel district-->
+                    <%= tag.li( link_to district.title, 
+                        products_path(district_id: nil, category_id: params[:category_id], thing_id: params[:thing_id]), 
+                        class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, 
+                        data: {turbo_frame: '_top'} ) if district.en == 'All Israel'
+                    %>
+                    <!-- Districts -->
+                    <%= tag.li do %>
+                        <button id="DistrictDoubleDropdownButton" data-dropdown-toggle="<%= district.title%>" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100">
+                            <!-- Title -->
+                            <%= district.title%>
+                            <%= heroicon 'chevron-right', class: 'w-3 h-3 text-black ml-1'%>
+                        </button>
+                          <div id="<%= district.title%>" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto">
+                            <ul class="py-2 text-sm text-gray-700 max-h-[23rem] overflow-y-auto" aria-labelledby="DistrictDoubleDropdownButton">
+                                <!-- All products of district -->
+                                <%= tag.li( link_to 'Все товары в регионе', 
+                                    products_path(district_id: district.id, category_id: params[:category_id], thing_id: params[:thing_id]), 
+                                    class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'} )
+                                %>
+                                <!-- List of districts -->
+                                <% district.cities.decorate.each do |city|%>
+                                    <%= tag.li( link_to city.title, 
+                                        products_path(city_id: city.id, category_id: params[:category_id], thing_id: params[:thing_id]), 
+                                        class: 'block px-4 py-2 hover:bg-gray-100 cursor-pointer', method: :get, data: {turbo_frame: '_top'} )
+                                    %>
+                                <% end %>
+                            </ul>
+                        </div>
+                    <% end unless district.en == 'All Israel'%>
                 <% end %>
             </ul>
         </div>
 
-
-        
         <!-- Submit -->
         <%= tag.div class: " w-full h-auto p-3" do %>
             <%= f.submit t('global.find_btn', model: Product.model_name.human), class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300"%>

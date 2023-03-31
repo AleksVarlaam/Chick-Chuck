@@ -39,7 +39,7 @@ module Feedbacks
                                    target: helpers.dom_id(@comment),
                                    partial: 'feedbacks/comments/comment', locals: { comment: @comment.decorate }
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: "#{@comment.model_name.human}") }
+        format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: @comment.model_name.human.to_s) }
       end
     end
 
@@ -51,7 +51,9 @@ module Feedbacks
                                    target: helpers.dom_id(@comment)
 
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = t('flash.success.destroyed', model: "#{@comment.model_name.human}") }
+        format.turbo_stream do
+          flash.now[:success] = t('flash.success.destroyed', model: @comment.model_name.human.to_s)
+        end
       end
     end
 

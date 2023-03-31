@@ -6,6 +6,4 @@ class ApplicationController < ActionController::Base
   include Devisable
 
   add_flash_types :info, :danger, :warning, :success, :notice
-  
-  
 end
