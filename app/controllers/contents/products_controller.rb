@@ -8,8 +8,10 @@ module Contents
 
     def index
       Statistic.first.update(market: Statistic.first.market + 1) unless user_signed_in?
-      @pagy, @products = pagy(Product.filter(filter_params).newest, items: 8, fragment: '#products')
+      @products = Product.filter(filter_params).newest
+      @pagy, @products = pagy(@products, items: 8, fragment: '#products')
       @products = @products.decorate
+      @products = @products.select {|product| product.user.type == params[:seller]} if params[:seller].present?
     end
 
     def show; end
@@ -24,7 +26,7 @@ module Contents
     private
 
     def filter_params
-      params.permit(:category_id, :thing_id, :district_id, :city_id)
+      params.permit(:category_id, :thing_id, :district_id, :city_id, :price_min, :price_max, :condition, :delivery)
     end
 
     def set_show
@@ -38,7 +40,7 @@ module Contents
 
     def params_for_select
       @categories = Category.all.decorate
-      @districts = District.all.decorate
+      @districts = District.where.not(en: 'All Israel').decorate
     end
   end
 end

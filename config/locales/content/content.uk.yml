@@ -40,6 +40,10 @@ uk:
         delivery: 
             pickup:           'Самовивіз'
             price_popover:    'Ціна без врахування доставки'
+        seller:           
+            title:            'Продавець'
+            client:           'Приватна особа'
+            company:          'Перевізник'
     calculator:
         title:            'Калькулятор вартості'
         btn:              'Розрахувати'

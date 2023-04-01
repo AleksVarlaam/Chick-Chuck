@@ -40,6 +40,10 @@ ru:
         delivery: 
             pickup:           'Самовывоз'
             price_popover:    'Цена без учета доставки'
+        seller:           
+            title:            'Продавец'
+            client:           'Частное лицо'
+            company:          'Перевозчик'
     calculator:
         title:            'Калькулятор стоимости'
         btn:              'Рассчитать'

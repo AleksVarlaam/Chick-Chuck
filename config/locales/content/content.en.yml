@@ -40,6 +40,10 @@ en:
         delivery: 
             pickup:           'Pickup'
             price_popover:    'Price excluding delivery'
+        seller:           
+            title:            'Seller'
+            client:           'Private person'
+            company:          'Carrier'
     calculator:
         title:            'Cost Calculator'
         btn:              'Calculate'

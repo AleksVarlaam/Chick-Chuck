@@ -40,6 +40,10 @@ he:
         delivery: 
             pickup:           "איסוף עצמי"
             price_popover:    "מחיר לא כולל משלוח"
+        seller:          
+            title:            "מוכר"
+            client:           "אדם פרטי"
+            company:          "המוביל"
     calculator:
         title:            "מחשבון עלויות"
         btn:              "לחשב את"
