@@ -29,7 +29,7 @@
                 <%= tag.p t('about.trucks.desc_html'), class: "text-gray-500" %>
                 <!-- Link -->
                 <%= link_to trucks_path, class: "flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
-                    <%= tag.span t('calculator.find_btn'), class: "mx-1" %>
+                    <%= tag.span t('global.find_btn', model: Truck.model_name.human), class: "mx-1" %>
                     <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
                 <% end %>
             </div>

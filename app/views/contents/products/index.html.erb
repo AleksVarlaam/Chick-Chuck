@@ -8,7 +8,7 @@
     
     <!-- Content -->
     <%= turbo_frame_tag 'products',
-        class: "grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center mx-auto w-full container" do 
+        class: "grid grid-cols-1 gap-y-6 sm:gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center mx-auto w-full container" do 
     %>
         <!-- Filter -->
         <%= render 'filter', path: products_path%>
@@ -16,7 +16,7 @@
         <% if @products.present? %>
             <%= render partial: 'contents/products/product', collection: @products%>
         <% else %>
-            <%= tag.div (render 'contents/shared/unavailable', model: t('market.products')), class: 'col-span-3'%>
+            <%= tag.div (render 'contents/shared/unavailable', model: t('product.products')), class: 'col-span-3'%>
         <% end %>
     <% end %>
     <%== pagy_nav(@pagy) if Product.count > 7%>
