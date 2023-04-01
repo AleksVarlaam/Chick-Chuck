@@ -44,6 +44,9 @@ ru:
             title:            'Продавец'
             client:           'Частное лицо'
             company:          'Перевозчик'
+        price:
+            min:              'От'
+            max:              'До'
     calculator:
         title:            'Калькулятор стоимости'
         btn:              'Рассчитать'

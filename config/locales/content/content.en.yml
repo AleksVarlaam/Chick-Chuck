@@ -44,6 +44,9 @@ en:
             title:            'Seller'
             client:           'Private person'
             company:          'Carrier'
+        price:
+            min:              'From'
+            max:              'Until'
     calculator:
         title:            'Cost Calculator'
         btn:              'Calculate'

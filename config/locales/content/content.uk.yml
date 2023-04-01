@@ -44,6 +44,9 @@ uk:
             title:            'Продавець'
             client:           'Приватна особа'
             company:          'Перевізник'
+        price:
+            min:              'Від'
+            max:              'До'
     calculator:
         title:            'Калькулятор вартості'
         btn:              'Розрахувати'

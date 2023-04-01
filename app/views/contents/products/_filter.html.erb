@@ -53,8 +53,10 @@
         <!-- Price -->
         <div class="grid grid-cols-2 w-full">
             <%= label :price, Price.model_name.human, class: 'text-start text-gray-700 col-span-full py-3'%>
-            <%= f.number_field :price_min, value: params[:price_min], class: 'rounded-l-lg border-gray-300', placeholder: 'От'%>
-            <%= f.number_field :price_max, value: params[:price_max], class: 'rounded-r-lg border-gray-300', placeholder: 'До'%>
+            <%= f.number_field :price_min, value: params[:price_min], 
+                class: 'rounded-l-lg border-gray-300', placeholder: t('product.price.min')%>
+            <%= f.number_field :price_max, value: params[:price_max], 
+                class: 'rounded-r-lg border-gray-300', placeholder: t('product.price.max')%>
         </div>
 
         <!-- Submit -->

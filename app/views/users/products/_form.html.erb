@@ -3,15 +3,11 @@
     <!-- Carousel -->
     <%= tag.div (render 'active_storage/attachments/carousel', object: @product), 
         class: "col-span-full md:px-[14rem] w-full justify-center mb-4" if ['edit', 'update'].include?(action_name) %>
-    <!-- Select Category -->
-    <%# render 'select_category', path: ['edit', 'update'].include?(action_name) ? edit_users_product_path : new_users_product_path%>
 
     <!-- Product form -->
     <%= form_with model: [:users, @product], class: "contents" do |f| %>
       <!-- Errors -->
       <%= render 'shared/error_messages', resource: @product %>
-      <!-- Category id -->
-      <%# f.hidden_field :category_id, value: params[:category_id] || @product&.category&.id || @categories[0]%>
       <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2">
           <!-- Category type -->
           <div class="flex items-center text-gray-600 justify-center">
@@ -19,26 +15,29 @@
               <%= f.collection_select(:category_id, @categories, :id, :title, { prompt: true,  selected: params[:category_id] || @product&.category&.id}, 
                 {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
-          <!-- Thing type -->
+          <!-- Type -->
           <div class="flex items-center text-gray-600 justify-center">
-              <%= f.label :things, class: "text-lg mr-2" %>
-              <%= f.collection_select(:thing_id, @things, :id, :title, { prompt: true,  selected: params[:thing_id] || @product&.thing&.id}, 
-                {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
+              <%= f.label :thing, class: "text-lg mr-2" %>
+              <%= f.grouped_collection_select(:thing_id, @categories, :things, :title, :id, I18n.locale, 
+              { prompt: true, selected: params[:thing_id]}, 
+              { class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"})%>
           </div>
           <!-- District -->
           <div class="flex items-center text-gray-600 justify-center">
               <%= f.label Product.human_attribute_name('district'), class: "text-lg mr-2" %>
-              <%= f.select(:district_id, options_from_collection_for_select(District.all.decorate, 'id', 'title', @product.district_id), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
+              <%= f.select(:district_id, options_from_collection_for_select(@districts, 'id', 'title', @product.district_id), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
-          <!-- City -->
+          <!-- Type -->
           <div class="flex items-center text-gray-600 justify-center">
               <%= f.label :city, class: "text-lg mr-2" %>
-              <%= f.select(:city_id, options_from_collection_for_select(City.all.decorate, 'id', 'title', @product.city_id), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
+              <%= f.grouped_collection_select(:city_id, @districts, :cities, :title, :id, I18n.locale, 
+              { prompt: true, selected: params[:city_id]}, 
+              { class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"})%>
           </div>
           <!-- Condition -->
           <div class="flex items-center text-gray-600 justify-center">
               <%= f.label :condition, class: "text-lg mr-2" %>
-              <%= f.select(:condition, options_for_select(Product.condition_select[1..], @product.condition), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
+              <%= f.select(:condition, options_for_select(Product.condition_select, @product.condition), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: false})%>
           </div>
           <!-- Delivery -->
           <div class="flex items-center text-gray-600 justify-center">

@@ -102,8 +102,7 @@ module Users
 
     def filter_product
       @categories = Category.all.decorate
-      @things = Thing.all.decorate
-      # @things = Category.find_by(id: params[:category_id])&.things&.decorate || @product&.category&.things&.decorate || Thing.all.decorate
+      @districts = District.where.not(en: 'All Israel').decorate
     end
 
     def set_product

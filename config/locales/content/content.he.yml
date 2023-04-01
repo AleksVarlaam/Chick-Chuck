@@ -44,6 +44,9 @@ he:
             title:            "מוכר"
             client:           "אדם פרטי"
             company:          "המוביל"
+        price:
+            min:              "של"
+            max:              "ועד"
     calculator:
         title:            "מחשבון עלויות"
         btn:              "לחשב את"
