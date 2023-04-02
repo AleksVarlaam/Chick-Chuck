@@ -4,7 +4,7 @@
         <%= render 'active_storage/attachments/carousel', object: product %>
         <%= tag.div class: "p-5 grid #{'sm:grid-cols-2' if ['show', 'products'].eql?([action_name, controller_name])}" do %>
             <div class="col-span-full">
-                <%= tag.div class: "flex justify-center items-center" do %>
+                <%= tag.div class: "flex justify-center items-center relative mb-2" do %>
                     <%= render 'shared/buttons/popover', text: t('product.product_by'), icon: 'icons/icons8-in-transit-50.png' %>
                 <% end if product.user.type == Company.name%>
                 <!-- Title -->
@@ -51,9 +51,12 @@
                 <!-- View more button -->
                 <%= render 'shared/buttons/view_more', path: product_path(product) unless ['show', 'products'].eql?([action_name, controller_name]) %>
             </div>
+            <!-- Views -->
+            <%= tag.div class: "col-span-full flex justify-center items-center relative mt-3 text-gray-500 text-sm" do %>
+                <%= render 'shared/buttons/views', object: product, popover_target: product.title %>
+            <% end %>
         <% end %>
-        <!-- Views -->
-        <%= render 'shared/buttons/views', object: product%>
+        
         <!-- Control buttons -->
         <% if current_user == product.user %>
             <hr class="">

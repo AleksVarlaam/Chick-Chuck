@@ -9,7 +9,7 @@ module Contents
     def index
       Statistic.first.update(market: Statistic.first.market + 1) unless user_signed_in?
       @products = Product.filter(filter_params).newest
-      @pagy, @products = pagy(@products, items: 8, fragment: '#products')
+      @pagy, @products = pagy(@products, items: 11, fragment: '#products')
       @products = @products.decorate
       @products = @products.select { |product| product.user.type == params[:seller] } if params[:seller].present?
     end
@@ -18,7 +18,7 @@ module Contents
 
     def user_products
       @user = User.find(params[:user_id])
-      @pagy, @products = pagy(Product.user_products_filter(@user, filter_params).newest, items: 8,
+      @pagy, @products = pagy(Product.user_products_filter(@user, filter_params).newest, items: 11,
                                                                                          fragment: '#products')
       @products = @products.decorate
     end

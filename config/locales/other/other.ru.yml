@@ -36,3 +36,11 @@ ru:
         no_notice:        'Нету уведомлений'
     price:
         title:            'Название'
+    statistic:
+        title:            'Статистика'
+        visits:           'Посещений'
+        clients:          'Клиентов'
+        carriers:         'Перевозчиков'
+        trucks:           'Грузовиков'
+        products:         'Товаров'
+        reviews:          'Всего отзывов'

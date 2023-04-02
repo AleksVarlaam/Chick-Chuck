@@ -12,7 +12,7 @@ module Contents
     end
 
     def moving_preparation
-      Statistic.first.update(moving_preparation: Statistic.first.mpving_preparation + 1) unless user_signed_in?
+      Statistic.first.update(moving_preparation: Statistic.first.moving_preparation + 1) unless user_signed_in?
     end
   end
 end

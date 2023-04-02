@@ -1,22 +1,13 @@
-<div data-controller="popover" class="items-center flex">
-    <span class="relative cursor-pointer" 
-        data-action="mouseenter->popover#show mouseleave->popover#hide"
-    >
-        <% if ['registrations', 'sessions'].include?(controller_name)%>
-            <%= image_tag('icons/icons8-info-50.png', class: "w-4 h-4 mr-2")%>
-        <% else %>
-            <%= image_tag(icon, class: "w-5 h-5 mr-2")%>
-        <% end %>
-    </span>
-
-    <template data-popover-target="content">
-       <div class="w-auto rounded shadow-lg bg-white absolute left-0 z-20 p-3"
-         data-popover-target="card"
-         style="bottom: 2rem; width: max-content;"
-       >
-         <div class="flex px-0">
-             <%= tag.p text, class: "text-gray-500 text-sm"%>
-         </div>
-       </div>
-    </template>
+<button data-popover-target="<%= text %>" type="button" class="">
+    <% if ['registrations', 'sessions'].include?(controller_name)%>
+        <%= image_tag('icons/icons8-info-50.png', class: "w-4 h-4 mr-2")%>
+    <% else %>
+        <%= image_tag(icon, class: "w-5 h-5 mr-2")%>
+    <% end %>
+</button>
+<div data-popover id="<%= text %>" role="tooltip" class="absolute z-10 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
+    <div class="px-3 py-2  text-center">
+        <%= tag.p text, class: "text-gray-500 text-sm"%>
+    </div>
+    <div data-popper-arrow></div>
 </div>

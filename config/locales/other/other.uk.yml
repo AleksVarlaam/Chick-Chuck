@@ -36,3 +36,11 @@ uk:
         no_notice:        'Немає повідомлень'
     price:
         title:            'Назва'
+    statistic:
+        title:            'Статистика'
+        visits:           'Відвідування'
+        clients:          'Клієнти'
+        carriers:         'Перевізники'
+        trucks:           'Вантажівка'
+        products:         'Товари'
+        reviews:          'Загальний відгук'

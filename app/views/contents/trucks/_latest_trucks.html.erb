@@ -18,12 +18,9 @@
     <%= turbo_frame_tag 'latest_trucks', class: "container sm:mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-center mb-6" do %>
         <!-- Trucks -->
         <%= render partial: 'contents/trucks/truck', collection: @trucks%>
-        <!-- If trucks is empty -->
-        <%= tag.p 'Truck with this criterion does not yet exist on our website or it is in the top offers', 
-            class: 'col-span-full text-center text-base' if @trucks.empty?%>
     <% end %>
     <!-- Pagy -->
-    <%== pagy_nav(@pagy_a) if Truck.count > 7%>
+    <%== pagy_nav(@pagy_a) if Truck.count > 11%>
 <% else %>
     <%= render 'contents/shared/unavailable', model: t('home_page.latest_trucks').split(' ').last%>
 <% end %>

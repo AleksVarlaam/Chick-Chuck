@@ -69,5 +69,7 @@
         </div>
     </div>
     <!-- Views -->
-    <%= render 'shared/buttons/views', object: truck%>
+    <%= tag.div class: "col-span-full flex justify-center items-center mb-2 text-gray-500 text-sm" do %>
+        <%= render 'shared/buttons/views', object: truck, popover_target: truck.number %>
+    <% end %>
 </div>

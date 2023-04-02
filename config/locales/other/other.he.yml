@@ -36,3 +36,11 @@ he:
         no_notice:        "אין הודעה מוקדמת"
     price:
         title:            "שם"
+    statistic:
+        title:            "סטטיסטיקה"
+        visits:           "ביקורים"
+        clients:          "לקוחות"
+        carriers:         "נשאים"
+        trucks:           "משאיות"
+        products:         "סחורות"
+        reviews:          "משוב מוחלט"

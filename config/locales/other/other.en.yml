@@ -36,3 +36,11 @@ en:
         no_notice:        'No notice'
     price:
         title:            'Title'
+    statistic:
+        title:            'Statistic'
+        visits:           'Visits'
+        clients:          'Clients'
+        carriers:         'Carriers'
+        trucks:           'Trucks'
+        products:         'Products'
+        reviews:          'Total reviews'

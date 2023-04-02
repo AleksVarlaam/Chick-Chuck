@@ -9,12 +9,12 @@ module Contents
       Statistic.first.update(trucks: Statistic.first.trucks + 1) unless user_signed_in?
       trucks = Truck.filter(filter_params)
       @top_trucks = trucks.take(3)
-      @pagy_a, @trucks = pagy_array(trucks.drop(3), items: 4, fragment: '#trucks')
+      @pagy_a, @trucks = pagy_array(trucks.drop(3), items: 8, fragment: '#trucks')
     end
 
     def company_trucks
       @company = Company.find(params[:company_id])
-      @pagy, @trucks = pagy_array(Truck.company_trucks_filter(@company, filter_params), items: 4, fragment: '#trucks')
+      @pagy, @trucks = pagy_array(Truck.company_trucks_filter(@company, filter_params), items: 8, fragment: '#trucks')
     end
 
     def show; end
