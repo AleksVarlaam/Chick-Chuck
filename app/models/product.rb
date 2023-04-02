@@ -13,13 +13,13 @@ class Product < ApplicationRecord
   belongs_to :city
 
   scope :filter_by_category_id, ->(category_id) { where category_id:, published: true }
-  scope :filter_by_thing_id, ->(thing_id) { where thing_id:, published: true }
+  scope :filter_by_thing_id,    ->(thing_id)    { where thing_id:, published: true }
   scope :filter_by_district_id, ->(district_id) { where district_id:, published: true }
-  scope :filter_by_city_id, ->(city_id) { where city_id:, published: true }
-  scope :filter_by_condition, ->(condition) { where condition:, published: true }
-  scope :filter_by_delivery, ->(delivery) { where delivery:, published: true }
-  scope :filter_by_price_min, ->(price_min) { where 'price >= ?', price_min }
-  scope :filter_by_price_max, ->(price_max) { where 'price <= ?', price_max }
+  scope :filter_by_city_id,     ->(city_id)     { where city_id:, published: true }
+  scope :filter_by_condition,   ->(condition)   { where condition:, published: true }
+  scope :filter_by_delivery,    ->(delivery)    { where delivery:, published: true }
+  scope :filter_by_price_min,   ->(price_min)   { where 'price >= ?', price_min }
+  scope :filter_by_price_max,   ->(price_max)   { where 'price <= ?', price_max }
 
   def self.condition_select
     [
@@ -36,7 +36,7 @@ class Product < ApplicationRecord
     end
     delivery_select
   end
-  
+
   def self.seller_select
     [
       [I18n.t('product.seller.client'), 'Client'], [I18n.t('product.seller.company'), 'Company']

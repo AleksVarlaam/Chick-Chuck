@@ -26,7 +26,7 @@ v.1.0:
 24. Create page about Chick-Chuck.com ✅
 25. Create statistics of Chick-Chuck.com ✅
 26. Add districts in products model ✅
-27. Update product filter and market page!
+27. Update product filter and market page! ✅
 
 
 v.1.1:

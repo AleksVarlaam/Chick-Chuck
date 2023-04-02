@@ -11,7 +11,7 @@ module Contents
       @products = Product.filter(filter_params).newest
       @pagy, @products = pagy(@products, items: 8, fragment: '#products')
       @products = @products.decorate
-      @products = @products.select {|product| product.user.type == params[:seller]} if params[:seller].present?
+      @products = @products.select { |product| product.user.type == params[:seller] } if params[:seller].present?
     end
 
     def show; end

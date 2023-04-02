@@ -58,5 +58,4 @@ class ProductDecorator < ApplicationDecorator
   def condition_name
     Product.condition_select.select { |item| return item[0] if item[1] == product.condition }
   end
-
 end
