@@ -22,7 +22,7 @@ module Devisable
 
   def permitted_attributes
     [:email, :phone, :password, :password_confirmation,
-     :first_name, :last_name, :avatar, :gender, :birthday, :city,
+     :first_name, :last_name, :avatar, :remove_avatar, :gender, :birthday, :city,
      :additional_phone, :whatsapp, :telegram, :facebook, :title, :website, :description, { district_ids: [], language_ids: [] }]
   end
 
@@ -37,7 +37,7 @@ module Devisable
   def after_sign_in_path_for(_resource)
     flash[:success] = "You are welcome, #{current_user.user_name}!"
 
-    if request.referer.include?('/clients/sign_in') ||
+    if request.referer.include?('/clients/sign_in')        ||
        request.referer.include?('/clients/sign_up')        ||
        request.referer.include?('/clients/password')       ||
        request.referer.include?('/clients/confirmation')   ||

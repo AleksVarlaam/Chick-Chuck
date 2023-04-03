@@ -55,7 +55,7 @@ module Admins
 
     def permitted_attributes
       %i[ email phone password password_confirmation
-          first_name last_name avatar gender birthday city]
+          first_name last_name avatar remove_avatar gender birthday city]
     end
 
     # If you have extra params to permit, append them to the sanitizer.

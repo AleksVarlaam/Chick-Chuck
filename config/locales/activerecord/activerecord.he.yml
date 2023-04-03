@@ -42,6 +42,7 @@ he:
                 current_popover:  "אנו זקוקים לסיסמה הנוכחית שלך כדי לאשר את השינויים שביצעת"
                 delete_account:   "מחק חשבון"
                 created_at:       "תאריך הרישום"
+                remove_avatar:    "הסר את האווטאר"
             company:
                 districts:        "אזור"
                 languages:        "לשונות"

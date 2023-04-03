@@ -17,11 +17,12 @@ class CreateTrucks < ActiveRecord::Migration[7.0]
     # Trucks
     create_table :trucks do |t|
       t.references :user, null: false, foreign_key: true
-      t.float  :length, null: false
-      t.float  :load_capacity, null: false
-      t.float  :rating, null: false, default: 0
-      t.float  :height, null: false
-      t.float  :width, null: false
+      t.json    :images
+      t.float   :length, null: false
+      t.float   :load_capacity, null: false
+      t.float   :rating, null: false, default: 0
+      t.float   :height, null: false
+      t.float   :width, null: false
       t.integer :body_type, null: false
       t.integer :assembly, null: false
       t.integer :packing, null: false

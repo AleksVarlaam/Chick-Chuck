@@ -10,7 +10,7 @@ module Clients
 
     def update
       respond_to do |format|
-        if @profile.update set_profile_params
+        if @profile.update(set_profile_params)
           format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: t('flash.account')) }
         else
           format.html { render :edit, alert: 'Something went wrong' }
@@ -25,7 +25,7 @@ module Clients
     end
 
     def set_profile_params
-      params.require(:client).permit(:first_name, :last_name, :avatar, :gender, :birthday, :city)
+      params.require(:client).permit(:first_name, :last_name, :avatar, :gender, :birthday, :city, :remove_avatar)
     end
   end
 end

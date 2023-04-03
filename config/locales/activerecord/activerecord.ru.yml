@@ -42,6 +42,7 @@ ru:
                 current_popover:  'Нам нужен ваш текущий пароль, чтобы подтвердить внесенные изменения.'
                 delete_account:   'Удалить аккаунт'
                 created_at:       'Дата регистрации'
+                remove_avatar:    'Удалить аватар'
             company:
                 districts:        'Регион'
                 languages:        'Языки'

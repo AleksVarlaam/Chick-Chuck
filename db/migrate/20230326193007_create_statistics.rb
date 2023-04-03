@@ -8,7 +8,7 @@ class CreateStatistics < ActiveRecord::Migration[7.0]
       t.integer :trucks, default: 0
       t.integer :market, default: 0
       t.integer :about, default: 0
-      t.integer :mooving_preparation, default: 0
+      t.integer :moving_preparation, default: 0
       t.integer :news, default: 0
 
       t.timestamps

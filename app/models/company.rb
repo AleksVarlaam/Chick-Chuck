@@ -17,7 +17,7 @@ class Company < User
   has_many :comments, as: :object,      dependent: :destroy, class_name: 'Comment', foreign_key: :user_id
 
   def avatar_attachment_path
-    avatar.attached? ? avatar.variant(:avatar) : 'icons/chick-chuck/laavor_favicon.png'
+    avatar.present? ? avatar.avatar.url : 'icons/chick-chuck/laavor_favicon.png'
   end
 
   def user_name

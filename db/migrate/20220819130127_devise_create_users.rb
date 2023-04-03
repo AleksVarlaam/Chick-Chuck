@@ -17,6 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.datetime :remember_created_at
 
       # Parameters
+      t.string :avatar
       t.string :first_name
       t.string :last_name
       t.string :gender

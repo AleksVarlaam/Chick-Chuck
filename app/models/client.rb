@@ -35,8 +35,8 @@ class Client < User
   # Decorators
 
   def avatar_attachment_path
-    if avatar.attached?
-      avatar.variant(:avatar)
+    if avatar.present?
+      avatar.avatar.url
     else
       gender == 'female' ? 'icons/avatar-f.png' : 'icons/avatar-m.png'
     end
