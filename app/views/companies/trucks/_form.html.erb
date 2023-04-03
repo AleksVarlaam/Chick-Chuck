@@ -4,7 +4,7 @@
       <%= render 'shared/error_messages', resource: @truck %>
       <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2">
           <!-- Images -->
-          <%= tag.div (render 'active_storage/attachments/carousel', object: @truck), 
+          <%= tag.div (render 'carrierwave/images/carousel', object: @truck), 
               class: "col-span-full sm:px-[6rem] md:px-[14rem] w-full justify-center" if ['edit', 'update'].include?(action_name)%>
           <!-- Districts -->
           <div class="flex items-center text-gray-600 justify-center col-span-full">
@@ -71,7 +71,10 @@
               </div>
           </div>
       </div>
-      <!-- Images -->
+       <!-- Images -->
+      <% @truck.images.each do |image| %>
+        <%= f.hidden_field :images, multiple: true, value: image.identifier, id: image.identifier %>
+      <% end %>
       <div class="flex mt-6 grid grid-rows-1 text-center items-center justify-center">
           <label class="block text-sm font-medium text-white">
         </label>

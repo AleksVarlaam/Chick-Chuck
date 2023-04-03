@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Truck < ApplicationRecord
-  include ImagesAttachments
   include Filterable
   validates :districts, presence: true
   validates :length, allow_blank: false, numericality: { in: 1..20 }
@@ -10,8 +9,9 @@ class Truck < ApplicationRecord
   validates :rating, numericality: { in: 0..10 }
   validates :images, :body_type, :assembly, :packing, presence: true
 
+  mount_uploaders :images, ImageUploader
   belongs_to :company, class_name: 'Company', foreign_key: :user_id
-
+  
   has_and_belongs_to_many :districts, optional: true
   has_many :comments, as: :commentable, dependent: :destroy, class_name: 'Comment'
   has_many :comments, as: :object,      dependent: :destroy, class_name: 'Comment'

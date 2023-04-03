@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Comment < ApplicationRecord
-  include ImagesAttachments
   self.table_name = 'comments'
   validates :content, presence: true, length: { minimum: 1 }
 
+  mount_uploaders :images, ImageUploader
   belongs_to :user
   belongs_to :object, polymorphic: true
   belongs_to :commentable, polymorphic: true

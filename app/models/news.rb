@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class News < ApplicationRecord
-  include ImagesAttachments
   validates :title, :description, :content, :images, presence: true
 
+  mount_uploaders :images, ImageUploader
   belongs_to :admin, foreign_key: :user_id
 
   has_rich_text :content

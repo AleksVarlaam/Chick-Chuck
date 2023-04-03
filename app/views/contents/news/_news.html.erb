@@ -1,5 +1,5 @@
 <%= turbo_frame_tag news, class: "bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl" do %>
-    <%= render 'active_storage/attachments/carousel', object: news%>
+    <%= render 'carrierwave/images/carousel', object: news%>
     <div class="mt-6 p-3">
         <!-- Title -->
         <%= tag.h1 news.title, class: "text-xl font-semibold text-gray-800" %>

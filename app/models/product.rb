@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
-  include ImagesAttachments
   include Filterable
   validates_associated :category, :thing, :district, :city
   validates  :title, :condition, :delivery, :price, :images, presence: true
-
+  
+  mount_uploaders :images, ImageUploader
   belongs_to :user, foreign_key: :user_id
   belongs_to :category
   belongs_to :thing

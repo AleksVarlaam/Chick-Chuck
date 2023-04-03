@@ -3,8 +3,8 @@
     <div id="indicators-carousel" class="relative" data-controller="carousel">
         <!-- Carousel wrapper -->
         <%= tag.div class: "#{(['show', 'edit', 'update'].include?(action_name) && controller_name != 'companies' ? 'h-[16rem] lg:h-[24rem]' : 'h-[16rem]')} relative overflow-hidden rounded-lg" do %>
-            <% object.images.each do |image| %>
-                <%= render 'active_storage/attachments/image', image: image %>
+            <% object.images.each_with_index do |image, index| %>
+                <%= render 'carrierwave/images/image', image: image, path: image_destroy_path(index, object) %>
             <% end %>
         <% end %>
    
@@ -16,7 +16,7 @@
                         type="button" 
                         class="w-3 h-3 rounded-full bg-white dark:bg-gray-800" 
                         aria-current="<%= index == 0 ? 'true' : 'false' %>" 
-                        aria-label="Slide <%= image.id %>" 
+                        aria-label="Slide <%= index %>" 
                         data-carousel-index-value="<%= index %>"
                     ></button>
                 <% end %>

@@ -1,19 +1,18 @@
 # frozen_string_literal: true
 
 module ImageHelper
-  def large(image)
-    image.variant(resize_to_limit: [1024, 800], convert: 'webp')
-  end
-
-  def medium(image)
-    image.variant(resize_to_limit: [600, 400], convert: 'webp')
-  end
-
-  def small(image)
-    image.variant(resize_to_limit: [400, 200], convert: 'webp')
-  end
-
-  def avatar(image)
-    image.variant(resize_to_limit: [300, 300], convert: 'webp')
+  
+  def image_destroy_path(index, object)
+    if    object.instance_of?(Product)
+      carrierwave_image_path(id: index, product_id: object.id)
+    elsif object.instance_of?(Truck)
+      carrierwave_image_path(id: index, truck_id: object.id)
+    elsif object.instance_of?(News)
+      carrierwave_image_path(id: index, news_id: object.id)
+    elsif object.instance_of?(Comment)
+      carrierwave_image_path(id: index, comment_id: object.id)
+    elsif object.instance_of?(Message)
+      carrierwave_image_path(id: index, message_id: object.id)
+    end
   end
 end

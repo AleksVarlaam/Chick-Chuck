@@ -1,7 +1,7 @@
 <%= turbo_frame_tag product do %>
     <div class="<%= ['index', 'main'].eql?([action_name, controller_name]) ? 'w-screen w-[25rem] sm:w-[18rem]' : 'w-full'%>
             flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl">
-        <%= render 'active_storage/attachments/carousel', object: product %>
+        <%= render 'carrierwave/images/carousel', object: product %>
         <%= tag.div class: "p-5 grid #{'sm:grid-cols-2' if ['show', 'products'].eql?([action_name, controller_name])}" do %>
             <div class="col-span-full">
                 <%= tag.div class: "flex justify-center items-center relative mb-2" do %>

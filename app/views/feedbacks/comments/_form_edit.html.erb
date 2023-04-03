@@ -38,12 +38,15 @@
       <!-- Comment buttons -->
       <div class="flex items-center my-3 py-2 px-3 bg-gray-100 rounded-lg shadow-md h-12 w-full">
           <!-- Upload Images -->
-          <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600" data-controller="image">
+          <% @comment.images.each do |image| %>
+            <%= f.hidden_field :images, multiple: true, value: image.identifier, id: image.identifier %>
+          <% end %>
+          <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
                 <div class="space-y-1 text-center">
-                  <%= f.label :append_images, class: "cursor-pointer" do %>
+                  <%= f.label :images, class: "cursor-pointer" do %>
                       <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
                       <span class="sr-only">Upload image</span>
-                          <%= f.file_field :append_images, multiple: true, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#comment_preview" %>
+                          <%= f.file_field :images, multiple: true, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#comment_preview" %>
                   <% end %>
                 </div>
           </button>

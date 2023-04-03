@@ -1,6 +1,6 @@
 <%= turbo_frame_tag truck, class: "w-full h-auto block bg-white rounded-lg shadow-md col-span-1 hover:shadow-xl" do %>
     <!-- Truck carousel images -->
-    <%= render 'active_storage/attachments/carousel', object: truck %>
+    <%= render 'carrierwave/images/carousel', object: truck %>
     <!-- Truck Info -->
     <% if [action_name, controller_name].eql?(['show', 'trucks']) %>
         <!-- Rating -->

@@ -1,7 +1,7 @@
 <!-- Carriers product form -->
 <%= turbo_frame_tag dom_id(@product, 'form') do %>
     <!-- Carousel -->
-    <%= tag.div (render 'active_storage/attachments/carousel', object: @product), 
+    <%= tag.div (render 'carrierwave/images/carousel', object: @product), 
         class: "col-span-full md:px-[14rem] w-full justify-center mb-4" if ['edit', 'update'].include?(action_name) %>
 
     <!-- Product form -->
@@ -19,7 +19,7 @@
           <div class="flex items-center text-gray-600 justify-center">
               <%= f.label :thing, class: "text-lg mr-2" %>
               <%= f.grouped_collection_select(:thing_id, @categories, :things, :title, :id, I18n.locale, 
-              { prompt: true, selected: params[:thing_id]}, 
+              { prompt: true, selected: params[:thing_id] || @product.thing_id}, 
               { class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"})%>
           </div>
           <!-- District -->
@@ -31,7 +31,7 @@
           <div class="flex items-center text-gray-600 justify-center">
               <%= f.label :city, class: "text-lg mr-2" %>
               <%= f.grouped_collection_select(:city_id, @districts, :cities, :title, :id, I18n.locale, 
-              { prompt: true, selected: params[:city_id]}, 
+              { prompt: true, selected: params[:city_id] || @product.city_id}, 
               { class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"})%>
           </div>
           <!-- Condition -->
@@ -61,10 +61,11 @@
               <%= f.number_field :price, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", placeholder: Product.human_attribute_name('price'), required: false%> ₪
           </div>
       </div>
-      <!-- Images -->
+     <!-- Images -->
+     <% @product.images.each do |image| %>
+       <%= f.hidden_field :images, multiple: true, value: image.identifier, id: image.identifier %>
+     <% end %>
       <div class="flex mt-6 grid grid-rows-1 text-center items-center justify-center">
-          <label class="block text-sm font-medium text-white">
-        </label>
         <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
           <div class="space-y-1 text-center">
             <%= f.label :images, class: "cursor-pointer" do %>

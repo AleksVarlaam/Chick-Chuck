@@ -92,12 +92,11 @@ module Users
         end
       end
     end
-
+    
     private
 
     def product_params
-      params.require(:product).permit(:category_id, :thing_id, :district_id, :city_id, :title, :condition, :delivery, :description, :price, images: [],
-                                                                                                                                            append_images: [])
+      params.require(:product).permit(:category_id, :thing_id, :district_id, :city_id, :title, :condition, :delivery, :description, :price, {images: []})
     end
 
     def filter_product

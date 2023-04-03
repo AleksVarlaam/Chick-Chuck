@@ -118,8 +118,8 @@ Rails.application.routes.draw do
     end
 
     # Active storage attachments
-    namespace :active_storage do
-      resources :attachments, only: [:destroy]
+    namespace :carrierwave do
+      resources :images, only: [:destroy]
     end
 
     # Rooms
