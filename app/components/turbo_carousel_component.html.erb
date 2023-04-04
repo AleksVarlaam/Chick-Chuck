@@ -1,0 +1,17 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= tag.div data: { 
+      controller: "turbo-modal", 
+      action: "turbo:submit-end->turbo-modal#submitEnd keyup@window->turbo-modal#closeWithKeyboard click@window->turbo-modal#closeBackground",
+      turbo_modal_target: "modal"},
+      class: "overflow-y-auto overflow-x-hidden h-[24-rem] sm:max-h-screen justify-center items-center shadow-md hover:shadow-xl rounded-xl
+              fixed w-4/5 sm:max-w-screen top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 m-auto" do 
+  %>
+      <div class="relative p-4 w-full md:min-w-[30rem] h-full bg-gray-200 ">
+        <div class="text-center mx-2 h-auto">
+            <%= render 'shared/buttons/close'%>
+        </div>
+        <!-- Content -->
+        <%= content %>
+      </div>
+  <% end %>
+<% end %>

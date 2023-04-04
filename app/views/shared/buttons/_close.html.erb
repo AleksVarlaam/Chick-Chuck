@@ -1,6 +1,6 @@
 <%= button_tag "Close", 
     data: { action: "turbo-modal#hideModal" }, 
     type: "button", 
-    class:"absolute top-3 right-3 text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1 inline-flex items-center" do %>
+    class:"absolute top-3 right-3 z-20 text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1 inline-flex items-center" do %>
         <%= heroicon 'x-mark', class: 'w-5 h-5'%>
 <% end %>

@@ -9,8 +9,10 @@
             <!-- Attachments -->
             <% if message.images.present? %>
                 <div class="flex items-center my-1 overflow-x-auto max-w-[22rem]">
-                    <% message.images.each do |img| %>
-                        <%= image_tag(img.medium.url, class: 'pr-1 max-h-[18rem] max-w-[18rem] object-cover rounded-md')%>
+                    <% message.images.each_with_index do |img, index| %>
+                        <%= link_to image_path(index, message), data: {turbo_frame: 'modal'} do %>
+                            <%= image_tag(img.medium.url, class: 'pr-1 max-h-[18rem] max-w-[18rem] object-cover rounded-md')%>
+                        <% end %>
                     <% end %>
                 </div>
             <% end %>

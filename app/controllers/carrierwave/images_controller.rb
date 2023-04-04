@@ -3,6 +3,10 @@
 module Carrierwave
   class ImagesController < ApplicationController
     before_action :set_object
+    
+    def show
+      @images = @object.images
+    end
 
     def destroy
       respond_to do |format|
@@ -13,7 +17,7 @@ module Carrierwave
           end
         else
           format.turbo_stream do
-            flash[:error] = "Failed deleting image"
+            flash[:error] = t('flash.alert')
             redirect_to request.referer
           end
         end
