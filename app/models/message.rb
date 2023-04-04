@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
   mount_uploaders :images, ImageUploader
-  
+
   scope :unread, -> { where(readed: false).count }
 
   has_noticed_notifications

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module ImageHelper
-  
   def image_path(index, object)
     if    object.instance_of?(Product)
       carrierwave_image_path(id: index, product_id: object.id)
@@ -15,5 +14,4 @@ module ImageHelper
       carrierwave_image_path(id: index, message_id: object.id)
     end
   end
-  
 end

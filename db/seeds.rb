@@ -40,9 +40,9 @@ product_images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg']
 end
 
 21.times do
-  product = Product.new(user_id: Company.all.ids.sample, title: FFaker::Product.product_name, 
+  product = Product.new(user_id: Company.all.ids.sample, title: FFaker::Product.product_name,
                         condition: Product.condition_select.sample[1], delivery: Product.delivery_select.sample[1],
-                        category_id: Category.all.ids.sample, thing_id: Thing.all.ids.sample, district_id: District.all.ids.sample, 
+                        category_id: Category.all.ids.sample, thing_id: Thing.all.ids.sample, district_id: District.all.ids.sample,
                         city_id: City.all.ids.sample, description: FFaker::Book.description, price: price.sample)
 
   product.images.attach(
