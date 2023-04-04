@@ -8,6 +8,7 @@ class CreateFeedbacks < ActiveRecord::Migration[7.0]
       t.references :user, null: true, foreign_key: true
       t.references :object, polymorphic: true, null: false
       t.references :commentable, polymorphic: true, null: false
+      t.json       :images
 
       t.timestamps
     end

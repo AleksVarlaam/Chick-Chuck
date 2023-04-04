@@ -10,7 +10,7 @@
             <% if message.images.present? %>
                 <div class="flex items-center my-1 overflow-x-auto max-w-[22rem]">
                     <% message.images.each do |img| %>
-                        <%= image_tag(img, class: 'pr-1 max-h-[18rem] max-w-[18rem] object-cover rounded-md')%>
+                        <%= image_tag(img.medium.url, class: 'pr-1 max-h-[18rem] max-w-[18rem] object-cover rounded-md')%>
                     <% end %>
                 </div>
             <% end %>

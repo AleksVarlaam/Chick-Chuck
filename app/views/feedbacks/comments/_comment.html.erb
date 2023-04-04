@@ -19,7 +19,7 @@
                 <% if comment.images.present? %>
                     <div class="flex items-center my-2 overflow-x-auto">
                         <% comment.images.each do |img| %>
-                            <%= image_tag(medium(img), class: 'pr-1 h-36 w-auto object-cover rounded-md')%>
+                            <%= image_tag(img.medium.url, class: 'pr-1 h-36 w-auto object-cover rounded-md')%>
                         <% end %>
                     </div>
                 <% end %>

@@ -19,6 +19,7 @@ class CreateChats < ActiveRecord::Migration[7.0]
     create_table :messages do |t|
       t.references :user, null: false, foreign_key: true
       t.references :room, null: false, foreign_key: true
+      t.json       :images
       t.text       :content
       t.boolean    :readed, default: false
 

@@ -86,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
     t.bigint "object_id", null: false
     t.string "commentable_type", null: false
     t.bigint "commentable_id", null: false
+    t.json "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
@@ -128,6 +129,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
   create_table "messages", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
+    t.json "images"
     t.text "content"
     t.boolean "readed", default: false
     t.datetime "created_at", null: false
