@@ -3,8 +3,8 @@ CarrierWave.configure do |config|
     provider:              'AWS',                            # required
     aws_access_key_id:     ENV["AWS_ACCESS_KEY"],            # required
     aws_secret_access_key: ENV["AWS_SECRET_KEY"],            # required
-    use_iam_profile:       true,                             # optional, defaults to false
     region:                'eu-central-1',                   # optional, defaults to 'us-east-1'
+    # use_iam_profile:       true,                           # optional, defaults to false
     # host:                  's3.example.com',               # optional, defaults to nil
     # endpoint:              'https://s3.example.com:8080'   # optional, defaults to nil
   }
