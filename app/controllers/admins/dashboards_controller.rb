@@ -6,7 +6,9 @@ module Admins
     before_action :authenticate_admin!
     before_action :set_models
 
-    def show; end
+    def show
+      @statistic = Statistic.first
+    end
 
     def users
       @pagy_a, @users_pagy = pagy_array(@users, items: 10, fragment: '#users')
