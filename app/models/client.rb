@@ -14,12 +14,12 @@ class Client < User
       first_name: name_split.first, last_name: name_split.last
     )
 
-    if user.avatar != auth.info.image
-      require 'open-uri'
-
-      user.avatar.attach(io: URI.parse(auth.info.image).open, filename: "user_#{user.id}_avatar")
-      user.save
-    end
+    # if user.remote_avatar_url != auth.info.image
+#       require 'open-uri'
+#
+#       user.remote_avatar_url = auth.info.image
+#       user.save
+#     end
     user
   end
 
@@ -36,7 +36,7 @@ class Client < User
 
   def avatar_attachment_path
     if avatar.present?
-      avatar.avatar.url
+      avatar_url || remote_avatar_url
     else
       gender == 'female' ? 'icons/avatar-f.png' : 'icons/avatar-m.png'
     end
