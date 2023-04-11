@@ -1,5 +1,5 @@
 <!-- Carriers product form -->
-<%= turbo_frame_tag dom_id(@product, 'form') do %>
+<%= turbo_frame_tag Product.new do %>
     <!-- Carousel -->
     <%= tag.div (render 'carrierwave/images/carousel', object: @product), 
         class: "col-span-full md:px-[14rem] w-full justify-center mb-4" if ['edit', 'update'].include?(action_name) %>
