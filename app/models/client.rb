@@ -36,7 +36,7 @@ class Client < User
 
   def avatar_attachment_path
     if avatar.present?
-      avatar_url || remote_avatar_url
+      remote_avatar_url || avatar.avatar.url
     else
       gender == 'female' ? 'icons/avatar-f.png' : 'icons/avatar-m.png'
     end

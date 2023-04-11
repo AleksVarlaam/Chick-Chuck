@@ -23,6 +23,8 @@ Subscribe to our news to monitor our progress."
       da:               'Yes'
       net:              'No'
       find_btn:         "Find %{model}"
+      upload:           "Upload %{model}"
+      update:           "Update %{model}"
   # Flash
   flash:
       type:

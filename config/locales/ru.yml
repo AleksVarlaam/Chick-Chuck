@@ -23,6 +23,8 @@ ru:
       da:               'Да'
       net:              'Нет' 
       find_btn:         "Найти %{model}"
+      upload:           "Загрузить %{model}"
+      update:           "Обновить %{model}"
   # Flash
   flash:
       type:

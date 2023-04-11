@@ -51,6 +51,7 @@ he:
                 description:      "תיאור או סיסמה"
                 contacts:         "הצג אנשי קשר"
                 additional_phone: "טלפון נוסף"
+                avatar:           "לוגו"
             calculator:
                 distance:             "מרחק"
                 floor_down:           "קומות למטה"

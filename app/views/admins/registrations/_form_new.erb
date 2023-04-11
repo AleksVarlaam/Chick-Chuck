@@ -84,7 +84,7 @@
                 <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <div class="text-gray-700 mt-1 mb-2 justify-center text-center text-base" data-controller="image" id="Img">
-                  <span class="relative rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">Upload avatar</span>
+                  <span class="relative rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"><%= t('global.upload', model: User.human_attribute_name('avatar'))%></span>
                       <%= f.file_field :avatar, multiple: false, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#preview" %>
               </div>
               <p class="text-xs text-gray-700">

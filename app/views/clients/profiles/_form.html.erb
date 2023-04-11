@@ -51,7 +51,9 @@
               </svg>
               <% end %>
               <div class="text-gray-700 mt-1 mb-2 justify-center text-center text-base" data-controller="image" id="Img">
-                  <span class="relative rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"><%= current_client.avatar.present? ? 'Change avatar' : 'Upload avatar'%></span>
+                  <span class="relative rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                      <%= t(current_user.avatar.present? ? 'global.update' : 'global.upload', model: User.human_attribute_name('avatar'))%>
+                  </span>
                       <%= f.file_field :avatar, multiple: false, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#preview" %>
               </div>
               <p class="text-xs text-gray-700">

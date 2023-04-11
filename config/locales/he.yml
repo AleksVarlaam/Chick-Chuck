@@ -23,6 +23,8 @@ he:
       da:               'כן'
       net:              'לא' 
       find_btn:         "%{model} למצוא"
+      upload:           "%{model} להעלות"
+      update:           "%{model} לעדכן את"
   # Flash
   flash:
       type:

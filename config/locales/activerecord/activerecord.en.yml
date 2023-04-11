@@ -37,7 +37,7 @@ en:
                 male:             'Male'
                 female:           'Female'
                 birthday:         'Birthday'
-                avatar:           'Avatar'
+                avatar:           'avatar'
                 password_popover: "%{length} characters minimum."
                 current_popover:  'We need your current password to confirm your changes.'
                 created_at:       'Date of registration'
@@ -50,6 +50,7 @@ en:
                 description:      'Description or slogan'
                 contacts:         'Contacts'
                 additional_phone: 'Additional phone'
+                avatar:           'logotype'
             calculator:
                 distance:             'Distance'
                 floor_down:           'Floor down'
@@ -65,7 +66,7 @@ en:
                 width:            'Body width'
                 height:           'Body height'
                 load_capacity:    'Load capacity'
-                images:           'Images'
+                images:           'images'
             product:
                 category:         'Category'
                 things:           'Type'
@@ -75,7 +76,7 @@ en:
                 price:            'Price'
                 condition:        'Condition'
                 delivery:         'Delivery'
-                images:           'Images'
+                images:           'images'
                 sold:             'Sold'
                 district:         'District'
                 city:             'City'
@@ -90,6 +91,6 @@ en:
                 title:            'Title'
                 description:      'Description'
                 content:          'Content'
-                images:           'Images'
+                images:           'images'
             language:
                 title:            'Title'

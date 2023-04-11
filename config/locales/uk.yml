@@ -23,6 +23,8 @@ uk:
       da:               'Так'
       net:              'Ні'
       find_btn:         "Знайти %{model}"
+      upload:           "Завантажити %{model}"
+      update:           "Оновлення %{model}"
   # Flash
   flash:
       type:

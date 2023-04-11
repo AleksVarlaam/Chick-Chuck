@@ -37,7 +37,7 @@ ru:
                 male:             'Мужской'
                 female:           'Женский'
                 birthday:         'День рождения'
-                avatar:           'Аватар'
+                avatar:           'аватар'
                 password_popover: "%{length} значений минимум."
                 current_popover:  'Нам нужен ваш текущий пароль, чтобы подтвердить внесенные изменения.'
                 delete_account:   'Удалить аккаунт'
@@ -51,6 +51,7 @@ ru:
                 description:      'Описание или слоган'
                 contacts:         'Контакты'
                 additional_phone: 'Доп. телефон'
+                avatar:           'логотип'
             calculator:
                 distance:             'Дистанция'
                 floor_down:           'Этажей вниз'
@@ -66,7 +67,7 @@ ru:
                 width:            'Ширина кузова'
                 height:           'Высота кузова' 
                 load_capacity:    'Грузоподъем. '
-                images:           'Изображения'
+                images:           'изображения'
             product:
                 category:         'Категория'
                 things:           'Тип'
@@ -76,7 +77,7 @@ ru:
                 price:            'Цена'
                 condition:        'Состояние'
                 delivery:         'Доставка'
-                images:           'Изображения'
+                images:           'изображения'
                 sold:             'Продано'
                 district:         'Регион'
                 city:             'Город'
@@ -91,6 +92,6 @@ ru:
                 title:            'Заголовок'
                 description:      'Описание'
                 content:          'Содержание'
-                images:           'Изображения'
+                images:           'изображения'
             language:
                 title:            'Заголовок'

@@ -37,7 +37,7 @@ uk:
                 male:             'Чоловіча'
                 female:           'Жіноча'
                 birthday:         'День народження'
-                avatar:           'Аватар'
+                avatar:           'аватар'
                 password_popover: "%{length} значень мінімум."
                 current_popover:  'Нам потрібен ваш поточний пароль, для того щоб підтвердити внесені зміни.'
                 delete_account:   'Видалити акаунт'
@@ -51,6 +51,7 @@ uk:
                 description:      'Опис або слоган'
                 contacts:         'Контакти'
                 additional_phone: 'Дод. телефон'
+                avatar:           'логотип'
             calculator:
                 distance:             'Дистанція'
                 floor_down:           'Поверхів вниз'
@@ -66,7 +67,7 @@ uk:
                 width:            'Ширина кузова'
                 height:           'Висота кузова' 
                 load_capacity:    'Вантажопідйом. '
-                images:           'Зображення'
+                images:           'зображення'
             product:
                 category:         'Категорія'
                 things:           'Тип'
@@ -76,7 +77,7 @@ uk:
                 price:            'Ціна'
                 condition:        'Стан'
                 delivery:         'Доставка'
-                images:           'Зображення'
+                images:           'зображення'
                 sold:             'Продано'
                 district:         'Регіон'
                 city:             'Міста'
@@ -91,6 +92,6 @@ uk:
                 title:            'Заголовок'
                 description:      'Опис'
                 content:          'Зміст'
-                images:           'Зображення'
+                images:           'зображення'
             language:
                 title:            'Заголовок'

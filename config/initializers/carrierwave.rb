@@ -21,7 +21,7 @@ CarrierWave.configure do |config|
   else
     config.storage = :file
     config.enable_processing = false
-    config.root = "#{Rails.root}/tmp"
+    # config.root = "#{Rails.root}/tmp"
   end
 
 end
