@@ -30,12 +30,10 @@ export default class extends Controller {
             reader.onload = function() {
                 let image = document.createElement("img")
                 imgLoc.appendChild(image)
-                image.style.height = '40px'
-                image.style.width = '40px'
-                image.style.object_fit= 'cover'
+                image.style.height = '150px'
+                image.style.width = '150px'
+                image.style['object-fit'] = 'cover'
                 image.style.z_index= '10'
-                image.style.display = 'flex'
-                image.style.margin = '10px auto 10px'
                 image.src = reader.result
             }
             reader.readAsDataURL(files[i])
