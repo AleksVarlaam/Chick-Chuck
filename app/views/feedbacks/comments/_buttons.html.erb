@@ -15,14 +15,14 @@
             data: {turbo_frame: dom_id(comment, :edit)}
         %>
         <!-- Link to delete comment -->
-        <%= link_to t('comment.delete'), [comment.commentable, comment],
+        <%= link_to t('comment.delete'), [comment.commentable.instance_of?(Statistic) ? :statistic : comment.commentable, comment],
             class: "hover:text-gray-700",
             data: {turbo_method: :delete, turbo_confirm: t('global.are_you_sure')}
         %>
     </div>
     <div class="hidden" data-comment-target="admin">
         <!-- Link to delete comment -->
-        <%= link_to t('comment.delete_as_admin'), [comment.commentable, comment],
+        <%= link_to t('comment.delete_as_admin'), [comment.commentable.instance_of?(Statistic) ? :statistic : comment.commentable, comment],
             class: "hover:text-gray-700",
             data: {turbo_method: :delete, turbo_confirm: t('global.are_you_sure')}
         %>

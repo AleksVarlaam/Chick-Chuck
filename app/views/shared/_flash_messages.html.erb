@@ -1,6 +1,6 @@
 <% flash.each do |type, msg| %>
     
-    <%= tag.div class: "flex w-full overflow-hidden bg-white rounded-lg shadow-lg my-3", 
+    <%= tag.div class: "flex w-full overflow-hidden bg-white rounded-lg shadow-md hover:shadow-lg my-3", 
         data: { controller: "turbo-modal", turbo_modal_target: "modal"} do %>
         <% case type %>
         <% when "success", "notice" %>
