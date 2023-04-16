@@ -3,7 +3,7 @@ en:
     home_page: 
         h1:           'Easy way to find the right carrier'
         h2:           'Chick-Chuck is a service that helps customer and carrier find each other.'
-        calculate:    'calculate the cost of moving'
+        calculate:    'Calculate the cost of moving'
         top_features:
             title:        'What do we have to offer?'
             combining:    'Combining multiple carriers in one place'
@@ -14,7 +14,7 @@ en:
             improvement:  'Continuous development and improvement'
         top_trucks:   'Top trucks'
         main_features:
-            title_html:       'explore our <br> awesome features'
+            title_html:       'Explore our <br> awesome features'
             combining_desc:   'No more need to search all over the internet or ask friends. Many carriers in one place, just choose the right one for you!'
             reviews_desc:     'Leave your real review of carrier services to help other people choose the right and professional carrier. The rating of the company is calculated based on the feedback about each truck.'
             calculator_desc:  'Calculate the approximate (at this stage) cost of transportation to calculate your upcoming costs and select the suitable carrier for you.'

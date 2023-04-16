@@ -17,11 +17,11 @@
         </div>
         <!-- Search button -->
         <div class=" w-full h-auto p-3 col-span-full">
-            <%= button_tag class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-500 border-blue-500 hover:bg-blue-600 text-gray-200'}" do %>
+            <%= button_tag class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-500 border-blue-500 hover:bg-blue-600 text-gray-200'}" do %>
                 <% unless controller_name == 'companies' || action_name == 'company_trucks' %>
-                    <%= tag.p t('global.find_btn', model: Truck.model_name.human), class: 'w-full text-center mr-2' %>
+                    <%= tag.p t('global.find_btn', model: Truck.model_name.human.downcase), class: 'w-full text-center mr-2' %>
                 <% else %>
-                    <%= tag.p t('global.find_btn', model: Truck.model_name.human) + ' ' + @company.title, class: 'w-full text-center mr-2' %>
+                    <%= tag.p t('global.find_btn', model: Truck.model_name.human.downcase) + ' ' + @company.title, class: 'w-full text-center mr-2' %>
                 <% end %>
             <% end %>
         </div>
@@ -31,7 +31,7 @@
         <% else %>
             <!-- Calculator link -->
             <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to calculator_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                <%= link_to calculator_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= heroicon 'arrow-small-left', class: "mr-1 w-5 h-5" if I18n.locale == :he%>
                     <%= t('home_page.calculate')%>
                     <%= heroicon 'arrow-small-right', class: "ml-2 -mr-1 w-5 h-5" unless I18n.locale == :he%>
@@ -43,7 +43,7 @@
         <% if controller_name == 'main'%>
             <!-- Preparation link -->
             <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to moving_preparation_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                <%= link_to moving_preparation_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= heroicon 'arrow-small-left', class: "mr-1 w-5 h-5" if I18n.locale == :he%>
                     <%= t('moving_preparation.title')%>
                     <%= heroicon 'arrow-small-right', class: "ml-2 -mr-1 w-5 h-5" unless I18n.locale == :he%>
@@ -51,7 +51,7 @@
             </div>
             <!-- Market link -->
             <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to products_path, class: "flex capitalize items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                <%= link_to products_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= heroicon 'arrow-small-left', class: "mr-1 w-5 h-5" if I18n.locale == :he%>
                     <%= t('pages.market')%>
                     <%= heroicon 'arrow-small-right', class: "ml-2 -mr-1 w-5 h-5" unless I18n.locale == :he%>
