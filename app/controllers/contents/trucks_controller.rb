@@ -9,7 +9,7 @@ module Contents
       Statistic.first.update(trucks: Statistic.first.trucks + 1) unless user_signed_in?
       trucks = Truck.filter(filter_params)
       @top_trucks = trucks.take(3)
-      @pagy_a, @trucks = pagy_array(trucks.drop(3), items: 8, fragment: '#trucks')
+      @pagy_a, @trucks = pagy_array(trucks.drop(3), items: 8, fragment: '#trucks') if trucks.count > 3
     end
 
     def company_trucks

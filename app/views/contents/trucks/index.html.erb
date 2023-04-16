@@ -12,6 +12,6 @@
         <!-- Top trucks -->
         <%= render 'top_trucks'%>
         <!-- Latest trucks -->
-        <%= render 'latest_trucks'%>
+        <%= render 'latest_trucks' if @trucks.present? %>
     <% end %>
 <% end %>

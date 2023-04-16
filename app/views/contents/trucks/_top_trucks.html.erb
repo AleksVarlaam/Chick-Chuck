@@ -1,5 +1,5 @@
 <!-- Title -->
-<%= tag.h3 t('home_page.top_trucks'), class: 'text-3xl font-semibold text-gray-800  my-6 text-center'%>
+<%= tag.h3 t(@trucks ? 'home_page.top_trucks' : 'pages.trucks'), class: 'text-3xl font-semibold text-gray-800  my-6 text-center'%>
 <!-- Trucks -->
 <% if @top_trucks.present?%>
     <%= turbo_frame_tag 'top_trucks', class: "container sm:mx-auto grid grid-cols-1 gap-6 sm:grid-cols-6 lg:grid-cols-3 2xl:grid-cols-8 justify-center mb-6" do %>
