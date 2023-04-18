@@ -10,48 +10,48 @@
         <% end %>
       <% end %>
   
-      <div class="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-2 xl:grid-cols-3 justify-center">
+      <div class="grid gap-4 sm:gap-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-2 xl:grid-cols-3 justify-center">
           <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('politeness'), class: "text-lg font-medium text-gray-500 mr-2"%>
+              <%= tag.p Review.human_attribute_name('politeness'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
               <span class="text-sm font-medium text-gray-500 ">
-                  <%= f.select(:politeness, options_for_select(1. upto(10).to_a, review.politeness), {}, {class: "pl-2 pr-7 rounded-xl"})%>
+                  <%= f.range_field :politeness, min: 1, max: 10, class: "w-full rounded-xl"%>
               </span>
           </div>
           <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('punctuality'), class: "text-lg font-medium text-gray-500 mr-2"%>
+              <%= tag.p Review.human_attribute_name('punctuality'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
               <span class="text-sm font-medium text-gray-500">
-                  <%= f.select(:punctuality, options_for_select(1. upto(10).to_a, review.punctuality), {}, {class: "pl-2 pr-7 rounded-xl"})%>
+                  <%= f.range_field :punctuality, min: 1, max: 10, class: "w-full rounded-xl"%>
               </span>
           </div>
           <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('sociability'), class: "text-lg font-medium text-gray-500 mr-2"%>
+              <%= tag.p Review.human_attribute_name('sociability'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
               <span class="text-sm font-medium text-gray-500">
-                  <%= f.select(:sociability, options_for_select(1. upto(10).to_a, review.sociability), {}, {class: "pl-2 pr-7 rounded-xl"})%>
+                  <%= f.range_field :sociability, min: 1, max: 10, class: "w-full rounded-xl"%>
               </span>
           </div>
           <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('safety'), class: "text-lg font-medium text-gray-500 mr-2"%>
+              <%= tag.p Review.human_attribute_name('wholeness_things'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
               <span class="text-sm font-medium text-gray-500">
-                  <%= f.select(:wholeness_things, options_for_select(1. upto(10).to_a, review.wholeness_things), {}, {class: "pl-2 pr-7 rounded-xl"})%>
+                  <%= f.range_field :wholeness_things, min: 1, max: 10, class: "w-full rounded-xl"%>
               </span>
           </div>
           <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('speed'), class: "text-lg font-medium text-gray-500 mr-2"%>
+              <%= tag.p Review.human_attribute_name('speed'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
               <span class="text-sm font-medium text-gray-500">
-                  <%= f.select(:speed, options_for_select(1. upto(10).to_a, review.speed), {}, {class: "pl-2 pr-7 rounded-xl"})%>
+                  <%= f.range_field :speed, min: 1, max: 10, class: "w-full rounded-xl"%>
               </span>
           </div>
           <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('value_money'), class: "text-lg font-medium text-gray-500 mr-2"%>
+              <%= tag.p Review.human_attribute_name('value_money'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
               <span class="text-sm font-medium text-gray-500">
-                  <%= f.select(:value_money, options_for_select(1. upto(10).to_a, review.value_money), {}, {class: "pl-2 pr-7 rounded-xl"})%>
+                  <%= f.range_field :value_money, min: 1, max: 10, class: "w-full rounded-xl"%>
               </span>
           </div>
       </div>
   
       <!-- Submit button -->
-      <div class="text-center lg:text-center">
-          <%= f.submit t('global.send_btn'), class: "w-1/3 text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center mt-6" %>
+      <div class="text-center">
+          <%= f.submit t('global.send_btn'), class: "w-auto text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-5 py-2.5 text-center mt-6" %>
       </div>
     <% end %>
 <% end %>
