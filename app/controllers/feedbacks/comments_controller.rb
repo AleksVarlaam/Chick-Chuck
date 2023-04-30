@@ -80,7 +80,7 @@ module Feedbacks
         @commentable = News.find_by_id(params[:news_id])       
       elsif params[:comment_id].present?
         @commentable = Comment.find_by_id(params[:comment_id]) 
-      else
+      elsif params[:statistic_id].present?
         @commentable = Statistic.first
       end
     end
