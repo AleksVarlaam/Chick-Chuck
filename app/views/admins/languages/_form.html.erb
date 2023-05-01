@@ -17,7 +17,8 @@
           </div>
           <!-- Button delete -->
           <div class="flex justify-start pb-2 ml-3">
-              <%= link_to t('global.destroy_btn'), admins_language_path(@language), data: {turbo_method: :delete, turbo_confirm: t('global.are_you_sure')},
+              <%= link_to t('global.destroy_btn'), admins_language_path(@language), 
+                  data: {turbo_method: :delete, turbo_confirm: t('global.are_you_sure')},
                   class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br focus:ring-4" if action_name == 'edit'%>
           </div>
       </div>

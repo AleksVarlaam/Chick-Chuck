@@ -11,7 +11,7 @@
         <%= tag.p category.he, class: "text-start text-gray-500 text-xl font-bold uppercase" %>
         <%= link_to edit_admins_category_path(category), data: {turbo_frame: dom_id(category, 'form')},
             class: 'absolute right-0 flex py-0 mr-2 text-base font-medium justify-end items-center text-end text-gray-500 hover:text-gray-700 hover:underline' do %>
-            <%= image_tag(asset_path('icons/icons8-edit-48.png'), class: 'w-5 h-5')%>
+            <%= heroicon 'pencil-square', class: 'w-5 h-5 text-gray-900'%>
         <% end %>
     <% end %>
     <!-- Things -->
