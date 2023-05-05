@@ -31,10 +31,10 @@ product_images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg']
   truck = Truck.new(user_id: Company.all.ids.sample, district_ids: District.all.ids.sample, body_type: Truck.body_type_select.sample[1],
                     assembly: Truck.assembly_select.sample[1], packing: Truck.packing_select.sample[1], length: length.sample, width: width.sample, height: height.sample, load_capacity: load_capacity.sample)
 
-  truck.images.attach(
-    io: File.open(File.join(Rails.root, "app/assets/images/seed/trucks/#{truck_images.sample}")),
-    filename: '1.jpg'
-  )
+  truck.images = [
+    Pathname.new("app/assets/images/seed/trucks/#{truck_images.sample}").open,
+    Pathname.new("app/assets/images/seed/trucks/#{truck_images.sample}").open
+  ]
 
   truck.save
 end
@@ -44,11 +44,11 @@ end
                         condition: Product.condition_select.sample[1], delivery: Product.delivery_select.sample[1],
                         category_id: Category.all.ids.sample, thing_id: Thing.all.ids.sample, district_id: District.all.ids.sample,
                         city_id: City.all.ids.sample, description: FFaker::Book.description, price: price.sample)
-
-  product.images.attach(
-    io: File.open(File.join(Rails.root, "app/assets/images/seed/products/#{product_images.sample}")),
-    filename: '1.jpg'
-  )
+  
+  product.images = [
+    Pathname.new("app/assets/images/seed/products/#{product_images.sample}").open,
+    Pathname.new("app/assets/images/seed/products/#{product_images.sample}").open
+  ]
 
   product.save
 end
