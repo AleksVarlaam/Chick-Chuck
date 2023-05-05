@@ -22,8 +22,10 @@ namespace :admin do
 
     # Languages
     unless Language.exists?
-      languages_array = %w[
-        Русский Українська English עברית
+      languages_array = ['עברית' ,'عربي', 'አማርኛ']
+      
+      languages_array += %w[
+        English Русский Українська Français Español Italiano
       ]
 
       languages_array.each { |language| Language.create(title: language) }
