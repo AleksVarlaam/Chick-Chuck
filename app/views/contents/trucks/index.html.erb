@@ -2,16 +2,11 @@
 <% provide :page_title, t('pages.trucks') %>
 
 
-<%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
+<%= turbo_frame_tag 'trucks', class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
     <!-- Filter -->
-    <%= tag.div (render 'contents/trucks/trucks_filter', path: trucks_path, company: nil), class: 'mt-8'%>
-    <!-- Trucks -->
-    <%= turbo_frame_tag 'trucks',
-        class: "grid grid-flow-row auto-rows-max flex w-full px-2" do 
-    %>
-        <!-- Top trucks -->
-        <%= render 'top_trucks'%>
-        <!-- Latest trucks -->
-        <%= render 'latest_trucks' if @trucks.present? %>
-    <% end %>
+    <%= tag.div (render 'contents/trucks/trucks_filter', path: trucks_path, frame: 'trucks', company: nil), class: 'mt-8'%>
+    <!-- Top trucks -->
+    <%= render 'top_trucks'%>
+    <!-- Latest trucks -->
+    <%= render 'latest_trucks' if @trucks.present? %>
 <% end %>

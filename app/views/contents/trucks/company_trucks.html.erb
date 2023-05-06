@@ -1,22 +1,16 @@
 <% currently_at t('pages.trucks') %>
 <% provide :page_title, t('pages.trucks') %>
 
-<script>
+<!-- <script>
   window.location = window.location.href + "#trucks";
-</script>
-  
+</script> -->
+ 
+<!-- About company -->
 <%= tag.section (render 'companies/shared/about_company', company: @company), class: "relative pt-3 w-full h-auto block"%>
-<%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2", id: 'trucks' do %>
+<!-- Trucks section -->
+<%= turbo_frame_tag 'trucks', class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
     <!-- Filter -->
-    <%= tag.div (render 'contents/trucks/trucks_filter', path: company_trucks_path(@company)), class: 'mt-8'%>
+    <%= tag.div (render 'contents/trucks/trucks_filter', path: company_trucks_path(@company), frame: 'trucks'), class: 'mt-8'%>
     <!-- Trucks -->
-    <%= turbo_frame_tag 'trucks',
-        class: "grid grid-flow-row auto-rows-max flex w-full px-2" do 
-    %>
-        <!-- Trucks -->
-        <%= render 'latest_trucks', collection: @trucks%>
-    <% end %>
-    
-    <!-- Pagy trucks -->
-    <%== pagy_nav(@pagy) if @trucks.count > 8%>
+    <%= render 'latest_trucks', collection: @trucks%>
 <% end %>

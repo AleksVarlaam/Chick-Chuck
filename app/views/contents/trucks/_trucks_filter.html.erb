@@ -1,5 +1,5 @@
 <!-- Trucks filter -->
-<%= form_with url: path, method: :get, data: {turbo_frame: '_top'} do |f| %>
+<%= form_with url: path, method: :get, data: {turbo_frame: frame} do |f| %>
     <% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 md:grid-cols-2 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto #{'-mt-5' if action_name == 'company_trucks'}" do %>
         <!-- Working area -->
         <div class="w-full h-14 items-center flex border-0 border-b border-gray-500 md:border-r pl-3 ">
