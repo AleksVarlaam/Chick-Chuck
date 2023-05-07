@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
 
     # Admins
-    devise_for :admins, controllers: { registrations: 'admins/registrations' }, skip: :omniauth_callbacks , skip: [:registrations]
+    devise_for :admins, controllers: { registrations: 'admins/registrations' }, skip: [:registrations]
     as :admin do
       get 'admins/edit',  to: 'admins/registrations#edit',    as: 'edit_admin_registration'
       put 'admins',       to: 'admins/registrations#update',  as: 'admin_registration'
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     end
 
     # Companies
-    devise_for :companies, controllers: { registrations: 'companies/registrations' }, skip: :omniauth_callbacks
+    devise_for :companies, controllers: { registrations: 'companies/registrations' }
     namespace :companies do
       resources :trucks, except: %i[show] do
         post '/publish',      to: 'trucks#publish', as: 'publish'
