@@ -44,7 +44,7 @@ end
                         condition: Product.condition_select.sample[1], delivery: Product.delivery_select.sample[1],
                         category_id: Category.all.ids.sample, thing_id: Thing.all.ids.sample, district_id: District.all.ids.sample,
                         city_id: City.all.ids.sample, description: FFaker::Book.description, price: price.sample)
-  
+
   product.images = [
     Pathname.new("app/assets/images/seed/products/#{product_images.sample}").open,
     Pathname.new("app/assets/images/seed/products/#{product_images.sample}").open

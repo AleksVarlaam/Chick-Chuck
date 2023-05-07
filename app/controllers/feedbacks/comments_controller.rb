@@ -42,8 +42,10 @@ module Feedbacks
           @comment.broadcast_update_to @comment.commentable,
                                        target: helpers.dom_id(@comment),
                                        partial: 'feedbacks/comments/comment', locals: { comment: @comment.decorate }
-        
-          format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: @comment.model_name.human.to_s) }
+
+          format.turbo_stream do
+            flash.now[:success] = t('flash.success.updated', model: @comment.model_name.human.to_s)
+          end
         else
           format.turbo_stream { flash.now[:alert] = t('flash.alert') }
         end
@@ -57,8 +59,9 @@ module Feedbacks
           @comment.broadcast_remove_to @comment.commentable,
                                        target: helpers.dom_id(@comment)
 
-        
-          format.turbo_stream { flash.now[:success] = t('flash.success.destroyed', model: @comment.model_name.human.to_s)}
+          format.turbo_stream do
+            flash.now[:success] = t('flash.success.destroyed', model: @comment.model_name.human.to_s)
+          end
         else
           format.turbo_stream { flash.now[:alert] = t('flash.alert') }
         end
@@ -75,11 +78,11 @@ module Feedbacks
       if params[:company_id].present?
         @commentable = Company.find_by_id(params[:company_id])
       elsif params[:truck_id].present?
-        @commentable = Truck.find_by_id(params[:truck_id])     
-      elsif params[:news_id].present?  
-        @commentable = News.find_by_id(params[:news_id])       
+        @commentable = Truck.find_by_id(params[:truck_id])
+      elsif params[:news_id].present?
+        @commentable = News.find_by_id(params[:news_id])
       elsif params[:comment_id].present?
-        @commentable = Comment.find_by_id(params[:comment_id]) 
+        @commentable = Comment.find_by_id(params[:comment_id])
       elsif params[:statistic_id].present?
         @commentable = Statistic.first
       end

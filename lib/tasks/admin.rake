@@ -5,25 +5,27 @@ namespace :admin do
   desc 'Start'
   task start: :environment do
     # Create Admin
-    unless Admin.exists?
-      Admin.create(email: 'aleksvarlaam@gmail.com', password: '1UhsX7Rp', password_confirmation: '1UhsX7Rp', 
-                   phone: '+972537013915', confirmed_at: Time.now)
-    else
+    if Admin.exists?
       p 'Admin already exists!'
+    else
+      Admin.create(email: 'aleksvarlaam@gmail.com', password: '1UhsX7Rp', password_confirmation: '1UhsX7Rp',
+                   phone: '+972537013915', confirmed_at: Time.now)
     end
-    
+
     # Statistic
-    unless Statistic.exists?
+    if Statistic.exists?
+      p 'Statistic already exists!'
+    else
       Statistic.create
       p 'Statistic created'
-    else
-      p 'Statistic already exists!'
     end
 
     # Languages
-    unless Language.exists?
-      languages_array = ['עברית' ,'عربي', 'አማርኛ']
-      
+    if Language.exists?
+      p 'Languages already exists!'
+    else
+      languages_array = %w[עברית عربي አማርኛ]
+
       languages_array += %w[
         English Русский Українська Français Español Italiano
       ]
@@ -31,8 +33,6 @@ namespace :admin do
       languages_array.each { |language| Language.create(title: language) }
 
       p "Created #{Language.count} languages"
-    else
-      p 'Languages already exists!'
     end
   end
 end

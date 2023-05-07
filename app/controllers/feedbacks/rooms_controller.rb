@@ -64,7 +64,7 @@ module Feedbacks
 
     def check_room_dublicate
       return redirect_to new_client_session_path, alert: t('devise.failure.unauthenticated') unless user_signed_in?
-      
+
       return redirect_to rooms_path if current_user == recipient
 
       @room = current_user.rooms.joins(:users).find_by('users.id' => room_params[:recipient_id])

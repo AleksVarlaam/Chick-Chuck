@@ -15,11 +15,11 @@ class Client < User
     )
 
     # if user.remote_avatar_url != auth.info.image
-#       require 'open-uri'
-#
-#       user.remote_avatar_url = auth.info.image
-#       user.save
-#     end
+    #       require 'open-uri'
+    #
+    #       user.remote_avatar_url = auth.info.image
+    #       user.save
+    #     end
     user
   end
 
