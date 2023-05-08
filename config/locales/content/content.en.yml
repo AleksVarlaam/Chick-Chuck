@@ -45,10 +45,10 @@ en:
             client:           'Private person'
             company:          'Carrier'
         price:
-            min:              'From'
-            max:              'Until'
+            min:              'Min'
+            max:              'Max'
     calculator:
-        title:            'Cost Calculator'
+        title:            'Cost сalculator'
         btn:              'Calculate'
         km_span:          '₪ per 1 km'
         floor_span:       '% per 1 floor'

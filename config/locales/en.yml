@@ -8,7 +8,7 @@ en:
       save_btn:         'Save'
       are_you_sure:     'Are you sure?'
       select:           'Select: '
-      destroy_btn:      'Destroy'
+      destroy_btn:      'Remove'
       edit_btn:         'Edit'
       read_more:        'Read more'
       view_all:         'View all'

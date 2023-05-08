@@ -1,8 +1,8 @@
 en:
     user_menu:   
-        sign_in:          'Sign In'
-        sign_up:          'Sign Up'
-        sign_out:         'Sign Out'
+        sign_in:          'Log in'
+        sign_up:          'Sign up'
+        sign_out:         'Log out'
         dashboard:        'Dashboard'
         chats:            'Chats'
         profile:          'Profile'
@@ -16,28 +16,28 @@ en:
         we_speak:         'We speak on: '
         message:          'Write'
         contacts:         'Show contacts'
-        say_truck_number: 'Note: say truck number to order this current truck!'
+        say_truck_number: 'Note: write truck number to order a particular truck!'
     sign_in:
-        title:            'Sign In'
-        title_as_company: 'Sign In as company'
-        as_company:       'To sign in as company'
+        title:            'Log in'
+        title_as_company: 'Log in as company'
+        as_company:       'To log in as company'
         click_here:       'Click here'
         login_place:      'Enter your email or phone number'
         password_place:   'Enter password'
         remember_me:      'Remember me'
         forgot:           'Forgot password?'
         or:               'Or'
-        facebook:         'Sign in with Facebook'
-        google:           'Sign in with Google'
+        facebook:         'Log in with Facebook'
+        google:           'Log in with Google'
         btn:              'Log In'
         account:          "Don't have an account"
         register:         'Register'
     reset_password:
         title:            'Password recovery'
         email_place:      'Enter your email'
-        send_btn:         'Send me reset password instructions'
+        send_btn:         'Send me password reset instructions'
     sign_up:
-        title:            'Registration'
+        title:            'Sign up'
         btn:              'Create account'
     become_a_carrier:
         title:            'Company registration'

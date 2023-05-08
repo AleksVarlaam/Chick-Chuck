@@ -1,21 +1,21 @@
 en:
     chat:
-        search:           'Search chatting'
+        search:           'Search chat'
     language:
         language_select:  'Select the languages you speak'
         add_btn:          'Add language'
-        edit_btn:         'Edit language'
+        edit_btn:         'Edit languages'
     category:
         add_btn:          'Add category'
         edit_btn:         'Edit category'
     thing:
-        add_btn:          'Add thing'
+        add_btn:          'Add item'
     district:
         add_btn:          'Add district'
     body_type:
         add_btn:          'Add type'
     review:
-        review_desc:      'Leave your review if you have already used the services of this company and truck. Your opinion is very important to us and helps other users to find an honest professional carrier!'
+        review_desc:      'Leave your review if you have already used the services of this company and truck. Your opinion is very important to us and helps other users to find a honest professional carrier!'
         add_btn:          'Estimate %{model}'
         edit_btn:         'Edit review'   
     message:
@@ -26,10 +26,10 @@ en:
         edit:             'Edit'
         delete:           'Delete'
         delete_as_admin:  'Delete as admin'
-        placeholder:      'Your comment...'
+        placeholder:      'Your message...'
         updated:          'Edited'
         need_to_signin:   'To add a comment you need to '
-        about_page_title: "Leave your feedback or suggestion to improve the service."
+        about_page_title: "Leave your feedback."
     notification:
         comment:          'Commented on the'
         reply:            'Reply on your comment on the'
