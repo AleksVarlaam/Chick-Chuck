@@ -56,6 +56,7 @@ en:
         price:            'Price per unit'
         elevator:         'elevator'
         note_html:        "Note: This calculator allows you to calculate a preliminary moving cost, which is approximate. <br> The exact cost is agreed with the carrier."
+        company_calculator_html: "Note: Specify the cost of your services so that the customer can calculate the approximate cost of moving. <br> The exact cost is agreed with the carrier."
     news:
         all_news:         'News'
         add_btn:          'Add news'
