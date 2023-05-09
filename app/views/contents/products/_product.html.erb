@@ -8,7 +8,7 @@
                     <%= render 'shared/buttons/popover', text: t('product.product_by'), icon: 'icons/icons8-in-transit-50.png' %>
                 <% end if product.user.type == Company.name%>
                 <!-- Title -->
-                <%= tag.h5 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
+                <%= tag.h4 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
             </div>
             <% if ['show', 'products'].eql?([action_name, controller_name]) && product.description.present?%>
                 <div>

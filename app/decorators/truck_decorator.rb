@@ -63,7 +63,7 @@ class TruckDecorator < ApplicationDecorator
 
   def formatted_assembly
     case truck.assembly
-    when 1 then h.image_tag(h.asset_path('icons/icons8-done-40.png'), class: 'w-5 h-5')
+    when 1 then h.image_tag(h.asset_path('icons/icons8-done-40.png'), class: 'w-5 h-5', alt: "icons8-done-40")
     when 2 then (h.heroicon 'x-mark', class: 'w-5 h-5 text-red-700')
     else
       h.tag.p assembly_name, class: 'text-gray-600 italic'
@@ -72,7 +72,7 @@ class TruckDecorator < ApplicationDecorator
 
   def formatted_packing
     case truck.packing
-    when 1 then h.image_tag(h.asset_path('icons/icons8-done-40.png'), class: 'w-5 h-5')
+    when 1 then h.image_tag(h.asset_path('icons/icons8-done-40.png'), class: 'w-5 h-5', alt: "icons8-done-40")
     when 2 then (h.heroicon 'x-mark', class: 'w-5 h-5 text-red-700')
     end
   end
