@@ -31,5 +31,5 @@
             <%= render 'contents/shared/unavailable', model: t('product.all_products')%>
         <% end %>
     <% end %>
-    <%== pagy_nav(@pagy) if Product.count > 11%>
+    <%== pagy_nav(@pagy) if @products_count > 11%>
 <% end %>

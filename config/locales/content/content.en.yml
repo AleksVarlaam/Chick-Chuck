@@ -35,7 +35,7 @@ en:
         total_products:   'Total products'
         condition:
             any:              'Any'
-            second_hand:      'Second hand'
+            second_hand:      'Used'
             new:              'New'
         delivery: 
             pickup:           'Pickup'
