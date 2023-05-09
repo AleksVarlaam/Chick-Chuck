@@ -1,7 +1,7 @@
 <%= provide :footer do %>
     <footer class="bg-gray-200 mt-8 relative">
         <%= link_to '#top', class: 'absolute right-2 bottom-5 z-20', data: {controller: 'scroll-to'} do %>
-            <%= image_tag('icons/icons8-up-2-50.png', class: 'w-8 hover:w-10 h-auto', alt: "arrow up")%>
+            <%= image_tag('icons/icons8-up-2-50.png', class: 'w-8 hover:w-10 h-full', alt: "arrow up")%>
         <% end unless controller_name == 'errors'%>
         <div class="container px-6 py-8 mx-auto">
             <div class="text-center">
