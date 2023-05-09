@@ -1,4 +1,4 @@
-<hr class="">
+<hr>
 <div class="flex grid grid-cols-3 p-3">
     <!-- Edit link -->
     <div class="flex items-center justify-start col-span-1">
@@ -6,7 +6,7 @@
             class: "cursor-pointer p-2 leading-5 text-white transition-colors duration-200 transform rounded-lg bg-gray-100 hover:bg-gray-200 inline-block font-medium",
             data: { turbo_frame: "_top"} do
         %>
-            <%= heroicon 'pencil-square', class: 'w-5 h-5 text-gray-900'%>
+            <%= heroicon 'pencil-square', class: 'w-5 h-5 text-gray-900', alt: "edit"%>
         <% end %>
     </div>
     <!-- Publish button -->
@@ -18,7 +18,7 @@
         <%= link_to del_path, 
             data: { turbo_method: :delete, turbo_confirm: t('global.are_you_sure') }, class: "justify-end items-center flex mx-0 leading-5 text-gray-900 rounded-lg p-2 bg-gray-100 hover:bg-gray-200 inline-block font-medium" do 
         %>
-          <%= image_tag(asset_path('icons/icons8-remove-32.png'), class: 'w-5 h-5')%>
+          <%= image_tag('icons/icons8-remove-32.png', class: 'w-5 h-5', alt: "remove")%>
         <% end %>
     </div>
 </div>

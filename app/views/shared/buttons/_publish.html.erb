@@ -5,9 +5,9 @@
         <!-- Icon -->
         <button data-popover-target="<%= "publish_#{model.class.name}_#{model.id}" %>" type="button" class="relative flex items-center">
             <% if model.published == false %>
-                <%= heroicon 'eye', class: 'w-5 h-5 text-gray-900'%>
+                <%= heroicon 'eye', class: 'w-5 h-5 text-gray-900', alt: "publish"%>
             <% else %>
-                <%= heroicon 'eye-slash', class: 'w-5 h-5 text-gray-900'%>
+                <%= heroicon 'eye-slash', class: 'w-5 h-5 text-gray-900', alt: "hide"%>
             <% end %>
         </button>
         <!-- Text -->

@@ -1,6 +1,6 @@
 <!-- View more button -->
 <%= link_to path, class: "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: {turbo_frame: '_top'} do %>
-    <%= heroicon 'arrow-small-left', class: "mr-1 w-4 h-4" if I18n.locale == :he%>
+    <%= heroicon 'arrow-small-left', class: "mr-1 w-4 h-4", alt: "arrow-small-left" if I18n.locale == :he%>
     <%= t('global.read_more')%>
-    <%= heroicon 'arrow-small-right', class: "ml-2 -mr-1 w-4 h-4" unless I18n.locale == :he%>
+    <%= heroicon 'arrow-small-right', class: "ml-2 -mr-1 w-4 h-4", alt: "arrow-small-right" unless I18n.locale == :he%>
 <% end %>

@@ -1,8 +1,8 @@
 <button data-popover-target="<%= text %>" type="button" class="">
     <% if ['registrations', 'sessions'].include?(controller_name)%>
-        <%= image_tag('icons/icons8-info-50.png', class: "w-4 h-4 mr-2")%>
+        <%= image_tag('icons/icons8-info-50.png', class: "w-4 h-4 mr-2", alt: "icons8-info-50")%>
     <% else %>
-        <%= image_tag(icon, class: "w-5 h-5 mr-2")%>
+        <%= image_tag(icon, class: "w-5 h-5 mr-2", alt: icon.split('/').last.split('.').first)%>
     <% end %>
 </button>
 <div data-popover id="<%= text %>" role="tooltip" class="absolute z-20 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">

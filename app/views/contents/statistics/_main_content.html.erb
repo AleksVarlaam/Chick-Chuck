@@ -1,11 +1,10 @@
 <section class="mb-6" id="content">
     <div class="container py-10 mx-auto">
-        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <!-- Calculator -->
             <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl">
                 <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
-                    <%= heroicon 'calculator', class: "w-6 h-6" %>
+                    <%= heroicon 'calculator', class: "w-6 h-6", alt: "calculator" %>
                 </span>
                 <!-- Title -->
                 <%= tag.h1 t('about.calculator.title'), class: "text-xl font-semibold text-gray-700" %>
@@ -14,14 +13,14 @@
                 <!-- Link -->
                 <%= link_to calculator_path, class: "flex items-center -mx-1 text-sm text-blue-500 transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
                     <%= tag.span t('home_page.calculate'), class: "mx-1" %>
-                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
+                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100", alt: "arrow-right" %>
                 <% end %>
             </div>
 
             <!-- Trucks filter -->
             <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl">
                 <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
-                    <%= heroicon 'truck', class: "w-6 h-6" %>
+                    <%= heroicon 'truck', class: "w-6 h-6", alt: "truck" %>
                 </span>
                 <!-- Title -->
                 <%= tag.h1 t('about.trucks.title'), class: "text-xl font-semibold text-gray-700" %>
@@ -30,14 +29,14 @@
                 <!-- Link -->
                 <%= link_to trucks_path, class: "flex items-center -mx-1 text-sm text-blue-500 transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
                     <%= tag.span t('global.find_btn', model: Truck.model_name.human.downcase), class: "mx-1" %>
-                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
+                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100", alt: "arrow-right" %>
                 <% end %>
             </div>
 
             <!-- Market -->
             <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl">
                 <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
-                    <%= heroicon 'shopping-bag', class: "w-6 h-6" %>
+                    <%= heroicon 'shopping-bag', class: "w-6 h-6", alt: "shopping-bag" %>
                 </span>
                 <!-- Title -->
                 <%= tag.h1 t('about.market.title'), class: "text-xl font-semibold text-gray-700" %>
@@ -46,14 +45,14 @@
                 <!-- Link -->
                 <%= link_to products_path, class: "flex items-center -mx-1 text-sm text-blue-500 transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
                     <%= tag.span t('pages.market'), class: "mx-1" %>
-                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
+                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100", alt: "arrow-right" %>
                 <% end %>
             </div>
             
             <!-- Mooving preparation -->
             <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl">
                 <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-full">
-                    <%= heroicon 'newspaper', class: "w-6 h-6" %>
+                    <%= heroicon 'newspaper', class: "w-6 h-6", alt: "newspaper" %>
                 </span>
                 <!-- Title -->
                 <%= tag.h1 t('about.moving_preparation.title'), class: "text-xl font-semibold text-gray-700" %>
@@ -62,7 +61,7 @@
                 <!-- Link -->
                 <%= link_to moving_preparation_path, class: "flex items-center -mx-1 text-sm text-blue-500 transition-colors duration-300 transform hover:underline hover:text-blue-600" do %>
                     <%= tag.span t('moving_preparation.title'), class: "mx-1" %>
-                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100" %>
+                    <%= heroicon 'arrow-right', class: "w-4 h-4 mx-1 rtl:-scale-x-100", alt: "arrow-right" %>
                 <% end %>
             </div>
         </div>

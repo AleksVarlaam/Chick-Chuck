@@ -1,6 +1,6 @@
 
     <button data-popover-target="<%= popover_target %>" type="button" class="relative flex items-center">
-        <%= heroicon 'eye', class: "w-5 h-5 mr-1"%>
+        <%= heroicon 'eye', class: "w-5 h-5 mr-1", alt: "views-count"%>
         <%= object.views%>
     </button>
     <div data-popover id="<%= popover_target %>" role="tooltip" class="absolute z-10 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">

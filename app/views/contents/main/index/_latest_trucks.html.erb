@@ -7,7 +7,7 @@
             <!-- Truck carousel images -->
             <%= render 'carrierwave/images/carousel', object: truck %>
             <!-- Truck Info -->
-            <%= link_to truck_path(truck), data: { turbo_frame: '_top' }, class: "" do %>
+            <%= link_to truck_path(truck), data: { turbo_frame: '_top' } do %>
                 <!-- Rating -->
                 <%= render 'feedbacks/reviews/review', truck: truck%> 
                 <!-- Truck card body -->
@@ -25,9 +25,9 @@
     <!-- View all -->
     <div class="flex-shrink-0 justify-center items-center text-center h-auto w-[300px] m-auto">
         <%= link_to trucks_path, class: "flex text-base font-medium justify-center items-center text-center text-gray-500 hover:text-gray-700 hover:underline", data: {turbo_frame: '_top'} do %>
-            <%= heroicon 'arrow-small-left', class: "mr-1 w-5 h-5" if I18n.locale == :he%>
+            <%= heroicon 'arrow-small-left', class: "mr-1 w-5 h-5", alt: "arrow-small-left" if I18n.locale == :he%>
             <%= t('global.view_all')%>
-            <%= heroicon 'arrow-small-right', class: "ml-2 -mr-1 w-5 h-5" unless I18n.locale == :he%>
+            <%= heroicon 'arrow-small-right', class: "ml-2 -mr-1 w-5 h-5", alt: "arrow-small-right" unless I18n.locale == :he%>
         <% end %>
     </div>
 <% end %>

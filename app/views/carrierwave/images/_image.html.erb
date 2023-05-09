@@ -9,14 +9,14 @@
                 remote: :true,
                 class: "justify-content-end absolute z-20 bg-gray-100 right-0 rounded-md text-red-700 p-1 m-1" do
             %>
-                <%= heroicon 'minus-circle', class: 'w-6 h-6'%>
+                <%= heroicon 'minus-circle', class: 'w-6 h-6', alt: 'remove-image'%>
             <% end %>
         <% end %>
         
         <%= link_to image_path(index, object), data: {turbo_frame: 'modal'} do %>
             <%= image_tag(action_name != 'index' ? image.large.url : image.medium.url, 
                 class: "rounded-t-lg h-full w-full object-cover absolute block ", 
-                alt: "Slide #{image.identifier}")
+                alt: object.instance_of?(Truck) ? "#{object.company.title}-truck-#{object.decorate.number}" : "#{object.title}")
             %>
         <% end %>
     </div>

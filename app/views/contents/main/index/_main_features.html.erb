@@ -13,7 +13,7 @@
                 <!-- Carriers -->
                 <div class="space-y-3">
                     <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl">
-                        <%= image_tag(asset_path('icons/icons8-view-64.png'), class: "w-6 h-6")%>
+                        <%= image_tag(asset_path('icons/icons8-view-64.png'), class: "w-6 h-6", alt: "icons8-view-64")%>
                     </span>
                     <!-- Title -->
                     <%= tag.h1 t('home_page.top_features.combining'), class: "text-2xl font-semibold text-gray-700"%>
@@ -23,7 +23,7 @@
                 <!-- Reviews -->
                 <div class="space-y-3">
                     <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl">
-                        <%= image_tag(asset_path('icons/icons8-discussion-64.png'), class: "w-6 h-6")%>
+                        <%= image_tag(asset_path('icons/icons8-discussion-64.png'), class: "w-6 h-6", alt: "icons8-discussion-64")%>
                     </span>
                     <!-- Title -->
                     <%= tag.h1 t('home_page.top_features.reviews'), class: "text-2xl font-semibold text-gray-700"%>
@@ -33,7 +33,7 @@
                 <!-- Calculator -->
                 <div class="space-y-3">
                     <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl">
-                        <%= image_tag(asset_path('icons/icons8-calculator-blue-64.png'), class: "w-6 h-6")%>
+                        <%= image_tag(asset_path('icons/icons8-calculator-blue-64.png'), class: "w-6 h-6", alt: "icons8-calculator-blue-64")%>
                     </span>
                     <!-- Title -->
                     <%= tag.h1 t('home_page.top_features.calculator'), class: "text-2xl font-semibold text-gray-700"%>
@@ -43,7 +43,8 @@
                 <!-- Market -->
                 <div class="space-y-3">
                     <span class="inline-block p-3 text-blue-500 bg-blue-100 rounded-xl">
-                        <%= image_tag(asset_path('icons/icons8-lounge-blue-50.png'), class: "w-6 h-6")%>  <!--color icon - #1E2ED5 -->
+                        <!--color icon - #1E2ED5 -->
+                        <%= image_tag(asset_path('icons/icons8-lounge-blue-50.png'), class: "w-6 h-6", alt: "cons8-lounge-blue-50")%>  
                     </span>
                     <!-- Title -->
                     <%= tag.h1 t('home_page.top_features.market'), class: "text-2xl font-semibold text-gray-700"%>
@@ -53,7 +54,7 @@
             </div>
 
             <div class="hidden lg:flex lg:w-1/2 lg:justify-center">
-                <%= image_tag(asset_path('bg/main_features_image.webp'), class: "w-[28rem] h-[28rem] flex-shrink-0 object-cover xl:w-[34rem] xl:h-[34rem] rounded-full")%>
+                <%= image_tag(asset_path('bg/main_features_image.webp'), class: "w-[28rem] h-[28rem] flex-shrink-0 object-cover xl:w-[34rem] xl:h-[34rem] rounded-full", alt: "main-features-image")%>
             </div>
         </div>
     </div>
