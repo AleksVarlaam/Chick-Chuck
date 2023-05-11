@@ -6,10 +6,12 @@
               <!-- Logotype -->
               <div class="flex justify-start w-auto flex-auto">
                   <%= link_to root_path, class: 'flex items-center', data: {turbo_frame: '_top'} do %>
+                      <!-- Chick-Chuck logotype mobile -->
                       <%= image_tag('icons/chick-chuck/chick-chuck-mobile-logo.png', 
-                        class: "h-10 w-full object-cover sm:hidden", alt: 'chick-chuck-logotype') %>
+                        class: "h-10 w-auto object-cover object-center sm:hidden", alt: 'chick-chuck-logotype') %>
+                      <!-- Chick-Chuck logotype -->
                       <%= image_tag('icons/chick-chuck/chick-chuck-logo.png', 
-                        class: "h-10 w-full object-cover hidden sm:block", alt: 'chick-chuck-logotype')%>
+                        class: "h-10 w-auto object-cover hidden sm:block", alt: 'chick-chuck-logotype')%>
                   <% end %>
               </div>
               <!-- Mobile menu button -->
@@ -24,7 +26,7 @@
                 </button>
               </div>
               <!-- Navigations -->
-              <nav class="hidden lg:flex space-x-6">
+              <nav class="hidden lg:flex space-x-6 rtl:space-x-reverse">
                   <%= render 'shared/navigations/content_links_list', 
                       link_class: "text-base font-medium hover:text-gray-900",
                       current_page: current_page %>

@@ -8,7 +8,7 @@
    tabindex:"-1",
    id:"profilePageLink" do
 %>
-  <%= heroicon "chat-bubble-left-right", class: "w-4 h-4 mr-2" %>
+  <%= heroicon "chat-bubble-left-right", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
   <%= t('user_menu.chats')%>
 <% end %>
 
@@ -20,7 +20,7 @@
    tabindex:"-1",
    id:"profilePageLink" do
 %>
-   <%= heroicon "rectangle-group", class: "w-4 h-4 mr-2" %>
+   <%= heroicon "rectangle-group", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
    <%= t('user_menu.dashboard')%>
 <% end %>
 
@@ -33,7 +33,7 @@
    tabindex:"-1",
    id:"profilePageLink" do
 %>
-   <%= heroicon "plus-circle", class: "w-4 h-4 mr-2" %>
+   <%= heroicon "plus-circle", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
    <%= t('news.add_btn')%>
 <% end %>
 
@@ -45,7 +45,7 @@
    tabindex:"-1",
    id:"profilePageLink" do
 %>
-   <%= image_tag(asset_path('icons/icons8-news-64.png'), class: "w-4 h-4 mr-2")%>
+   <%= image_tag(asset_path('icons/icons8-news-64.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2")%>
    <%= t('news.all_news')%>
 <% end %>
 
@@ -58,7 +58,7 @@
    tabindex:"-1",
    id:"profilePageLink" do
 %>
-   <%= image_tag(asset_path('icons/icons8-sorting-64.png'), class: "w-4 h-4 mr-2")%>
+   <%= image_tag(asset_path('icons/icons8-sorting-64.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2")%>
    <%= t('admin_menu.catalog')%>
 <% end %>
 
@@ -70,7 +70,7 @@
    tabindex:"-1",
    id:"profilePageLink" do
 %>
-   <%= heroicon "language", class: "w-4 h-4 mr-2" %>
+   <%= heroicon "language", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
    <%= t('admin_menu.lang_dist')%>
 <% end %>
 
@@ -83,7 +83,7 @@
   tabindex:"-1",
   id:"password&SecurityLink" do 
 %>
-  <%= heroicon "lock-closed", class: "w-4 h-4 mr-2" %>
+  <%= heroicon "lock-closed", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
   <%= t('user_menu.credential')%>
 <% end %>
 
@@ -96,6 +96,6 @@
   tabindex:"-1", 
   id:"signOutLink" do 
 %>
- <%= heroicon "arrow-right-on-rectangle", class: "w-4 h-4 mr-2" %>
+ <%= heroicon "arrow-right-on-rectangle", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
  <%= t('user_menu.sign_out')%>
 <% end %>

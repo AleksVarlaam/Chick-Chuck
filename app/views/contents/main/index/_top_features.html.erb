@@ -3,32 +3,32 @@
 	<ul class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         <!-- Combining -->
 		<li class="flex items-center space-x-2">
-            <%= heroicon 'check-circle', class: 'w-6 h-6 flex-none'%>
+            <%= heroicon 'check-circle', class: "w-6 h-6 flex-none #{I18n.locale == :he ? 'ml-2' : ''}" %>
             <%= tag.span t('home_page.top_features.combining')%>
 		</li>
         <!-- Reviews -->
 		<li class="flex items-center space-x-2">
-			<%= heroicon 'check-circle', class: 'w-6 h-6 flex-none'%>
+			<%= heroicon 'check-circle', class: "w-6 h-6 flex-none #{I18n.locale == :he ? 'ml-2' : ''}" %>
 			<%= tag.span t('home_page.top_features.reviews')%>
 		</li>
         <!-- Calculator -->
 		<li class="flex items-center space-x-2">
-			<%= heroicon 'check-circle', class: 'w-6 h-6 flex-none'%>
+			<%= heroicon 'check-circle', class: "w-6 h-6 flex-none #{I18n.locale == :he ? 'ml-2' : ''}" %>
 			<%= tag.span t('home_page.top_features.calculator')%>
 		</li>
         <!-- Market -->
 		<li class="flex items-center space-x-2">
-			<%= heroicon 'check-circle', class: 'w-6 h-6 flex-none'%>
+			<%= heroicon 'check-circle', class: "w-6 h-6 flex-none #{I18n.locale == :he ? 'ml-2' : ''}" %>
 			<%= tag.span t('home_page.top_features.market')%>
 		</li>
         <!-- Easy use -->
 		<li class="flex items-center space-x-2">
-			<%= heroicon 'check-circle', class: 'w-6 h-6 flex-none'%>
+			<%= heroicon 'check-circle', class: "w-6 h-6 flex-none #{I18n.locale == :he ? 'ml-2' : ''}" %>
 			<%= tag.span t('home_page.top_features.use')%>
 		</li>
         <!-- Improvement -->
 		<li class="flex items-center space-x-2">
-			<%= heroicon 'check-circle', class: 'w-6 h-6 flex-none'%>
+			<%= heroicon 'check-circle', class: "w-6 h-6 flex-none #{I18n.locale == :he ? 'ml-2' : ''}" %>
 			<%= tag.span t('home_page.top_features.improvement')%>
 		</li>
 	</ul>
