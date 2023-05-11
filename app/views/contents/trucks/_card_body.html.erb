@@ -1,5 +1,5 @@
 <div class="grid grid-cols-3 gap-0">
-    <div class="rtl:mr-3 ltl:ml-3 col-span-2">
+    <div class="rtl:mr-3 ltr:ml-3 col-span-2">
         <!-- Working area -->
         <div class="flex items-center text-gray-600 justify-start mb-2">
             <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('districts'), icon: 'icons/icons8-address-50.png' %>
@@ -42,7 +42,7 @@
             <%= truck.formatted_packing%>
         </div>
     </div>
-    <div class="rtl:mr-3 ltl:ml-3 col-span-1">
+    <div class="rtl:mr-3 ltr:ml-3 col-span-1">
         <!-- Length -->
         <div class="flex items-center text-gray-600 justify-start mb-2">
             <%= render 'shared/buttons/popover', text: Truck.human_attribute_name('length'), icon: 'icons/icons8-truck-length-50.png' %>

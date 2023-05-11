@@ -3,15 +3,15 @@
     <% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 md:grid-cols-2 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto #{'-mt-5' if action_name == 'company_trucks'}" do %>
         <!-- Working area -->
         <div class="w-full h-14 items-center flex border-0 border-b border-gray-500  bg-gray-700 bg-opacity-90
-            rtl:md:border-l rtl:pr-3 ltl:md:border-r ltl:pl-3 ltl:rounded-tl-3xl">
+            rtl:md:border-l rtl:pr-3 ltr:md:border-r ltr:pl-3 rounded-tl-3xl">
             <%= image_tag('icons/icons8-address-gray-50.png', class: 'w-6 h-6 mr-1', alt: "district")%>
             <%= f.collection_select(:district_id, District.all.decorate, :id, :title, 
             { include_blank: Truck.human_attribute_name('districts'), selected: params[:district_id]}, 
-            {class: "h-full text-base md:rounded-l-xl block w-full p-2.5  placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rounded-t-xl bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
+            {class: "h-full text-base md:rounded-l-xl block w-full p-2.5  placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rounded-t-3xl bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
         </div>
         <!-- Body type -->
         <div class="w-full h-14 items-center flex border-0 border-b border-gray-500 relative bg-gray-700 bg-opacity-90
-            rtl:pr-3 rtl:rounded-tl-3xl ltl:pl-3">
+            rtl:pr-3 rtl:rounded-tl-3xl ltr:pl-3">
             <%= image_tag('icons/icons8-truck-weight-empty-gray-50.png', class: 'w-6 h-6 mr-1', alt: "truck-body-type")%>
             <%= f.select(:body_type, options_for_select(Truck.body_type_select, params[:body_type]), {include_blank: Truck.human_attribute_name('body_type')}, {class: "h-full text-base block w-full p-2.5  placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rounded-t-3xl bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
         </div>

@@ -8,7 +8,7 @@
 
   <div
     data-dropdown-target="menu"
-    class="hidden transition transform origin-top-right absolute right-0 z-50 w-auto mt-2 border shadow-md hover:shadow-lg rounded-lg"
+    class="hidden transition transform absolute rtl:origin-top-left rtl:left-0 ltr:origin-top-right ltr:right-0 z-50 w-auto mt-2 border shadow-md hover:shadow-lg rounded-lg"
     data-transition-enter-from="opacity-0 scale-95"
     data-transition-enter-to="opacity-100 scale-100"
     data-transition-leave-from="opacity-100 scale-100"
@@ -18,14 +18,14 @@
       <% I18n.available_locales.each do |locale| %>
           <li>
             <% if I18n.locale == locale %>
-              <div class="flex items-center w-full font-medium block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 rtl:ml-4 ltl:mr-4">
+              <div class="flex items-center w-full font-medium block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 rtl:ml-4 ltr:mr-4">
                   <%= image_tag("icons/locales/icons8-#{locale}-48.png", 
                     class: "w-5 h-5 ltr:mr-2 rtl:ml-2", alt: "#{locale}-flag")%>
                   <%= t(locale)%>
               </div>
             <% else %>
               <%= link_to url_for(locale: locale),
-                class: "flex items-center w-full font-medium block px-4 py-2 text-sm text-gray-500 hover:bg-gray-100 rtl:ml-4 ltl:mr-4",
+                class: "flex items-center w-full font-medium block px-4 py-2 text-sm text-gray-500 hover:bg-gray-100 rtl:ml-4 ltr:mr-4",
                     data: {action: "dropdown#toggle", 
                     turbo: false} do 
               %>
