@@ -1,6 +1,6 @@
 <%= provide :footer do %>
     <footer class="bg-gray-200 mt-8 relative">
-        <%= link_to '#top', class: 'absolute right-2 bottom-5 z-20', data: {controller: 'scroll-to'} do %>
+        <%= link_to '#top', class: 'absolute ltr:right-2 rtl:left-2 bottom-5 z-20', data: {controller: 'scroll-to'} do %>
             <%= image_tag('icons/icons8-up-2-50.png', class: 'w-8 hover:w-10 h-full', alt: "arrow up")%>
         <% end unless controller_name == 'errors'%>
         <div class="container px-6 py-8 mx-auto">
@@ -8,7 +8,7 @@
                 <!-- Main title & locals -->
                 <div class="relative flex items-center justify-center">
                     <%= link_to 'Chick-Chuck', root_path, class: "text-3xl font-bold text-gray-800 hover:text-gray-700"%>
-                    <%= tag.div (render 'shared/locales'), class: "absolute right-2"%>
+                    <%= tag.div (render 'shared/locales'), class: "absolute ltr:right-2 rtl:-left-3"%>
                 </div>
                 <!-- Main navigations -->
                 <div class="flex flex-wrap justify-center mt-5 -mx-4">

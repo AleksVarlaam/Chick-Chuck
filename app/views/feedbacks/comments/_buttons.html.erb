@@ -1,17 +1,17 @@
-<div class="flex items-center text-gray-500 my-3"
+<div class="flex items-center text-gray-500 my-3 space-x-3 rtl:space-x-reverse"
      data-controller="comment"
      data-comment-target='box'
      data-comment-owner-id-value="<%= comment.user_id %>"
 >
     <!-- Link to reply form -->
     <%= link_to t('comment.reply'), [:new, comment, :comment], 
-        class: "mr-3 hover:text-gray-700",
+        class: "hover:text-gray-700",
         data: {turbo_frame: dom_id(comment, :new_comment)}
     %>
-    <div class="hidden" data-comment-target="owner">
+    <div class="hidden space-x-3 rtl:space-x-reverse" data-comment-target="owner">
         <!-- Link to edit form -->
         <%= link_to t('comment.edit'), [:edit, comment.commentable, comment], 
-            class: "mr-3 hover:text-gray-700",
+            class: "hover:text-gray-700",
             data: {turbo_frame: dom_id(comment, :edit)}
         %>
         <!-- Link to delete comment -->
@@ -20,7 +20,7 @@
             data: {turbo_method: :delete, turbo_confirm: t('global.are_you_sure')}
         %>
     </div>
-    <div class="hidden" data-comment-target="admin">
+    <div class="hidden space-x-3 rtl:space-x-reverse" data-comment-target="admin">
         <!-- Link to delete comment -->
         <%= link_to t('comment.delete_as_admin'), [comment.commentable, comment],
             class: "hover:text-gray-700",

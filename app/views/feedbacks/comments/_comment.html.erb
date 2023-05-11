@@ -4,14 +4,16 @@
 <%= turbo_frame_tag dom_id(comment) do %>
     <div class="flex mb-3">
       <!-- Author avatar -->
-      <div class="flex-shrink-0 mr-3">
+      <div class="flex-shrink-0 ltr:mr-3 rtl:ml-3">
         <%= comment.avatar %>
       </div>
       <div class="flex-1 border bg-white shadow-md hover:shadow-lg rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
-        <!-- Author name -->
-        <%= comment.author %>
-        <!-- Created at -->
-        <%= comment.created_at %>
+          <div class="flex items-center space-x-2 rtl:space-x-reverse">
+            <!-- Author name -->
+            <%= comment.author %>
+            <!-- Created at -->
+            <%= comment.created_at %>
+          </div>
         <!-- Comment content -->
         <%= turbo_frame_tag dom_id(comment, :edit) do %>
             <div class="mt-2">
@@ -20,7 +22,8 @@
                     <div class="flex items-center my-2 overflow-x-auto">
                         <% comment.images.each_with_index do |img, index| %>
                             <%=link_to image_path(index, comment), data: {turbo_frame: 'modal'} do %>
-                                <%= image_tag(img.medium.url, class: 'pr-1 h-36 w-auto object-cover rounded-md', alt: "comment-attachment")%>
+                                <%= image_tag(img.medium.url, 
+                                    class: 'ltr:pr-1 rtl:pl-1 h-36 w-auto object-cover rounded-md', alt: "comment-attachment")%>
                             <% end %>
                         <% end %>
                     </div>

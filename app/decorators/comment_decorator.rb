@@ -14,7 +14,7 @@ class CommentDecorator < ApplicationDecorator
   end
 
   def created_at
-    h.content_tag(:span, (l comment.created_at, format: :short), class: 'text-xs ml-1 text-gray-400')
+    h.content_tag(:span, (l comment.created_at, format: :short), class: 'text-xs text-gray-400')
   end
 
   def updated_at
