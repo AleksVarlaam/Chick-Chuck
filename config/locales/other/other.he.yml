@@ -29,7 +29,7 @@ he:
         placeholder:      "...ההערה שלך על ה"
         updated:          "שונה"
         need_to_signin:   " כדי להשאיר תגובה, אתה חייב"
-        about_page_title: ".שלח את המשוב או ההצעה שלך כדי לשפר את השירות"
+        about_page_title: "השאר את המשוב או ההצעה שלך כדי לשפר את השירות."
     notification:
         comment:          "הגיב על"
         reply:            "תגובה לתגובה שלך"
