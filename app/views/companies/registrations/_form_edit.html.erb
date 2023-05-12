@@ -23,8 +23,8 @@
 
   <!-- Password input -->
   <div class="mb-6">
-    <div class="flex items-center">
-        <%= f.label :password, User.human_attribute_name('new_password'), class: "text-lg mr-1" %>
+    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+        <%= f.label :password, User.human_attribute_name('new_password'), class: "text-lg" %>
         <% if @minimum_password_length %>
             <!-- Popover button-->
             <%= render 'shared/buttons/popover', text: User.human_attribute_name('password_popover', length: @minimum_password_length)%>
@@ -52,9 +52,9 @@
   
   <!-- Current password -->
   <div class="mb-6">
-     <div class="flex items-center">
-         <span class="text-red-500 mr-1">&nbsp;*</span>
-         <%= f.label :current_password, class: "text-lg mr-1" %>
+     <div class="flex items-center space-x-2 rtl:space-x-reverse">
+         <span class="text-red-500">&nbsp;*</span>
+         <%= f.label :current_password, class: "text-lg" %>
          <!-- Popover button-->
          <%= render 'shared/buttons/popover', text: User.human_attribute_name('current_popover')%>
      </div>

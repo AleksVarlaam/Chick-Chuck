@@ -27,10 +27,10 @@ ru:
         remember_me:      'Запомнить меня'
         forgot:           'Забыли пароль?'
         or:               'Или'
-        facebook:         'С помощью Facebook'
-        google:           'С помощью Google'
+        facebook:         'Facebook'
+        google:           'Google'
         btn:              'Войти'
-        account:          'У вас нет аккаунта'
+        account:          'У вас нет аккаунта?'
         register:         'Создать аккаунт'
     reset_password:
         title:            'Восстановление пароля'

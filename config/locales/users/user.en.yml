@@ -27,10 +27,10 @@ en:
         remember_me:      'Remember me'
         forgot:           'Forgot password?'
         or:               'Or'
-        facebook:         'Log in with Facebook'
-        google:           'Log in with Google'
+        facebook:         'Facebook'
+        google:           'Google'
         btn:              'Log In'
-        account:          "Don't have an account"
+        account:          "Don't have an account?"
         register:         'Register'
     reset_password:
         title:            'Password recovery'

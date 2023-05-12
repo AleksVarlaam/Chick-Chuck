@@ -27,10 +27,10 @@ uk:
         remember_me:      'Запамʼятати мене'
         forgot:           'Забули пароль?'
         or:               'Або'
-        facebook:         'За допомогою Facebook'
-        google:           'За допомогою Google'
+        facebook:         'Facebook'
+        google:           'Google'
         btn:              'Увійти'
-        account:          'У вас немає акаунту'
+        account:          'У вас немає акаунту?'
         register:         'Створити акаунт'
     reset_password:
         title:            'Відновлення пароля'

@@ -32,7 +32,7 @@
         <div class="px-4 py-2 -mx-3 relative w-full">
             <div class="mx-3">
                 <%= tag.span t("flash.type.#{type.to_s}"), class: "font-semibold text-emerald-500 capitalize"%>
-                <%= tag.p msg, class: "text-sm text-gray-600 pr-3"%>
+                <%= tag.p msg, class: "text-sm text-gray-600 ltr:pr-3 rtl:pl-3"%>
                 <input class="sr-only" autofocus="true"/> 
             </div>
             <%= render 'shared/buttons/close'%>

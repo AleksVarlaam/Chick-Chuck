@@ -1,5 +1,5 @@
-<% currently_at 'Sign In as Carrier' %>
-<% provide :page_title, 'Sign In as Carrier' %>
+<% currently_at t('sign_in.title_as_company') %>
+<% provide :page_title, t('sign_in.title_as_company') %>
 
 <%= render TurboModalComponent.new(title: t('sign_in.title_as_company')) do %>
     <%= render 'form'%>

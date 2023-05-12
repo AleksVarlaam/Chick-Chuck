@@ -12,21 +12,19 @@
     <div class="w-full h-full flex flex-col justify-between">
       <!-- Room header -->
       <div class="flex items-center w-full justify-center border-b-2 relative">
-          <%= link_to rooms_path, data: {turbo_frame: '_top'}, class: 'absolute left-3 ' do %>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
-              </svg>
+          <%= link_to rooms_path, data: {turbo_frame: '_top'}, class: 'absolute ltr:left-3 rtl:right-3' do %>
+              <%= heroicon I18n.locale == :he ? "arrow-uturn-right" : "arrow-uturn-left", class: "w-6 h-6 hover:text-black" %>
           <% end%>
           <% if @room.recipient(@current_user).instance_of?(Company) %>
               <%= link_to user_path(@room.recipient(@current_user)), data: {turbo_frame: '_top'} do %>
-                  <div class="flex flex-row py-4 px-2 items-center">
-                      <%= image_tag @room.recipient(@current_user).avatar_attachment_path, class: "object-cover h-12 w-12 rounded-full mr-2"%>
+                  <div class="flex flex-row py-4 px-2 items-center space-x-2 rtl:space-x-reverse">
+                      <%= image_tag @room.recipient(@current_user).avatar_attachment_path, class: "object-cover h-12 w-12 rounded-full"%>
                       <%= tag.div @room.recipient(@current_user).user_name, class: "text-lg font-semibold"%>
                   </div>
               <% end %>
           <% else %>
-              <div class="flex flex-row py-4 px-2 items-center">
-                  <%= image_tag @room.recipient(@current_user).avatar_attachment_path, class: "object-cover h-12 w-12 rounded-full mr-2"%>
+              <div class="flex flex-row py-4 px-2 items-center space-x-2 rtl:space-x-reverse">
+                  <%= image_tag @room.recipient(@current_user).avatar_attachment_path, class: "object-cover h-12 w-12 rounded-full"%>
                   <%= tag.div @room.recipient(@current_user).user_name, class: "text-lg font-semibold"%>
               </div>
           <% end %>

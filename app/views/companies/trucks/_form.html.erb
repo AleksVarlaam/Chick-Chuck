@@ -7,8 +7,8 @@
           <%= tag.div (render 'carrierwave/images/carousel', object: @truck), 
               class: "col-span-full sm:px-[6rem] md:px-[14rem] w-full justify-center" if ['edit', 'update'].include?(action_name)%>
           <!-- Districts -->
-          <div class="flex items-center text-gray-600 justify-center col-span-full space-x-3 rtl:space-x-reverse">
-              <div class="flex items-center text-center space-x-3 rtl:space-x-reverse">
+          <div class="flex items-center text-gray-600 justify-center col-span-full space-x-2 rtl:space-x-reverse">
+              <div class="flex items-center text-center space-x-2 rtl:space-x-reverse">
                   <%= image_tag(asset_path('icons/icons8-tracking-50.png'), class: "w-5 h-5")%>
                   <%= f.label :districts, class: "text-lg" %>
               </div>
@@ -20,24 +20,24 @@
           </div>
           <div>
               <!-- Body type -->
-              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-3 rtl:space-x-reverse">
-                  <div class="flex items-center text-center space-x-3 rtl:space-x-reverse">
+              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-2 rtl:space-x-reverse">
+                  <div class="flex items-center text-center space-x-2 rtl:space-x-reverse">
                       <%= image_tag(asset_path('icons/icons8-truck-50.png'), class: "w-5 h-5")%>
                       <%= f.label :body_type, class: "text-lg" %>
                   </div>
                    <%= f.select(:body_type, options_for_select(Truck.body_type_select, @truck.body_type), {include_blank: t('global.select')}, {class: "text-base form-control block w-auto px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none rtl:bg-left"})%>
               </div>
               <!-- Assembly -->
-              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-3 rtl:space-x-reverse">
-                  <div class="flex items-center text-center space-x-3 rtl:space-x-reverse">
+              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-2 rtl:space-x-reverse">
+                  <div class="flex items-center text-center space-x-2 rtl:space-x-reverse">
                       <%= image_tag(asset_path('icons/icons8-job-50.png'), class: "w-5 h-5")%>
                       <%= f.label :assembly, class: "text-lg" %>
                   </div>
                   <%= f.select(:assembly, options_for_select(Truck.assembly_select, @truck.assembly), {include_blank: t('global.select')}, {class: "text-base form-control block w-auto px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none rtl:bg-left"})%>
               </div>
               <!-- Packing -->
-              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-3 rtl:space-x-reverse">
-                  <div class="flex items-center text-center space-x-3 rtl:space-x-reverse">
+              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-2 rtl:space-x-reverse">
+                  <div class="flex items-center text-center space-x-2 rtl:space-x-reverse">
                       <%= image_tag(asset_path('icons/icons8-packing-50.png'), class: "w-5 h-5")%>
                       <%= f.label :packing, class: "text-lg" %>
                   </div>
@@ -46,28 +46,28 @@
           </div>
           <div>
               <!-- Length -->
-              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-3 rtl:space-x-reverse">
+              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-2 rtl:space-x-reverse">
                   <%= image_tag(asset_path('icons/icons8-truck-length-50.png'), class: "w-5 h-5")%>
                   <%= f.label "#{Truck.human_attribute_name("length")}: ", class: "text-lg" %>
                   <%= f.number_field :length, step: :any, class: "block w-20 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
                   <span>m.</span>
               </div>
               <!-- Width -->
-              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-3 rtl:space-x-reverse">
+              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-2 rtl:space-x-reverse">
                   <%= image_tag(asset_path('icons/icons8-width-50.png'), class: "w-5 h-5")%>
                   <%= f.label "#{Truck.human_attribute_name("width")}: ", class: "text-lg" %>
                   <%= f.number_field :width, step: :any, class: "block w-20 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
                   <span>m.</span>
               </div>
               <!-- Height -->
-              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-3 rtl:space-x-reverse">
+              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-2 rtl:space-x-reverse">
                   <%= image_tag(asset_path('icons/icons8-truck-height-50.png'), class: "w-5 h-5")%>
                   <%= f.label "#{Truck.human_attribute_name("height")}: ", class: "text-lg" %>
                   <%= f.number_field :height, step: :any, class: "block w-20 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
                   <span>m.</span>
               </div>
               <!-- Load capacity -->
-              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-3 rtl:space-x-reverse">
+              <div class="flex items-center text-gray-600 justify-center mb-3 space-x-2 rtl:space-x-reverse">
                   <%= image_tag(asset_path('icons/icons8-load-capacity.png'), class: "w-5 h-5")%>
                   <%= f.label :load_capacity, "#{Truck.human_attribute_name("load_capacity")}: ", class: "text-lg" %>
                   <%= f.number_field :load_capacity, step: :any, class: "block w-20 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
