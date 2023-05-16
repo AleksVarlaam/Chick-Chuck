@@ -8,7 +8,7 @@
             <!-- Distance -->
             <%= tag.div class: "items-center grid grid-cols-2 mx-auto px-1 w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
                 <!-- Title -->
-                <%= f.label Calculator.human_attribute_name('distance'), class: "ml-1 flex justify-start"%>
+                <%= f.label Calculator.human_attribute_name('distance'), class: "flex justify-start"%>
                 <!-- Amount -->
                 <div class="flex justify-end items-center" data-controller="quantity-input">
                     <!-- Minus button -->
@@ -22,7 +22,8 @@
                     <button data-action="quantity-input#plus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"> 
                         <%= heroicon 'plus', class: 'w-4 h-4'%>
                     </button>
-                    <span class="ml-2">km.</span>
+                    <span class="ltr:ml-2 rtl:hidden">km.</span>
+                    <span class="rtl:mr-2 ltr:hidden">.km</span>
                 </div>
             <% end %>
             <!-- Floor down -->
@@ -30,13 +31,10 @@
                 <div class="flex items-center justify-start col-span-2">
                     <!-- Title -->
                     <%= f.label class: 'flex items-center' do %>
-                        <%= f.check_box :elevator_down, 
-                            class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 mr-1", 
-                            checked: params[:elevator_down] == '1' ? true : false if I18n.locale == :he%>
                         <%= Calculator.human_attribute_name('floor_down') + ', ' + t('calculator.elevator')%>
                         <%= f.check_box :elevator_down, 
                             class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2", 
-                            checked: params[:elevator_down] == '1' ? true : false unless I18n.locale == :he%>
+                            checked: params[:elevator_down] == '1' ? true : false%>
                     <% end %>
                 </div>
                 <!-- Amount -->
@@ -59,13 +57,10 @@
                 <div class="flex items-center justify-start col-span-2">
                     <!-- Title -->
                     <%= f.label class: 'flex items-center' do %>
-                        <%= f.check_box :elevator_up, 
-                            class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 mr-1", 
-                            checked: params[:elevator_up] == '1' ? true : false if I18n.locale == :he%>
                         <%= Calculator.human_attribute_name('floor_up') + ', ' + t('calculator.elevator')%>
                         <%= f.check_box :elevator_up, 
                             class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2", 
-                            checked: params[:elevator_up] == '1' ? true : false unless I18n.locale == :he%>
+                            checked: params[:elevator_up] == '1' ? true : false%>
                     <% end %>
                 </div>
                 <!-- Amount -->
@@ -99,7 +94,7 @@
                         <%= turbo_frame_tag thing.title.downcase, 
                             class: "items-center grid grid-cols-2 mx-auto px-1 w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
                             <!-- Title -->
-                            <%= tag.div thing.title, class: "ml-1 flex justify-start"%>
+                            <%= tag.div thing.title, class: "flex justify-start"%>
                             <!-- Amount -->
                             <div class="flex justify-end items-center" data-controller="quantity-input">
                                 <!-- Minus button -->
