@@ -30,7 +30,7 @@ he:
         mark_as_sold:     "מארק נמכר"
         product_by:       "מוצרים של המוביל"
         products:         "מוצרים"
-        user_products:    "%{user_name} מוצרים"
+        user_products:    "מוצרים %{user_name}"
         all_products:     "כל המוצרים"
         total_products:   "סך הכל"
         condition:
@@ -50,8 +50,8 @@ he:
     calculator:
         title:            "מחשבון עלויות"
         btn:              "לחשב את"
-        km_span:          "1 לק'מ ₪"
-        floor_span:       "לכל קומה %"
+        km_span:          "₪ לקילומטר 1"
+        floor_span:       "% לכל קומה"
         options:          "אפשרויות"
         price:            "מחיר לחתיכה אחת"
         elevator:         "מעלית"

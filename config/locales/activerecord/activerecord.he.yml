@@ -21,7 +21,7 @@ he:
             notification: "הודעה"
         errors:
               messages:
-                  in:         "%{count} אינו חוקי, הזן ערך בטווח %{value}"
+                  in:         "%{value} אינו חוקי, הזן ערך בטווח %{count}"
         attributes:
             user:
                 login:            "Login"
@@ -38,7 +38,7 @@ he:
                 female:           "נשי"
                 birthday:         "יום הולדת"
                 avatar:           "אווטר"
-                password_popover: "ערכי %{length} הם מינימליים"
+                password_popover: "ערכי %{length} הם מינימליים."
                 current_popover:  "אנו זקוקים לסיסמה הנוכחית שלך כדי לאשר את השינויים שביצעת"
                 delete_account:   "מחק חשבון"
                 created_at:       "תאריך הרישום"

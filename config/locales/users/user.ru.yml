@@ -47,6 +47,6 @@ ru:
     telegram:
         telegram_popover: 'Ваш telegram username как он есть'
     facebook:
-        facebook_popover: 'Скопируйте и вставте ссылку на ваш Facebook'
+        facebook_popover: 'Скопируйте и вставьте ссылку на ваш Facebook'
     sure_to_del_account:  'Вы уверены, что хотите удалить ваш аккаунт?'
         

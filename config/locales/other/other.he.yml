@@ -16,17 +16,17 @@ he:
         add_btn:          "הוסף סוג"
     review:
         review_desc:      "תן את המשוב שלך אם כבר השתמשת בשירותים של חברה זו ומשאית. דעתך חשובה לנו מאוד ומסייעת למשתמשים אחרים למצוא מוביל מקצועי ישר"
-        add_btn:          "%{model} דרג"
+        add_btn:          "דרג %{model}"
         edit_btn:         "שנה את הציון"   
     message:
-        placeholder:      "...ההודעה שלך"
+        placeholder:      "ההודעה שלך..."
     comment:
         comments:         "הערות"
         reply:            "להשיב"
         edit:             "לשנות את"
         delete:           "להסיר"
         delete_as_admin:  'Delete as admin'
-        placeholder:      "...ההערה שלך על ה"
+        placeholder:      "ההערה שלך על ה..."
         updated:          "שונה"
         need_to_signin:   " כדי להשאיר תגובה, אתה חייב"
         about_page_title: "השאר את המשוב או ההצעה שלך כדי לשפר את השירות."

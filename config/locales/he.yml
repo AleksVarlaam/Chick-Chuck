@@ -7,7 +7,7 @@ he:
   global:
       save_btn:         'לשמור'
       are_you_sure:     'אתה בטוח?'
-      select:           ' :בחר'
+      select:           'בחר: '
       destroy_btn:      'להסיר'
       edit_btn:         'לערוך'
       read_more:        'עוד'
@@ -18,13 +18,12 @@ he:
       publish_btn:      'תחלוק'
       hide_btn:         'הסתר מתצוגה כללית'
       image:            'תמונה'
-      unavailable_html: ".השירות שלנו הוא רק התחיל וברגע %{model} חסר, אנא בקר מאוחר יותר<br> 
-הירשמו לחדשות שלנו כדי לעקוב אחר ההתקדמות שלנו."
+      unavailable_html: "השירות שלנו הוא רק התחיל וברגע %{model} חסר, אנא בקר מאוחר יותר. <br> להירשם החדשות שלנו כדי לעקוב אחר הפיתוח שלנו."
       da:               'כן'
       net:              'לא' 
-      find_btn:         "%{model} למצוא"
-      upload:           "%{model} להעלות"
-      update:           "%{model} לעדכן את"
+      find_btn:         "למצוא %{model}"
+      upload:           "להעלות %{model}"
+      update:           "לעדכן את %{model}"
   # Flash
   flash:
       type:
@@ -36,11 +35,11 @@ he:
           notice:       'הודעה'
       account:      'החשבון שלך'
       success:
-          created:      "%{model} נוצר בהצלחה"
-          updated:      "%{model} עודכן בהצלחה" 
-          destroyed:    "%{model} הוסר בהצלחה"
-          published:    "%{model} פורסם בהצלחה בתצוגה כללית" 
-          hided:        "%{model} מוסתר בהצלחה מהתצוגה הכללית"
+          created:      "נוצר בהצלחה %{model}"
+          updated:      "עודכן בהצלחה %{model}" 
+          destroyed:    "הוסר בהצלחה %{model}"
+          published:    "פורסם בהצלחה בתצוגה כללית %{model}" 
+          hided:        "מוסתר בהצלחה מהתצוגה הכללית %{model}"
       alert:        'משהו השתבש' 
       mailers:
           success:      'נרשמת בהצלחה לחדשות שלנו'
