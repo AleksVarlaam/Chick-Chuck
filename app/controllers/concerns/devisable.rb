@@ -43,6 +43,8 @@ module Devisable
        request.referer.include?('/clients/confirmation')   ||
        request.referer.include?('/clients/sign_out')       ||
        request.referer.include?('/clients/auth')           ||
+       request.referer.include?('https://accounts.google.com/') ||
+       request.referer.include?('https://www.facebook.com/')    ||
        request.referer.include?('/companies/sign_in')      ||
        request.referer.include?('/companies/sign_up')      ||
        request.referer.include?('/companies/password')     ||
