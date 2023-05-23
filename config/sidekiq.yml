@@ -1,7 +1,10 @@
-development:
-    :concurrency: 1
+---
+:concurrency: 5
+staging:
+  :concurrency: 10
 production:
-    :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] || 15 %>
+  :concurrency: 15
 :queues:
-    - default
-:max_reries: 1
+  - critical
+  - default
+  - low
