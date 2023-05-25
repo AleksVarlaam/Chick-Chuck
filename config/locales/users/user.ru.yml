@@ -44,6 +44,7 @@ ru:
         credential:       'Данные входа'
         personal:         'Персональные данные'
         contacts:         'Контакты'
+        slogan_length:    '500 символов максимум'
     telegram:
         telegram_popover: 'Ваш telegram username как он есть'
     facebook:

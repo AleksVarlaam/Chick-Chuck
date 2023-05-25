@@ -44,6 +44,7 @@ uk:
         credential:       'Дані входу'
         personal:         'Персональні дані'
         contacts:         'Контакти'
+        slogan_length:    '500 символів макс'
     telegram:
         telegram_popover: 'Ваш telegram username як він є'
     facebook:
