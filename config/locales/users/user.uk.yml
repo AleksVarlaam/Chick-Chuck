@@ -42,7 +42,7 @@ uk:
     become_a_carrier:
         title:            'Реєстрація компанії'
         credential:       'Дані входу'
-        personal:         'Персональні дані'
+        personal:         'Репрезентативна інформація'
         contacts:         'Контакти'
         slogan_length:    '500 символів макс'
     telegram:

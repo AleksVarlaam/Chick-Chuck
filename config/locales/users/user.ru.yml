@@ -42,7 +42,7 @@ ru:
     become_a_carrier:
         title:            'Регистрация компании'
         credential:       'Данные входа'
-        personal:         'Персональные данные'
+        personal:         'Информация о представителе'
         contacts:         'Контакты'
         slogan_length:    '500 символов максимум'
     telegram:
