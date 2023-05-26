@@ -9,13 +9,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
     <!-- Favicon -->
     <%= favicon_link_tag asset_path('icons/chick-chuck/chick-chuck-favicon.png'), class: 'w-100 h-100'%>
     <!-- Current user -->
-    <%= render 'layouts/current_user_meta'%>
+    <%= render 'layouts/shared/current_user_meta'%>
+    <!-- Google analytics -->
+    <%= render 'layouts/shared/google_analytics'%>
   </head>
 
   <body class="flex flex-col h-screen w-screen justify-between">

@@ -24,3 +24,11 @@ document.addEventListener("turbo:frame-missing", (event) => {
   event.preventDefault();
   visit(response.url);
 });
+
+// Google analytics
+document.addEventListener("turbo:load", function(event) {
+  window.dataLayer = window.dataLayer || []
+  function gtag(){dataLayer.push(arguments)}
+  gtag('js', new Date())
+  gtag('config', 'G-1ME8JL8SKW', {'page_location': event.detail.url})
+}, false)
