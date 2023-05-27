@@ -19,10 +19,17 @@
             </div>
 
             <hr class="my-6 border-gray-400 md:my-10" />
-            <!-- Copyright -->
-            <div class="flex flex-col items-center w-full md:relative">
+
+            <div class="flex flex-col items-center w-full md:relative space-y-4 md:space-y-0">
+                <!-- Location -->
+                <address class="flex items center text-gray-500 md:absolute md:left-0 hover:underline">
+                    <%= heroicon 'map-pin', class: 'w-5 h-5 ltr:mr-1 rtl:ml-1'%>
+                    <%= t('israel')%>
+                </address>
+                <!-- Mail -->
                 <%= link_to 'info@chick-chuck.com', "mailto:info@chick-chuck.com", 
-                    class:"text-gray-500 md:absolute md:right-0 hover:underline mb-4 md:mb-0"%>
+                    class:"text-gray-500 md:absolute md:right-0 hover:underline"%>
+                <!-- Copyright -->
                 <p class="text-gray-500 text-center">© Copyright <%= Time.now.strftime('%Y')%>. All Rights Reserved.</p>
             </div>
         </div>

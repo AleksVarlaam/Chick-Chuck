@@ -3,6 +3,7 @@ en:
   he: 'עברית'
   ru: 'Русский'
   uk: 'Українська'
+  israel:  'Israel'
   # Global
   global:
       save_btn:         'Save'
