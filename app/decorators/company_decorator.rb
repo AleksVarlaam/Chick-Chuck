@@ -4,9 +4,22 @@ class CompanyDecorator < ApplicationDecorator
   def created_at
     "#{User.human_attribute_name('created_at')}: #{l company.created_at, format: :date}"
   end
+  
+  def reviews_hash
+    reviews = company.reviews
+
+    {
+      politeness: (reviews.map { |rev| [rev.politeness.to_f].sum / company.reviews.count }).sum || 0,
+      punctuality: (reviews.map { |rev| [rev.punctuality.to_f].sum / company.reviews.count }).sum || 0,
+      sociability: (reviews.map { |rev| [rev.sociability.to_f].sum / company.reviews.count }).sum || 0,
+      wholeness_things: (reviews.map { |rev| [rev.wholeness_things.to_f].sum / company.reviews.count }).sum || 0,
+      speed: (reviews.map { |rev| [rev.speed.to_f].sum / company.reviews.count }).sum || 0,
+      value_money: (reviews.map { |rev| [rev.value_money.to_f].sum / company.reviews.count }).sum || 0
+    }
+  end
 
   def comments_count
-    count = Comment.where(object: company).count
+    count = company.comments.count
 
     case I18n.locale
     when :en then "#{count} Comments"
@@ -31,7 +44,7 @@ class CompanyDecorator < ApplicationDecorator
   end
 
   def reviews_count
-    count = company.trucks.map { |truck| truck.reviews.count }.sum
+    count = company.reviews.count
 
     case I18n.locale
     when :en then "#{count} Reviews"

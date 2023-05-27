@@ -31,11 +31,12 @@ module Contents
 
     def set_show
       @truck = Truck.find_by_id(params[:id])
+      @company = @truck.company
       truck_reviews_count(@truck)
-      @commentable = @truck
+      @commentable = @company
       @comment = Comment.new
       @rating = Review.new
-      @pagy, @comments = pagy(@truck.comments.where(commentable_type: Truck.name).newest, items: 10,
+      @pagy, @comments = pagy(@company.comments.where(commentable_type: Company.name).newest, items: 10,
                                                                                           fragment: '#comments')
       return if current_admin || current_company&.trucks&.include?(@truck)
 

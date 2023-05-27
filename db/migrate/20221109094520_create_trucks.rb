@@ -20,7 +20,6 @@ class CreateTrucks < ActiveRecord::Migration[7.0]
       t.json    :images
       t.float   :length, null: false
       t.float   :load_capacity, null: false
-      t.float   :rating, null: false, default: 0
       t.float   :height, null: false
       t.float   :width, null: false
       t.integer :body_type, null: false

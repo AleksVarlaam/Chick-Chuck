@@ -1,4 +1,8 @@
-<div class="grid grid-cols-3 gap-0">
+<div class="grid grid-cols-3 gap-0 <%= 'mt-6' if action_name == 'show'%>">
+    <!-- Truck number -->
+    <div class="flex justify-center col-span-full">
+        <%= tag.span "#{truck.decorate.number}", class: "underline text-end text-[15px] font-medium text-gray-600"%>
+    </div>
     <div class="rtl:mr-3 ltr:ml-3 col-span-2">
         <!-- Working area -->
         <div class="flex items-center text-gray-600 justify-start mb-2">

@@ -1,5 +1,5 @@
-<% currently_at @truck.company.title %>
-<% provide :page_title, @truck.company.title %>
+<% currently_at @company.title %>
+<% provide :page_title, @company.title %>
 
 <%= turbo_stream_from @truck%>
 
@@ -8,7 +8,7 @@
     <!-- Truck card -->
     <%= tag.section (render @truck), class: "col-span-1 md:col-span-3"%>
     <!-- About Company -->
-    <%= tag.section (render 'companies/shared/about_company', company: @truck.company), class: "relative py-3 w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl"%>
+    <%= tag.section (render 'companies/shared/about_company', company: @company), class: "relative py-3 w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl"%>
     <!-- Add review -->
     <%= render 'feedbacks/reviews/add_review' unless company_signed_in?%>
     <!-- Comments section-->

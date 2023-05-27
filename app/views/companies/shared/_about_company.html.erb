@@ -1,12 +1,12 @@
 <!-- About company -->
-<section class="mx-5 flex flex-col items-center">
+<section class="mx-3 sm:mx-10 flex flex-col items-center">
     <!-- Avatar -->
     <%= image_tag(company.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
     <!-- Name -->
     <% if ['show', 'users'].eql?([action_name, controller_name]) || action_name == 'company_trucks'%>
-        <%= tag.h4 company.title , class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" %>
+        <%= tag.h4 company.title , class: "font-medium text-2xl text-center hover:underline text-gray-800" %>
     <% else %>
-        <%= tag.h4 class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" do %>
+        <%= tag.h4 class: "font-medium text-2xl text-center hover:underline text-gray-800" do %>
             <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, class: 'flex items-center' do %>
                 <%= company.title %>
                 <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
@@ -14,7 +14,9 @@
         <% end %>
     <% end %>
     <!-- Rating -->
-    <%= render 'feedbacks/reviews/company_reviews', company: company%> 
+    <div class="flex justify-center">
+        <%= render 'feedbacks/reviews/review', company: company%>
+    </div>
     <!-- Districts -->
     <div class="flex items-center justify-center text-center mb-3">
         <%= tag.p class: "text-md font-medium mr-3 text-gray-500" do %>

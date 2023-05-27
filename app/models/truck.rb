@@ -6,18 +6,14 @@ class Truck < ApplicationRecord
   validates :length, allow_blank: false, numericality: { in: 1..20 }
   validates :load_capacity, allow_blank: false, numericality: { in: 0.1..20 }
   validates :height, :width, allow_blank: false, numericality: { in: 1..5 }
-  validates :rating, numericality: { in: 0..10 }
   validates :images, :body_type, :assembly, :packing, presence: true
 
   mount_uploaders :images, ImageUploader
   belongs_to :company, class_name: 'Company', foreign_key: :user_id
 
   has_and_belongs_to_many :districts, optional: true
-  has_many :comments, as: :commentable, dependent: :destroy, class_name: 'Comment'
-  has_many :comments, as: :object,      dependent: :destroy, class_name: 'Comment'
-  has_many :reviews,  as: :reviewable,  dependent: :destroy, class_name: 'Review'
 
-  default_scope { order(rating: :desc) }
+  default_scope { order(created_at: :desc) }
   scope :filter_by_district_id, lambda { |district_id|
                                   joins(:districts).where 'districts.id' => district_id, published: true
                                 }

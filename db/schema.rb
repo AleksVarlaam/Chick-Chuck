@@ -257,7 +257,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
     t.json "images"
     t.float "length", null: false
     t.float "load_capacity", null: false
-    t.float "rating", default: 0.0, null: false
     t.float "height", null: false
     t.float "width", null: false
     t.integer "body_type", null: false
