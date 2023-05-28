@@ -10,6 +10,6 @@ class Review < ApplicationRecord
   after_create_commit :notify_user
 
   def notify_user
-    ReviewNotification.with(review: self).deliver_later(reviewable.company) if user != reviewable.company
+    ReviewNotification.with(review: self).deliver_later(reviewable) if user != reviewable
   end
 end

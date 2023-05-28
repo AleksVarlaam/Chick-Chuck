@@ -77,7 +77,6 @@ Rails.application.routes.draw do
 
       # Trucks content
       resources :trucks, only: %i[show index], controller: 'contents/trucks' do
-        resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
         resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
       end
       get 'company/:company_id/trucks', to: 'contents/trucks#company_trucks', as: 'company_trucks'
@@ -115,7 +114,10 @@ Rails.application.routes.draw do
       # Moving preparation
       get '/moving_preparation', to: 'contents/main#moving_preparation'
     end
-
+    
+    # Reviews
+    resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
+    
     # Carrierwave attachments
     namespace :carrierwave do
       resources :images, only: %i[show destroy]

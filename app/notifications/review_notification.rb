@@ -20,7 +20,7 @@ class ReviewNotification < Noticed::Base
   # Define helper methods to make rendering easier.
   #
   def message
-    "#{t('notification.review_truck')}: '#{object.decorate.number}'"
+    t('notification.review')
   end
 
   def object

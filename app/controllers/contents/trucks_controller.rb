@@ -32,7 +32,6 @@ module Contents
     def set_show
       @truck = Truck.find_by_id(params[:id])
       @company = @truck.company
-      truck_reviews_count(@truck)
       @commentable = @company
       @comment = Comment.new
       @rating = Review.new

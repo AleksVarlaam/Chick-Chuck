@@ -23,7 +23,7 @@ class Client < User
     user
   end
 
-  def truck_review(truck)
+  def company_review(truck)
     Review.find_by(user_id: self, reviewable_id: truck)
   end
 

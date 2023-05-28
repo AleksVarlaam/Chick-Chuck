@@ -13,13 +13,12 @@ module Feedbacks
     end
 
     def create
-      @review = @reviewable.reviews.build(review_params)
+      @review = @reviewable.reviews.build(review_params.except(:company_id))
       @review.user_id = current_client.id if client_signed_in?
 
       respond_to do |format|
         if @review.save
-          set_truck_rating(@reviewable)
-          set_company_rating(@reviewable.user_id)
+          set_company_rating(@reviewable)
           format.turbo_stream { flash.now[:success] = t('flash.success.created', model: @review.model_name.human.to_s) }
         else
           format.html { redirect_to @reviewable, alert: t('flash.alert') }
@@ -31,9 +30,8 @@ module Feedbacks
 
     def update
       respond_to do |format|
-        if @review.update(review_params)
-          set_truck_rating(@reviewable)
-          set_company_rating(@reviewable.user_id)
+        if @review.update(review_params.except(:company_id))
+          set_company_rating(@reviewable)
           format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: @review.model_name.human.to_s) }
         else
           format.html { redirect_to @reviewable, alert: t('flash.alert') }
@@ -44,12 +42,12 @@ module Feedbacks
     private
 
     def review_params
-      params.require(:review).permit(:politeness, :punctuality, :sociability, :wholeness_things, :speed,
+      params.require(:review).permit(:company_id, :politeness, :punctuality, :sociability, :wholeness_things, :speed,
                                      :value_money)
     end
 
     def set_reviewable
-      @reviewable = Truck.find_by_id(params[:truck_id]) if params[:truck_id].present?
+      @reviewable = Company.find_by_id(params[:company_id]) || Company.find_by_id(review_params[:company_id])
     end
 
     def set_review
