@@ -5,17 +5,8 @@ class CompanyDecorator < ApplicationDecorator
     "#{User.human_attribute_name('created_at')}: #{l company.created_at, format: :date}"
   end
   
-  def reviews_hash
-    reviews = company.reviews
-
-    {
-      politeness: (reviews.map { |rev| [rev.politeness.to_f].sum / company.reviews.count }).sum || 0,
-      punctuality: (reviews.map { |rev| [rev.punctuality.to_f].sum / company.reviews.count }).sum || 0,
-      sociability: (reviews.map { |rev| [rev.sociability.to_f].sum / company.reviews.count }).sum || 0,
-      wholeness_things: (reviews.map { |rev| [rev.wholeness_things.to_f].sum / company.reviews.count }).sum || 0,
-      speed: (reviews.map { |rev| [rev.speed.to_f].sum / company.reviews.count }).sum || 0,
-      value_money: (reviews.map { |rev| [rev.value_money.to_f].sum / company.reviews.count }).sum || 0
-    }
+  def review_star_percent_count(i)
+    (company.reviews.select {|review| review.rating == i}.count / company.reviews.count.to_f * 100).round(1)
   end
 
   def comments_count

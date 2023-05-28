@@ -42,8 +42,7 @@ module Feedbacks
     private
 
     def review_params
-      params.require(:review).permit(:company_id, :politeness, :punctuality, :sociability, :wholeness_things, :speed,
-                                     :value_money)
+      params.require(:review).permit(:company_id, :rating)
     end
 
     def set_reviewable

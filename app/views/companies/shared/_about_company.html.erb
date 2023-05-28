@@ -1,20 +1,37 @@
 <!-- About company -->
 <section class="mx-3 sm:mx-10 flex flex-col items-center">
-    <!-- Avatar -->
-    <%= image_tag(company.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
-    <!-- Name -->
-    <% if ['show', 'users'].eql?([action_name, controller_name]) || action_name == 'company_trucks'%>
-        <%= tag.h4 company.title , class: "font-medium text-2xl text-center hover:underline text-gray-800" %>
-    <% else %>
-        <%= tag.h4 class: "font-medium text-2xl text-center hover:underline text-gray-800" do %>
-            <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, class: 'flex items-center' do %>
-                <%= company.title %>
-                <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
+    <div class="grid grid-cols-3 gap-6">
+        <div class="flex justify-center space-x-3 pt-2">
+            <!-- Message -->
+            <%= render 'feedbacks/rooms/form', recipient: company%>
+            <%= form_with model: Room.new, remote: true, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'} do |f| %>
+                <%= f.button class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
+                    <%= heroicon 'heart', class: 'w-6 h-6'%>
+                <% end %>
             <% end %>
-        <% end %>
-    <% end %>
+        </div>
+        <div class="flex flex-col">
+            <!-- Avatar -->
+            <%= image_tag(company.avatar_attachment_path, 
+                class: "object-cover w-20 h-20 mx-auto mb-3 rounded-full border border-white", alt: "avatar")%>
+            <!-- Name -->
+            <% if ['show', 'users'].eql?([action_name, controller_name]) || action_name == 'company_trucks'%>
+                <%= tag.h4 company.title , class: "font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" %>
+            <% else %>
+                <%= tag.h4 class: "font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" do %>
+                    <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, class: 'flex items-center' do %>
+                        <%= company.title %>
+                        <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="flex justify-center pt-2">
+            <%= create_or_update_review(company)%>
+        </div>
+    </div>
     <!-- Rating -->
-    <div class="flex justify-center">
+    <div class="flex justify-center w-full sm:w-1/2">
         <%= render 'feedbacks/reviews/review', company: company%>
     </div>
     <!-- Districts -->
@@ -51,8 +68,6 @@
             <% end %>
         <% end %>
     </div>
-    <!-- Message -->
-    <%= render 'feedbacks/rooms/form', recipient: company%>
     <!-- Contacts -->
     <%= render 'users/users/contacts_section', user: company%>
     <!-- Created at -->

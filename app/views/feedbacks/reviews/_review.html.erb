@@ -1,33 +1,56 @@
-<div class="m-3 w-full space-y-3">
-    <!-- Header reviews -->
-    <div class="flex justify-center items-center">
-        <p class="bg-blue-200 text-blue-800 text-sm font-semibold inline-flex items-center p-1.5 rounded">
-            <%= company.rating %>
-        </p>
-        <%= tag.p 'Excellent!', class: "ml-2 font-medium text-gray-700" if (company.rating.present? && company.rating > 9)%>
-        <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full"></span>
-        <p class="text-sm font-medium text-gray-400"><%= company.decorate.reviews_count%></p>
-        <span class="mx-2 w-1 h-1 bg-gray-500 rounded-full"></span>
-        <p class="text-sm font-medium text-gray-400"><%= company.decorate.comments_count %></p>
+<div class="m-3 w-full mx-auto space-y-3">
+    <div class="flex items-center justify-center mb-3">
+        <% 5.times do |i| %>
+            <% if (0..company.rating).include?(i)%>
+                <%= heroicon 'star',class: "w-5 h-5 text-yellow-400", variant: 'solid' %>
+            <% else %>
+                <%= heroicon 'star',class: "w-5 h-5 text-gray-400", variant: 'solid' %>
+            <% end %>
+        <% end %>
+        <%= tag.p "#{company.rating} out of 5", class: "ml-2 text-sm font-medium text-gray-500" %>
     </div>
-    
     <!-- Full reviews -->
-    <% if [action_name, controller_name].eql?(['show', 'trucks']) || [action_name, controller_name].eql?(['show', 'users']) %>
-        <div class="gap-x-5 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-3">
-            <!-- Reviews hash -->
-            <% company.decorate.reviews_hash.each do |key, count|%>
-                <div class="col-span-1 sm:col-span-2 lg:col-span-2 xl:col-span-1">
-                    <dl>
-                        <%= tag.dt Review.human_attribute_name(key.to_s), class:"text-sm font-medium text-gray-400"%>
-                        <dd class="flex items-center mb-3">
-                            <div class="w-full bg-gray-700 rounded h-2.5 mr-2">
-                                <div class="bg-blue-500 h-2.5 rounded" style="width: <%= rating_bar(count)%>%"></div>
-                            </div>
-                            <span class="text-sm font-medium text-gray-400"><%= count if count.positive?%></span>
-                        </dd>
-                    </dl>
+    <% if [action_name, controller_name].eql?(['show', 'users']) %>
+        <%= tag.p "#{company.reviews.count} global ratings" , class: "text-sm font-medium text-gray-500 dark:text-gray-400" %>
+        <div class="flex flex-col justify-center space-y-4">
+            <% 5.downto(1) do |i| %>
+                <div class="flex items-center w-full space-x-3">
+                    <%= tag.span "#{i} star" , class: "w-14 text-sm font-medium text-blue-600 dark:text-blue-500" %>
+                    <div class="w-full h-5 bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="h-5 bg-yellow-400 rounded" 
+                            style="width: <%= company.decorate.review_star_percent_count(i)%>%"></div>
+                    </div>
+                    <%= tag.span "#{company.decorate.review_star_percent_count(i)}%", class: "w-14 text-sm font-medium text-blue-600 dark:text-blue-500" %>
                 </div>
             <% end %>
+            <!-- <div class="flex items-center w-full space-x-3">
+                <span class="w-14 text-sm font-medium text-blue-600 dark:text-blue-500">4 star</span>
+                <div class="w-full h-5 bg-gray-200 rounded dark:bg-gray-700">
+                    <div class="h-5 bg-yellow-400 rounded" style="width: 17%"></div>
+                </div>
+                <span class="w-14 text-sm font-medium text-blue-600 dark:text-blue-500">17%</span>
+            </div>
+            <div class="flex items-center w-full space-x-3">
+                <span class="w-14 text-sm font-medium text-blue-600 dark:text-blue-500">3 star</span>
+                <div class="w-full h-5 bg-gray-200 rounded dark:bg-gray-700">
+                    <div class="h-5 bg-yellow-400 rounded" style="width: 8%"></div>
+                </div>
+                <span class="w-14 text-sm font-medium text-blue-600 dark:text-blue-500">8%</span>
+            </div>
+            <div class="flex items-center w-full space-x-3">
+                <span class="w-14 text-sm font-medium text-blue-600 dark:text-blue-500">2 star</span>
+                <div class="w-full h-5 bg-gray-200 rounded dark:bg-gray-700">
+                    <div class="h-5 bg-yellow-400 rounded" style="width: 4%"></div>
+                </div>
+                <span class="w-14 text-sm font-medium text-blue-600 dark:text-blue-500">4%</span>
+            </div>
+            <div class="flex items-center w-full space-x-3">
+                <span class="w-14 text-sm font-medium text-blue-600 dark:text-blue-500">1 star</span>
+                <div class="w-full h-5 bg-gray-200 rounded dark:bg-gray-700">
+                    <div class="h-5 bg-yellow-400 rounded" style="width: 1%"></div>
+                </div>
+                <span class="w-14 text-sm font-medium text-blue-600 dark:text-blue-500">1%</span>
+            </div>  -->  
         </div>
     <% end %>
 </div>  

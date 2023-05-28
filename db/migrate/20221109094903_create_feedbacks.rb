@@ -15,12 +15,8 @@ class CreateFeedbacks < ActiveRecord::Migration[7.0]
 
     # Reviews
     create_table :reviews do |t|
-      t.integer :politeness
-      t.integer :punctuality
-      t.integer :sociability
-      t.integer :wholeness_things
-      t.integer :speed
-      t.integer :value_money
+      t.integer    :rating, null: false, default: 0
+      t.text       :content
       t.references :user, null: false, foreign_key: true
       t.references :reviewable, polymorphic: true, null: false
 

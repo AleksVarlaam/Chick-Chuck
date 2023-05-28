@@ -2,6 +2,8 @@
 
 class Review < ApplicationRecord
   self.table_name = 'reviews'
+  validates :rating, numericality: { in: 0..5 }
+
   belongs_to :user
   belongs_to :reviewable, polymorphic: true
 

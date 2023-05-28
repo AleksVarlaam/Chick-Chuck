@@ -1,1 +1,7 @@
-<%= render 'form', review: @review, method: :post%>
+
+<% currently_at 'New review'%>
+<% provide :page_title, 'New review'%>
+
+<%= render TurboReviewComponent.new do %>
+    <%= render 'form', review: @review, method: :post%>
+<% end %>

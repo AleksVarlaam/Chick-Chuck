@@ -14,39 +14,9 @@
       
       <div class="grid gap-4 sm:gap-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-2 xl:grid-cols-3 justify-center">
           <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('politeness'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
+              <%= tag.p 'Rating', class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
               <span class="text-sm font-medium text-gray-500 ">
-                  <%= f.range_field :politeness, min: 1, max: 10, class: "w-full rounded-xl"%>
-              </span>
-          </div>
-          <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('punctuality'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
-              <span class="text-sm font-medium text-gray-500">
-                  <%= f.range_field :punctuality, min: 1, max: 10, class: "w-full rounded-xl"%>
-              </span>
-          </div>
-          <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('sociability'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
-              <span class="text-sm font-medium text-gray-500">
-                  <%= f.range_field :sociability, min: 1, max: 10, class: "w-full rounded-xl"%>
-              </span>
-          </div>
-          <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('wholeness_things'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
-              <span class="text-sm font-medium text-gray-500">
-                  <%= f.range_field :wholeness_things, min: 1, max: 10, class: "w-full rounded-xl"%>
-              </span>
-          </div>
-          <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('speed'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
-              <span class="text-sm font-medium text-gray-500">
-                  <%= f.range_field :speed, min: 1, max: 10, class: "w-full rounded-xl"%>
-              </span>
-          </div>
-          <div class="w-full text-center">
-              <%= tag.p Review.human_attribute_name('value_money'), class: "text-lg font-medium text-gray-500 mr-2 break-words"%>
-              <span class="text-sm font-medium text-gray-500">
-                  <%= f.range_field :value_money, min: 1, max: 10, class: "w-full rounded-xl"%>
+                  <%= f.range_field :rating, min: 1, max: 5, class: "w-full rounded-xl"%>
               </span>
           </div>
       </div>
