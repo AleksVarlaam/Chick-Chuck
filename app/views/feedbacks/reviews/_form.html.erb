@@ -18,13 +18,13 @@
       			<span class="text-center text-gray-500">How was your experience?</span>
                 <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
                     <% 0.upto(5) do |i| %>
-                        <%= button_to '#', method: :get, params: {star_rating: i}, 
+                        <%= button_to '#', method: :get, params: {star_rating: i}, class: "#{'hidden' if i == 0}",
                             data: {turbo_frame: 'rating_stars'} do %>
                             <%= heroicon 'star', variant: 'solid',
-                                class: "w-10 h-10 hover:text-yellow-400 #{existed_star(@review, i)} #{'hidden' if i == 0}" %>
+                                class: "w-10 h-10 hover:text-yellow-400 #{@review.decorate.star_color(params, i)}" %>
                         <% end %>
                     <% end %>
-                    <%= f.hidden_field :rating, value: params[:star_rating].to_i || @review.rating %>
+                    <%= f.hidden_field :rating, value: params[:star_rating].to_i > 0 ? params[:star_rating].to_i : @review.rating %>
                 <% end %>
       		</div>
       		<div class="flex flex-col w-full space-y-3 mb-6">
@@ -38,7 +38,7 @@
       		</div>
       	</div>
       	<div class="flex items-center justify-center">
-      		<a rel="noopener noreferrer" href="#" class="text-sm dark:text-gray-400">Maybe later</a>
+      		<a rel="noopener noreferrer" href="#" class="text-sm text-gray-500 font-semibold hover:text-gray-900 dark:text-gray-400">Maybe later</a>
       	</div>
       </div>
     <% end %>

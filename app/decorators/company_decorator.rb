@@ -6,6 +6,7 @@ class CompanyDecorator < ApplicationDecorator
   end
   
   def review_star_percent_count(i)
+    return 0 unless company.reviews.exists?
     (company.reviews.select {|review| review.rating == i}.count / company.reviews.count.to_f * 100).round(1)
   end
 

@@ -1,0 +1,25 @@
+<div class="m-3 w-full mx-auto space-y-3">
+    <div class="flex items-center justify-center mb-3">
+        <% 1.upto(5) do |i| %>
+            <%= heroicon 'star', variant: 'solid',
+                class: "w-5 h-5 #{(0..company.rating).include?(i) ? 'text-yellow-400' : 'text-gray-400'}" %>
+        <% end %>
+        <%= tag.p "#{company.rating} out of 5", class: "ml-2 text-sm font-medium text-gray-500" %>
+    </div>
+    <!-- Full reviews -->
+    <% if [action_name, controller_name].eql?(['show', 'users']) %>
+        <%= tag.p "#{company.reviews.count} global ratings" , class: "pl-1 sm:pl-2 text-sm font-medium text-gray-500 dark:text-gray-400" %>
+        <div class="flex flex-col justify-center space-y-4">
+            <% 5.downto(1) do |i| %>
+                <div class="flex items-center w-full space-x-3">
+                    <%= tag.span "#{i} star" , class: "w-16 text-center text-sm font-medium text-blue-600 dark:text-blue-500" %>
+                    <div class="w-full h-5 bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="h-5 bg-yellow-400 rounded" 
+                            style="width: <%= company.decorate.review_star_percent_count(i)%>%"></div>
+                    </div>
+                    <%= tag.span "#{company.decorate.review_star_percent_count(i)}%", class: "w-16 text-center text-sm font-medium text-blue-600 dark:text-blue-500" %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>  

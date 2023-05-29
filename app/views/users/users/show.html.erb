@@ -11,6 +11,7 @@
     <%# render 'contents/trucks/trucks_filter', path: company_trucks_path(@user), frame: 'trucks', company: @user%>
     <!-- Reviews -->
     <%= render 'feedbacks/reviews/form' if client_signed_in?%>
+    <%= render 'feedbacks/reviews/reviews_section' %>
     <!-- Comments section-->
-    <%= render 'feedbacks/comments/comments_section'%>
+    <%# render 'feedbacks/comments/comments_section'%>
 <% end %>

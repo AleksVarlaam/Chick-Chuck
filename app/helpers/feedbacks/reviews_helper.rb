@@ -9,14 +9,6 @@ module Feedbacks
 
       redirect_to edit_review_path(@reviewable, user_review) if user_review.present?
     end
-    
-    def existed_star(review, i)
-      if params[:star_rating].present? 
-        (0..params[:star_rating].to_i).include?(i) ? 'text-yellow-400' : 'text-gray-400'  
-      elsif review.present?
-        (00..review.rating).include?(i) ? 'text-yellow-400' : 'text-gray-400'  
-      end
-    end
 
     def create_or_update_review(company)
       user_review = current_client.company_review(company) if client_signed_in?
@@ -34,7 +26,7 @@ module Feedbacks
 
     def set_company_rating(company)
       
-      rating = (company.reviews.map {|review| review.rating}.sum / company.reviews.count).round(1)
+      rating = (company.reviews.map {|review| review.rating}.sum.to_f / company.reviews.count.to_f).round(1)
       
       company.update(rating: rating)
     end
