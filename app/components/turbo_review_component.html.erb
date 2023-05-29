@@ -3,11 +3,13 @@
       controller: "turbo-modal", 
       action: "turbo:submit-end->turbo-modal#submitEnd keyup@window->turbo-modal#closeWithKeyboard click@window->turbo-modal#closeBackground",
       turbo_modal_target: "modal"},
-      class: "overflow-y-auto overflow-x-hidden h-modal h-auto max-h-screen justify-center items-center shadow-md hover:shadow-xl rounded-lg
-              fixed w-full px-3 sm:px-0 sm:w-4/5 lg:w-3/5 inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 mx-auto" do 
+      class: "overflow-y-auto overflow-x-hidden h-3/4 sm:h-2/3 justify-center items-center shadow-md hover:shadow-xl rounded-lg
+              fixed w-full px-3 sm:px-0 sm:w-4/5 lg:w-auto inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 mx-auto" do 
   %>
       <div class="relative p-6 w-full md:min-w-[30rem] h-full bg-gray-100 bg-opacity-95 rounded-lg">
-        <div class="text-center mb-4 mx-2 h-auto">
+        <div class="text-center mx-2 h-auto">
+            <!-- Title -->
+            <%= tag.h2 @title, class: "text-3xl font-semibold text-center text-gray-700"%>
             <!-- Close button -->
             <%= render 'shared/buttons/close'%>
         </div>
