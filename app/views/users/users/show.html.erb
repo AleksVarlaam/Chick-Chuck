@@ -8,7 +8,9 @@
     <!-- About company section -->
     <%= tag.div (render 'companies/shared/about_company', company: @user), class: 'mb-3 pt-3 col-span-full' %>
     <!-- Trucks filter -->
-    <%= render 'contents/trucks/trucks_filter', path: company_trucks_path(@user), frame: 'trucks', company: @user%>
+    <%# render 'contents/trucks/trucks_filter', path: company_trucks_path(@user), frame: 'trucks', company: @user%>
+    <!-- Reviews -->
+    <%= render 'feedbacks/reviews/form' if client_signed_in?%>
     <!-- Comments section-->
     <%= render 'feedbacks/comments/comments_section'%>
 <% end %>

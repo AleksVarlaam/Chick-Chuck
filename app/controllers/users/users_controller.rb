@@ -11,6 +11,8 @@ module Users
 
       @commentable = @user
       @comment = Comment.new
+      @reviewable = @user
+      @review = current_client&.company_review(@reviewable) || Review.new
       @pagy, @comments = pagy(Comment.where(commentable: @user).newest, items: 10, fragment: '#comments')
       @comments_count = Comment.where(object: @user).count
     end

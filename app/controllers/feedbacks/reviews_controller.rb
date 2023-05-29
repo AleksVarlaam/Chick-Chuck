@@ -42,7 +42,7 @@ module Feedbacks
     private
 
     def review_params
-      params.require(:review).permit(:company_id, :rating)
+      params.require(:review).permit(:company_id, :rating, :title, :content)
     end
 
     def set_reviewable
