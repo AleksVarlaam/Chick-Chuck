@@ -6,6 +6,11 @@ module Users
     include PricesHelper
     before_action :set_user, only: %i[show modal contacts]
     after_action :update_views, only: :show
+    
+    def index
+      @best_companies = Company.user_filter(filter_params).take(3)
+      @latest_companies = Company.user_filter(filter_params).drop(3)
+    end
 
     def show
       return redirect_to root_path unless @user.instance_of?(Company)
@@ -28,7 +33,7 @@ module Users
     private
 
     def filter_params
-      params.permit(:district_id, :body_type)
+      params.permit(:district_id)
     end
 
     def set_user

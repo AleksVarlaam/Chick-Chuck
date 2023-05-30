@@ -1,0 +1,20 @@
+<% currently_at 'Companies' %>
+<% provide :page_title, 'Companies' %>
+
+<!-- Filter -->
+<%= tag.div (render 'shared/navigations/links_board', path: users_path, frame: 'trucks', company: nil), class: 'mt-8'%>
+<!-- Best carriers -->
+<%= turbo_frame_tag 'best_companies', class: "grid grid-cols-1 lg:grid-cols-3 w-full px-2 sm:px-6" do %>
+    <!-- Title -->
+    <%= tag.h3 'Лучшие перевозчики', class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
+    <!-- Top companies -->
+    <%= render partial: 'companies/shared/company', collection: @best_companies%>
+<% end %>
+
+<!-- Latest carriers -->
+<%= turbo_frame_tag 'latest_companies', class: "grid grid-flow-row auto-rows-max flex w-full px-2 sm:px-6" do %>
+    <!-- Title -->
+    <%= tag.h3 'Все перевозчики', class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
+    <!-- Latest companies -->
+    <%= render partial: 'companies/shared/company', collection: @latest_companies%>
+<% end %>

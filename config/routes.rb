@@ -70,7 +70,7 @@ Rails.application.routes.draw do
     # Contents
     scope :contents do
       # Users
-      resources :users, only: %i[show], controller: 'users/users' do
+      resources :users, only: %i[index show], controller: 'users/users' do
         get '/modal',         to: 'users/users#modal',                  as: 'modal'
         get '/contacts',      to: 'users/users#contacts',               as: 'contacts'
       end

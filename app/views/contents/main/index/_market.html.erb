@@ -2,7 +2,7 @@
 <div class="py-10 ">
     <!-- Title -->
     <%= tag.h3 t('pages.market'), class: 'text-3xl font-semibold text-gray-800  text-center'%>
-    <!-- Content section -->
+    <!-- Products list -->
     <%= turbo_frame_tag 'products', class: "flex overflow-x-scroll max-w-screen container mx-auto my-6 space-x-8 rtl:space-x-reverse" do %>
         <% if @products.present?%>
             <!-- Products -->
@@ -16,6 +16,7 @@
                 <% end %>
             </div>
         <% else %>
+            <!-- Unavailable -->
             <%= render 'contents/shared/unavailable', model: t('product.products')%>
         <% end %>
     <% end %>

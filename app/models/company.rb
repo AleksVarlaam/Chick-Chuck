@@ -16,6 +16,11 @@ class Company < User
   has_many :reviews,  as: :reviewable,  dependent: :destroy, class_name: 'Review'
   has_many :comments, as: :commentable, dependent: :destroy, class_name: 'Comment', foreign_key: :user_id
   has_many :comments, as: :object,      dependent: :destroy, class_name: 'Comment', foreign_key: :user_id
+  
+  default_scope { order(rating: :desc) }
+  scope :filter_by_district_id, lambda { |district_id|
+                                  joins(:districts).where 'districts.id' => district_id
+                                }
 
   def avatar_attachment_path
     avatar.present? ? avatar.avatar.url : 'icons/chick-chuck/laavor_favicon.png'

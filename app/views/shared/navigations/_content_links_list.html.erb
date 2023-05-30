@@ -3,16 +3,16 @@
 <%= nav_tab t('pages.home'), root_path, 
   class: link_class, current_page: current_page, 
   data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
- <!-- Calculator -->
-<%= nav_tab t('pages.calculator'), calculator_path,
-  class: link_class, current_page: current_page, 
-  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
- <!-- Trucks -->
-<%= nav_tab t('pages.trucks'), trucks_path, 
+ <!-- Carriers -->
+<%= nav_tab 'Перевозчики', users_path, 
   class: link_class, current_page: current_page, 
   data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
   <!-- Market -->
 <%= nav_tab t('pages.market'), products_path, 
+  class: link_class, current_page: current_page, 
+  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+ <!-- Calculator -->
+<%= nav_tab t('pages.calculator'), calculator_path,
   class: link_class, current_page: current_page, 
   data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
   <!-- News -->
