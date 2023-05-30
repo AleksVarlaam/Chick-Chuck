@@ -27,8 +27,9 @@ module Feedbacks
     def set_company_rating(company)
       
       rating = (company.reviews.map {|review| review.rating}.sum.to_f / company.reviews.count.to_f).round(1)
+      price  = (company.reviews.map {|review| review.price}.sum.to_f / company.reviews.count.to_f).round(1)
       
-      company.update(rating: rating)
+      company.update(rating: rating, price: price)
     end
 
     def rating_bar(review)

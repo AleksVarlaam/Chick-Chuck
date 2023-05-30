@@ -16,6 +16,7 @@ class CreateFeedbacks < ActiveRecord::Migration[7.0]
     # Reviews
     create_table :reviews do |t|
       t.integer    :rating, null: false, default: 0
+      t.integer    :price,  null: false, default: 0
       t.string     :title
       t.text       :content
       t.references :user, null: false, foreign_key: true

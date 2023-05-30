@@ -11,6 +11,22 @@ class ReviewDecorator < ApplicationDecorator
     end
   end
   
+  def price_color(params, i)
+    if params[:price_rating].present? 
+      (0..params[:price_rating].to_i).include?(i) ? 'text-green-600' : 'text-gray-400'  
+    else
+      (0..review.price).include?(i) ? 'text-green-600' : 'text-gray-400'  
+    end
+  end
+  
+  def star_value(params)
+    params[:star_rating].to_i > 0 ? params[:star_rating].to_i : review.rating 
+  end
+  
+  def price_value(params)
+    params[:price_rating].to_i > 0 ? params[:price_rating].to_i : review.price
+  end
+  
   def created_at
     l review.created_at, format: :date
   end

@@ -9,6 +9,11 @@ class CompanyDecorator < ApplicationDecorator
     return 0 unless company.reviews.exists?
     (company.reviews.select {|review| review.rating == i}.count / company.reviews.count.to_f * 100).round(1)
   end
+  
+  def review_price_percent_count(i)
+    return 0 unless company.reviews.exists?
+    (company.reviews.select {|review| review.price == i}.count / company.reviews.count.to_f * 100).round(1)
+  end
 
   def comments_count
     count = company.comments.count
