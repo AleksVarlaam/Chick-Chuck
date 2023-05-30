@@ -32,8 +32,8 @@
         </div>
     </div>
     <!-- Rating -->
-    <div class="flex justify-center w-full sm:w-1/2">
-        <%= render 'feedbacks/reviews/company_review', company: company%>
+    <div class="flex justify-center w-full sm:w-2/3">
+        <%= render 'feedbacks/reviews/rating', rating: company.rating, count: company.reviews.count%>
     </div>
     <!-- Districts -->
     <div class="flex items-center justify-center text-center mb-3">

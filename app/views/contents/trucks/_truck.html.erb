@@ -3,12 +3,10 @@
     <%= render 'carrierwave/images/carousel', object: truck %>
     <!-- Truck Info -->
     <% if [action_name, controller_name].eql?(['show', 'trucks']) %>
-        <%= render 'feedbacks/reviews/company_review', company: truck.company unless [action_name, controller_name].eql?(['show', 'trucks'])%>
         <!-- Truck card body -->
         <%= render 'contents/trucks/card_body', truck: truck.decorate%>
     <% else %>
         <%= link_to truck_path(truck), data: { turbo_frame: '_top' } do %>
-            <%= render 'feedbacks/reviews/company_review', company: truck.company unless [action_name, controller_name].eql?(['show', 'trucks'])%>
             <!-- Truck card body -->
             <%= render 'contents/trucks/card_body', truck: truck.decorate%>
         <% end %>

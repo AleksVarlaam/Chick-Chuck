@@ -10,9 +10,7 @@
     <!-- Trucks filter -->
     <%# render 'contents/trucks/trucks_filter', path: company_trucks_path(@user), frame: 'trucks', company: @user%>
     <!-- Reviews -->
-    <%= tag.div class: "flex justify-center" do %>
-        <%= create_or_update_review(@user) %>
-    <% end if client_signed_in? %>
+    <%= render 'feedbacks/reviews/global_ratings', company: @user%>
     <%= render 'feedbacks/reviews/reviews_section' %>
     <!-- Comments section-->
     <%# render 'feedbacks/comments/comments_section'%>

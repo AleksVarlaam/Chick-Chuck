@@ -12,6 +12,6 @@ class ReviewDecorator < ApplicationDecorator
   end
   
   def created_at
-    l user.created_at, format: :date
+    l review.created_at, format: :date
   end
 end

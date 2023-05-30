@@ -1,0 +1,8 @@
+<!-- Rating star -->
+<div class="flex items-center justify-center my-3">
+    <%= tag.p class: "flex items-center text-lg font-medium text-gray-500" do %>
+        <%= heroicon 'star', variant: 'solid', 
+            class: "w-6 h-6 mr-1 #{rating >= 4.9 ? 'text-green-500' : rating >= 4 ? 'text-yellow-400' : 'text-gray-400'}" %>
+        <%= "#{rating} #{"(10+)" if count > 10}" %>
+    <% end %>
+</div>

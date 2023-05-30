@@ -1,3 +1,6 @@
+<!-- Rating  -->
+<%= render 'feedbacks/reviews/rating', rating: truck.company.rating, count: truck.company.reviews.count%>
+<!-- Card body -->
 <div class="grid grid-cols-3 gap-0 <%= 'mt-6' if action_name == 'show'%>">
     <!-- Truck number -->
     <div class="flex justify-center col-span-full">
