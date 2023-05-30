@@ -14,7 +14,7 @@ module Users
       @reviewable = @user
       @review = current_client&.company_review(@reviewable) || Review.new
       @pagy, @reviews = pagy(@user.reviews, items: 10, fragment: '#reviews')
-      @reviews_count = @user.reviews.count
+      @reviews_count = @user.reviews.select {|review| review.content.present?}.count
     end
 
     def modal; end

@@ -1,74 +1,38 @@
 <!-- About company -->
 <section class="mx-3 sm:mx-10 flex flex-col items-center">
-    <div class="grid grid-cols-3 gap-6">
-        <div class="flex justify-center space-x-3 pt-2">
-            <!-- Message -->
-            <%= render 'feedbacks/rooms/form', recipient: company%>
-            <%= form_with model: Room.new, remote: true, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'} do |f| %>
-                <%= f.button class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
-                    <%= heroicon 'heart', class: 'w-6 h-6'%>
-                <% end %>
-            <% end %>
-        </div>
-        <div class="flex flex-col">
-            <!-- Avatar -->
-            <%= image_tag(company.avatar_attachment_path, 
-                class: "object-cover w-20 h-20 mx-auto mb-3 rounded-full border border-white", alt: "avatar")%>
-            <!-- Name -->
-            <% if ['show', 'users'].eql?([action_name, controller_name]) || action_name == 'company_trucks'%>
-                <%= tag.h4 company.title , class: "font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" %>
-            <% else %>
-                <%= tag.h4 class: "font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" do %>
-                    <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, class: 'flex items-center' do %>
-                        <%= company.title %>
-                        <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
-                    <% end %>
-                <% end %>
-            <% end %>
-        </div>
-        <div class="flex justify-center pt-2">
-            <%= link_to "Reviews", user_path(company, anchor: "reviews"), data: {turbo_frame: "_top"},
-                class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center h-10 flex items-center"%>
-        </div>
-    </div>
+    <!-- Header -->
+    <%= render 'companies/shared/company_header', company: company%>
     <!-- Rating -->
     <div class="flex justify-center w-full sm:w-2/3">
         <%= render 'feedbacks/reviews/rating', rating: company.rating, count: company.reviews.count%>
     </div>
-    <!-- Districts -->
-    <div class="flex items-center justify-center text-center mb-3">
-        <%= tag.p class: "text-md font-medium mr-3 text-gray-500" do %>
-            <%= Company.human_attribute_name('districts') + ': '%> 
-            <% company.districts.decorate.each do |district|%>
-                <%= link_to trucks_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
-                    <%= district != company.districts.last ? district.title + ',' : district.title%>
+    <div class="my-3 w-auto mx-auto space-x-4 flex items-center  border-y divide-x">
+        <!-- Districts -->
+        <div class=" p-2 flex items-center space-x-3 justify-center">
+            <%= heroicon 'map', class: 'w-6 h-6 flex-none'%>
+            <ul class="flex flex-col text-md font-medium text-gray-500">
+                <% company.districts.decorate.each do |district|%>
+                    <%= link_to trucks_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
+                        <li><%= district != company.districts.last ? district.title + ',' : district.title%></li>
+                    <% end %>
                 <% end %>
-            <% end %>
-        <% end %>
+            </ul>
+        </div>
+        <!-- Languages -->
+        <div class=" p-2 flex items-center space-x-3 justify-center">
+            <%= heroicon 'language', class: 'w-6 h-6 flex-none'%>
+            <ul class="flex flex-col text-md font-medium text-gray-500">
+                <% company.languages.each do |language|%>
+                    <li><%= language != company.languages.last ? language.title + ',' : language.title%></li>
+                <% end %>
+            </ul>
+        </div>
     </div>
-    <!-- Total trucks -->
-    <%= link_to "#{t('truck.total_trucks')}: #{company.trucks.where(published: true).count}", company_trucks_path(company), 
-        class: "text-md font-medium hover:underline text-gray-500 mb-3", 
-        data: { turbo_frame: '_top' }, target: "_blank"
-    %>
-    <!-- Total products -->
-    <%= link_to "#{t('product.total_products')}: #{company.products.where(published: true).count}", user_products_path(company), 
-        class: "text-md font-medium hover:underline text-gray-500 mb-3", 
-        data: { turbo_frame: '_top' }, target: "_blank" if company.products.where(published: true).count.positive?
-    %>
-    <!-- Website -->
-    <%= tag.div (link_to "Website: #{company.website}", '#', class: "text-md font-medium hover:underline text-gray-500", target: "_blank"), class: 'flex items-center justify-center text-center mb-3' if company.website.present?%>
-    <!-- Description -->
-    <%= tag.p company.description, class: "mb-3 max-w-xl font-medium text-md text-center text-gray-500 border-y" if company.description.present?%>
-    <!-- Languages -->
-    <div class="flex items-center justify-center text-center mb-3">
-        <%= tag.p class: "text-md font-medium mr-3 text-gray-500" do %>
-            <%= tag.label t('company.we_speak')%> 
-            <% company.languages.each do |language|%>
-                <%= language != company.languages.last ? language.title + ',' : language.title%>
-            <% end %>
-        <% end %>
-    </div>
+    <!-- Views -->
+    <%= tag.div class: "col-span-full flex justify-center items-center mb-3 text-gray-500 text-sm" do %>
+        <%= render 'shared/buttons/views', object: company, popover_target: company.title %>
+    <% end %>
+    
     <!-- Contacts -->
     <%= render 'users/users/contacts_section', user: company%>
     <!-- Created at -->

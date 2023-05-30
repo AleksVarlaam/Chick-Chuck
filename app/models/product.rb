@@ -12,6 +12,7 @@ class Product < ApplicationRecord
   belongs_to :district
   belongs_to :city
 
+  scope :published,             ->()            { where published: true }
   scope :filter_by_category_id, ->(category_id) { where category_id:, published: true }
   scope :filter_by_thing_id,    ->(thing_id)    { where thing_id:, published: true }
   scope :filter_by_district_id, ->(district_id) { where district_id:, published: true }
