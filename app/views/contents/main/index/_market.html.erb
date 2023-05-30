@@ -1,27 +1,30 @@
 <!-- Market section-->
-<div class="items-center flex container mx-auto w-full justify-center relative">
+<div class="py-10 ">
     <!-- Title -->
-    <%= tag.h3 t('pages.market'), class: 'text-3xl font-semibold text-gray-800 my-6 text-center'%>
+    <%= tag.h3 t('pages.market'), class: 'text-3xl font-semibold text-gray-800  text-center'%>
+    <!-- Content section -->
+    <%= turbo_frame_tag 'products', class: "flex overflow-x-scroll max-w-screen container mx-auto my-6 space-x-8 rtl:space-x-reverse" do %>
+        <% if @products.present?%>
+            <!-- Products -->
+            <%= render partial: 'contents/products/product', collection: @products %>
+            <!-- View all -->
+            <div class="flex-shrink-0 justify-center items-center text-center h-auto w-[300px] m-auto">
+                <%= link_to products_path, class: "flex text-base font-medium justify-center items-center text-center text-gray-500 hover:text-gray-700 hover:underline", data: {turbo_frame: '_top'} do %>
+                    <%= t('global.view_all')%>
+                    <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
+                        class: "w-5 h-5 ltr:ml-2 rtl:mr-2"%>
+                <% end %>
+            </div>
+        <% else %>
+            <%= render 'contents/shared/unavailable', model: t('product.products')%>
+        <% end %>
+    <% end %>
     <!-- View all -->
-    <%= link_to products_path, class: "absolute ltr:right-0 rtl:left-0 w-[7rem] sm:w-full flex py-0 text-base font-medium justify-end items-center text-end text-gray-500 hover:text-gray-700 hover:underline", data: {turbo_frame: '_top'} do %>
-        <%= t('global.view_all')%>
-        <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-            class: "w-5 h-5 ltr:ml-2 rtl:mr-2"%>
-    <% end %>
+    <div class="flex justify-center items-center text-center h-auto">
+        <%= link_to products_path, class: "flex text-base font-medium justify-center items-center text-center text-gray-500 hover:text-gray-700 hover:underline", data: {turbo_frame: '_top'} do %>
+            <%= t('global.view_all')%>
+            <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
+                class: "w-5 h-5 ltr:ml-2 rtl:mr-2"%>
+        <% end %>
+    </div>
 </div>
-<% if @products.present?%>
-    <%= turbo_frame_tag 'products', class: "flex overflow-x-scroll max-w-screen container mx-auto pb-8 space-x-8 rtl:space-x-reverse" do %>
-        <!-- Products -->
-        <%= render partial: 'contents/products/product', collection: @products %>
-        <!-- View all -->
-        <div class="flex-shrink-0 justify-center items-center text-center h-auto w-[300px] m-auto">
-            <%= link_to products_path, class: "flex text-base font-medium justify-center items-center text-center text-gray-500 hover:text-gray-700 hover:underline", data: {turbo_frame: '_top'} do %>
-                <%= t('global.view_all')%>
-                <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-                    class: "w-5 h-5 ltr:ml-2 rtl:mr-2"%>
-            <% end %>
-        </div>
-    <% end %>
-<% else %>
-    <%= render 'contents/shared/unavailable', model: t('product.products')%>
-<% end %>

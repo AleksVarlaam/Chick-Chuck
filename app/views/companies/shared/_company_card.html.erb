@@ -3,12 +3,11 @@
     <!-- Header -->
     <%= render 'companies/shared/company_header', company: company%>
     <!-- Rating -->
-    <div class="flex justify-center w-full sm:w-2/3">
-        <%= render 'feedbacks/reviews/rating', rating: company.rating, count: company.reviews.count%>
-    </div>
+    <%= render 'feedbacks/reviews/rating', rating: company.rating, count: company.reviews.count%>
+    <!-- Body -->
     <div class="my-3 w-auto mx-auto space-x-4 flex items-center  border-y divide-x">
         <!-- Districts -->
-        <div class=" p-2 flex items-center space-x-3 justify-center">
+        <div class=" py-2 flex items-center space-x-3 justify-center w-full">
             <%= heroicon 'map', class: 'w-6 h-6 flex-none'%>
             <ul class="flex flex-col text-md font-medium text-gray-500">
                 <% company.districts.decorate.each do |district|%>
@@ -28,15 +27,13 @@
             </ul>
         </div>
     </div>
-    <!-- Views -->
-    <%= tag.div class: "col-span-full flex justify-center items-center mb-3 text-gray-500 text-sm" do %>
+    <!-- Footer -->
+    <%= tag.div class: "col-span-full flex flex-col space-y-3 justify-center items-center  text-gray-500 text-sm" do %>
+        <!-- Views -->
         <%= render 'shared/buttons/views', object: company, popover_target: company.title %>
-    <% end %>
-    
-    <!-- Contacts -->
-    <%= render 'users/users/contacts_section', user: company%>
-    <!-- Created at -->
-    <div class="flex justify-center text-center">
+        <!-- Contacts -->
+        <%= render 'users/users/contacts_section', user: company if action_name == 'show'%>
+        <!-- Created at -->
         <%= tag.span company.decorate.created_at, class: 'text-sm text-gray-500'%>
-    </div>
+    <% end %>
 </section>

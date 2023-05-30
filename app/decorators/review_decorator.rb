@@ -14,4 +14,8 @@ class ReviewDecorator < ApplicationDecorator
   def created_at
     l review.created_at, format: :date
   end
+  
+  def updated_at
+    l review.updated_at, format: :date
+  end
 end
