@@ -1,31 +1,33 @@
 <!-- Trucks filter -->
 <%= form_with url: path, method: :get, data: {turbo_frame: frame} do |f| %>
-    <% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto #{'-mt-5' if action_name == 'company_trucks'}" do %>
-        <!-- Working area -->
+    <% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 sm:grid-cols-2 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto #{'-mt-5' if action_name == 'company_trucks'}" do %>
+        <!-- District -->
         <div class="w-full h-14 items-center flex border-0 border-b border-gray-500 bg-opacity-90
-            rtl:pr-3 ltr:pl-3 rounded-tl-3xl rtl:sm:rounded-none <%= controller_name == 'main' ? 'bg-gray-700' : ''%>">
-            <%= image_tag('icons/icons8-address-gray-50.png', class: 'w-6 h-6 mr-1', alt: "district")%>
+            rtl:sm:border-l rtl:pr-3 ltr:sm:border-r ltr:pl-3 rounded-tl-3xl rtl:sm:rounded-none <%= controller_name == 'main' ? 'bg-gray-700' : ''%>">
+            <%= heroicon 'map', class: 'w-6 h-6 mr-1 text-gray-400', alt: "district"%>
             <%= f.collection_select(:district_id, District.all.decorate, :id, :title, 
-            { include_blank: Truck.human_attribute_name('districts'), selected: params[:district_id]}, 
+            { include_blank: District.model_name.human, selected: params[:district_id]}, 
             {class: "h-full text-base md:rounded-l-xl block w-full p-2.5 placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rounded-tl-3xl rtl:bg-left rtl:ml-3 sm:ml-0 bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
+        </div>
+        <!-- Language -->
+        <div class="w-full h-14 items-center flex border-0 border-b border-gray-500 relative bg-opacity-90
+            rtl:pr-3 rtl:rounded-tl-3xl ltr:pl-3 <%= controller_name == 'main' ? 'bg-gray-700' : ''%>">
+            <%= heroicon 'language', class: 'w-6 h-6 mr-1 text-gray-400', alt: "language-select"%>
+            <%= f.collection_select(:language_id, Language.all, :id, :title, {include_blank: Language.model_name.human, selected: params[:language_id]}, {class: "h-full text-base block w-full p-2.5  placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rtl:rounded-tl-3xl rtl:bg-left rtl:ml-3 bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
         </div>
         <!-- Search button -->
         <div class=" w-full h-auto p-3 col-span-full">
             <%= button_tag "Найти перевозчика", class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-500 border-blue-500 hover:bg-blue-600 text-gray-200'}" %>
         </div>
         
-        <% if @company || company%>
-            <%= render 'companies/shared/links_board', company: @company || company%>
-        <% else %>
-            <!-- Calculator link -->
-            <div class=" w-full h-auto pb-3 px-3 col-span-full">
-                <%= link_to calculator_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
-                    <%= t('home_page.calculate')%>
-                    <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-                        class: "mx-1.5 w-5 h-5", alt: "arrow-small-right"%>
-                <% end %>
-            </div>
-        <% end %>
+        <!-- Calculator link -->
+        <div class=" w-full h-auto pb-3 px-3 col-span-full">
+            <%= link_to calculator_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+                <%= t('home_page.calculate')%>
+                <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
+                    class: "mx-1.5 w-5 h-5", alt: "arrow-small-right"%>
+            <% end %>
+        </div>
         
         <!-- If main page -->
         <% if controller_name == 'main'%>

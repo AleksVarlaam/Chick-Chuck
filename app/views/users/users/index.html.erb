@@ -17,4 +17,4 @@
     <%= tag.h3 'Все перевозчики', class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
     <!-- Latest companies -->
     <%= render partial: 'companies/shared/company', collection: @latest_companies%>
-<% end %>
+<% end if @latest_companies.present?%>

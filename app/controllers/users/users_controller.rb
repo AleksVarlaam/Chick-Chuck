@@ -33,7 +33,7 @@ module Users
     private
 
     def filter_params
-      params.permit(:district_id)
+      params.permit(:district_id, :language_id)
     end
 
     def set_user

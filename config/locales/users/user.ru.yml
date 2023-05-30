@@ -43,8 +43,8 @@ ru:
         title:            'Регистрация компании'
         credential:       'Данные входа'
         personal:         'Информация о представителе'
-        contacts:         'Контакты'
         slogan_length:    '500 символов максимум'
+    contacts:   'Контакты'
     telegram:
         telegram_popover: 'Ваш telegram username как он есть'
     facebook:

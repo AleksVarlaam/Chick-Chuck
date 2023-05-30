@@ -43,8 +43,8 @@ uk:
         title:            'Реєстрація компанії'
         credential:       'Дані входу'
         personal:         'Репрезентативна інформація'
-        contacts:         'Контакти'
         slogan_length:    '500 символів макс'
+    contacts:   'Контакти'
     telegram:
         telegram_popover: 'Ваш telegram username як він є'
     facebook:

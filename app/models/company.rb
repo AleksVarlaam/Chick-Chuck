@@ -21,6 +21,10 @@ class Company < User
   scope :filter_by_district_id, lambda { |district_id|
                                   joins(:districts).where 'districts.id' => district_id
                                 }
+  scope :filter_by_language_id, lambda { |language_id|
+                                  joins(:languages).where 'languages.id' => language_id
+                                }
+
 
   def avatar_attachment_path
     avatar.present? ? avatar.avatar.url : 'icons/chick-chuck/laavor_favicon.png'

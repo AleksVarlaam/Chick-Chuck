@@ -43,8 +43,8 @@ he:
         title:            "רישום החברה"
         credential:       "נתוני כניסה"
         personal:         "מידע ייצוגי"
-        contacts:         "אנשי קשר"
         slogan_length:    "500 תווים לכל היותר"
+    contacts:   "אנשי קשר"
     telegram:
         telegram_popover: "שם המשתמש של המברק כפי שהוא"
     facebook:

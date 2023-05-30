@@ -3,9 +3,10 @@
     <div class="flex justify-center space-x-3 pt-2">
         <!-- Message -->
         <%= render 'feedbacks/rooms/form', recipient: company%>
-        <!-- Calculator -->
-        <%= link_to company_calculator_path(company), class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
-            <%= heroicon 'calculator', class: 'w-6 h-6'%>
+        <!-- Contacts -->
+        <%= link_to user_contacts_path(company), data: {turbo_frame: 'modal'},
+            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
+            <%= heroicon 'phone', class: 'w-6 h-6'%>
         <% end %>
     </div>
     <!-- Company info -->
@@ -29,10 +30,10 @@
         <!-- Products -->
         <%= link_to user_products_path(company), class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
             <%= heroicon 'shopping-bag', class: 'w-6 h-6'%>
-        <% end if company.products.published.present? %>
-        <!-- Favorites -->
-        <%= link_to user_path(company), class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
-            <%= heroicon 'heart', class: 'w-6 h-6'%>
+        <% end %>
+        <!-- Calculator -->
+        <%= link_to company_calculator_path(company), class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
+            <%= heroicon 'calculator', class: 'w-6 h-6'%>
         <% end %>
     </div>
 </div>

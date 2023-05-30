@@ -5,7 +5,7 @@
         <!-- Header -->
         <%= render 'companies/shared/company_header', company: company%>
         <!-- Rating -->
-        <%= render 'feedbacks/reviews/rating', rating: company.rating, count: company.reviews.count%>
+        <%= render 'feedbacks/reviews/rating', object: company%>
         <!-- Body -->
         <div class="my-3 w-auto mx-auto space-x-4 flex items-center  border-y divide-x">
             <!-- Districts -->
@@ -13,7 +13,7 @@
                 <%= heroicon 'map', class: 'w-6 h-6 flex-none'%>
                 <ul class="flex flex-col text-md font-medium text-gray-500">
                     <% company.districts.decorate.each do |district|%>
-                        <%= link_to trucks_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
+                        <%= link_to users_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
                             <li><%= district != company.districts.last ? district.title + ',' : district.title%></li>
                         <% end %>
                     <% end %>
@@ -24,7 +24,9 @@
                 <%= heroicon 'language', class: 'w-6 h-6 flex-none'%>
                 <ul class="flex flex-col text-md font-medium text-gray-500">
                     <% company.languages.each do |language|%>
-                        <li><%= language != company.languages.last ? language.title + ',' : language.title%></li>
+                        <%= link_to users_path(language_id: language), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
+                            <li><%= language != company.languages.last ? language.title + ',' : language.title%></li>
+                        <% end %>
                     <% end %>
                 </ul>
             </div>
@@ -33,8 +35,6 @@
         <%= tag.div class: "col-span-full flex flex-col space-y-3 justify-center items-center  text-gray-500 text-sm" do %>
             <!-- Views -->
             <%= render 'shared/buttons/views', object: company, popover_target: company.title %>
-            <!-- Contacts -->
-            <%= render 'users/users/contacts_section', user: company if action_name == 'show'%>
             <!-- Created at -->
             <%= tag.span company.decorate.created_at, class: 'text-sm text-gray-500'%>
         <% end %>
