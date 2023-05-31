@@ -9,7 +9,7 @@
       <div class="relative p-3 w-full max-w-lg h-full sm:h-auto bg-gray-50 border rounded-lg">
         <div class="text-center mx-2 h-auto">
             <!-- Title -->
-            <%= tag.h2 @title, class: "text-3xl font-semibold text-center text-gray-700"%>
+            <%= tag.h2 @title, class: "text-3xl font-semibold text-center text-gray-700" if @title.present?%>
             <!-- Close button -->
             <%= render 'shared/buttons/close'%>
         </div>

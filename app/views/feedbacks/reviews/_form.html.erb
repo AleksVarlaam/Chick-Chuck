@@ -48,7 +48,7 @@
                             class: "#{'hidden' if i == 0}",
                             data: {turbo_frame: 'modal'} do %>
                             <%= heroicon 'currency-dollar', variant: 'solid',
-                                class: "w-8 h-8 hover:text-green-600 #{@review.decorate.price_color(params, i)}" %>
+                                class: "w-8 h-8 #{@review.decorate.price_color(params, i)} #{review_hover_price_color(i)}" %>
                         <% end %>
                     <% end %>
                     <%= f.hidden_field :price, value: params[:price_rating].to_i > 0 ? params[:price_rating].to_i : @review.price %>

@@ -1,6 +1,6 @@
-<!-- About company -->
+<!-- Company card -->
 <%= turbo_frame_tag company, 
-    class: "bg-white py-4 rounded-lg border-gray-200 shadow-md hover:shadow-xl #{'border' unless action_name == 'show'}" do %>
+    class: "bg-white py-4 rounded-lg border-gray-200 shadow-md hover:shadow-xl #{'border' unless ['show', 'modal'].include?(action_name) }" do %>
     <section class="mx-3 sm:mx-10 flex flex-col items-center">
         <!-- Header -->
         <%= render 'companies/shared/company_header', company: company%>

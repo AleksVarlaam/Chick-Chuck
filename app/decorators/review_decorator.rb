@@ -12,10 +12,13 @@ class ReviewDecorator < ApplicationDecorator
   end
   
   def price_color(params, i)
-    if params[:price_rating].present? 
-      (0..params[:price_rating].to_i).include?(i) ? 'text-green-600' : 'text-gray-400'  
-    else
-      (0..review.price).include?(i) ? 'text-green-600' : 'text-gray-400'  
+    price = params[:price_rating].present? ? params[:price_rating].to_i : review.price
+    if (0..3).include?(price)
+      return (0..price).include?(i) ? 'text-green-600' : 'text-gray-400'
+    elsif (3..4).include?(price)
+      return (0..price).include?(i) ? 'text-yellow-400' : 'text-gray-400'
+    elsif (4..5).include?(price)
+      return (0..price).include?(i) ? 'text-red-400' : 'text-gray-400'
     end
   end
   

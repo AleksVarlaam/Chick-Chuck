@@ -35,5 +35,27 @@ module Feedbacks
     def rating_bar(review)
       rating_bar = review.present? ? review * 10 : 0
     end
+    
+    def review_total_price_color(price, i)
+      if (0..3).include?(price)
+        return (0..price).include?(i) ? 'text-green-600' : 'text-gray-400'
+      elsif (3..4).include?(price)
+        return (0..price).include?(i) ? 'text-yellow-400' : 'text-gray-400'
+      elsif (4..5).include?(price)
+        return (0..price).include?(i) ? 'text-red-400' : 'text-gray-400'
+      end
+    end
+    
+    def review_hover_price_color(i)
+      if (0..3).include?(i) 
+        'hover:text-green-600'
+      elsif (3..4).include?(i) 
+        'hover:text-yellow-400' 
+      elsif (4..5).include?(i) 
+        'hover:text-red-400' 
+      else
+        'text-gray-400'
+      end
+    end
   end
 end
