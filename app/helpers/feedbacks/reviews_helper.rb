@@ -36,7 +36,11 @@ module Feedbacks
       rating_bar = review.present? ? review * 10 : 0
     end
     
-    def review_total_price_color(price, i)
+    def review_star_color(rating, i)
+      (0..rating).include?(i) ? 'text-yellow-400' : 'text-gray-400'
+    end
+    
+    def review_price_color(price, i)
       if (0..3).include?(price)
         return (0..price).include?(i) ? 'text-green-600' : 'text-gray-400'
       elsif (3..4).include?(price)
@@ -56,6 +60,22 @@ module Feedbacks
       else
         'text-gray-400'
       end
+    end
+    
+    def total_price_rating_color(price)
+      if (0.1..3).include?(price)
+        'text-green-600' 
+      elsif (3..4).include?(price) 
+        'text-yellow-400'
+      elsif (4..5).include?(price)
+        'text-red-400'
+      else
+        'text-gray-400'
+      end
+    end
+    
+    def total_star_rating_color(rating)
+      rating >= 4.9 ? 'text-green-500' : rating >= 4 ? 'text-yellow-400' : 'text-gray-400'
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_084643) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_26_193007) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,13 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_084643) do
     t.string "uk", null: false
     t.string "en", null: false
     t.string "he", null: false
-  end
-
-  create_table "districts_trucks", id: false, force: :cascade do |t|
-    t.bigint "district_id"
-    t.bigint "truck_id"
-    t.index ["district_id"], name: "index_districts_trucks_on_district_id"
-    t.index ["truck_id"], name: "index_districts_trucks_on_truck_id"
   end
 
   create_table "districts_users", id: false, force: :cascade do |t|
@@ -225,7 +218,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_084643) do
   create_table "statistics", force: :cascade do |t|
     t.integer "main", default: 0
     t.integer "calculator", default: 0
-    t.integer "trucks", default: 0
+    t.integer "companies", default: 0
     t.integer "market", default: 0
     t.integer "about", default: 0
     t.integer "moving_preparation", default: 0
@@ -250,23 +243,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_084643) do
     t.index ["category_id"], name: "index_things_on_category_id"
   end
 
-  create_table "trucks", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.json "images"
-    t.float "length", null: false
-    t.float "load_capacity", null: false
-    t.float "height", null: false
-    t.float "width", null: false
-    t.integer "body_type", null: false
-    t.integer "assembly", null: false
-    t.integer "packing", null: false
-    t.integer "views", default: 0, null: false
-    t.boolean "published", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_trucks_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -288,7 +264,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_084643) do
     t.string "additional_phone"
     t.string "whatsapp"
     t.string "telegram"
+    t.integer "views", default: 0, null: false
     t.float "rating", default: 0.0, null: false
+    t.float "price", default: 0.0, null: false
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -300,8 +278,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_084643) do
     t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "views", default: 0
-    t.float "price", default: 0.0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -324,5 +300,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_084643) do
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "things", "categories"
-  add_foreign_key "trucks", "users"
 end

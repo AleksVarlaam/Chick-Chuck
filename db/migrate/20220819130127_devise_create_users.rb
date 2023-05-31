@@ -32,7 +32,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :additional_phone
       t.string :whatsapp
       t.string :telegram
-      t.float  :rating, null: false, default: 0
+      t.integer :views,  null: false, default: 0
+      t.float   :rating, null: false, default: 0
+      t.float   :price,  null: false, default: 0
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

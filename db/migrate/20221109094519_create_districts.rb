@@ -18,5 +18,11 @@ class CreateDistricts < ActiveRecord::Migration[7.0]
       t.string :he, null: false
       t.references :district, null: false, foreign_key: true
     end
+    
+    # Districts company
+    create_table :districts_users, id: false do |t|
+      t.belongs_to :district
+      t.belongs_to :user
+    end
   end
 end

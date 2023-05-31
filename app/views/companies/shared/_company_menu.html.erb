@@ -37,31 +37,6 @@
 <% end %>
 
 <hr>
-<!-- New truck page -->
-<%= link_to new_companies_truck_path, 
-   class: link_class, 
-   data: {action: "dropdown#toggle"}, 
-   role: "menuitem",
-   tabindex:"-1",
-   id:"profilePageLink" do
-%>
-   <%= heroicon "plus-circle", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
-   <%= t('truck.add_btn')%>
-<% end %>
-
-<!-- All company trucks -->
-<%= link_to companies_trucks_path, 
-   class: link_class, 
-   data: { action: "dropdown#toggle" }, 
-   role: "menuitem",
-   tabindex:"-1",
-   id:"profilePageLink" do
-%>
-   <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2")%>
-   <%= t('truck.my_trucks')%>
-<% end %>
-
-<hr>
 <!-- New product -->
 <%= link_to new_users_product_path, 
    class: link_class, 

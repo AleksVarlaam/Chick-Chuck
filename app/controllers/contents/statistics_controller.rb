@@ -7,7 +7,6 @@ module Contents
       @statistic = @commentable = Statistic.first
       @clients = Client.count
       @companies = Company.count
-      @trucks = Truck.where(published: true).count
       @products = Product.where(published: true).count
       @reviews = Review.count + Comment.count
       @comments = @statistic.comments

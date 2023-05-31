@@ -15,7 +15,7 @@
         <div class="flex items-center mb-1">
             <% 1.upto(5) do |i| %>
                 <%= heroicon 'star', variant: 'solid',
-                    class: "w-5 h-5 #{(0..review.rating).include?(i) ? 'text-yellow-400' : 'text-gray-400'}" %>
+                    class: "w-5 h-5 #{review_star_color(review.rating, i)}" %>
             <% end %>
             <%= tag.h3 review.title, class: "ml-2 text-sm font-semibold text-gray-900 dark:text-white" %>
         </div>
@@ -23,7 +23,7 @@
         <div class="flex items-center mb-1">
             <% 1.upto(5) do |i| %>
                 <%= heroicon 'currency-dollar',
-                    class: "w-5 h-5 #{review_total_price_color(review.price, i)}" %>
+                    class: "w-5 h-5 #{review_price_color(review.price, i)}" %>
             <% end %>
         </div>
         <!-- Created_at -->

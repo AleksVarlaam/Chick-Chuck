@@ -6,7 +6,7 @@
             <div class="flex items-center justify-center">
                 <% 1.upto(5) do |i| %>
                     <%= heroicon 'star', variant: 'solid',
-                        class: "w-6 h-6 #{(0..company.rating).include?(i) ? 'text-yellow-400' : 'text-gray-400'}" %>
+                        class: "w-6 h-6 #{review_star_color(company.rating, i)}" %>
                 <% end %>
                 <%= tag.p "#{company.rating} out of 5", class: "ml-2 text-lg font-medium text-gray-500" %>
             </div>
@@ -14,7 +14,7 @@
             <div class="flex items-center justify-center">
                 <% 1.upto(5) do |i| %>
                     <%= heroicon 'currency-dollar',
-                        class: "w-6 h-6 #{review_total_price_color(company.price, i)}" %>
+                        class: "w-6 h-6 #{review_price_color(company.price, i)}" %>
                 <% end %>
                 <%= tag.p "#{company.price} out of 5", class: "ml-2 text-lg font-medium text-gray-500" %>
             </div>

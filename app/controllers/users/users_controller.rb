@@ -8,6 +8,7 @@ module Users
     after_action :update_views, only: :show
     
     def index
+      Statistic.first.update(market: Statistic.first.companies + 1) unless user_signed_in?
       @best_companies = Company.user_filter(filter_params).take(3)
       @latest_companies = Company.user_filter(filter_params).drop(3)
     end

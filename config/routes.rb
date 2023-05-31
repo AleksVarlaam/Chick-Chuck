@@ -39,9 +39,6 @@ Rails.application.routes.draw do
     # Companies
     devise_for :companies, controllers: { registrations: 'companies/registrations' }
     namespace :companies do
-      resources :trucks, except: %i[show] do
-        post '/publish',      to: 'trucks#publish', as: 'publish'
-      end
       resources :prices, only: %i[index create update]
       resource  :calculator, only: %i[create update]
       get  '/dashboard',                to: 'dashboard#index',              as: 'dashboard'
@@ -74,12 +71,6 @@ Rails.application.routes.draw do
         get '/modal',         to: 'users/users#modal',                  as: 'modal'
         get '/contacts',      to: 'users/users#contacts',               as: 'contacts'
       end
-
-      # Trucks content
-      resources :trucks, only: %i[show index], controller: 'contents/trucks' do
-        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-      end
-      get 'company/:company_id/trucks', to: 'contents/trucks#company_trucks', as: 'company_trucks'
 
       # News content
       resources :news, only: %i[show index], controller: 'contents/news' do
