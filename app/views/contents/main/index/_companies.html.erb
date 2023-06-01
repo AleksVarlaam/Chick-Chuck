@@ -1,7 +1,7 @@
 <!-- Best carriers section -->
 <div class="py-10" id="companies">
     <!-- Title -->
-    <%= tag.h3 "Лучшие перевозчики", class: 'text-3xl font-semibold text-gray-800  text-center'%>
+    <%= tag.h3 t('company.top_carriers'), class: 'text-3xl font-semibold text-gray-800  text-center'%>
     <!-- Companies list -->
     <%= turbo_frame_tag 'companies', 
         class: "flex grid grid-cols-1 lg:grid-cols-3 space-x-4 rtl:space-x-reverse max-w-screen container mx-auto my-6" do %>
@@ -10,7 +10,7 @@
             <%= render partial: 'companies/shared/company', collection: @companies%>
         <% else %>
             <!-- Unavalaible -->
-            <%= render 'contents/shared/unavailable', model: t('product.products')%>
+            <%= tag.div (render 'contents/shared/unavailable', model: t('company.carriers')), class: 'col-span-full'%>
         <% end %>
     <% end %>
     <!-- View all -->

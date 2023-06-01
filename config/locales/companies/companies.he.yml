@@ -1,0 +1,36 @@
+he:
+    activerecord:
+        models:
+            company:      "חברה"
+        attributes:
+            company:
+                districts:        "אזור"
+                languages:        "לשונות"
+                title:            "שם"
+                working_area:     "אזור"
+                description:      "תיאור או סיסמה"
+                contacts:         "הצג אנשי קשר"
+                additional_phone: "טלפון נוסף"
+                avatar:           "לוגו"
+    company:
+        sign_up:          "להפוך לנושאת מטוסים"
+        about:            "אודות החברה"
+        we_speak:         "אנו אומרים ל:"
+        message:          "לכתוב"
+        contacts:         "הצג אנשי קשר"
+        say_truck_number: "הערה: אמור למספר המשאית להזמין משאית מסוימת"
+    company:
+        carriers:         "נשאים"
+        top_carriers:     "נושאות מטוסים מובילות"
+        latest_carriers:  "כל נושאות המטוסים"
+        about:            "אודות החברה"
+        we_speak:         "אנו אומרים ל:"
+        message:          "לכתוב"
+        contacts:         "הצג אנשי קשר"
+        find_carrier:     "מצא את המוביל"
+        sign_up:    
+            link:             "להפוך לנושאת מטוסים"
+            title:            "רישום החברה"
+            credential:       "נתוני כניסה"
+            personal:         "מידע ייצוגי"
+            slogan_length:    "500 תווים לכל היותר"

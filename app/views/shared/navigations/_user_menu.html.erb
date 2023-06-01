@@ -7,7 +7,7 @@
 
 <div class="flex items-center">
     <!-- Became Carrier -->
-    <%= link_to t('company.sign_up'), new_company_registration_path, 
+    <%= link_to t('company.sign_up.link'), new_company_registration_path, 
         class: "hidden xl:block rtl:ml-4 ltr:mr-4 whitespace-nowrap text-base font-medium  hover:text-gray-900 #{current_page?(new_company_registration_path) ? 'text-gray-900' : 'text-gray-500'}" unless user_signed_in?%>
     <!-- User menu -->
     <div class="relative z-50" data-controller="dropdown">
@@ -106,7 +106,7 @@
                     id:"become-a-Carrier-link" do
                 %>
                     <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2", alt: "become-a-carrier")%>
-                    <%= t('company.sign_up')%>
+                    <%= t('company.sign_up.link')%>
                 <% end %>
             <% end %>
         </div>

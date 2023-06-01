@@ -10,13 +10,6 @@ en:
     admin_menu:
         lang_dist:        'Languages and districts'
         catalog:          'Catalog'
-    company:
-        sign_up:          'Become a Carrier'
-        about:            'About company'
-        we_speak:         'We speak on: '
-        message:          'Write'
-        contacts:         'Show contacts'
-        say_truck_number: 'Note: write truck number to order a particular truck!'
     sign_in:
         title:            'Log in'
         title_as_company: 'Log in as company'
@@ -39,11 +32,6 @@ en:
     sign_up:
         title:            'Sign up'
         btn:              'Create account'
-    become_a_carrier:
-        title:            'Company registration'
-        credential:       'Credential information'
-        personal:         'Representative information'
-        slogan_length:    '500 characters maximum'
     contacts:   'Contacts'
     telegram:
         telegram_popover: 'Your telegram username as it is'

@@ -10,13 +10,6 @@ ru:
     admin_menu:
         lang_dist:        'Языки и регионы'
         catalog:          'Каталог'
-    company:
-        sign_up:          'Стать перевозчиком'
-        about:            'О компании'
-        we_speak:         'Мы говорим на: '
-        message:          'Написать'
-        contacts:         'Показать Контакты'
-        say_truck_number: 'Примечание: скажите номер грузовика, чтобы заказать конкретный грузовик!'
     sign_in:
         title:            'Вход'
         title_as_company: 'Вход для компании'
@@ -39,11 +32,6 @@ ru:
     sign_up:
         title:            'Регистрация'
         btn:              'Создать аккаунт'
-    become_a_carrier:
-        title:            'Регистрация компании'
-        credential:       'Данные входа'
-        personal:         'Информация о представителе'
-        slogan_length:    '500 символов максимум'
     contacts:   'Контакты'
     telegram:
         telegram_popover: 'Ваш telegram username как он есть'

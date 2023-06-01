@@ -1,0 +1,29 @@
+ru:
+    activerecord:
+        models:
+            company:      "Компания"
+        attributes:
+            company:
+                districts:        "Регион"
+                languages:        "Языки"
+                title:            "Название"
+                working_area:     "Регион"
+                description:      "Описание или слоган"
+                contacts:         "Контакты"
+                additional_phone: "Доп. телефон"
+                avatar:           "логотип"
+    company:
+        carriers:         "перевозчики"
+        top_carriers:     "Лучшие перевозчики"
+        latest_carriers:  "Все перевозчики"
+        about:            "О компании"
+        we_speak:         "Мы говорим на: "
+        message:          "Написать"
+        contacts:         "Показать Контакты"
+        find_carrier:     "Найти перевозчика"
+        sign_up:    
+            link:             "Стать перевозчиком"
+            title:            "Регистрация компании"
+            credential:       "Данные входа"
+            personal:         "Информация о представителе"
+            slogan_length:    "500 символов максимум"

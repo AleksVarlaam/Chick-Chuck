@@ -4,7 +4,7 @@
   
   <!-- Credential Information -->
   <h6 class="text-gray-500 text-xl mb-6 font-bold uppercase">
-    <%= t('become_a_carrier.credential')%>
+    <%= t('company.sign_up.credential')%>
   </h6>
 
 <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-12">
@@ -65,7 +65,7 @@
   <!-- Representative information -->
   <hr>
   <h6 class="text-gray-500 text-xl my-6 font-bold uppercase">
-   <%= t('become_a_carrier.personal')%>
+   <%= t('company.sign_up.personal')%>
   </h6>
 
 <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-12">
@@ -169,7 +169,7 @@
     <div class="mb-6">
         <div class="flex items-center">
             <%= f.label :description, class: "text-lg mr-1" %>
-            <%= render 'shared/buttons/popover', text: t('become_a_carrier.slogan_length')%>
+            <%= render 'shared/buttons/popover', text: t('company.sign_up.slogan_length')%>
         </div>
        <%= f.text_area :description, autocomplete: "phone", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",

@@ -4,7 +4,6 @@ ru:
         models:
             admin:        'Админ'
             client:       'Пользователь'
-            company:      'Компания'
             category:     'Категория'
             thing:        'Тип'
             district:     'Регион'
@@ -41,15 +40,6 @@ ru:
                 delete_account:   'Удалить аккаунт'
                 created_at:       'Дата регистрации'
                 remove_avatar:    'Удалить аватар'
-            company:
-                districts:        'Регион'
-                languages:        'Языки'
-                title:            'Название'
-                working_area:     'Регион'
-                description:      'Описание или слоган'
-                contacts:         'Контакты'
-                additional_phone: 'Доп. телефон'
-                avatar:           'логотип'
             calculator:
                 distance:             'Дистанция'
                 floor_down:           'Этажей вниз'

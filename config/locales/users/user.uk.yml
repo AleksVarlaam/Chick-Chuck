@@ -10,13 +10,6 @@ uk:
     admin_menu:
         lang_dist:        'Мови та регіони'
         catalog:          'Каталог'
-    company:
-        sign_up:          'Стати перевізником'
-        about:            'Про компанію'
-        we_speak:         'Ми спілкуємось на: '
-        message:          'Написати'
-        contacts:         'Показати Контакти'
-        say_truck_number: 'Примітка: вкажіть номер вантажівки, для того щоб замовити конкретну вантажівку!'
     sign_in:
         title:            'Вхід'
         title_as_company: 'Вхід для компанії'
@@ -39,11 +32,6 @@ uk:
     sign_up:
         title:            'Реєстрація'
         btn:              'Створити акаунт'
-    become_a_carrier:
-        title:            'Реєстрація компанії'
-        credential:       'Дані входу'
-        personal:         'Репрезентативна інформація'
-        slogan_length:    '500 символів макс'
     contacts:   'Контакти'
     telegram:
         telegram_popover: 'Ваш telegram username як він є'

@@ -10,13 +10,6 @@ he:
     admin_menu:
         lang_dist:        "שפות ואזורים"
         catalog:          "קטלוג"
-    company:
-        sign_up:          "להפוך לנושאת מטוסים"
-        about:            "אודות החברה"
-        we_speak:         "אנו אומרים ל:"
-        message:          "לכתוב"
-        contacts:         "הצג אנשי קשר"
-        say_truck_number: "הערה: אמור למספר המשאית להזמין משאית מסוימת"
     sign_in:
         title:            "כניסה"
         title_as_company: "כניסת החברה"
@@ -39,11 +32,6 @@ he:
     sign_up:
         title:            "הרשמה"
         btn:              "יוצרים פרופיל"
-    become_a_carrier:
-        title:            "רישום החברה"
-        credential:       "נתוני כניסה"
-        personal:         "מידע ייצוגי"
-        slogan_length:    "500 תווים לכל היותר"
     contacts:   "אנשי קשר"
     telegram:
         telegram_popover: "שם המשתמש של המברק כפי שהוא"

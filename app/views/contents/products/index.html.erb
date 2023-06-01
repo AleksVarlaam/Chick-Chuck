@@ -16,7 +16,7 @@
         <% if @products.present? %>
             <%= render partial: 'contents/products/product', collection: @products%>
         <% else %>
-            <%= tag.div (render 'contents/shared/unavailable', model: t('product.products')), class: 'lg:col-span-2'%>
+            <%= tag.div (render 'contents/shared/unavailable', model: t('product.products')), class: 'lg:col-span-2 xl:col-span-3'%>
         <% end %>
     <% end %>
     <%== pagy_nav(@pagy) if @products_count > 11%>

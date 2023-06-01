@@ -1,0 +1,29 @@
+uk:
+    activerecord:
+        models:
+            company:      'Компанія'
+        attributes:
+            company:
+                districts:        'Регіон'
+                languages:        'Мови'
+                title:            'Назва'
+                working_area:     'Регіон'
+                description:      'Опис або слоган'
+                contacts:         'Контакти'
+                additional_phone: 'Дод. телефон'
+                avatar:           'логотип'
+    company:
+        carriers:         "перевізники"
+        top_carriers:     "Кращі перевізники"
+        latest_carriers:  "Всі перевізники"
+        about:            "Про компанію"
+        we_speak:         "Ми спілкуємось на: "
+        message:          "Написати"
+        contacts:         "Показати Контакти"
+        find_carrier:     "Знайти перевізника"
+        sign_up:    
+            link:             "Стати перевізником"
+            title:            "Реєстрація компанії"
+            credential:       "Дані входу"
+            personal:         "Репрезентативна інформація"
+            slogan_length:    "500 символів макс"

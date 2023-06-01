@@ -1,0 +1,29 @@
+en:
+    activerecord:
+        models:
+            company:      "Company"
+        attributes:
+            company:
+                districts:        "District"
+                languages:        "Languages"
+                title:            "Title"
+                working_area:     "District"
+                description:      "Description or slogan"
+                contacts:         "Contacts"
+                additional_phone: "Additional phone"
+                avatar:           "logotype"
+    company:
+        carriers:         "carriers"
+        top_carriers:     "Top carriers"
+        latest_carriers:  "Latest carriers"
+        about:            "About company"
+        we_speak:         "We speak on: "
+        message:          "Write"
+        contacts:         "Show contacts"
+        find_carrier:     "Find carrier"
+        sign_up:    
+            link:             "Become a Carrier"
+            title:            "Company registration"
+            credential:       "Credential information"
+            personal:         "Representative information"
+            slogan_length:    "500 characters maximum"
