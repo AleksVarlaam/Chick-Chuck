@@ -28,7 +28,7 @@ class ReviewNotification < Noticed::Base
   end
 
   def url
-    [object]
+    user_path(id: object.id, anchor: "review_#{params[:review].id}")
   end
 
   def avatar

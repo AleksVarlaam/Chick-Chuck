@@ -16,7 +16,7 @@ en:
         main_features:
             title_html:       'Explore our <br> awesome features'
             combining_desc:   'No more need to search all over the internet or ask friends. Many carriers in one place, just choose the right one for you!'
-            reviews_desc:     'Leave your real review of carrier services to help other people choose the right and professional carrier. The rating of the company is calculated based on the feedback about each truck.'
+            reviews_desc:     'Leave your real review of carrier services to help other people choose the right and professional carrier.'
             calculator_desc:  'Calculate the approximate cost of transportation to estimate your upcoming costs and choose the suitable carrier for you.'
             market_desc:      'You can buy used items directly from the carrier and do not bother delivering them.'
         latest_trucks: 'Latest trucks'

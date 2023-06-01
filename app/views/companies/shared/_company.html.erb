@@ -38,5 +38,19 @@
             <!-- Created at -->
             <%= tag.span company.decorate.created_at, class: 'text-sm text-gray-500'%>
         <% end %>
+        <!-- Description -->
+        <%= tag.div do %>
+        	<div class="container max-w-xl mx-auto">
+        		<div class="flex flex-col items-center w-full p-6 space-y-4 rounded-md lg:h-full dark:bg-gray-900 dark:text-gray-100">
+        			<%= tag.blockquote class: "max-w-lg text-lg italic font-medium text-center text-gray-700" do %>
+                        "<%= company.description%>"
+                    <% end if company.description.present?%>
+        			<%= tag.div class:"text-center flex items-center text-gray-500 hover:text-blue-600 dark:text-gray-400 space-x-2" do %>
+                        <%= heroicon 'globe-alt', class: 'w-5 h-6'%>
+                        <%= link_to company.website.split("https://").last%>
+                    <% end if company.website.present?%>
+        		</div>
+        	</div>
+        <% end if action_name == 'show'%>
     </section>
 <% end %>
