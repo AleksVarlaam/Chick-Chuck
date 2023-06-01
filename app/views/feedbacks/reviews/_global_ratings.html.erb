@@ -8,7 +8,7 @@
                     <%= heroicon 'star', variant: 'solid',
                         class: "w-6 h-6 #{review_star_color(company.rating, i)}" %>
                 <% end %>
-                <%= tag.p "#{company.rating} out of 5", class: "ml-2 text-lg font-medium text-gray-500" %>
+                <%= tag.p t('review.out_of', count: company.rating), class: "ml-2 text-lg font-medium text-gray-500" %>
             </div>
             <!-- Price -->
             <div class="flex items-center justify-center">
@@ -16,9 +16,9 @@
                     <%= heroicon 'currency-dollar',
                         class: "w-6 h-6 #{review_price_color(company.price, i)}" %>
                 <% end %>
-                <%= tag.p "#{company.price} out of 5", class: "ml-2 text-lg font-medium text-gray-500" %>
+                <%= tag.p t('review.out_of', count: company.price), class: "ml-2 text-lg font-medium text-gray-500" %>
             </div>
-            <%= tag.p "#{company.reviews.count} global ratings", 
+            <%= tag.p t('review.total_ratings_count', count: company.reviews.count), 
             class: "text-center text-base md:text-lg mt-3 font-medium text-gray-500 dark:text-gray-400" %>
         </div>
         <%= tag.div class: "flex justify-center" do %>

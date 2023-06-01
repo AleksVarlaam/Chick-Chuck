@@ -1,0 +1,20 @@
+en:
+    activerecord:
+        models:
+            review:       'Review'
+        attributes:
+            review:
+                rating:   'Rating'
+                price:    'Price'
+    review:
+        reviews:                "Reviews"
+        add:                    "Leave feedback"
+        edit:                   "Edit feedback"
+        total_ratings_count:    "Global ratings: %{count}"
+        out_of:                 "%{count} out of 5"
+        form:
+            title:                  "Your opinion matters"
+            rating_desc:            "How would you rate the services of the carrier?"
+            price_desc:             "How do you estimate the cost of carrier services?"
+            title_placeholder:      "Title"
+            comment_placeholder:    "Your comment"

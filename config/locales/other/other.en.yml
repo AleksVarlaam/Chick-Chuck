@@ -13,11 +13,7 @@ en:
     district:
         add_btn:          'Add district'
     body_type:
-        add_btn:          'Add type'
-    review:
-        review_desc:      'Leave your review if you have already used the services of this company and truck. Your opinion is very important to us and helps other users to find a honest professional carrier!'
-        add_btn:          'Estimate %{model}'
-        edit_btn:         'Edit review'   
+        add_btn:          'Add type'  
     message:
         placeholder:      'Your message...'
     comment:

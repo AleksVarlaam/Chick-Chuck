@@ -11,12 +11,10 @@ ru:
             city:         'Город'
             language:     'Язык'
             news:         'Новость'
-            truck:        'Грузовик'
             product:      'Товар'
             calculator:   'Калькулятор'
             price:        'Цена'
             message:      'Сообщение'
-            review:       'Отзыв'
             comment:      'Комментарий'
             notification: 'Уведомление'
         errors:
@@ -58,16 +56,6 @@ ru:
                 floor_down_elevator:  'Этажей вниз(лифт)'
                 floor_up:             'Этажей вверх'
                 floor_up_elevator:    'Этажей вверх(лифт)'
-            truck:
-                districts:        'Регион'
-                body_type:        'Тип кузова'
-                assembly:         'Сборка | разборка'
-                packing:          'Упаковка'
-                length:           'Длина кузова'
-                width:            'Ширина кузова'
-                height:           'Высота кузова' 
-                load_capacity:    'Грузоподъем. '
-                images:           'изображения'
             product:
                 category:         'Категория'
                 things:           'Тип'
@@ -81,13 +69,6 @@ ru:
                 sold:             'Продано'
                 district:         'Регион'
                 city:             'Город'
-            review:
-                politeness:       'Вежливость'
-                punctuality:      'Пунктуальность'
-                sociability:      'Коммуникабельность'
-                wholeness_things: 'Сохранность вещей'
-                speed:            'Скорость'
-                value_money:      'Цена качество'
             news:
                 title:            'Заголовок'
                 description:      'Описание'

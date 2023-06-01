@@ -1,0 +1,20 @@
+he:
+    activerecord:
+        models:
+            review:       "תגובה"
+        attributes:
+            review:
+                rating:   "דירוג"
+                price:    "מחיר"
+    review:
+        reviews:                "תגובות"
+        add:                    "להשאיר תגובה"
+        edit:                   "שנה ביקורת"
+        total_ratings_count:    "דירוג כולל: %{count}"
+        out_of:                 "%{count} מתוך 5"
+        form:
+            title:                  "דעתך חשובה מאוד"
+            rating_desc:            "איך היית מדרג את שירותיו של המוביל?"
+            price_desc:             "איך אתה מעריך את העלות של שירותי המוביל?"
+            title_placeholder:      "כותרת"
+            comment_placeholder:    "התגובה שלך"

@@ -16,7 +16,6 @@ en:
             calculator:   'Calculator'
             price:        'Price'
             message:      'Message'
-            review:       'Review'
             comment:      'Comment'
             notification: 'Notification'
         errors:
@@ -80,13 +79,6 @@ en:
                 sold:             'Sold'
                 district:         'District'
                 city:             'City'
-            review:
-                politeness:       'Politeness'
-                punctuality:      'Punctuality'
-                sociability:      'Sociability'
-                wholeness_things: 'The safety of things'
-                speed:            'Speed'
-                value_money:      'Value for money'
             news:
                 title:            'Title'
                 description:      'Description'

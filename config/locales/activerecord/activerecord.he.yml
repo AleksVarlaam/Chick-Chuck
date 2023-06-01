@@ -16,7 +16,6 @@ he:
             calculator:   "מחשבון"
             price:        "מחיר"
             message:      "מסר"
-            review:       "תגובה"
             comment:      "תגובה"
             notification: "הודעה"
         errors:
@@ -81,13 +80,6 @@ he:
                 sold:             "נמכר"
                 district:         "אזור"
                 city:             "עיר"
-            review:
-                politeness:       "אדיבות"
-                punctuality:      "דייקנות"
-                sociability:      "תקשורת"
-                wholeness_things: "שמירה"
-                speed:            "קצב"
-                value_money:      "מחיר איכותי"
             news:
                 title:            "כותרת"
                 description:      "תיאור"

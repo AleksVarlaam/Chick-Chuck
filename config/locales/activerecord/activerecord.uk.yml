@@ -16,7 +16,6 @@ uk:
             calculator:   'Калькулятор'
             price:        'Ціна'
             message:      'Повідомлення'
-            review:       'Відгук'
             comment:      'Коментування'
             notification: 'Сповіщення'
         errors:
@@ -81,13 +80,6 @@ uk:
                 sold:             'Продано'
                 district:         'Регіон'
                 city:             'Міста'
-            review:
-                politeness:       'Вічливість'
-                punctuality:      'Пунктуальність'
-                sociability:      'Комунікабельність'
-                wholeness_things: 'Збереження речей'
-                speed:            'Швидкість'
-                value_money:      'Ціна якість'
             news:
                 title:            'Заголовок'
                 description:      'Опис'

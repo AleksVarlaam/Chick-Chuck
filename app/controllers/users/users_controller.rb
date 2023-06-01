@@ -9,8 +9,11 @@ module Users
     
     def index
       Statistic.first.update(market: Statistic.first.companies + 1) unless user_signed_in?
-      @best_companies = Company.user_filter(filter_params).take(3)
-      @latest_companies = Company.user_filter(filter_params).drop(3)
+      companies = Company.user_filter(filter_params)
+      @best_companies = companies.take(3)
+      latest_companies = companies.drop(3)
+      @pagy_a, @latest_companies = pagy_array(latest_companies, items: 10)
+      @companies_count = latest_companies.count
     end
 
     def show
@@ -20,7 +23,7 @@ module Users
       @comment = Comment.new
       @reviewable = @user
       @review = current_client&.company_review(@reviewable) || Review.new
-      @reviews = @user.reviews.where.not(content: nil || "")
+      @reviews = @user.reviews.where.not(content: nil || "", title: nil || "")
       @pagy, @reviews = pagy(@reviews, items: 10, fragment: '#reviews')
       @reviews_count = @reviews.count
     end

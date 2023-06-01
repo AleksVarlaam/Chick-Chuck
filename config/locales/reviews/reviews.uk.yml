@@ -1,0 +1,20 @@
+uk:
+    activerecord:
+        models:
+            review:       'Відгук'
+        attributes:
+            review:
+                rating:   'Рейтинг'
+                price:    'Ціна'
+    review:
+        reviews:                "Огляд"
+        add:                    "Залишити відгук"
+        edit:                   "Змінити відгук"
+        total_ratings_count:    "Загальний рейтинг: %{count}"
+        out_of:                 "%{count} з 5"
+        form:
+            title:                  "Ваша думка дуже важлива"
+            rating_desc:            "Як би ви оцінили послуги перевізника?"
+            price_desc:             "Як ви оцінюєте вартість послуг перевізника?"
+            title_placeholder:      "Назва"
+            comment_placeholder:    "Ваш коментар"

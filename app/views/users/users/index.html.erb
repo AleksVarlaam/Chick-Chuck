@@ -18,3 +18,6 @@
     <!-- Latest companies -->
     <%= render partial: 'companies/shared/company', collection: @latest_companies%>
 <% end if @latest_companies.present?%>
+
+<!-- Pagy -->
+<%== pagy_nav(@pagy_a) if @companies_count > 1 %>

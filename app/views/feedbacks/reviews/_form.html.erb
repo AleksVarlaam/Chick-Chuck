@@ -16,7 +16,7 @@
             <!-- Ratings -->
       		<div class="flex flex-col items-center py-4 space-y-2">
                 <!-- Rating -->
-      			<span class="text-center text-gray-500">How would you rate the services of the carrier?</span>
+      			<%= tag.span t('review.form.rating_desc'), class: "text-center text-gray-500" %>
                 <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
                     <% 0.upto(5) do |i| %>
                         <%= button_to current_client.company_review(@reviewable) ? edit_review_path(@review) : new_review_path, 
@@ -35,7 +35,7 @@
                     <%= f.hidden_field :rating, value: params[:star_rating].to_i > 0 ? params[:star_rating].to_i : @review.rating %>
                 <% end %>
                 <!-- Price -->
-                <span class="text-center text-gray-500">How do you estimate the cost of carrier services?</span>
+                <%= tag.span t('review.form.price_desc'), class: "text-center text-gray-500"%>
                 <%= turbo_frame_tag 'rating_price', class: "flex space-x-3" do %>
                     <% 0.upto(5) do |i| %>
                         <%= button_to current_client.company_review(@reviewable) ? edit_review_path(@review) : new_review_path, 
@@ -57,10 +57,10 @@
             <!-- Review form -->
       		<div class="flex flex-col w-full">
                 <!-- Title -->
-                <%= f.text_field :title, placeholder: 'Title', 
+                <%= f.text_field :title, placeholder: t('review.form.title_placeholder'), 
                     class: "p-2 rounded-md resize-none w-full h-auto bg-gray-100 dark:text-gray-100 dark:bg-gray-900"%>
                 <!-- Content -->
-                <%= f.text_area  :content, placeholder: 'Your comment here', 
+                <%= f.text_area  :content, placeholder: t('review.form.comment_placeholder'), 
                     class: "p-2 mt-3 rounded-md w-full h-[6rem] sm:h-[8rem] bg-gray-100 dark:text-gray-100 dark:bg-gray-900"%>
                 <!-- Submit -->
                 <%= f.submit t('global.send_btn'), 

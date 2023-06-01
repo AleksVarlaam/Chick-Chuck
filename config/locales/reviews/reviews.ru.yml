@@ -1,0 +1,20 @@
+ru:
+    activerecord:
+        models:
+            review:       'Отзыв'
+        attributes:
+            review:
+                rating:   'Рейтинг'
+                price:    'Цена'
+    review:
+        reviews:                "Отзывы"
+        add:                    "Оставить отзыв"
+        edit:                   "Изменить отзыв"
+        total_ratings_count:    "Всего рейтингов: %{count}"
+        out_of:                 "%{count} из 5"
+        form:
+            title:                  "Ваше мнение очень важно"
+            rating_desc:            "Как бы вы оценили услуги перевозчика?"
+            price_desc:             "Как вы оцениваете стоимость услуг перевозчика?"
+            title_placeholder:      "Заголовок"
+            comment_placeholder:    "Ваш комментарий"
