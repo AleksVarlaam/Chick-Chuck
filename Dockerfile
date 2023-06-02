@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.2.2
-FROM ruby:$RUBY_VERSION-slim as base
+FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-jemalloc-slim as base
 
 LABEL fly_launch_runtime="rails"
 
@@ -84,4 +84,3 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
