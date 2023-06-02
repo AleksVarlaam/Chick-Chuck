@@ -17,8 +17,6 @@ class Comment < ApplicationRecord
 
   def notify_user
     case commentable_type
-    when Truck.name
-      CommentNotification.with(comment: self).deliver_later(commentable.company) if user != commentable.company
     when News.name
       CommentNotification.with(comment: self).deliver_later(commentable.admin) if user != commentable.admin
     when User.name
