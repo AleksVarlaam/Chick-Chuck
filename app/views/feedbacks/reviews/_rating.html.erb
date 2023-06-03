@@ -12,17 +12,6 @@
             class: "w-6 h-6 mr-1 #{total_price_rating_color(object.price)}" %>
         <%= "#{object.price} #{"(10+)" if object.reviews.count > 10}" %>
     <% end %>
-    <!-- Followed -->
-    <%= link_to company_calculator_path(object), data: {'popover-target' => 'follow ' + object.user_name},
-        class: "font-medium rounded-lg text-sm p-2 text-center " do %>
-        <!-- Icon -->
-        <%= heroicon 'heart', class: 'w-6 h-6 text-gray-400 hover:text-red-500', variant: "outline"%>
-        <!-- Popover content -->
-        <div data-popover id="<%= 'follow ' + object.user_name %>" role="tooltip" class="absolute z-20 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
-            <div class="px-3 py-2 text-center">
-                <%= tag.p 'follow ' + object.user_name, class: "text-gray-500 text-sm"%>
-            </div>
-            <div data-popper-arrow></div>
-        </div>
-    <% end %>
+    <!-- Favorite form -->
+    <%= render 'users/favorites/form', object: object%>
 </div>

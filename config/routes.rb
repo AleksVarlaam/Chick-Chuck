@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     end
     # Users
     namespace :users do
+      resources :favorites, only: %i[index create destroy]
       resources :products, except: %i[show] do
         post '/publish',      to: 'products#publish',             as: 'publish'
         post '/mark_as_sold', to: 'products#mark_as_sold',        as: 'mark_as_sold'

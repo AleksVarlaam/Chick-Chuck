@@ -1,0 +1,37 @@
+<%= turbo_frame_tag dom_id(object, "favorite") do %>
+    <!-- Save object to saved -->
+    <% unless current_user.favorites.include?(Favorite.find_by(favorited_id: object.id))%>
+        <%= form_with model: Favorite.new, 
+            url: users_favorites_path, 
+            method: :post,
+            data: {'popover-target' => 'follow ' + object.user_name},
+            class: "font-medium rounded-lg text-sm p-2 text-center " do |f| %>
+            <!-- Icon -->
+            <%= f.hidden_field :favorited_id, value: object.id %>
+            <%= f.hidden_field :favorited_type, value: object.class.name %>
+            <%= button_to type: "submit" do %>
+                <%= heroicon 'bookmark', class: 'w-6 h-6 hover:text-yellow-400 text-gray-500', variant: "outline"%>
+            <% end %>
+        <% end %>
+    <% else%>
+    <!-- Delete object from saved -->
+        <%= form_with model: Favorite.find_by(favorited_id: object.id), 
+            url: users_favorite_path(Favorite.find_by(favorited_id: object.id)), 
+            method: :delete,
+            data: {'popover-target' => 'follow ' + object.user_name},
+            class: "font-medium rounded-lg text-sm p-2 text-center " do |f| %>
+            <!-- Icon -->
+            <%= f.hidden_field :favorited_id, value: object.id %>
+            <%= button_to type: "submit" do %>
+                <%= heroicon 'bookmark', class: 'w-6 h-6 text-yellow-400 hover:text-red-500', variant: "solid"%>
+            <% end %>
+        <% end %>
+    <% end %>
+    <!-- Popover content -->
+    <div data-popover id="<%= 'follow ' + object.user_name %>" role="tooltip" class="absolute z-20 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
+        <div class="px-3 py-2 text-center">
+            <%= tag.p 'Save ' + object.user_name, class: "text-gray-500 text-sm"%>
+        </div>
+        <div data-popper-arrow></div>
+    </div>
+<% end %>
