@@ -9,3 +9,4 @@ options:
     fly_launch_runtime: rails
   postgresql: true
   redis: true
+  swap: 512M
