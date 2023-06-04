@@ -12,20 +12,20 @@
             </div>
         </div>
         <!-- Stars -->
-        <div class="flex items-center mb-1">
+        <%= tag.h3 review.title, class: "font-semibold text-gray-900 dark:text-white" %>
+        <div class="flex items-center my-1">
             <% 1.upto(5) do |i| %>
                 <%= heroicon 'star', variant: 'solid',
                     class: "w-5 h-5 #{review_star_color(review.rating, i)}" %>
             <% end %>
-            <%= tag.h3 review.title, class: "ml-2 text-sm font-semibold text-gray-900 dark:text-white" %>
         </div>
         <!-- Price -->
-        <div class="flex items-center mb-1">
+        <!-- <div class="flex items-center mb-1">
             <% 1.upto(5) do |i| %>
                 <%= heroicon 'currency-dollar',
                     class: "w-5 h-5 #{review_price_color(review.price, i)}" %>
             <% end %>
-        </div>
+        </div> -->
         <!-- Created_at -->
         <footer class="mb-5 text-sm text-gray-500 dark:text-gray-400">
             <p><time datetime="<%= review.decorate.created_at%>"><%= review.decorate.created_at%></time></p>

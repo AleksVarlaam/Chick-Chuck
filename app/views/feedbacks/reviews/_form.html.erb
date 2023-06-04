@@ -35,16 +35,17 @@
                     <%= f.hidden_field :rating, value: params[:star_rating].to_i > 0 ? params[:star_rating].to_i : @review.rating %>
                 <% end %>
                 <!-- Price -->
-                <%= tag.span t('review.form.price_desc'), class: "text-center text-gray-500"%>
+                <%= f.hidden_field :price, value: 0%>
+                <!-- <%= tag.span t('review.form.price_desc'), class: "text-center text-gray-500"%>
                 <%= turbo_frame_tag 'rating_price', class: "flex space-x-3" do %>
                     <% 0.upto(5) do |i| %>
-                        <%= button_to current_client.company_review(@reviewable) ? edit_review_path(@review) : new_review_path, 
-                            method: :get, 
+                        <%= button_to current_client.company_review(@reviewable) ? edit_review_path(@review) : new_review_path,
+                            method: :get,
                             params: {
-                                price_rating: i != params[:price_rating].to_i ? i : params[:price_rating].to_i , 
-                                star_rating: @review.decorate.star_value(params), 
+                                price_rating: i != params[:price_rating].to_i ? i : params[:price_rating].to_i ,
+                                star_rating: @review.decorate.star_value(params),
                                 company_id: @reviewable.id
-                            }, 
+                            },
                             class: "#{'hidden' if i == 0}",
                             data: {turbo_frame: 'modal'} do %>
                             <%= heroicon 'currency-dollar', variant: 'solid',
@@ -52,7 +53,7 @@
                         <% end %>
                     <% end %>
                     <%= f.hidden_field :price, value: params[:price_rating].to_i > 0 ? params[:price_rating].to_i : @review.price %>
-                <% end %>
+                <% end %> -->
       		</div>
             <!-- Review form -->
       		<div class="flex flex-col w-full">
