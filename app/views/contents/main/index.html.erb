@@ -16,9 +16,7 @@
     <!-- Note -->
     <%= render 'contents/main/index/moving_preparation'%>
     <!-- Newsletter -->
-    <%# render 'contents/main/index/newsletter'%>
-    <!-- Feedback -->
-    <%= render 'contents/main/index/feedback'%>
+    <%= render 'contents/main/index/newsletter'%>
     <!-- Latest news -->
     <%= render 'contents/main/index/latest_news' if News.count.positive?%>
 <% end %>

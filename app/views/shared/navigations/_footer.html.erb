@@ -1,5 +1,7 @@
 <%= provide :footer do %>
     <footer class="bg-gray-200 mt-8 relative">
+        
+        <!-- Logo -->
         <%= link_to '#top', class: 'absolute ltr:right-2 rtl:left-2 bottom-5 z-20', data: {controller: 'scroll-to'} do %>
             <%= image_tag('icons/icons8-up-2-50.png', class: 'w-8 hover:w-10 h-full', alt: "arrow up")%>
         <% end unless controller_name == 'errors'%>
@@ -16,6 +18,8 @@
                         link_class: "mx-4 text-base font-medium transition-colors duration-300 hover:text-gray-900",
                         current_page: current_page %>
                 </div>
+                <!-- Feedback -->
+                <%= render 'feedbacks/shared/service_feedback_link'%>
             </div>
 
             <hr class="my-6 border-gray-400 md:my-10" />

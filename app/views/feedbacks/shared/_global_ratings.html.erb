@@ -23,7 +23,7 @@
         </div>
         <%= tag.div class: "flex justify-center" do %>
             <%= create_or_update_review(company) %>
-        <% end %>
+        <% end unless company_signed_in? %>
     </div>
     <!-- Full ratings -->
     <% if [action_name, controller_name].eql?(['show', 'users']) || ['update', 'create'].include?(action_name) %>        

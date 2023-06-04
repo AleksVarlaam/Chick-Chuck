@@ -1,5 +1,5 @@
-<%= turbo_stream.replace dom_id(@reviewable, 'rating'), render('feedbacks/reviews/rating', object: @reviewable)%>
-<%= turbo_stream.replace dom_id(@reviewable, 'global_ratings'), render('feedbacks/reviews/global_ratings', company: @reviewable)%>
+<%= turbo_stream.replace dom_id(@reviewable, 'rating'), render('feedbacks/shared/rating', object: @reviewable)%>
+<%= turbo_stream.replace dom_id(@reviewable, 'global_ratings'), render('feedbacks/shared/global_ratings', company: @reviewable)%>
 <%= turbo_stream.prepend 'reviews_list', render('feedbacks/reviews/review', review: @review)%>
 <%= turbo_stream.replace 'reviews' do %>
     <!-- Title -->
