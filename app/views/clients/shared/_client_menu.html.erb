@@ -39,6 +39,19 @@
 
 <hr>
 
+<!-- All products -->
+<%= link_to users_favorites_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   role: "menuitem",
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= heroicon "bookmark", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+   <%= 'Saved'%>
+<% end %>
+
+<hr>
 <!-- Dashboard page -->
 <!-- <%= link_to clients_dashboard_path,
   class: link_class,

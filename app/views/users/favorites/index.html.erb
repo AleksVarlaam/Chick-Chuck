@@ -1,0 +1,23 @@
+<% currently_at 'Saved' %>
+<% provide :page_title, 'Saved' %>
+<% provide :main_title, "#{'Saved'}: #{@favorite_items.count}" %>
+<% provide :nav_title, 'Saved' %>
+<% provide :nav_path, users_favorites_path %>
+
+<!-- Products Cards -->
+<%= turbo_frame_tag 'saved',
+    class: "grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 xl:grid-cols-3 justify-center mx-auto" do 
+%>
+    <% @favorite_items.each do |item| %>
+        <!-- If Company -->
+        <% if item.favorited_type == Company.name %>
+            <%= render "companies/shared/company", company: User.find(item.favorited_id)%>
+        <!-- If Product -->
+        <% elsif item.favorited_type == Product.name %>
+            <%= render "contents/products/product", product: Product.find(item.favorited_id)%>
+        <% end %>
+    <% end %>
+<% end %>
+
+<!-- Pagy -->
+<%#== pagy_nav(@pagy) if current_user.products.count > 6%>

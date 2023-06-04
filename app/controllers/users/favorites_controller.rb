@@ -2,7 +2,10 @@ module Users
   class FavoritesController < ApplicationController
     layout 'profile_layout'
     before_action :authenticate_user!
-    before_action :set_favorite
+    
+    def index
+      @favorite_items = current_user.favorites
+    end
     
     def create
       @favorite = current_user.favorites.build(favorite_params)
@@ -20,6 +23,8 @@ module Users
     
     def destroy
       @favorite = Favorite.find(params[:id])
+      @object = @favorite.favorited
+      
       respond_to do |format|
         if @favorite.destroy
           format.turbo_stream { flash.now[:success] = t('flash.success.destroyed', model: @favorite.favorited_type) }
@@ -33,10 +38,6 @@ module Users
     
     def favorite_params
       params.require(:favorite).permit(:favorited_id, :favorited_type)
-    end
-    
-    def set_favorite
-      @favorite = Favorite.find_by(favorited_id: favorite_params[:favotired_id])
     end
   end
 end
