@@ -1,7 +1,7 @@
-<% currently_at 'Saved' %>
-<% provide :page_title, 'Saved' %>
-<% provide :main_title, "#{'Saved'}: #{@favorite_items.count}" %>
-<% provide :nav_title, 'Saved' %>
+<% currently_at t('user_menu.saved') %>
+<% provide :page_title, t('user_menu.saved') %>
+<% provide :main_title, "#{t('user_menu.saved')}: #{@favorite_items.count}" %>
+<% provide :nav_title, t('user_menu.saved') %>
 <% provide :nav_path, users_favorites_path %>
 
 <!-- Products Cards -->

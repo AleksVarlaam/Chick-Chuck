@@ -37,6 +37,7 @@ ru:
       account:      'Ваша учетная запись'
       success:
           created:      "%{model} успешно создан(а)."
+          saved:        "%{model} успешно сохранен."
           updated:      "%{model} успешно обновлен(а)." 
           destroyed:    "%{model} успешно удален(а)."
           published:    "%{model} успешно опубликован(а) в общий просмотр." 

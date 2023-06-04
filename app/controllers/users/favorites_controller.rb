@@ -13,7 +13,7 @@ module Users
       respond_to do |format|
         if @favorite.save
           format.turbo_stream do
-            flash.now[:success] = t('flash.success.created', model: @favorite.favorited_type)
+            flash.now[:success] = t('flash.success.saved', model: @favorite.favorited.title)
           end
         else
           format.html { redirect :back, status: :unprocessable_entity }
@@ -27,7 +27,7 @@ module Users
       
       respond_to do |format|
         if @favorite.destroy
-          format.turbo_stream { flash.now[:success] = t('flash.success.destroyed', model: @favorite.favorited_type) }
+          format.turbo_stream { flash.now[:success] = t('flash.success.destroyed', model: @favorite.favorited.title) }
         else
           format.html { redirect :back, status: :unprocessable_entity }
         end

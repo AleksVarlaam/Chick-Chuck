@@ -37,6 +37,7 @@ he:
       account:      'החשבון שלך'
       success:
           created:      "נוצר בהצלחה %{model}"
+          saved:        "נשמר בהצלחה %{model}"
           updated:      "עודכן בהצלחה %{model}" 
           destroyed:    "הוסר בהצלחה %{model}"
           published:    "פורסם בהצלחה בתצוגה כללית %{model}" 

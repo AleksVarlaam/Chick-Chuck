@@ -5,6 +5,7 @@ uk:
         sign_out:         'Увійти'
         dashboard:        'Панель управління'
         chats:            'Чати'
+        saved:            'Збережено'
         profile:          'Профіль'
         credential:       'Безпека'
     admin_menu:

@@ -38,6 +38,7 @@ Subscribe to our news to monitor our progress."
       account:      'Your account'
       success:
           created:      "%{model} has been created successfully."
+          saved:        "%{model} has been saved successfully."
           updated:      "%{model} has been updated successfully." 
           destroyed:    "%{model} has been destroyed successfully."
           published:    "%{model} has been published successfully to general view." 

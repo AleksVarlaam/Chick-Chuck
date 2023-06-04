@@ -5,6 +5,7 @@ ru:
         sign_out:         'Выйти'
         dashboard:        'Панель управления'
         chats:            'Чаты'
+        saved:            'Сохраненное'
         profile:          'Профиль'
         credential:       'Безопасность'
     admin_menu:

@@ -5,6 +5,7 @@ he:
         sign_out:         "לצאת"
         dashboard:        "לוח הבקרה"
         chats:            "שיחות"
+        saved:            "הציל"
         profile:          "פרופיל"
         credential:       "ביטחון"
     admin_menu:

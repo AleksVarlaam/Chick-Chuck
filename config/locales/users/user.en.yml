@@ -5,6 +5,7 @@ en:
         sign_out:         'Log out'
         dashboard:        'Dashboard'
         chats:            'Chats'
+        saved:            'Saved'
         profile:          'Profile'
         credential:       'Credentials'
     admin_menu:
