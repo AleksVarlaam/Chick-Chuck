@@ -5,6 +5,8 @@ module Users
     
     def index
       @favorite_items = current_user.favorites
+      @favorite_items_count = @favorite_items.count
+      @pagy, @favorite_items = pagy(@favorite_items, items: 10)
     end
     
     def create

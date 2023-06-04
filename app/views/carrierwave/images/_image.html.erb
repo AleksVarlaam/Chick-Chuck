@@ -16,7 +16,7 @@
         <%= link_to image_path(index, object), data: {turbo_frame: 'modal'} do %>
             <%= image_tag(action_name != 'index' ? image.large.url : image.medium.url, 
                 class: "rounded-t-lg h-full w-full object-cover absolute block ", 
-                alt: object.instance_of?(Truck) ? "#{object.company.title}-truck-#{object.decorate.number}" : "#{object.title}")
+                alt: "#{object.title}")
             %>
         <% end %>
     </div>

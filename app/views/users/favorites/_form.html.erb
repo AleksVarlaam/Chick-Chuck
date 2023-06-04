@@ -2,7 +2,7 @@
     <!-- Save object to saved -->
     <% unless current_user.favorites.include?(Favorite.find_by(favorited_id: object.id))%>
         <%= form_with model: [:users, Favorite.new], 
-            data: { 'popover-target' => 'follow ' + object.user_name},
+            data: { 'popover-target' => 'follow ' + object.title},
             class: "flex font-medium rounded-lg text-sm p-2 text-center " do |f| %>
             <!-- Icon -->
             <%= f.hidden_field :favorited_id, value: object.id %>
@@ -14,17 +14,17 @@
     <% else%>
     <!-- Delete object from saved -->
         <%= link_to users_favorite_path(Favorite.find_by(favorited_id: object.id)), 
-            data: {turbo_method: :delete, 'popover-target' => 'follow ' + object.user_name},
+            data: {turbo_method: :delete, 'popover-target' => 'follow ' + object.title},
             class: "flex font-medium rounded-lg text-sm p-2 text-center " do %>
                 <%= heroicon 'bookmark', class: 'w-6 h-6 text-yellow-400 hover:text-red-500', variant: "solid"%>
         <% end %>
     <% end %>
     <!-- Popover content -->
-    <div data-popover id="<%= 'follow ' + object.user_name %>" role="tooltip" class="absolute z-20 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
+    <div data-popover id="<%= 'follow ' + object.title %>" role="tooltip" class="absolute z-20 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
         <div class="px-3 py-2 text-center">
             <%= tag.p current_user.favorites.include?(Favorite.find_by(favorited_id: object.id)) ? t('global.destroy_btn') : t('global.save_btn'), 
                 class: "text-gray-500 text-sm"%>
         </div>
         <div data-popper-arrow></div>
     </div>
-<% end if user_signed_in?%>
+<% end if user_signed_in? && current_user != object && !current_user&.products&.include?(object)%>

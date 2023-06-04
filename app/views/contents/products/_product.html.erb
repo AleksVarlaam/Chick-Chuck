@@ -7,8 +7,12 @@
                 <%= tag.div class: "flex justify-center items-center relative mb-2" do %>
                     <%= render 'shared/buttons/popover', text: t('product.product_by'), icon: 'icons/icons8-in-transit-50.png' %>
                 <% end if product.user.type == Company.name%>
-                <!-- Title -->
-                <%= tag.h4 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
+                <div class="flex items-center justify-between">
+                    <!-- Title -->
+                    <%= tag.h4 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
+                    <!-- Favorite form -->
+                    <%= render 'users/favorites/form', object: product%>
+                </div>
             </div>
             <% if ['show', 'products'].eql?([action_name, controller_name]) && product.description.present?%>
                 <div>

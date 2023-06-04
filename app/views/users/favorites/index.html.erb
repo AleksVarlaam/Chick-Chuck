@@ -13,11 +13,11 @@
         <% if item.favorited_type == Company.name %>
             <%= render "companies/shared/company", company: User.find(item.favorited_id)%>
         <!-- If Product -->
-        <% elsif item.favorited_type == Product.name %>
-            <%= render "contents/products/product", product: Product.find(item.favorited_id)%>
+        <% else %>
+            <%= render "contents/products/product", product: Product.find(item.favorited_id).decorate%>
         <% end %>
     <% end %>
 <% end %>
 
 <!-- Pagy -->
-<%#== pagy_nav(@pagy) if current_user.products.count > 6%>
+<%== pagy_nav(@pagy) if @favorite_items_count > 10 %>
