@@ -1,0 +1,11 @@
+<!-- Feedback -->
+<section class="bg-gray-50" id="feedback">
+    <div class="max-w-3xl px-6 py-16 mx-auto text-center">
+        <!-- Title -->
+        <%= tag.h1 t('comment.about_page_title'), class: "text-3xl font-semibold text-gray-800 "%>
+        <!-- Link -->
+        <div class="flex justify-center">
+            <%= link_to t('review.add'), about_path(anchor: 'comments_title'), class: "py-3 px-6 mt-6 mb-3 font-semibold rounded-lg text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br  dark:text-gray-900 dark:bg-violet-400 cursor-pointer" %>
+        </div>
+    </div>
+</section>
