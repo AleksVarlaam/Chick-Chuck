@@ -35,11 +35,14 @@
                 link_class: "text-base font-medium text-gray-500 hover:text-gray-900 pb-3 border-b border-gray-200",
                 current_page: current_page %>
             <!-- Become a carrier -->
-            <%= nav_tab t('company.sign_up.link'), new_company_registration_path, 
-                class: "text-base font-medium text-gray-500 hover:text-gray-900 pb-3 border-b border-gray-200", 
-                data: { action: "dropdown#toggle", turbo_frame: '_top'},
-                current_page: current_page unless user_signed_in?
-            %>
+            <%= tag.div class: "flex justify-center" do %>
+                <%= link_to new_company_registration_path, class: "relative inline-flex items-center justify-center p-0.5 overflow-hidden text-base font-medium rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800
+                #{current_page?(new_company_registration_path) ? 'text-gray-900' : 'text-gray-600'}" do %>
+                  <span class="relative px-4 py-1.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                      <%= t('company.sign_up.link')%>
+                  </span>
+                <% end %>
+            <% end unless user_signed_in?%>
         </div>
       </div>
     </div>
