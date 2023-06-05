@@ -1,9 +1,9 @@
 <!-- About user -->
-<section class="mx-5 flex flex-col items-center relative">
+<section class="mx-5 flex flex-col items-center relative space-y-3">
     <!-- Avatar -->
-    <%= image_tag(client.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
-    <!-- Name -->
-    <%= tag.h4 client.user_name , class: "mb-3 font-medium text-2xl text-center hover:underline text-gray-800" %>
+    <%= image_tag(client.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 rounded-full border border-white", alt: "avatar")%>
+    <!-- User name -->
+    <%= tag.h4 client.user_name , class: "font-medium text-2xl text-center hover:underline text-gray-800" %>
     <!-- Total products -->
     <% if client.products.where(published: true).count.positive? && action_name != 'modal'%>
         <%= link_to user_products_path(client), 
@@ -19,11 +19,20 @@
     <% end %>
     
     <!-- Message -->
-    <%= render 'feedbacks/rooms/form', recipient: client%>
+
+
+    <%= form_with model: Room.new, remote: true, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'} do |f| %>
+        <%= f.hidden_field :recipient_id, value: client.id%>
+        <%= f.button class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-2 px-4 text-center flex items-center" do %>
+            <%= heroicon 'chat-bubble-left-right', class: 'w-6 h-6 mr-2'%>
+            Написать
+        <% end %>
+    <% end %>
+    
     <!-- Contacts -->
     <%= render 'users/users/contacts_section', user: client%>
     <!-- Created_at -->
-    <div class="flex justify-center text-center">
+    <!-- <div class="flex justify-center text-center">
         <%= tag.span client.decorate.created_at, class: 'text-sm text-gray-500'%>
-    </div>
+    </div> -->
 </section>
