@@ -3,7 +3,7 @@
     <!-- Title -->
     <%= tag.h3 t('pages.market'), class: 'text-3xl font-semibold text-gray-800  text-center'%>
     <!-- Products list -->
-    <%= turbo_frame_tag 'products', class: "flex overflow-x-scroll max-w-screen container mx-auto my-6 space-x-8 rtl:space-x-reverse" do %>
+    <%= turbo_frame_tag 'products', class: "flex overflow-x-scroll w-[22rem] sm:w-screen container mx-auto my-6 space-x-6 rtl:space-x-reverse" do %>
         <% if @products.present?%>
             <!-- Products -->
             <%= render partial: 'contents/products/product', collection: @products %>
