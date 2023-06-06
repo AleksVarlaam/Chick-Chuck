@@ -2,7 +2,7 @@
     <article>
         <!-- Author -->
         <div class="flex items-center mb-4 space-x-4">
-            <%= image_tag(review.user.avatar_attachment_path, class: "w-10 h-10 rounded-full", alt: review.user.user_name) %>
+            <%= image_tag(review.user.avatar_attachment_path, class: "w-10 h-10 rounded-full object-cover", alt: review.user.user_name) %>
             <div class="space-y-1 font-medium dark:text-white">
                 <p>
                     <%= review.user.user_name%>

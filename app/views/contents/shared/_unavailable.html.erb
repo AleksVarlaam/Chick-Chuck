@@ -1,5 +1,9 @@
-<div class="container mx-auto w-full flex justify-center flex-row flex-col text-center px-2">
+<div class="container mx-auto w-full flex justify-center flex-row flex-col text-lg text-gray-700 font-medium text-center px-2">
+    <!-- Description -->
     <%= tag.p t('global.unavailable_html', model: model)%>
+    <!-- Subscribe link -->
     <%= link_to t('home_page.newslatter.subscribe'), root_path(anchor: 'newsletter'), data: { turbo_frame: '_top' }, 
         class: "text-blue-600 hover:text-blue-800 mt-3"%>
+    <!-- Leave feedback -->
+    <%= render 'feedbacks/shared/service_feedback_link'%>
 </div>
