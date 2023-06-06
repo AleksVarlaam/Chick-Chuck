@@ -27,4 +27,4 @@
         </div>
         <div data-popper-arrow></div>
     </div>
-<% end if user_signed_in? && current_user != object && !current_user&.products&.include?(object)%>
+<% end if (client_signed_in? || company_signed_in?) && current_user != object && !current_user&.products&.include?(object)%>
