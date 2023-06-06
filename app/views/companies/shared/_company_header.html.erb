@@ -4,7 +4,7 @@
         <!-- Message -->
         <%= render 'feedbacks/rooms/form', recipient: company%>
         <!-- Contacts -->
-        <%= link_to user_contacts_path(company), data: {turbo_frame: 'modal'},
+        <%= link_to user_contacts_path(company), data: {turbo_frame: 'modal'}, aria: {label: company.title + '_contacts'},
             class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
             <%= heroicon 'phone', class: 'w-6 h-6'%>
         <% end %>
@@ -28,11 +28,13 @@
     </div>
     <div class="flex justify-center pt-2 space-x-3">
         <!-- Products -->
-        <%= link_to user_products_path(company), class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
+        <%= link_to user_products_path(company), aria: {label: company.title + '_products'},
+            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
             <%= heroicon 'shopping-bag', class: 'w-6 h-6'%>
         <% end %>
         <!-- Calculator -->
-        <%= link_to company_calculator_path(company), class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
+        <%= link_to company_calculator_path(company), aria: {label: company.title + '_calculator'},
+            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
             <%= heroicon 'calculator', class: 'w-6 h-6'%>
         <% end %>
     </div>

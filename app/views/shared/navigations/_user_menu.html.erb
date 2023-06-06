@@ -19,15 +19,9 @@
         <div>
           <button 
             id="user-menu-button"
-            name="user-menu-button"
+            aria-label="user-dropdown-menu"
             data-action="dropdown#toggle click@window->dropdown#hide"
             class="flex text-sm rounded-full border-2 border-gray-300 hover:border-gray-400 focus:outline-none drop-shadow-2xl hover:drop-shadow-lg items-center" 
-            type="button" 
-            aria-labelledby="user-menu-dropdown" 
-            aria-expanded="false"
-            aria-haspopup="true"
-            aria-orientation="vertical"
-            tabindex="-1"
           >
             <%= heroicon "bars-3", class: "mx-2 hidden sm:block", size: 20, alt: "user-menu-button"%>
             <!-- Avatar -->
@@ -42,10 +36,8 @@
 
         <!-- User menu dropdown -->
         <div 
-            id="user-menu-dropdown"
             data-dropdown-target="menu"
             class="hidden absolute rtl:origin-top-left rtl:left-0 ltr:origin-top-right ltr:right-0 z-50 mt-2 min-w-[14rem] w-auto rounded-lg shadow-md hover:shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" 
-            role="menu"  
             data-transition-enter-from="opacity-0 scale-95"
             data-transition-enter-to="opacity-100 scale-100"
             data-transition-leave-from="opacity-100 scale-100"

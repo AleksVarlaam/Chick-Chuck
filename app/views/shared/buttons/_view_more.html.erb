@@ -1,5 +1,6 @@
 <!-- View more button -->
-<%= link_to path, class: "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: {turbo_frame: '_top'} do %>
+<%= link_to path, data: {turbo_frame: '_top'}, title: path,
+    class: "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800" do %>
     <%= t('global.read_more')%>
     <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
         class: "w-5 h-5 ltr:ml-2 rtl:mr-2"%>
