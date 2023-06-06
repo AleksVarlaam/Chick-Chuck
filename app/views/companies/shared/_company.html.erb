@@ -7,15 +7,17 @@
         <!-- Rating -->
         <%= render 'feedbacks/shared/rating', object: company%>
         <!-- Body -->
-        <div class="my-3 w-auto mx-auto space-x-4 flex items-center  border-y divide-x">
+        <div class="my-3 w-auto mx-auto space-x-4 flex items-center border-y divide-x">
             <!-- Districts -->
             <div class=" py-2 flex items-center space-x-3 justify-center w-full">
                 <%= heroicon 'map', class: 'w-6 h-6 flex-none'%>
                 <ul class="flex flex-col text-md font-medium text-gray-500">
                     <% company.districts.decorate.each do |district|%>
-                        <%= link_to users_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
-                            <li><%= district != company.districts.last ? district.title + ',' : district.title%></li>
-                        <% end %>
+                        <li>
+                            <%= link_to users_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
+                                <%= district != company.districts.last ? district.title + ',' : district.title%>
+                            <% end %>
+                        </li>
                     <% end %>
                 </ul>
             </div>
@@ -24,9 +26,11 @@
                 <%= heroicon 'language', class: 'w-6 h-6 flex-none'%>
                 <ul class="flex flex-col text-md font-medium text-gray-500">
                     <% company.languages.each do |language|%>
-                        <%= link_to users_path(language_id: language), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
-                            <li><%= language != company.languages.last ? language.title + ',' : language.title%></li>
-                        <% end %>
+                        <li>
+                            <%= link_to users_path(language_id: language), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
+                                <%= language != company.languages.last ? language.title + ',' : language.title%>
+                            <% end %>
+                        </li>
                     <% end %>
                 </ul>
             </div>
@@ -38,19 +42,21 @@
             <!-- Created at -->
             <%# tag.span company.decorate.created_at, class: 'text-sm text-gray-500'%>
         <% end %>
-        <!-- Description -->
+        <!-- Information -->
         <%= tag.div do %>
         	<div class="container max-w-xl mx-auto">
         		<div class="flex flex-col items-center w-full p-6 space-y-4 rounded-md lg:h-full dark:bg-gray-900 dark:text-gray-100">
+                    <!-- Description -->
         			<%= tag.blockquote class: "max-w-lg text-lg italic font-medium text-center text-gray-700" do %>
-                        "<%= company.description%>"
+                        <%= company.description%>
                     <% end if company.description.present?%>
+                    <!-- Website -->
         			<%= tag.div class:"text-center flex items-center text-gray-500 hover:text-blue-600 dark:text-gray-400 space-x-2" do %>
                         <%= heroicon 'globe-alt', class: 'w-5 h-6'%>
                         <%= link_to company.website.split("https://").last%>
                     <% end if company.website.present?%>
         		</div>
         	</div>
-        <% end if action_name == 'show'%>
+        <% end if [action_name, controller_name].eql?(['show', 'users'])%>
     </section>
 <% end %>

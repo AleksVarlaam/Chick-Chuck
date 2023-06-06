@@ -1,20 +1,24 @@
 <%= turbo_frame_tag product do %>
     <div class="<%= ['index', 'main'].eql?([action_name, controller_name]) ? 'w-[22rem] sm:w-[20rem]' : 'w-full'%>
             flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl">
+        <!-- Images -->
         <%= render 'carrierwave/images/carousel', object: product %>
         <%= tag.div class: "p-5 grid #{'sm:grid-cols-2' if ['show', 'products'].eql?([action_name, controller_name])}" do %>
-            <div class="col-span-full">
-                <%= tag.div class: "flex justify-center items-center relative mb-2" do %>
-                    <%= render 'shared/buttons/popover', text: t('product.product_by'), icon: 'icons/icons8-in-transit-50.png' %>
-                <% end if product.user.type == Company.name%>
-                <div class="flex items-center justify-between">
-                    <!-- Title -->
-                    <%= tag.h4 product.title, class: "mb-2 text-2xl font-bold tracking-tight text-gray-600"%>
+            <!-- Header -->
+            <div class="col-span-full flex items-center justify-between mb-3 space-x-3">
+                <!-- Title -->
+                <%= tag.h4 product.title, class: "text-2xl font-bold tracking-tight text-gray-600"%>
+                <!-- Icons -->
+                <%= tag.div class: "flex justify-center items-center relative -my-1" do %>
+                    <!-- Product by carrier -->
+                    <%= render 'shared/buttons/popover', text: t('product.product_by'), 
+                        icon: 'icons/icons8-in-transit-50.png' if product.user.type == Company.name%>
                     <!-- Favorite form -->
                     <%= render 'users/favorites/form', object: product%>
-                </div>
+                <% end %>
             </div>
-            <% if ['show', 'products'].eql?([action_name, controller_name]) && product.description.present?%>
+            <!-- Body -->
+            <% if ['show', 'products'].eql?([action_name, controller_name]) %>
                 <div>
                     <!-- Category -->
                     <%= tag.p "#{Product.human_attribute_name('category')}: #{product.category_name}", 
@@ -23,7 +27,6 @@
                     <%= tag.p "#{Product.human_attribute_name('things')}: #{product.thing_name}",
                         class: "mb-3 font-normal text-gray-500"%>
                 </div>
-            
                 <div>
                     <!-- Condition -->
                     <%= tag.p "#{Product.human_attribute_name('condition')}: #{product.condition_name}", 
@@ -36,7 +39,7 @@
                 </div>
                 <!-- Description -->
                 <%= tag.p "#{Product.human_attribute_name('description')}: #{product.description}", 
-                    class: "mb-3 font-normal text-gray-500 col-span-full"%>
+                    class: "mb-3 font-normal text-gray-500 col-span-full" if product.description.present?%>
             <% end %>
             <div class="col-span-full text-center mt-3">
                 <!-- City -->
