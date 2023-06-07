@@ -1,5 +1,5 @@
 <!-- Company header -->
-<div class="grid grid-cols-3 gap-6">
+<div class="grid grid-cols-3 gap-6 max-w-xl">
     <div class="flex justify-center space-x-3 pt-2">
         <!-- Message -->
         <%= render 'feedbacks/rooms/form', recipient: company%>
@@ -16,12 +16,15 @@
             class: "object-cover w-20 h-20 mx-auto mb-3 rounded-full border border-white", alt: "avatar")%>
         <!-- Name -->
         <% if ['show', 'users'].eql?([action_name, controller_name]) || action_name == 'company_trucks'%>
-            <%= tag.h4 company.title , class: "font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" %>
+            <%= tag.h4 class: "w-full flex justify-center font-medium text-2xl text-center hover:underline text-gray-800 mx-auto break-words" do %>
+                <%= company.title%>
+            <% end %>
         <% else %>
-            <%= tag.h4 class: "font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" do %>
-                <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, class: 'flex items-center' do %>
+            <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, 
+                class: 'z-10 w-full flex justify-center font-medium text-2xl text-center hover:underline text-gray-800 mx-auto' do %>
+                <%= tag.h4 class: "flex items-center break-words" do %>
                     <%= company.title %>
-                    <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
+                    <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 z-20 text-orange-700 hover:text-gray-800" %>
                 <% end %>
             <% end %>
         <% end %>
