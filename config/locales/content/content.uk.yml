@@ -2,26 +2,10 @@ uk:
     pages: 
         home:             'Головна'
         calculator:       'Калькулятор'
-        trucks:           'Вантажівки'
         preparation:      'Підготовка'
         market:           'Барахолка'
         news:             'Новини'
         about:            'Про сервіс'
-    truck:
-        add_btn:          'Додати вантажівку'
-        edit_btn:         'Змінити вантажівку'
-        my_trucks:        'Мої вантажівки'
-        total_trucks:     'Всього вантажівок'
-        assembly:
-            only_assembly:     'Тільки зібрати'
-            only_disassembly:  'Тільки розібрати'
-        body_type:
-            tent:              'Тент'
-            isometric:         'Ізометричний'
-            side_body:         'Бортовий(відкритий)'
-            trailer_tent:      'Причіп(тент)'
-            trailer_isometric: 'Причіп(ізометрія)'
-            trailer_side_body: 'Причіп(відкритий)'
     product:
         add_btn:          'Додати товар'
         edit_btn:         'Змінити товар'

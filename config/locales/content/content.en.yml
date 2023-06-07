@@ -2,26 +2,10 @@ en:
     pages: 
         home:             'Home'
         calculator:       'Calculator'
-        trucks:           'Trucks'
         preparation:      'Preparation'
         market:           'Market'
         news:             'News'   
-        about:            'About' 
-    truck:
-        add_btn:          'Add truck'
-        edit_btn:         'Edit truck'
-        my_trucks:        'My trucks'
-        total_trucks:     'Total trucks'
-        assembly:
-            only_assembly:     'Only assembly'
-            only_disassembly:  'Only disassembly'
-        body_type:
-            tent:              'Tent'
-            isometric:         'Isometric'
-            side_body:         'Side body(open)'
-            trailer_tent:      'Trailer(Tent)'
-            trailer_isometric: 'Trailer(isometric)'
-            trailer_side_body: 'Trailer(open)'    
+        about:            'About'    
     product:
         add_btn:          'Add product'
         edit_btn:         'Edit product'

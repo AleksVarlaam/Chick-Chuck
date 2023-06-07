@@ -2,26 +2,10 @@ he:
     pages: 
         home:             "ראש"
         calculator:       "מחשבון"
-        trucks:           "משאיות"
         preparation:      "הכנה"
         market:           "שוק"
         news:             "חדשות"
         about:            "על השירות"
-    truck:
-        add_btn:          "הוסף משאית"
-        edit_btn:         "תחליף משאית"
-        my_trucks:        "המשאיות שלי"
-        total_trucks:     "משאיות מלאות"
-        assembly:
-            only_assembly:     "סתם אוסף"
-            only_disassembly:  "פירוק בלבד"
-        body_type:
-            tent:              "גגון"
-            isometric:         "איזומטרי"
-            side_body:         "משולב (פתוח)"
-            trailer_tent:      "טרפולין (גגון)"
-            trailer_isometric: "טריילר (איזומטרי)"
-            trailer_side_body: "טריילר (פתוח)"
     product:
         add_btn:          "הוסף מוצר"
         edit_btn:         "שנה פריט"

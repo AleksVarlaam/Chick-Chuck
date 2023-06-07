@@ -2,26 +2,10 @@ ru:
     pages: 
         home:             'Главная'
         calculator:       'Калькулятор'
-        trucks:           'Грузовики'
         preparation:      'Подготовка'
         market:           'Барахолка'
         news:             'Новости'
         about:            'О сервисе'
-    truck:
-        add_btn:          'Добавить грузовик'
-        edit_btn:         'Изменить грузовик'
-        my_trucks:        'Мои грузовики'
-        total_trucks:     'Всего грузовиков'
-        assembly:
-            only_assembly:     'Только сборка'
-            only_disassembly:  'Только разборка'
-        body_type:
-            tent:              'Тент'
-            isometric:         'Изометрический'
-            side_body:         'Бортовой(открытый)'
-            trailer_tent:      'Прицеп(тент)'
-            trailer_isometric: 'Прицеп(изометрия)'
-            trailer_side_body: 'Прицеп(открытый)'
     product:
         add_btn:          'Добавить товар'
         edit_btn:         'Изменить товар'

@@ -56,7 +56,7 @@
                     <%= "#{Product.human_attribute_name('price')}: #{product.price} ₪" %>
                 <% end if ['show', 'products'].eql?([action_name, controller_name]) %>
                 <!-- View more button -->
-                <%= render 'shared/buttons/view_more', path: product_path(product) unless ['show', 'products'].eql?([action_name, controller_name]) %>
+                <%= render 'shared/buttons/view_more', path: product_path(product), link_title: product.title unless ['show', 'products'].eql?([action_name, controller_name]) %>
             </div>
             <!-- Views -->
             <%= tag.div class: "col-span-full flex justify-center items-center relative mt-3 text-gray-500 text-sm" do %>
