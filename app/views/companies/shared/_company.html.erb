@@ -44,10 +44,10 @@
         <% end %>
         <!-- Information -->
         <%= tag.div do %>
-        	<div class="container max-w-xl mx-auto">
+        	<div class="container max-w-2xl mx-auto">
         		<div class="flex flex-col items-center w-full p-6 space-y-4 rounded-md lg:h-full dark:bg-gray-900 dark:text-gray-100">
                     <!-- Description -->
-        			<%= tag.blockquote class: "max-w-lg text-lg italic font-medium text-center text-gray-700" do %>
+        			<%= tag.blockquote class: "w-full text-lg italic font-medium text-center text-gray-700" do %>
                         <%= company.description%>
                     <% end if company.description.present?%>
                     <!-- Website -->
