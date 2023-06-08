@@ -1,5 +1,5 @@
 <!-- Form for new Company -->
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: 'false'}) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: 'false', controller: 'checkbox-select-all'}) do |f| %>
   <%= render "shared/error_messages", resource: resource %>
   
   <!-- Credential Information -->
@@ -148,7 +148,10 @@
            <%= f.label Company.human_attribute_name('working_area'), class: "text-lg" %></div>
        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-1">
           <%= f.collection_check_boxes(:district_ids, District.all, :id, I18n.locale) do |b| %> 
-              <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
+              <%= b.label class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300", data: {'checkbox-select-all-target' => b.text == District.first.decorate.title ?  "checkboxAll" : ''} do %>
+                    <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
+                    <%= b.text %>
+              <% end %>
           <% end%>
        </div>
     </div>

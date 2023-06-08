@@ -15,9 +15,10 @@
                     <% company.districts.decorate.each do |district|%>
                         <li>
                             <%= link_to users_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
-                                <%= district != company.districts.last ? district.title + ',' : district.title%>
+                                <%= (!company.districts.include?(District.first) && district != company.districts.last) ? district.title + ',' : district.title%>
                             <% end %>
                         </li>
+                        <% break if company.districts.include?(District.first)%>
                     <% end %>
                 </ul>
             </div>
