@@ -1,7 +1,7 @@
 <!-- Company card -->
 <%= turbo_frame_tag company, 
     class: "bg-white py-4 rounded-lg border-gray-200 shadow-md hover:shadow-xl #{'border' unless ['show', 'modal'].include?(action_name) }" do %>
-    <section class="mx-3 sm:mx-10 flex flex-col items-center">
+    <section class="mx-3 flex flex-col items-center">
         <!-- Header -->
         <%= render 'companies/shared/company_header', company: company%>
         <!-- Rating -->
@@ -22,7 +22,7 @@
                 </ul>
             </div>
             <!-- Languages -->
-            <div class=" p-2 flex items-center space-x-3 justify-center">
+            <div class="p-2 flex items-center space-x-3 justify-center">
                 <%= heroicon 'language', class: 'w-6 h-6 flex-none'%>
                 <ul class="flex flex-col text-md font-medium text-gray-500">
                     <% company.languages.each do |language|%>

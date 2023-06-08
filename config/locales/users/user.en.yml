@@ -1,6 +1,7 @@
 en:
     user_menu:   
         sign_in:          'Log in'
+        sign_in_company:  'Log in as company'
         sign_up:          'Sign up'
         sign_out:         'Log out'
         dashboard:        'Dashboard'

@@ -1,6 +1,7 @@
 ru:
     user_menu:   
         sign_in:          'Войти'
+        sign_in_company:  'Войти как перевозчик'
         sign_up:          'Зарегистрироваться'
         sign_out:         'Выйти'
         dashboard:        'Панель управления'

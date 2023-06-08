@@ -1,6 +1,7 @@
 he:
     user_menu:   
         sign_in:          "להיכנס"
+        sign_in_company:  "בוא כשליח"
         sign_up:          "להירשם"
         sign_out:         "לצאת"
         dashboard:        "לוח הבקרה"
