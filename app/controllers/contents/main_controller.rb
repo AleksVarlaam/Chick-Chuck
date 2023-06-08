@@ -3,7 +3,7 @@
 module Contents
   class MainController < ApplicationController
     def index
-      @companies = Company.take(3)
+      @companies = Company.confirmed.take(3)
       @products = Product.where(published: true).decorate.take(6)
       @news = News.all.decorate.last(3)
       Statistic.first.update(main: Statistic.first.main + 1) unless user_signed_in?

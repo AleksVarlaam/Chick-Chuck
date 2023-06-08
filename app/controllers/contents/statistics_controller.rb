@@ -6,7 +6,7 @@ module Contents
       Statistic.first.update(about: Statistic.first.about + 1) unless user_signed_in?
       @statistic = @commentable = Statistic.first
       @clients = Client.count
-      @companies = Company.count
+      @companies = Company.confirmed.count
       @products = Product.where(published: true).count
       @reviews = Review.count + Comment.count
       @comments = @statistic.comments

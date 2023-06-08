@@ -9,7 +9,7 @@ module Users
     
     def index
       Statistic.first.update(market: Statistic.first.companies + 1) unless user_signed_in?
-      companies = Company.user_filter(filter_params)
+      companies = Company.confirmed.user_filter(filter_params)
       @best_companies = companies.take(3)
       latest_companies = companies.drop(3)
       @pagy_a, @latest_companies = pagy_array(latest_companies, items: 10)

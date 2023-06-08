@@ -10,7 +10,7 @@ module Contents
     end
 
     def company_calculator
-      @company = Company.find_by_id(params[:company_id])
+      @company = Company.confirmed.find_by_id(params[:company_id])
       @categories = Category.all.decorate
     end
 
@@ -18,7 +18,7 @@ module Contents
 
     def set_show
       @categories = Category.all.decorate
-      @companies = Company.all.order(rating: :desc)
+      @companies = Company.confirmed
     end
   end
 end
