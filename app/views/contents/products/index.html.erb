@@ -7,7 +7,7 @@
     <%= tag.h4 t('pages.market'), class: 'text-3xl font-semibold text-gray-800  my-6 text-center'%>
     <!-- Content -->
     <%= turbo_frame_tag 'products',
-        class: "grid grid-cols-1 gap-y-6 sm:gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 flex items-center justify-center mx-auto w-full container" do 
+        class: "grid grid-cols-1 gap-y-6 sm:gap-6 my-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 flex items-center justify-center mx-auto w-full container" do 
     %>
         <!-- Filter -->
         <%= render 'filter', path: products_path%>
