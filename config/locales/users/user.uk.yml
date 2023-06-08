@@ -34,7 +34,9 @@ uk:
     sign_up:
         title:            'Реєстрація'
         btn:              'Створити акаунт'
-    contacts:   'Контакти'
+    contacts:         'Контакти'
+    write_message:    "Написати"
+    show_contacts:    "Показати Контакти"
     telegram:
         telegram_popover: 'Ваш telegram username як він є'
     facebook:

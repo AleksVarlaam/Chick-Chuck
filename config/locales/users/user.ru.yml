@@ -34,7 +34,9 @@ ru:
     sign_up:
         title:            'Регистрация'
         btn:              'Создать аккаунт'
-    contacts:   'Контакты'
+    contacts:       'Контакты'
+    write_message:  "Написать"
+    show_contacts:  "Показать Контакты"
     telegram:
         telegram_popover: 'Ваш telegram username как он есть'
     facebook:

@@ -34,7 +34,9 @@ he:
     sign_up:
         title:            "הרשמה"
         btn:              "יוצרים פרופיל"
-    contacts:   "אנשי קשר"
+    contacts:         "אנשי קשר"
+    write_message:    "לכתוב"
+    show_contacts:    "הצג אנשי קשר"
     telegram:
         telegram_popover: "שם המשתמש של המברק כפי שהוא"
     facebook:

@@ -16,7 +16,7 @@
 <% end %>
 
 <!-- Latest carriers -->
-<%= turbo_frame_tag 'latest_companies', class: "grid grid-flow-row auto-rows-max flex w-full px-2 gap-4 sm:px-6" do %>
+<%= turbo_frame_tag 'latest_companies', class: "grid grid-cols-1 lg:grid-cols-4 w-full px-2 gap-4 sm:px-6" do %>
     <!-- Title -->
     <%= tag.h3 t('company.latest_carriers'), class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
     <!-- Latest companies -->

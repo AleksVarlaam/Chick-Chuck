@@ -1,32 +1,42 @@
 <!-- Company header -->
-<div class="grid grid-cols-3 gap-2 max-w-xl">
-    <div class="flex justify-center space-x-3 pt-2">
+<div class="grid grid-cols-3 gap-2 max-w-xl lg:max-w-full">
+    <%= tag.div class: "flex justify-center space-x-3 pt-2" do %>
         <!-- Message -->
-        <%= render 'feedbacks/rooms/form', recipient: company%>
+        <%= form_with model: Room.new, remote: true, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'} do |f| %>
+            <%= f.hidden_field :recipient_id, value: company.id%>
+            <%= f.button id: "message", aria: {label: "chats"}, 
+                class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 lg:px-4 text-center flex items-center space-x-2 rtl:space-x-reverse" do %>
+                <%= heroicon 'chat-bubble-left-right', class: 'w-6 h-6'%>
+                <%= tag.span t('write_message'), class: 'text-lg hidden lg:block'%>
+            <% end %>
+        <% end %>
         <!-- Contacts -->
         <%= link_to user_contacts_path(company), data: {turbo_frame: 'modal'}, aria: {label: company.title + '_contacts'},
-            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
+            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 lg:px-4 text-center flex items-center space-x-2 rtl:space-x-reverse" do %>
             <%= heroicon 'phone', class: 'w-6 h-6'%>
+            <%= tag.span t('contacts'), class: 'text-lg hidden lg:block'%>
         <% end %>
-    </div>
+    <% end if ['show', 'modal'].include?(action_name)%>
     <!-- Avatar -->
-    <div class="flex flex-col">
+    <div class="flex justify-center <%= 'col-span-full' unless ['show', 'modal'].include?(action_name)%>">
         <%= image_tag(company.avatar_attachment_path, 
-            class: "object-cover w-24 h-24 mx-auto rounded-full border border-white
-                #{action_name != 'index' ? 'sm:w-32 sm:h-32' : 'sm:w-28 sm:h-28'}", alt: "avatar")%>
+            class: "object-cover w-24 h-24 rounded-full border border-white
+                #{action_name != 'index' ? 'sm:w-32 sm:h-32' : 'sm:w-24 sm:h-24'}", alt: "avatar")%>
     </div>
-    <div class="flex justify-center pt-2 space-x-3">
+    <%= tag.div class: "flex justify-center pt-2 space-x-3" do %>
         <!-- Products -->
         <%= link_to user_products_path(company), aria: {label: company.title + '_products'},
-            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
+            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 lg:px-4 text-center flex items-center space-x-2 rtl:space-x-reverse" do %>
             <%= heroicon 'shopping-bag', class: 'w-6 h-6'%>
+            <%= tag.span t('pages.market'), class: 'text-lg hidden lg:block'%>
         <% end %>
         <!-- Calculator -->
         <%= link_to company_calculator_path(company), aria: {label: company.title + '_calculator'},
-            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 text-center " do %>
+            class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 lg:px-4 text-center flex items-center space-x-2 rtl:space-x-reverse" do %>
             <%= heroicon 'calculator', class: 'w-6 h-6'%>
+            <%= tag.span t('pages.calculator'), class: 'text-lg hidden lg:block'%>
         <% end %>
-    </div>
+    <% end if ['show', 'modal'].include?(action_name)%>
     <!-- Title -->
     <div class="col-span-full">
         <% if ['show', 'users'].eql?([action_name, controller_name])%>

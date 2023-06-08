@@ -34,7 +34,9 @@ en:
     sign_up:
         title:            'Sign up'
         btn:              'Create account'
-    contacts:   'Contacts'
+    contacts:         'Contacts'
+    write_message:    "Write"
+    show_contacts:    "Show contacts"
     telegram:
         telegram_popover: 'Your telegram username as it is'
     facebook:
