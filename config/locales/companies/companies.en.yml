@@ -10,7 +10,7 @@ en:
                 working_area:     "District"
                 description:      "Description or slogan"
                 contacts:         "Contacts"
-                additional_phone: "Additional phone"
+                additional_phone: "Contact phone number"
                 avatar:           "logotype"
     company:
         carriers:         "carriers"

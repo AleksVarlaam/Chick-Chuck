@@ -1,17 +1,17 @@
 uk:
     activerecord:
         models:
-            company:      'Компанія'
+            company:      "Компанія"
         attributes:
             company:
-                districts:        'Регіон'
-                languages:        'Мови'
-                title:            'Назва'
-                working_area:     'Регіон'
-                description:      'Опис або слоган'
-                contacts:         'Контакти'
-                additional_phone: 'Дод. телефон'
-                avatar:           'логотип'
+                districts:        "Регіон"
+                languages:        "Мови"
+                title:            "Назва"
+                working_area:     "Регіон"
+                description:      "Опис або слоган"
+                contacts:         "Контакти"
+                additional_phone: "Телефон зв'язку"
+                avatar:           "логотип"
     company:
         carriers:         "перевізники"
         top_carriers:     "Кращі перевізники"

@@ -10,7 +10,7 @@ ru:
                 working_area:     "Регион"
                 description:      "Описание или слоган"
                 contacts:         "Контакты"
-                additional_phone: "Доп. телефон"
+                additional_phone: "Телефон для связи"
                 avatar:           "логотип"
     company:
         carriers:         "перевозчики"
