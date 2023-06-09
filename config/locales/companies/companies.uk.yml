@@ -24,4 +24,4 @@ uk:
             title:            "Реєстрація компанії"
             credential:       "Дані входу"
             personal:         "Репрезентативна інформація"
-            slogan_length:    "500 символів макс"
+            slogan_length:    "%{length} символів макс"

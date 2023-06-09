@@ -31,4 +31,4 @@ he:
             title:            "רישום החברה"
             credential:       "נתוני כניסה"
             personal:         "מידע ייצוגי"
-            slogan_length:    "500 תווים לכל היותר"
+            slogan_length:    "%{length} תווים לכל היותר"

@@ -49,13 +49,11 @@
         <div class="mb-6">
            <div class="flex items-center">
                <%= f.label :description, class: "text-lg mr-1" %>
-               <%= render 'shared/buttons/popover', text: t('company.sign_up.slogan_length'), icon: "icons/icons8-info-50.png"%>
+               <%= render 'shared/buttons/popover', text: t('company.sign_up.slogan_length', length: 1000), icon: "icons/icons8-info-50.png"%>
            </div>
-           <%= f.text_area :description, 
-            class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-            placeholder: Company.human_attribute_name('description'),
-            required: false
-           %>
+           <div class="text-gray-600 justify-center col-span-full mt-6 w-full">
+               <%= f.rich_text_area :description, class: "w-full p-2 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring"%>
+           </div>
         </div>
     
         <!-- Logo -->
