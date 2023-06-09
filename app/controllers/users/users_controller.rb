@@ -6,7 +6,7 @@ module Users
     include PricesHelper
     before_action :set_user, only: %i[show modal contacts]
     after_action :update_views, only: :show
-    
+
     def index
       Statistic.first.update(market: Statistic.first.companies + 1) unless user_signed_in?
       companies = Company.confirmed.user_filter(filter_params)
@@ -23,7 +23,7 @@ module Users
       @comment = Comment.new
       @reviewable = @user
       @review = current_client&.company_review(@reviewable) || Review.new
-      @reviews = @user.reviews.where.not(content: nil || "", title: nil || "")
+      @reviews = @user.reviews.where.not(content: nil || '', title: nil || '')
       @pagy, @reviews = pagy(@reviews, items: 10, fragment: '#reviews')
       @reviews_count = @reviews.count
     end
@@ -43,7 +43,7 @@ module Users
     def set_user
       @user = User.find(params[:user_id] || params[:id])
     end
-    
+
     def update_views
       return if current_admin || current_company == @user
 

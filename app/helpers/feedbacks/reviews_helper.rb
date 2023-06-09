@@ -25,57 +25,63 @@ module Feedbacks
     end
 
     def set_company_rating(company)
-      
-      rating = (company.reviews.map {|review| review.rating}.sum.to_f / company.reviews.count.to_f).round(1)
-      price  = (company.reviews.map {|review| review.price}.sum.to_f / company.reviews.count.to_f).round(1)
-      
-      company.update(rating: rating, price: price)
+      rating = (company.reviews.map(&:rating).sum.to_f / company.reviews.count).round(1)
+      price  = (company.reviews.map(&:price).sum.to_f / company.reviews.count).round(1)
+
+      company.update(rating:, price:)
     end
 
     def rating_bar(review)
-      rating_bar = review.present? ? review * 10 : 0
+      review.present? ? review * 10 : 0
     end
-    
+
     def review_star_color(rating, i)
       (0..rating).include?(i) ? 'text-yellow-400' : 'text-gray-400'
     end
-    
+
     def review_price_color(price, i)
-      if (0..3).include?(price)
-        return (0..price).include?(i) ? 'text-green-600' : 'text-gray-400'
-      elsif (3..4).include?(price)
-        return (0..price).include?(i) ? 'text-yellow-400' : 'text-gray-400'
-      elsif (4..5).include?(price)
-        return (0..price).include?(i) ? 'text-red-400' : 'text-gray-400'
+      case price
+      when 0..3
+        (0..price).include?(i) ? 'text-green-600' : 'text-gray-400'
+      when 3..4
+        (0..price).include?(i) ? 'text-yellow-400' : 'text-gray-400'
+      when 4..5
+        (0..price).include?(i) ? 'text-red-400' : 'text-gray-400'
       end
     end
-    
+
     def review_hover_price_color(i)
-      if (0..3).include?(i) 
+      case i
+      when 0..3
         'hover:text-green-600'
-      elsif (3..4).include?(i) 
-        'hover:text-yellow-400' 
-      elsif (4..5).include?(i) 
-        'hover:text-red-400' 
+      when 3..4
+        'hover:text-yellow-400'
+      when 4..5
+        'hover:text-red-400'
       else
         'text-gray-400'
       end
     end
-    
+
     def total_price_rating_color(price)
-      if (0.1..3).include?(price)
-        'text-green-600' 
-      elsif (3..4).include?(price) 
+      case price
+      when 0.1..3
+        'text-green-600'
+      when 3..4
         'text-yellow-400'
-      elsif (4..5).include?(price)
+      when 4..5
         'text-red-400'
       else
         'text-gray-400'
       end
     end
-    
+
     def total_star_rating_color(rating)
-      rating >= 4.9 ? 'text-green-500' : rating >= 4 ? 'text-yellow-400' : 'text-gray-400'
+      if rating >= 4.9
+        'text-green-500'
+      else
+        rating >= 4 ? 'text-yellow-400' : 'text-gray-400'
+      end
     end
   end
 end

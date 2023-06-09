@@ -18,9 +18,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :rooms, class_name: 'Room', dependent: :destroy
   has_many :comments, class_name: 'Comment', dependent: :destroy
   has_many :messages, class_name: 'Message', dependent: :destroy
-  
-  has_many :favorites, foreign_key: :user_id
 
+  has_many :favorites, foreign_key: :user_id
 
   # Scopes
   scope :filter_by_type, ->(type) { where type: }

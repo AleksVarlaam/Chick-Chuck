@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 namespace :fly do
-  desc "Start"
-  task :start do 
+  desc 'Start'
+  task :start do
     sh 'fly ssh console --pty -C "/rails/bin/rails admin:start"'
     sh 'fly ssh console --pty -C "/rails/bin/rails catalog:start"'
     sh 'fly ssh console --pty -C "/rails/bin/rails districts:start"'

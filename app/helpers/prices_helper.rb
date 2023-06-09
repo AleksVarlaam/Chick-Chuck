@@ -2,7 +2,7 @@
 
 module PricesHelper
   def price(thing)
-    price = thing.prices.find_by(user_id: current_company.id)
+    thing.prices.find_by(user_id: current_company.id)
   end
 
   def total_price(company)

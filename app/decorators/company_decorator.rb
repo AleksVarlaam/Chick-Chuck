@@ -4,15 +4,17 @@ class CompanyDecorator < ApplicationDecorator
   def created_at
     "#{User.human_attribute_name('created_at')}: #{l company.created_at, format: :date}"
   end
-  
+
   def review_star_percent_count(i)
     return 0 unless company.reviews.exists?
-    (company.reviews.select {|review| review.rating == i}.count / company.reviews.count.to_f * 100).round(1)
+
+    (company.reviews.select { |review| review.rating == i }.count / company.reviews.count.to_f * 100).round(1)
   end
-  
+
   def review_price_percent_count(i)
     return 0 unless company.reviews.exists?
-    (company.reviews.select {|review| review.price == i}.count / company.reviews.count.to_f * 100).round(1)
+
+    (company.reviews.select { |review| review.price == i }.count / company.reviews.count.to_f * 100).round(1)
   end
 
   def comments_count

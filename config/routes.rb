@@ -106,10 +106,10 @@ Rails.application.routes.draw do
       # Moving preparation
       get '/moving_preparation', to: 'contents/main#moving_preparation'
     end
-    
+
     # Reviews
     resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
-    
+
     # Carrierwave attachments
     namespace :carrierwave do
       resources :images, only: %i[show destroy]
