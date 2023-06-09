@@ -3,6 +3,7 @@
 module Contents
   class MainController < ApplicationController
     def index
+      set_meta_tags title: t('home_page.h1')
       @companies = Company.confirmed.take(3)
       @products = Product.where(published: true).decorate.take(6)
       @news = News.all.decorate.last(3)
@@ -10,6 +11,7 @@ module Contents
     end
 
     def moving_preparation
+      set_meta_tags title: t('moving_preparation.title')
       Statistic.first.update(moving_preparation: Statistic.first.moving_preparation + 1) unless user_signed_in?
     end
   end

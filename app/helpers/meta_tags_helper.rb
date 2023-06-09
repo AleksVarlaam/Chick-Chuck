@@ -7,7 +7,6 @@ module MetaTagsHelper
       site: 'Chick-Chuck.com',
       reverse: true,
       separator: '|',
-      title: t('home_page.h1'),
       description: t('home_page.h2'),
       keywords: "#{t('company.carriers')}, #{t('moving_preparation.title')}, #{t('moving')}, #{t('pages.market')}",
       canonical: request.original_url,
@@ -18,8 +17,8 @@ module MetaTagsHelper
           sizes: '180x180', type: 'image/jpg' }
       ],
       og: {
+        title: :title,
         site_name: 'Chick-Chuck.com',
-        title: t('home_page.h1'),
         description: t('home_page.h2'),
         type: 'website',
         url: request.original_url,

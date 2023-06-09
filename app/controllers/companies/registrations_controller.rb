@@ -7,11 +7,13 @@ module Companies
     before_action :configure_account_update_params, only: [:update], if: :devise_controller?
 
     # GET /resource/sign_up
-    # def new
-    #      build_resource({})
-    #      resource.build_profile
-    #      respond_with resource
-    #    end
+    def new
+      set_meta_tags title: "#{t('company.sign_up.title')} | #{t('company.sign_up.link')}"
+      super
+      # build_resource({})
+      # resource.build_profile
+      # respond_with resource
+    end
 
     # POST /resource
     # def create

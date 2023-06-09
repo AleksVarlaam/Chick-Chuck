@@ -5,9 +5,10 @@ module Companies
     before_action :configure_sign_in_params, only: [:create]
 
     # GET /resource/sign_in
-    # def new
-    #   super
-    # end
+    def new
+      set_meta_tags title: t('sign_in.title')
+      super
+    end
 
     # POST /resource/sign_in
     # def create

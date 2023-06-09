@@ -7,11 +7,13 @@ module Clients
     before_action :configure_account_update_params, only: [:update], if: :devise_controller?
 
     # GET /resource/sign_up
-    # def new
-    #       build_resource({})
-    #       resource.build_profile
-    #       respond_with resource
-    #     end
+    def new
+      set_meta_tags title: t('sign_up.title')
+      super
+      # build_resource({})
+      # resource.build_profile
+      # respond_with resource
+    end
 
     # POST /resource
     # def create

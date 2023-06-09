@@ -5,6 +5,7 @@ module Contents
     before_action :set_show, only: :show
 
     def index
+      set_meta_tags title: t('pages.news')
       Statistic.first.update(news: Statistic.first.news + 1) unless user_signed_in?
       @pagy, @news = pagy(News.where(published: true), items: 8, fragment: '#news')
       @news = @news.decorate
@@ -15,6 +16,7 @@ module Contents
     private
 
     def set_show
+      set_meta_tags title: t('pages.news')
       @new = News.find_by_id(params[:id]).decorate
       @news = News.all.decorate
       @commentable, @ratingable = @new

@@ -8,6 +8,7 @@ module Users
     after_action :update_views, only: :show
 
     def index
+      set_meta_tags title: t('company.carriers').capitalize
       Statistic.first.update(market: Statistic.first.companies + 1) unless user_signed_in?
       companies = Company.confirmed.user_filter(filter_params)
       @best_companies = companies.take(3)
@@ -17,6 +18,7 @@ module Users
     end
 
     def show
+      set_meta_tags title: @user.user_name.capitalize
       return redirect_to root_path unless @user.instance_of?(Company)
 
       @commentable = @user

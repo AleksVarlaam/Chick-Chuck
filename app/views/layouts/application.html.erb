@@ -3,7 +3,6 @@
     lang="<%= response.header['Content-Language']%>" 
     dir="<%= response.header['Content-Language'] == 'he' ? 'rtl' : 'ltr' %>">
   <head>
-    <title><%= full_title(yield(:page_title)) %></title>
     <!-- Meta -->
     <%= display_meta_tags(default_meta_tags) %>
     <!-- CSRF & stylesheets -->
