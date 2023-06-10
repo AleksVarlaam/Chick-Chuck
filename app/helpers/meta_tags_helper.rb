@@ -7,7 +7,6 @@ module MetaTagsHelper
       site: 'Chick-Chuck.com',
       reverse: true,
       separator: '|',
-      description: t('home_page.h2'),
       keywords: "#{t('company.carriers')}, #{t('moving_preparation.title')}, #{t('moving')}, #{t('pages.market')}",
       canonical: request.original_url,
       noindex: !Rails.env.production?,
@@ -19,7 +18,7 @@ module MetaTagsHelper
       og: {
         title: :title,
         site_name: 'Chick-Chuck.com',
-        description: t('home_page.h2'),
+        description: :description,
         type: 'website',
         url: request.original_url,
         image: image_url(asset_path('icons/chick-chuck/chick-chuck-logo.png'))

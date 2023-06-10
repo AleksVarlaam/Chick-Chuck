@@ -7,7 +7,11 @@ module Contents
     before_action :params_for_select, only: %i[index user_products]
 
     def index
-      set_meta_tags title: t('pages.market')
+      set_meta_tags(
+        title: t('pages.market'),
+        description: "#{t('about.market.title')}. #{t('home_page.main_features.market_desc')}"
+      )
+      
       Statistic.first.update(market: Statistic.first.market + 1) unless user_signed_in?
       total_products = Product.filter(filter_params).newest
       @pagy, @products = pagy(total_products, items: 11, fragment: '#products')
@@ -24,7 +28,11 @@ module Contents
       @pagy, @products = pagy(total_products, items: 11, fragment: '#products')
       @products = @products.decorate
       @products_count = total_products.count
-      set_meta_tags title: [t('pages.market'), @user.user_name]
+      
+      set_meta_tags(
+        title: [t('pages.market'), @user.user_name],
+        description: "#{t('about.market.title')}. #{t('home_page.main_features.market_desc')}"
+      )
     end
 
     private
@@ -36,7 +44,11 @@ module Contents
     def set_show
       @product = Product.find_by_id(params[:id]).decorate
       @user = User.find(@product.user_id)
-      set_meta_tags title: [t('pages.market'), @product.title]
+
+      set_meta_tags(
+        title: [t('pages.market'), @product.title],
+        description: "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}"
+      )
 
       return if @user == current_user
 

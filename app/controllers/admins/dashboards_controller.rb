@@ -11,6 +11,7 @@ module Admins
     end
 
     def users
+      @users_count = @users.count
       @pagy_a, @users_pagy = pagy_array(@users, items: 10, fragment: '#users')
     end
 
@@ -21,7 +22,7 @@ module Admins
     end
 
     def set_models
-      @users = User.user_filter(filter_params)
+      @users = User.user_filter(filter_params).newest
     end
   end
 end

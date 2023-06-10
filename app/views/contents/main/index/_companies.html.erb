@@ -16,7 +16,7 @@
     <!-- View all -->
     <div class="flex justify-center items-center text-center h-auto">
         <%= link_to users_path, class: "flex text-base font-medium justify-center items-center text-center text-gray-500 hover:text-gray-700 hover:underline", data: {turbo_frame: '_top'} do %>
-            <%= t('global.view_all')%>
+            <%= t('company.latest_carriers')%>
             <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
                 class: "w-5 h-5 ltr:ml-2 rtl:mr-2"%>
         <% end %>
