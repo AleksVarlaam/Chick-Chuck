@@ -17,8 +17,8 @@ module Users
       companies = Company.confirmed.user_filter(filter_params)
       @best_companies = companies.take(3)
       latest_companies = companies.drop(3)
-      @pagy_a, @latest_companies = pagy_array(latest_companies, items: 10)
       @companies_count = latest_companies.count
+      @pagy_a, @latest_companies = pagy_array(latest_companies, items: 10)
     end
 
     def show
@@ -34,8 +34,8 @@ module Users
       @reviewable = @user
       @review = current_client&.company_review(@reviewable) || Review.new
       @reviews = @user.reviews.where.not(content: nil || '', title: nil || '')
-      @pagy, @reviews = pagy(@reviews, items: 10, fragment: '#reviews')
       @reviews_count = @reviews.count
+      @pagy, @reviews = pagy(@reviews, items: 10, fragment: '#reviews')
     end
 
     def modal; end
