@@ -41,6 +41,8 @@ he:
                 delete_account:   "מחק חשבון"
                 created_at:       "תאריך הרישום"
                 remove_avatar:    "הסר את האווטאר"
+                contacts:         "הצג אנשי קשר"
+                additional_phone: "טלפון תקשורת"
             calculator:
                 distance:             "מרחק"
                 floor_down:           "קומות למטה"

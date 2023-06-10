@@ -27,7 +27,7 @@
             <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
                 rounded border border-gray-300 hover:bg-gray-200 hover:text-gray-900 space-x-2 rtl:space-x-reverse" do%>
                 <%= image_tag(asset_path('icons/icons8-facebook-48.png'), class: 'w-5 h-5')%>
-                <%= link_to '@' + @user.title, @user.facebook, target: "_blank"%>
+                <%= link_to '@' + @user.user_name, @user.facebook, target: "_blank"%>
             <% end if @user.facebook.present?%>
         </div>
     <% end %>

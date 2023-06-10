@@ -40,6 +40,8 @@ en:
                 current_popover:  'We need your current password to confirm your changes.'
                 created_at:       'Date of registration'
                 remove_avatar:    'Remove avatar'
+                contacts:         "Contacts"
+                additional_phone: "Contact phone number"
             calculator:
                 distance:             'Distance'
                 floor_down:           'Floor down'

@@ -9,8 +9,6 @@ he:
                 title:            "שם"
                 working_area:     "אזור"
                 description:      "תיאור או סיסמה"
-                contacts:         "הצג אנשי קשר"
-                additional_phone: "טלפון תקשורת"
                 avatar:           "לוגו"
     company:
         sign_up:          "להפוך לנושאת מטוסים"

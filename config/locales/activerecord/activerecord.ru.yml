@@ -40,6 +40,8 @@ ru:
                 delete_account:   'Удалить аккаунт'
                 created_at:       'Дата регистрации'
                 remove_avatar:    'Удалить аватар'
+                contacts:         "Контакты"
+                additional_phone: "Телефон для связи"
             calculator:
                 distance:             'Дистанция'
                 floor_down:           'Этажей вниз'

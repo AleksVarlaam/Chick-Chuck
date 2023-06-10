@@ -109,7 +109,7 @@
 </div>
 
     <!-- Avatar -->
-    <div class="flex grid grid-rows-1 text-center items-center justify-center mt-6">
+    <div class="flex grid grid-rows-1 text-center items-center justify-center mt-6 mb-12">
       <div class="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
         <div class="space-y-1 text-center">
           <%= f.label :avatar, class: "cursor-pointer" do %>
@@ -126,6 +126,62 @@
           <% end %>
         </div>
       </div>
+    </div>
+    
+        <!-- Contact Information -->
+        <hr>
+        <h6 class="text-gray-500 text-xl my-6 font-bold uppercase">
+          <%= t('contacts')%>
+        </h6>
+    
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mb-12">
+        <!-- Additional Phone input -->
+        <div class="">
+           <%= f.label :additional_phone, class: "text-lg" %>
+           <%= f.text_field :additional_phone, autocomplete: "phone", 
+            class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+            placeholder: '+(972) __-___ ____',
+            required: false
+           %>
+        </div>
+    
+        <!-- WhatsApp input -->
+        <div class="">
+           <%= f.label :whatsapp, 'WhatsApp', class: "text-lg" %>
+           <%= f.text_field :whatsapp, autocomplete: "phone", 
+            class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+            placeholder: '+(972) __-___ ____',
+            required: false
+           %>
+        </div>
+    
+        <!-- Telegram input -->
+        <div class="">
+           <div class="flex items-center">
+               <%= f.label :telegram, 'Telegram', class: "text-lg mr-1" %>
+               <!-- Popover button-->
+               <%= render 'shared/buttons/popover', text: t('telegram.telegram_popover'), icon: 'icons/icons8-info-50.png'%>
+           </div>
+           <%= f.text_field :telegram, autocomplete: "phone", 
+            class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+            placeholder: '@example',
+            required: false
+           %>
+        </div>
+    
+        <!-- Facebook input -->
+        <div class="">
+           <div class="flex items-center">
+                  <%= f.label :facebook, 'Facebook', class: "text-lg mr-1" %>
+               <!-- Popover button-->
+               <%= render 'shared/buttons/popover', text: t('facebook.facebook_popover'), icon: 'icons/icons8-info-50.png'%>
+           </div>
+           <%= f.text_field :facebook, autocomplete: "phone", 
+            class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+            placeholder: "https://web.facebook.com/example",
+            required: false
+           %>
+        </div>
     </div>
     
     <!-- Submit button -->

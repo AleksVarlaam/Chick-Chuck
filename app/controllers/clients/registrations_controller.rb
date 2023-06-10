@@ -70,7 +70,7 @@ module Clients
 
     def permitted_attributes
       %i[ email phone password password_confirmation
-          first_name last_name avatar gender birthday city]
+          first_name last_name avatar gender birthday city additional_phone whatsapp telegram facebook]
     end
 
     def configure_account_update_params

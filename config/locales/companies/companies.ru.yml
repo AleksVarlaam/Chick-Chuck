@@ -9,8 +9,6 @@ ru:
                 title:            "Название"
                 working_area:     "Регион"
                 description:      "Описание или слоган"
-                contacts:         "Контакты"
-                additional_phone: "Телефон для связи"
                 avatar:           "логотип"
     company:
         carriers:         "перевозчики"
