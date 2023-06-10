@@ -83,28 +83,34 @@
                     id: "signUpLink"
                 %>
                 <hr>
-                <!-- Sign In As Company-->
-                <%= link_to new_company_session_path, 
-                    class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
-                    data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
-                    role: "menuitem",
-                    tabindex:"-1",
-                    id: "signInLink" do
-                %>
-                    <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2", alt: "log-in-as-company")%>
-                    <%= t('user_menu.sign_in_company')%>
-                <% end %>
-                <!-- Become a Carrier -->
-                <%= link_to new_company_registration_path, 
-                    class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
-                    data: {action: "dropdown#toggle"}, 
-                    role: "menuitem",
-                    tabindex:"-1",
-                    id:"become-a-Carrier-link" do
-                %>
-                    <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2", alt: "become-a-carrier")%>
-                    <%= t('company.sign_up.link')%>
-                <% end %>
+                <!-- Company -->
+                <div class="m-2 min-w-[14rem] w-auto inline-flex items-center justify-center p-0.5 overflow-hidden text-base font-medium rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                    <span class="w-full relative  py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md">
+                        <!-- Sign In As Company-->
+                        <%= link_to new_company_session_path, 
+                            class: "font-medium flex block  px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+                            data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
+                            role: "menuitem",
+                            tabindex:"-1",
+                            id: "signInLink" do
+                        %>
+                            <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2", alt: "log-in-as-company")%>
+                            <%= t('user_menu.sign_in_company')%>
+                        <% end %>
+                        <!-- Become a Carrier -->
+                        <%= link_to new_company_registration_path, 
+                            class: "font-medium flex block  px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+                            data: {action: "dropdown#toggle"}, 
+                            role: "menuitem",
+                            tabindex:"-1",
+                            id:"become-a-Carrier-link" do
+                        %>
+                                <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), 
+                                    class: "w-4 h-4 rtl:ml-2 ltr:mr-2 flex-none", alt: "become-a-carrier")%>
+                                <%= t('company.sign_up.title')%>
+                        <% end %>
+                    </span>
+                </div>
             <% end %>
         </div>
     </div>
