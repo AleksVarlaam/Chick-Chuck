@@ -33,7 +33,7 @@ module Users
     def modal; end
 
     def contacts
-      return redirect_to new_client_session_path, alert: t('devise.failure.unauthenticated') unless user_signed_in?
+      # return redirect_to new_client_session_path, alert: t('devise.failure.unauthenticated') unless user_signed_in?
     end
 
     private
