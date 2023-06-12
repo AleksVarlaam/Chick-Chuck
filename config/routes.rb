@@ -9,9 +9,6 @@ class AdminConstraint
 end
 
 Rails.application.routes.draw do
-  # Error 404
-  match '/404', to: 'errors#not_found', via: :all
-  match '/500', to: 'errors#internal_server_error', via: :all
   # Devise with omniauth_callbacks
   devise_for :clients, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'clients/omniauth_callbacks' }
 
