@@ -7,7 +7,13 @@
             <!-- Header -->
             <div class="col-span-full flex items-center justify-between mb-3 space-x-3">
                 <!-- Title -->
-                <%= tag.h4 product.title, class: "text-2xl font-bold tracking-tight text-gray-600"%>
+                <% if action_name == 'show' %>
+                    <%= tag.h1 product.title, class: "text-2xl font-bold tracking-tight text-gray-600" %>
+                <% elsif current_page?(root_path)%>
+                    <%= tag.p product.title, class: "text-2xl font-bold tracking-tight text-gray-600" %>
+                <% else %>
+                    <%= tag.h2 product.title, class: "text-2xl font-bold tracking-tight text-gray-600" %>
+                <% end %>
                 <!-- Icons -->
                 <%= tag.div class: "flex justify-center items-center relative -my-1" do %>
                     <!-- Product by carrier -->
@@ -21,10 +27,10 @@
             <% if ['show', 'products'].eql?([action_name, controller_name]) %>
                 <div>
                     <!-- Category -->
-                    <%= tag.p "#{Product.human_attribute_name('category')}: #{product.category_name}", 
+                    <%= tag.h2 "#{Product.human_attribute_name('category')}: #{product.category_name}", 
                         class: "mb-3 font-normal text-gray-500"%>
                     <!-- Type -->
-                    <%= tag.p "#{Product.human_attribute_name('things')}: #{product.thing_name}",
+                    <%= tag.h3 "#{Product.human_attribute_name('things')}: #{product.thing_name}",
                         class: "mb-3 font-normal text-gray-500"%>
                 </div>
                 <div>
@@ -43,7 +49,7 @@
             <% end %>
             <div class="col-span-full text-center mt-3">
                 <!-- City -->
-                <%= tag.p "#{product.district_name}, #{product.city_name}",
+                <%= tag.h4 "#{product.district_name}, #{product.city_name}",
                     class: "text-sm text-gray-500" if product.city.present?%>
             </div>
             <!-- Card Footer -->

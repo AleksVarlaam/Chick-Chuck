@@ -9,8 +9,8 @@ module Clients
     # GET /resource/sign_up
     def new
       set_meta_tags(
-        title: t('sign_up.title'),
-        description: t('sign_up.btn')
+        title: t('meta.client.sign_up.title'),
+        description: t('meta.client.sign_up.desc')
       )
       super
       # build_resource({})

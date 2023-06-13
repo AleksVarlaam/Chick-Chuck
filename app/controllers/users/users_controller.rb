@@ -9,8 +9,8 @@ module Users
 
     def index
       set_meta_tags( 
-        title: [t('israel'), t('company.carriers').capitalize],
-        description: t('about.carriers.desc_html')
+        title: t('meta.carriers.title'),
+        description: t('meta.carriers.desc')
       )
       
       Statistic.first.update(market: Statistic.first.companies + 1) unless user_signed_in?

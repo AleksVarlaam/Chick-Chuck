@@ -6,7 +6,7 @@
 <!-- Best carriers -->
 <%= turbo_frame_tag 'best_companies', class: "grid grid-cols-1 lg:grid-cols-3 w-full px-2 gap-4 sm:px-6 py-4" do %>
     <!-- Title -->
-    <%= tag.h3 t('company.top_carriers'), class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
+    <%= tag.h1 t('company.top_carriers'), class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
     <% if @best_companies.present? %>
         <!-- Top companies -->
         <%= render partial: 'companies/shared/company', collection: @best_companies%>
@@ -18,7 +18,7 @@
 <!-- Latest carriers -->
 <%= turbo_frame_tag 'latest_companies', class: "grid grid-cols-1 lg:grid-cols-4 w-full px-2 gap-4 sm:px-6 py-4" do %>
     <!-- Title -->
-    <%= tag.h3 t('company.latest_carriers'), class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
+    <%= tag.h2 t('company.latest_carriers'), class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
     <!-- Latest companies -->
     <%= render partial: 'companies/shared/company', collection: @latest_companies%>
 <% end if @latest_companies.present?%>

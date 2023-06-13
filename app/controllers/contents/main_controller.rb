@@ -4,8 +4,8 @@ module Contents
   class MainController < ApplicationController
     def index
       set_meta_tags(
-        title: t('home_page.h1'),
-        description: "#{t('home_page.h2')} #{t('home_page.main_features.combining_desc')}"
+        title: t('meta.home_page.title'),
+        description: t('meta.home_page.desc')
       )
       @companies = Company.confirmed.take(3)
       @products = Product.where(published: true).decorate.take(6)
@@ -15,8 +15,8 @@ module Contents
 
     def moving_preparation
       set_meta_tags(
-        title: t('moving_preparation.title'),
-        description: t('moving_preparation.header')
+        title: t('meta.moving_preparation.title'),
+        description: t('meta.moving_preparation.desc')
       )
       Statistic.first.update(moving_preparation: Statistic.first.moving_preparation + 1) unless user_signed_in?
     end

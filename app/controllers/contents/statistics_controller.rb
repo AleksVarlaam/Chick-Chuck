@@ -4,8 +4,8 @@ module Contents
   class StatisticsController < ApplicationController
     def show
       set_meta_tags( 
-        title: t('pages.about'),
-        description: "#{t('about.header.title')}. #{t('about.header.founder_title')}. #{t('review.add')}"
+        title: t('meta.about.title'),
+        description: t('meta.about.desc')
       )
       
       Statistic.first.update(about: Statistic.first.about + 1) unless user_signed_in?

@@ -9,8 +9,8 @@ module Companies
     # GET /resource/sign_up
     def new
       set_meta_tags(
-        title: "#{t('company.sign_up.title')} | #{t('company.sign_up.link')}",
-        description: t('company.sign_up.meta_desc')
+        title: t('meta.company.sign_up.title'),
+        description: t('meta.company.sign_up.desc')
       )
       super
       # build_resource({})

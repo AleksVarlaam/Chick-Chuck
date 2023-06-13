@@ -13,7 +13,7 @@
         <!-- Avatar -->
         <%= image_tag(@user.avatar_attachment_path, class: "object-cover w-20 h-20 mx-2 mb-3 rounded-full border border-white", alt: "avatar")%>
         <!-- Name -->
-        <%= tag.h4 class: "font-medium text-2xl text-center hover:underline text-gray-800" do %>
+        <%= tag.p class: "font-medium text-2xl text-center hover:underline text-gray-800" do %>
             <%= link_to user_modal_path(@user), data: { turbo_frame: 'modal' }, class: 'flex items-center' do %>
                 <%= @user.user_name %>
                 <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
@@ -25,7 +25,7 @@
 <!-- Products section -->
 <%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
     <!-- Title -->
-    <%= tag.h4 t('product.user_products', user_name: nil), class: 'text-3xl font-semibold text-gray-800 mb-6 text-center'%>
+    <%= tag.h1 t('product.user_products', user_name: nil), class: 'text-3xl font-semibold text-gray-800 mb-6 text-center'%>
     <!-- Content -->
     <%= turbo_frame_tag 'products',
         class: "grid grid-cols-1 gap-6 my-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 flex items-center justify-center mx-auto w-full container" do 

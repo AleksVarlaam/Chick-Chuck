@@ -1,7 +1,7 @@
 <!-- Market section-->
 <div class="py-10">
     <!-- Title -->
-    <%= tag.h3 t('pages.market'), class: 'text-3xl font-semibold text-gray-800  text-center'%>
+    <%= tag.h3 t('pages.market'), class: 'text-3xl font-semibold text-gray-800 text-center'%>
     <!-- Products list -->
     <%= turbo_frame_tag 'products', class: "flex overflow-x-scroll w-[22rem] sm:w-screen container mx-auto py-8 space-x-6 rtl:space-x-reverse" do %>
         <% if @products.present?%>

@@ -50,14 +50,16 @@
     <% end if ['show', 'modal', 'company_calculator', 'user_products'].include?(action_name)%>
     <!-- Title -->
     <div class="col-span-full">
-        <% if ['show', 'users'].eql?([action_name, controller_name])%>
-            <%= tag.h4 class: "z-10 w-full flex justify-center font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" do %>
+        <% if ['show', 'users'].eql?([action_name, controller_name]) || 
+              ['company_calculator', 'calculators'].eql?([action_name, controller_name]) ||
+              ['user_products', 'products'].eql?([action_name, controller_name])%>
+            <%= tag.h1 class: "z-10 w-full flex justify-center font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" do %>
                 <%= company.title%>
             <% end %>
         <% else %>
             <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, 
                 class: 'z-10 w-full flex items-center justify-center font-medium text-2xl text-center hover:underline text-gray-800 mx-auto' do %>
-                <%= tag.h4 company.title %>
+                <%= tag.p company.title %>
                 <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 z-20 text-orange-700 hover:text-gray-800 flex-none" %>
             <% end %>
         <% end %>
