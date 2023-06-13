@@ -23,8 +23,8 @@ class Client < User
     user
   end
 
-  def company_review(truck)
-    Review.find_by(user_id: self, reviewable_id: truck)
+  def company_review(company)
+    Review.find_by(user_id: self, reviewable_id: company)
   end
 
   # Mailer
