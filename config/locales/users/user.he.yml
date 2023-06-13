@@ -35,6 +35,7 @@ he:
         title:            "הרשמה"
         btn:              "יוצרים פרופיל"
     contacts:         "אנשי קשר"
+    contacts_desc_html:   "אנא הודיעו למוביל שמצאתם אותו באתר chick-chuck.com ואל תשכחו לעזוב את הביקורת לאחר המעבר. <br> דעתך חשובה מאוד."
     write_message:    "לכתוב"
     show_contacts:    "הצג אנשי קשר"
     telegram:

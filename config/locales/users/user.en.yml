@@ -35,6 +35,7 @@ en:
         title:            'Sign up'
         btn:              'Create account'
     contacts:         'Contacts'
+    contacts_desc_html:   "Please inform the carrier that you found it on the site chick-chuck.com and don’t forget to leave your feedback after moving. <br> Your opinion is very important."
     write_message:    "Write"
     show_contacts:    "Show contacts"
     telegram:

@@ -3,28 +3,29 @@
 
 <%= render TurboProfileComponent.new(title: t('contacts')) do %>
     <!-- Contacts -->
-    <%= tag.div class: "flex justify-center items-center p-6" do %>
+    <%= tag.div class: "flex justify-center items-center mt-3" do %>
         <div class="flex justify-center items-center mb-3 rounded-md grid grid-cols-1 gap-0.5" role="group">
+            <%= tag.span t('contacts_desc_html'), class: 'text-gray-500 text-center mb-6'%>
             <!-- Additional Phone number -->
-            <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
+            <%= button_tag class: "w-full inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
                 rounded border border-gray-300 hover:bg-gray-200 hover:text-gray-900 space-x-2 rtl:space-x-reverse" do%>
                 <%= heroicon 'phone-arrow-down-left', class: "w-4 h-4"%>
                 <%= link_to @user.formatted_additional_phone, "tel:#{@user.additional_phone}", target: "_blank"%>
             <% end if @user.additional_phone.present?%>
             <!-- What's App -->
-            <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
+            <%= button_tag class: "w-full inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
                 border rounded border-gray-300 hover:bg-gray-200 hover:text-gray-900 space-x-2 rtl:space-x-reverse" do%>
                 <%= image_tag(asset_path('icons/icons8-whatsapp-48.png'), class: 'w-5 h-5')%>
                 <%= link_to @user.formatted_whatsapp, "https://wa.me/#{@user.whatsapp.split('+')[1]}", target: "_blank"%>
             <% end if @user.whatsapp.present?%>
             <!-- Telegram -->
-            <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
+            <%= button_tag class: "w-full inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
                 rounded border border-gray-300 hover:bg-gray-200 hover:text-gray-900 space-x-2 rtl:space-x-reverse" do%>
                 <%= image_tag(asset_path('icons/icons8-telegram-app-48.png'), class: 'w-5 h-5')%>
                 <%= link_to @user.telegram, "https://telegram.me/#{@user.telegram.split(/@/).last}", target: "_blank"%>
             <% end if @user.telegram.present?%>
             <!-- Facebook -->
-            <%= button_tag class: "inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
+            <%= button_tag class: "w-full inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
                 rounded border border-gray-300 hover:bg-gray-200 hover:text-gray-900 space-x-2 rtl:space-x-reverse" do%>
                 <%= image_tag(asset_path('icons/icons8-facebook-48.png'), class: 'w-5 h-5')%>
                 <%= link_to '@' + @user.user_name, @user.facebook, target: "_blank"%>
