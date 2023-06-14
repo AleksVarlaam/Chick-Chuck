@@ -8,6 +8,7 @@ module Admins
 
     def show
       @statistic = Statistic.first
+      @companies_count = Company.confirmed.count
     end
 
     def users
