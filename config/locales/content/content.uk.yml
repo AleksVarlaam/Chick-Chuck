@@ -7,6 +7,7 @@ uk:
         news:             'Новини'
         about:            'Про сервіс'
     product:
+        to_advertise:     'Розмістити оголошення'
         add_btn:          'Додати товар'
         edit_btn:         'Змінити товар'
         my_products:      'Мої товари'

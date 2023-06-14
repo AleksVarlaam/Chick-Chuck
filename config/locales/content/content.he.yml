@@ -7,6 +7,7 @@ he:
         news:             "חדשות"
         about:            "על השירות"
     product:
+        to_advertise:     "לפרסם מודעה"
         add_btn:          "הוסף מוצר"
         edit_btn:         "שנה פריט"
         my_products:      "הסחורה שלי"

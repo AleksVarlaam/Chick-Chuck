@@ -7,6 +7,7 @@ ru:
         news:             'Новости'
         about:            'О сервисе'
     product:
+        to_advertise:     'Разместить объявление'
         add_btn:          'Добавить товар'
         edit_btn:         'Изменить товар'
         my_products:      'Мои товары'

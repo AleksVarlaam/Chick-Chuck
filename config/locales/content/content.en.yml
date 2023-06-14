@@ -7,6 +7,7 @@ en:
         news:             'News'   
         about:            'About'    
     product:
+        to_advertise:     'To advertise'
         add_btn:          'Add product'
         edit_btn:         'Edit product'
         my_products:      'My products'

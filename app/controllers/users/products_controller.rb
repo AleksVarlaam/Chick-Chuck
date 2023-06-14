@@ -4,7 +4,7 @@ module Users
   class ProductsController < ApplicationController
     include Feedbacks::ReviewsHelper
     layout 'profile_layout'
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: :new
     before_action :set_product, only: %i[edit update publish mark_as_sold destroy]
     before_action :filter_product, only: %i[new create edit update]
 
@@ -14,6 +14,7 @@ module Users
     end
 
     def new
+      return redirect_to new_client_session_path, alert: t('devise.failure.unauthenticated') unless client_signed_in? || company_signed_in?
       @product = current_user.products.new.decorate
     end
 
