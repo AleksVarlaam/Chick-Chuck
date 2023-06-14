@@ -53,7 +53,7 @@
         <% if ['show', 'users'].eql?([action_name, controller_name]) || 
               ['company_calculator', 'calculators'].eql?([action_name, controller_name]) ||
               ['user_products', 'products'].eql?([action_name, controller_name])%>
-            <%= tag.h1 class: "z-10 w-full flex justify-center font-medium text-2xl text-center hover:underline text-gray-800 mx-auto" do %>
+            <%= tag.h1 class: "z-10 w-full flex justify-center font-medium text-3xl text-center hover:underline text-gray-800 mx-auto" do %>
                 <%= company.title%>
             <% end %>
         <% else %>
