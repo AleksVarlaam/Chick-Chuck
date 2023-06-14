@@ -9,7 +9,7 @@
             <!-- Districts -->
             <div class="p-2 flex items-center space-x-2 justify-center">
                 <%= heroicon 'map', class: 'w-6 h-6 flex-none'%>
-                <ul class="flex flex-col font-medium text-gray-500 text-center <%= 'text-lg' if ['show', 'users'].eql?([action_name, controller_name])%>">
+                <ul class="flex flex-col font-medium text-gray-500 text-center <%= 'sm:text-lg' if ['show', 'users'].eql?([action_name, controller_name])%>">
                     <% company.districts.decorate.each do |district|%>
                         <li>
                             <%= link_to users_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
@@ -23,7 +23,7 @@
             <!-- Languages -->
             <div class="p-2 flex items-center space-x-2 justify-center">
                 <%= heroicon 'language', class: 'w-6 h-6 flex-none'%>
-                <ul class="flex flex-col font-medium text-gray-500 <%= 'text-lg' if ['show', 'users'].eql?([action_name, controller_name])%>">
+                <ul class="flex flex-col font-medium text-gray-500 <%= 'sm:text-lg' if ['show', 'users'].eql?([action_name, controller_name])%>">
                     <% company.languages.each do |language|%>
                         <li>
                             <%= link_to users_path(language_id: language), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>

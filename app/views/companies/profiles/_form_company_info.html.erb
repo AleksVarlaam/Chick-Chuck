@@ -38,7 +38,10 @@
         
         <!-- Languages -->
         <div class="mb-6">
-           <%= f.label :languages, class: "text-lg" %>
+           <div class="flex items-center space-x-2 rtl:space-x-reverse">
+               <%= f.label :languages, class: "text-lg" %>
+               <%= render 'shared/buttons/popover', text: t('language.language_select'), icon: 'icons/icons8-info-50.png'%>
+           </div>
            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
               <%= f.collection_check_boxes(:language_ids, Language.all, :id, :title) do |b| %> 
                   <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
@@ -47,8 +50,8 @@
         </div>
         <!-- Description input -->
         <div class="mb-6">
-           <div class="flex items-center">
-               <%= f.label :description, class: "text-lg mr-1" %>
+           <div class="flex items-center space-x-2 rtl:space-x-reverse">
+               <%= f.label :description, class: "text-lg" %>
                <%= render 'shared/buttons/popover', text: t('company.sign_up.slogan_length', length: 1000), icon: "icons/icons8-info-50.png"%>
            </div>
            <div class="text-gray-600 justify-center col-span-full mt-6 w-full">
