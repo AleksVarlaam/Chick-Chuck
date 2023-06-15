@@ -6,6 +6,7 @@ en:
             company:
                 districts:        "District"
                 languages:        "Languages"
+                services:         "Services"
                 title:            "Title"
                 working_area:     "District"
                 description:      "Description or slogan"

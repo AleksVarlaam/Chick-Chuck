@@ -9,7 +9,8 @@ class Company < User
   has_rich_text :description
   has_and_belongs_to_many :districts, class_name: 'District', foreign_key: :user_id
   has_and_belongs_to_many :languages, class_name: 'Language', foreign_key: :user_id
-  has_and_belongs_to_many :rooms, class_name: 'Room', foreign_key: :user_id, dependent: :destroy
+  has_and_belongs_to_many :services,  class_name: 'Service',  foreign_key: :user_id
+  has_and_belongs_to_many :rooms,     class_name: 'Room',     foreign_key: :user_id, dependent: :destroy
   has_one  :calculator, class_name: 'Calculator', dependent: :destroy, foreign_key: :user_id
   has_many :products, class_name: 'Product', dependent: :destroy, foreign_key: :user_id
   has_many :prices, class_name: 'Price', dependent: :destroy, foreign_key: :user_id

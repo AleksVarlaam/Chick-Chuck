@@ -6,6 +6,7 @@ he:
             company:
                 districts:        "אזור"
                 languages:        "לשונות"
+                services:         "שירותים"
                 title:            "שם"
                 working_area:     "אזור"
                 description:      "תיאור או סיסמה"

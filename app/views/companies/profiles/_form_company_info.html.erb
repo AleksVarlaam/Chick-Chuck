@@ -23,7 +23,7 @@
            %>
         </div>
     </div>
-        <!-- Working area -->
+        <!-- Districts -->
         <div class="mb-6">
            <%= f.label :districts, class: "text-lg" %>
            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
@@ -48,6 +48,17 @@
               <% end%>
            </div>
         </div>
+        
+        <!-- Services -->
+        <div class="mb-6">
+           <%= f.label :services, class: "text-lg" %>
+           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
+               <%= f.collection_check_boxes(:service_ids, Service.all, :id, I18n.locale) do |b| %> 
+                   <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
+               <% end%>
+           </div>
+        </div>
+        
         <!-- Description input -->
         <div class="mb-6">
            <div class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -92,13 +103,13 @@
           <% end if current_company.avatar.present? %>
         </div>
         
-    <!-- Contacts -->
+        <!-- Contacts -->
         <%= tag.h1 t('contacts'), class: "my-6 text-xl font-bold text-gray-700 capitalize dark:text-gray-700"%>
         
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mb-6">
             <!-- Additional Phone input -->
             <div class="">
-               <%= f.label :additional_phone, class: "text-lg flex items-center" %>
+               <%= f.label :additional_phone, class: "text-lg" %>
                <%= f.text_field :additional_phone, 
                 class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
                 placeholder: Company.human_attribute_name('additional_phone'), value: @company.formatted_additional_phone,

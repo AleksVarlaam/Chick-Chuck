@@ -6,6 +6,7 @@ uk:
             company:
                 districts:        "Регіон"
                 languages:        "Мови"
+                services:         "Послуги"
                 title:            "Назва"
                 working_area:     "Регіон"
                 description:      "Опис або слоган"

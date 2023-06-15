@@ -10,8 +10,10 @@
 <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-12">
   <!-- Email input -->
   <div class="">
-     <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
-         <%= f.label :email, class: "text-lg" %></div>
+     <div class="flex items-center">
+         <span class="text-red-500 mr-1">&nbsp;*</span>
+         <%= f.label :email, class: "text-lg" %>
+     </div>
      <%= f.email_field :email, autofocus: true, autocomplete: "email", 
       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
       id: "email-input",
@@ -22,8 +24,10 @@
   
   <!-- Phone input -->
   <div class="">
-     <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
-         <%= f.label :phone, class: "text-lg" %></div>
+     <div class="flex items-center">
+         <span class="text-red-500 mr-1">&nbsp;*</span>
+         <%= f.label :phone, class: "text-lg" %>
+     </div>
      <%= f.text_field :phone, autocomplete: "phone", 
       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
       id: "phone-input",
@@ -34,7 +38,8 @@
 
   <!-- Password input -->
   <div class="">
-    <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
+    <div class="flex items-center">
+        <span class="text-red-500 mr-1">&nbsp;*</span>
         <%= f.label :password, class: "text-lg mr-1" %>
         <% if @minimum_password_length %>
             <!-- Popover button-->
@@ -51,8 +56,10 @@
 
   <!-- Password confirmation -->
   <div class="">
-     <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
-         <%= f.label :password_confirmation, class: "text-lg" %></div>
+     <div class="flex items-center">
+         <span class="text-red-500 mr-1">&nbsp;*</span>
+         <%= f.label :password_confirmation, class: "text-lg" %>
+     </div>
      <%= f.password_field :password_confirmation, autocomplete: "new-password",
        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
        id: "passwordConfirmation-input",
@@ -71,8 +78,7 @@
 <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-12">
     <!-- First Name input -->
     <div class="">
-       <div class="flex items-center">
-           <%= f.label :first_name, class: "text-lg" %></div>
+       <%= f.label :first_name, class: "text-lg" %>
        <%= f.text_field :first_name, autocomplete: "first_name", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         id: "firstName-input",
@@ -123,8 +129,10 @@
 <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-6">
     <!-- Company name input -->
     <div class="">
-       <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
-           <%= f.label :title, class: "text-lg" %></div>
+       <div class="flex items-center">
+           <span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :title, class: "text-lg" %>
+       </div>
        <%= f.text_field :title, autocomplete: "phone", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         placeholder: Company.human_attribute_name('title'),
@@ -142,10 +150,12 @@
        %>
     </div>
 </div>
-    <!-- Working area -->
+    <!-- Districts -->
     <div class="mb-6">
-       <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
-           <%= f.label Company.human_attribute_name('working_area'), class: "text-lg" %></div>
+       <div class="flex items-center">
+           <span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :districts, class: "text-lg" %>
+       </div>
        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-1">
           <%= f.collection_check_boxes(:district_ids, District.all, :id, I18n.locale) do |b| %> 
               <%= b.label class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300", data: {'checkbox-select-all-target' => b.text == District.first.decorate.title ?  "checkboxAll" : ''} do %>
@@ -158,8 +168,9 @@
     
     <!-- Languages -->
     <div class="mb-6">
-       <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
-           <%= f.label Company.human_attribute_name('languages'), class: "text-lg mr-1" %>
+       <div class="flex items-center">
+           <span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :languages, class: "text-lg mr-1" %>
            <%= render 'shared/buttons/popover', text: t('language.language_select')%>
        </div>
        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-1">
@@ -168,17 +179,29 @@
           <% end%>
        </div>
     </div>
+    
+    <!-- Services -->
+    <div class="mb-6">
+       <div class="flex items-center">
+           <span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :services, class: "text-lg" %>
+       </div>
+       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
+           <%= f.collection_check_boxes(:service_ids, Service.all, :id, I18n.locale) do |b| %> 
+               <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
+           <% end%>
+       </div>
+    </div>
+    
     <!-- Description input -->
     <div class="mb-6">
-        <div class="flex items-center">
-            <%= f.label :description, class: "text-lg mr-1" %>
-            <%= render 'shared/buttons/popover', text: t('company.sign_up.slogan_length')%>
-        </div>
-       <%= f.text_area :description, autocomplete: "phone", 
-        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-        placeholder: Company.human_attribute_name('description'),
-        required: false
-       %>
+       <div class="flex items-center space-x-2 rtl:space-x-reverse">
+           <%= f.label :description, class: "text-lg" %>
+           <%= render 'shared/buttons/popover', text: t('company.sign_up.slogan_length', length: 1000), icon: "icons/icons8-info-50.png"%>
+       </div>
+       <div class="text-gray-600 justify-center col-span-full mt-6 w-full">
+           <%= f.rich_text_area :description, class: "w-full p-2 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring"%>
+       </div>
     </div>
     
     <!-- Logo -->

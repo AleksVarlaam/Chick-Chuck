@@ -6,6 +6,7 @@ ru:
             company:
                 districts:        "Регион"
                 languages:        "Языки"
+                services:         "Услуги"
                 title:            "Название"
                 working_area:     "Регион"
                 description:      "Описание или слоган"
