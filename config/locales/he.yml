@@ -25,6 +25,8 @@ he:
       find_btn:         "למצוא %{model}"
       upload:           "להעלות %{model}"
       update:           "לעדכן את %{model}"
+      select_all:       "תבחרי הכל"
+      deselect_all:     "לבטל את כל"
   # Flash
   flash:
       type:

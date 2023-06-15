@@ -25,6 +25,8 @@ ru:
       find_btn:         "Найти %{model}"
       upload:           "Загрузить %{model}"
       update:           "Обновить %{model}"
+      select_all:       "Выбрать все"
+      deselect_all:     "Отменить все"
   # Flash
   flash:
       type:

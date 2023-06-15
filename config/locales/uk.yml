@@ -26,6 +26,8 @@ uk:
       find_btn:         "Знайти %{model}"
       upload:           "Завантажити %{model}"
       update:           "Оновлення %{model}"
+      select_all:       "Вибрати все"
+      deselect_all:     "Скасувати всі"
   # Flash
   flash:
       type:

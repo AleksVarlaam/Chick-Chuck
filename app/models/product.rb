@@ -19,8 +19,8 @@ class Product < ApplicationRecord
   scope :filter_by_city_id,     ->(city_id)     { where city_id:, published: true }
   scope :filter_by_condition,   ->(condition)   { where condition:, published: true }
   scope :filter_by_delivery,    ->(delivery)    { where delivery:, published: true }
-  scope :filter_by_price_min,   ->(price_min)   { where 'price >= ?', price_min }
-  scope :filter_by_price_max,   ->(price_max)   { where 'price <= ?', price_max }
+  scope :filter_by_price_min,   ->(price_min)   { where 'price >= ?', price_min, published: true }
+  scope :filter_by_price_max,   ->(price_max)   { where 'price <= ?', price_max, published: true }
 
   def self.condition_select
     [

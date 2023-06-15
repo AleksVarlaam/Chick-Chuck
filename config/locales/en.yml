@@ -26,6 +26,8 @@ Subscribe to our news to monitor our progress."
       find_btn:         "Find %{model}"
       upload:           "Upload %{model}"
       update:           "Update %{model}"
+      select_all:       "Select All"
+      deselect_all:     "Deselect All"
   # Flash
   flash:
       type:
