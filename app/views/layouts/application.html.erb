@@ -4,6 +4,7 @@
     dir="<%= response.header['Content-Language'] == 'he' ? 'rtl' : 'ltr' %>">
   <head>
     <!-- Meta -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= display_meta_tags(default_meta_tags) %>
     <!-- CSRF & stylesheets -->
     <%= csrf_meta_tags %>

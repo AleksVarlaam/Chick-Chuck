@@ -4,7 +4,6 @@ module MetaTagsHelper
   def default_meta_tags
     {
       charset:  'utf-8',
-      viewport: 'width=device-width,initial-scale=1',
       site: 'Chick-Chuck.com',
       reverse: true,
       separator: '|',
