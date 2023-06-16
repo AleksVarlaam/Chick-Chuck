@@ -36,8 +36,10 @@ Rails.application.routes.draw do
     # Companies
     devise_for :companies, controllers: { registrations: 'companies/registrations' }
     namespace :companies do
-      resources :prices, only: %i[index create update]
+      resources :prices,     only: %i[index create update]
       resource  :calculator, only: %i[create update]
+      get  '/images',                   to: 'images#index',                 as: 'images'
+      put  '/images',                   to: 'images#upload_images',         as: 'upload_images'
       get  '/dashboard',                to: 'dashboard#index',              as: 'dashboard'
       get  '/profile',                  to: 'profiles#profile',             as: 'edit_profile'
       put  '/profile',                  to: 'profiles#profile_update',      as: 'profile'

@@ -5,7 +5,7 @@
     >
         <% if user_signed_in? && ['edit', 'update'].include?(action_name) %>
             <%= link_to path,
-                data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this image?", turbo_frame: '_top' },
+                data: { turbo_method: :delete, turbo_confirm: t('global.are_you_sure'), turbo_frame: '_top' },
                 remote: :true,
                 class: "justify-content-end absolute z-20 bg-gray-100 right-0 rounded-md text-red-700 p-1 m-1" do
             %>

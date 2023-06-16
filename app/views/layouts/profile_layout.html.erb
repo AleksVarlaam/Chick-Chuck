@@ -39,7 +39,7 @@
                   <section class="w-full mx-auto rounded-md shadow-md hover:shadow-lg 
                       <%= [controller_name, action_name].eql?(['rooms', 'show']) ? 'p-0 h-screen' : 'p-6 min-h-screen'%> "
                   >
-                      <%= tag.h1 yield(:main_title), class:"mb-6 text-xl font-bold text-gray-700 capitalize"%>
+                      <%= tag.h1 yield(:main_title), class:"mb-6 text-xl font-bold text-gray-700"%>
                       <!-- Content -->
                       <%= yield %>
                   </section>

@@ -11,6 +11,7 @@ en:
                 working_area:     "District"
                 description:      "Description or slogan"
                 avatar:           "logotype"
+                images:           "images"
     company:
         carriers:         "carriers"
         top_carriers:     "Top carriers"
@@ -24,3 +25,7 @@ en:
             credential:       "Credential information"
             personal:         "Representative information"
             slogan_length:    "%{length} characters maximum"
+        gallery:          
+            title:        "Gallery"
+            view_btn:     "View the gallery"
+            desc:         "Note: Here you can upload photos for your portfolio, for example, your fleet and your team."

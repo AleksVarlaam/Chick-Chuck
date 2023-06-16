@@ -15,11 +15,11 @@
     <!-- Parent path -->
     <% if yield(:parent_title).present? && yield(:parent_path).present?%>
         <%= tag.span '/', class: "mx-5 text-gray-700"%>
-        <%= link_to yield(:parent_title), yield(:parent_path), class: "text-gray-700 capitalize hover:underline" %>
+        <%= link_to yield(:parent_title), yield(:parent_path), class: "text-gray-700 hover:underline" %>
     <% end %>
     
     <!-- Current path -->
     <%= tag.span '/', class: "mx-5 text-gray-700"%>
-    <%= link_to yield(:nav_title), yield(:nav_path), class: "text-gray-700 capitalize hover:underline" %>
+    <%= link_to yield(:nav_title), yield(:nav_path), class: "text-gray-700 hover:underline" %>
    
 </div>

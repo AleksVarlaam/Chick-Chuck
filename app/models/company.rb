@@ -7,13 +7,14 @@ class Company < User
   validates :rating, numericality: { in: 0..5 }
 
   has_rich_text :description
+  mount_uploaders :images, ImageUploader
   has_and_belongs_to_many :districts, class_name: 'District', foreign_key: :user_id
   has_and_belongs_to_many :languages, class_name: 'Language', foreign_key: :user_id
   has_and_belongs_to_many :services,  class_name: 'Service',  foreign_key: :user_id
   has_and_belongs_to_many :rooms,     class_name: 'Room',     foreign_key: :user_id, dependent: :destroy
   has_one  :calculator, class_name: 'Calculator', dependent: :destroy, foreign_key: :user_id
-  has_many :products, class_name: 'Product', dependent: :destroy, foreign_key: :user_id
-  has_many :prices, class_name: 'Price', dependent: :destroy, foreign_key: :user_id
+  has_many :products,   class_name: 'Product', dependent: :destroy, foreign_key: :user_id
+  has_many :prices,     class_name: 'Price', dependent: :destroy, foreign_key: :user_id
   has_many :reviews,  as: :reviewable,  dependent: :destroy, class_name: 'Review'
   has_many :comments, as: :commentable, dependent: :destroy, class_name: 'Comment', foreign_key: :user_id
   has_many :comments, as: :object,      dependent: :destroy, class_name: 'Comment', foreign_key: :user_id

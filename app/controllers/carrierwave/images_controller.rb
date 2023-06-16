@@ -39,9 +39,10 @@ module Carrierwave
 
     def set_object
       @object = Product.find(params[:product_id]) if params[:product_id].present?
-      @object = News.find(params[:news_id])       if params[:news_id].present?
+      @object = Company.find(params[:company_id]) if params[:company_id].present?
       @object = Comment.find(params[:comment_id]) if params[:comment_id].present?
       @object = Message.find(params[:message_id]) if params[:message_id].present?
+      @object = News.find(params[:news_id])       if params[:news_id].present?
     end
   end
 end

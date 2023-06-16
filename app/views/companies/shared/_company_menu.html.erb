@@ -77,6 +77,18 @@
 
 <hr>
 <!-- Personal Info -->
+<%= link_to companies_images_path, 
+  class: link_class, 
+  data: {action: "dropdown#toggle"}, 
+  role: "menuitem",
+  tabindex:"-1",
+  id:"personalInfoLink" do
+%>
+  <%= heroicon "photo", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('company.gallery.title')%>
+<% end %>
+
+<!-- Personal Info -->
 <%= link_to companies_edit_profile_path, 
   class: link_class, 
   data: {action: "dropdown#toggle"}, 

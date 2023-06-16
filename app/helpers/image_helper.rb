@@ -4,6 +4,8 @@ module ImageHelper
   def image_path(index, object)
     if    object.instance_of?(Product)
       carrierwave_image_path(id: index, product_id: object.id)
+    elsif object.instance_of?(Company)
+      carrierwave_image_path(id: index, company_id: object.id)
     elsif object.instance_of?(News)
       carrierwave_image_path(id: index, news_id: object.id)
     elsif object.instance_of?(Comment)
