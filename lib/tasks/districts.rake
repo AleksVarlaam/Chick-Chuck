@@ -12,7 +12,7 @@ namespace :districts do
           name: { ru: 'Весь Израиль', en: 'All Israel', uk: 'Весь Ізраїль',
                   he: 'כל ישראל' }
         },
-        { name: { ru: 'Северный Округ', en: 'Northern District', uk: 'Північний Округ', he: 'מחוז הצפון‏' },
+        { name: { ru: 'Северный округ', en: 'Northern District', uk: 'Північний округ', he: 'מחוז הצפון‏' },
           cities: [
             { ru: 'Акко',            en: 'Acre',              uk: 'Акко',            he: 'עכו‏' },
             { ru: 'Афула',           en: 'Afula',             uk: 'Афула',           he: 'עפולה‏' },
@@ -49,7 +49,7 @@ namespace :districts do
           ]
         },
         {
-          name: { ru: 'Тель-Авивский округ', en: 'Tel-Aviv District', uk: 'Тель-Авівський Округ',
+          name: { ru: 'Тель-Авивский округ', en: 'Tel-Aviv District', uk: 'Тель-Авівський округ',
                   he: 'מחוז תל אביב‏‏' },
           cities: [
             { ru: 'Бат-Ям',          en: 'Bat Yam',           uk: 'Бат-Ям',          he: 'בת ים‏' },
@@ -65,7 +65,7 @@ namespace :districts do
           ]
         },
         {
-          name: { ru: 'Центральный Округ', en: 'Central District', uk: 'Центральний округ',
+          name: { ru: 'Центральный округ', en: 'Central District', uk: 'Центральний округ',
                   he: 'מחוז המרכז‏' },
           cities: [
             { ru: 'Гиват-Шмуэль',         en: 'Givat-Shmuel',           uk: 'Гиват-Шмуэль', he: 'גבעת שמואל‏' },
@@ -102,7 +102,7 @@ namespace :districts do
           ]
         },
         {
-          name: { ru: 'Южный Округ', en: 'Southern District', uk: 'Південний Округ',
+          name: { ru: 'Южный округ', en: 'Southern District', uk: 'Південний округ',
                   he: 'מחוז הדרום' },
           cities: [
             { ru: 'Арад',                 en: 'Arad',                   uk: 'Арад',                 he: 'ערד‏' },
