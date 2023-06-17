@@ -8,12 +8,12 @@ module Users
     after_action :update_views, only: :show
 
     def index
-      title_district = District.find(params[:district_id].to_i).decorate.title if params[:district_id].present?
-      title_language = Language.model_name.human + '-' + Language.find(params[:language_id].to_i).title if params[:language_id].present?
-      title_israel   = t('israel') if title_district.blank? || title_language.blank?
+      @title_district = District.find(params[:district_id].to_i).decorate.title if params[:district_id].present?
+      @title_language = Language.model_name.human + '-' + Language.find(params[:language_id].to_i).title if params[:language_id].present?
+      title_israel   = t('israel') if @title_district.blank? || @title_language.blank?
       
       set_meta_tags( 
-        title: [title_language, title_israel, title_district, t('meta.carriers.title')],
+        title: [@title_language, title_israel, @title_district, t('meta.carriers.title')],
         description: t('meta.carriers.desc')
       )
       
