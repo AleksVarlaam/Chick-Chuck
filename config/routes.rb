@@ -8,11 +8,53 @@ class AdminConstraint
   end
 end
 
-Rails.application.routes.draw do
-  # Devise with omniauth_callbacks
-  devise_for :clients, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'clients/omniauth_callbacks' }
-
+Rails.application.routes.draw do  
+  # WWW redirect
+  match "(*any)",
+    to: redirect(subdomain: ""),
+    via: :all,
+    constraints: { subdomain: "www" }
+    
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
+    # Root path
+    root to: 'contents/main#index'
+    
+    # Contents
+    scope :contents do
+      # Users
+      resources :users, only: %i[index show], controller: 'users/users' do
+        get '/modal',         to: 'users/users#modal',                  as: 'modal'
+        get '/contacts',      to: 'users/users#contacts',               as: 'contacts'
+      end
+      
+      # Products
+      resources :products, only: %i[index show], controller: 'contents/products'
+      get 'seller/:user_id/user_products', to: 'contents/products#user_products', as: 'user_products'
+      
+      # About page and comments
+      get 'about', to: 'contents/statistics#show', as: 'about'
+      resources :statistics, only: :show, controller: 'contents/statistics' do
+        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+      end
+      
+      # Calculator
+      resource :calculator, only: %i[show], controller: 'contents/calculators' do
+        get '/company/:company_id/calculator', to: 'contents/calculators#company_calculator', as: 'company'
+      end
+      
+      # Moving preparation
+      get '/moving_preparation', to: 'contents/main#moving_preparation'
+      
+      # Comments
+      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
+        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+      end
+      
+      # News content
+      # resources :news, only: %i[show index], controller: 'contents/news' do
+  #       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+  #     end
+    end
     # Admins
     devise_for :admins, controllers: { registrations: 'admins/registrations' }, skip: [:registrations]
     as :admin do
@@ -64,48 +106,6 @@ Rails.application.routes.draw do
       resources :mailers, only: [:create]
     end
 
-    # Contents
-    scope :contents do
-      # Users
-      resources :users, only: %i[index show], controller: 'users/users' do
-        get '/modal',         to: 'users/users#modal',                  as: 'modal'
-        get '/contacts',      to: 'users/users#contacts',               as: 'contacts'
-      end
-
-      # News content
-      resources :news, only: %i[show index], controller: 'contents/news' do
-        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-      end
-
-      # Company content
-      resources :companies, only: %i[show], controller: 'contents/companies' do
-        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-      end
-
-      # Comments
-      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
-        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-      end
-
-      # About page and comments
-      get 'about', to: 'contents/statistics#show', as: 'about'
-      resources :statistics, only: :show, controller: 'contents/statistics' do
-        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-      end
-
-      # Products
-      resources :products, only: %i[index show], controller: 'contents/products'
-      get 'seller/:user_id/user_products', to: 'contents/products#user_products', as: 'user_products'
-
-      # Calculator
-      resource :calculator, only: %i[show], controller: 'contents/calculators' do
-        get '/company/:company_id/calculator', to: 'contents/calculators#company_calculator', as: 'company'
-      end
-
-      # Moving preparation
-      get '/moving_preparation', to: 'contents/main#moving_preparation'
-    end
-
     # Reviews
     resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
 
@@ -121,8 +121,8 @@ Rails.application.routes.draw do
 
     # Notifications
     resources :notifications, only: [:index], controller: 'feedbacks/notifications'
-
-    # Root path
-    root to: 'contents/main#index'
   end
+  
+  # Devise with omniauth_callbacks
+  devise_for :clients, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'clients/omniauth_callbacks' }
 end
