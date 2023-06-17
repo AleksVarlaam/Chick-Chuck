@@ -56,17 +56,17 @@
                 </div>
         		<div class="px-1 flex flex-col items-center text-center w-full space-y-4 rounded-md lg:h-full dark:bg-gray-900 dark:text-gray-100">
                     <!-- Gallery -->
-                    <%= link_to image_path(0, company), data: {turbo_frame: 'modal'},
-                        class: "h-10 text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm p-2 lg:px-4 text-center flex items-center space-x-2 rtl:space-x-reverse" do %>
-                        <%= heroicon 'photo', class: 'w-6 h-6'%>
-                        <%= tag.span t('company.gallery.view_btn'), class: 'text-lg'%>
-                    <% end if company.images.present?%>
+                    <%= tag.div class: "w-full sm:w-1/2 flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl" do %>
+                        <!-- Images -->
+                        <%= render 'carrierwave/images/carousel', object: company %>
+                    <% end if company.images.present? %>
                     <!-- Description -->
         			<%= tag.p class: "w-full text-lg italic font-medium text-gray-700" do %>
                         <%= company.description%>
                     <% end if company.description.present?%>
                     <!-- Website -->
-        			<%= tag.div class:"text-center flex items-center text-md font-medium text-gray-500 hover:text-blue-600 dark:text-gray-400 space-x-2" do %>
+        			<%= tag.div class:"text-center flex items-center text-md font-medium text-gray-500 hover:text-blue-600 
+                        dark:text-gray-400 space-x-2" do %>
                         <%= heroicon 'globe-alt', class: 'w-6 h-6 flex-none'%>
                         <%= link_to company.website, company.website, target: '_blank', class: %>
                     <% end if company.website.present?%>
