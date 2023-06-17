@@ -1,5 +1,6 @@
 <!-- Company header -->
 <div class="grid grid-cols-3 gap-2 max-w-xl lg:max-w-full">
+    <!-- Left buttons -->
     <%= tag.div class: "flex justify-center space-x-3 pt-2" do %>
         <!-- Message -->
         <%= form_with model: Room.new, remote: true, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'} do |f| %>
@@ -25,6 +26,7 @@
             class: "object-cover w-24 h-24 rounded-full border border-white
                 #{action_name != 'index' ? 'sm:w-32 sm:h-32' : 'sm:w-24 sm:h-24'}", alt: "avatar")%>
     </div>
+    <!-- Right buttons -->
     <%= tag.div class: "flex justify-center pt-2 space-x-3" do %>
         <!-- Products -->
         <%= link_to user_products_path(company), aria: {label: company.title + '_products'},
@@ -41,20 +43,23 @@
                 class: 'text-lg hidden lg:block' unless action_name == 'modal' || ['show', 'products'].eql?([action_name, controller_name])%>
         <% end unless action_name == 'company_calculator'%>
         <!-- Reviews -->
-        <%= link_to user_path(company, anchor: 'reviews'), aria: {label: company.title + '_calculator'},
+        <%= link_to user_path(company), aria: {label: t('company.about') + company.title},
             class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 lg:px-4 text-center flex items-center space-x-2 rtl:space-x-reverse" do %>
-            <%= heroicon 'star', class: 'w-6 h-6'%>
-            <%= tag.span t('review.reviews'), 
+            <%= heroicon 'identification', class: 'w-6 h-6'%>
+            <%= tag.span t('company.about'), 
                 class: 'text-lg hidden lg:block' unless action_name == 'modal' || ['show', 'products'].eql?([action_name, controller_name])%>
         <% end if ['company_calculator', 'user_products'].include?(action_name)%>
     <% end if ['show', 'modal', 'company_calculator', 'user_products'].include?(action_name)%>
     <!-- Title -->
     <div class="col-span-full">
-        <% if ['show', 'users'].eql?([action_name, controller_name]) || 
-              ['company_calculator', 'calculators'].eql?([action_name, controller_name]) ||
-              ['user_products', 'products'].eql?([action_name, controller_name])%>
-            <%= tag.h1 class: "z-10 w-full flex justify-center font-medium text-3xl text-center hover:underline text-gray-800 mx-auto" do %>
-                <%= company.title%>
+        <% if current_page?(user_path(company)) || 
+              current_page?(company_calculator_path(company)) ||
+              current_page?(user_products_path(company))%>
+            <%= tag.h1 class: "z-10 w-full flex flex-col justify-center font-medium text-center text-gray-800 mx-auto" do %>
+                <%= tag.span t('company.about'), class: 'text-xl text-gray-500' if current_page?(user_path(company))%>
+                <%= tag.span t('calculator.title'), class: 'text-xl text-gray-500' if current_page?(company_calculator_path(company))%>
+                <%= tag.span t('pages.market'), class: 'text-xl text-gray-500' if current_page?(user_products_path(company))%>
+                <%= tag.span company.title, class: "hover:underline text-3xl"%>
             <% end %>
         <% else %>
             <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, 
