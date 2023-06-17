@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     constraints: { subdomain: "www" }
     
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
+    # Sitemap
+    get 'sitemap.xml', to: 'contents/main#sitemap', format: 'xml', as: :sitemap
+    # Robots
+    get 'robots.txt',  to: 'contents/main#robots', format: 'txt', as: :robots
     # Root path
     root to: 'contents/main#index'
     

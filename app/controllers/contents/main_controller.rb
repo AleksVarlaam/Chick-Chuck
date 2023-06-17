@@ -20,5 +20,9 @@ module Contents
       )
       Statistic.first.update(moving_preparation: Statistic.first.moving_preparation + 1) unless user_signed_in?
     end
+    
+    def sitemap; end
+    
+    def robots; end
   end
 end
