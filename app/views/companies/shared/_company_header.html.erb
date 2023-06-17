@@ -59,7 +59,8 @@
         <% else %>
             <%= link_to user_path(company), target: "_blank", data: { turbo_frame: '_top' }, 
                 class: 'z-10 w-full flex items-center justify-center font-medium text-2xl text-center hover:underline text-gray-800 mx-auto' do %>
-                <%= tag.p company.title %>
+                <%= tag.h1 company.title if ['modal', 'users'].eql?([action_name, controller_name])%>
+                <%= tag.p company.title unless ['modal', 'users'].eql?([action_name, controller_name])%>
                 <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 z-20 text-orange-700 hover:text-gray-800 flex-none" %>
             <% end %>
         <% end %>
