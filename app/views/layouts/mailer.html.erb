@@ -8,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
     
-    <style>
-      /* Email styles need to be inline */
-    </style>
+    <!-- Style -->
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   </head>
 
   <body>
+     <%= link_to root_url, class: 'flex justify-center' do%>
+         <%= image_tag 'icons/chick-chuck/chick-chuck-logo.png', alt: 'Chick-Chuck-logo', class: '' -%>
+     <% end %>
     <%= yield %>
   </body>
 </html>

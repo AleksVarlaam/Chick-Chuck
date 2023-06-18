@@ -44,5 +44,12 @@ module ChickChuck
 
     # Active storage
     config.active_storage.replace_on_assign_to_many = false
+    
+    # Email
+    if Rails.env.production?
+      config.action_mailer.asset_host = 'https://chick-chuck.com'
+    else
+      config.action_mailer.asset_host = 'http://localhost:3000'
+    end
   end
 end
