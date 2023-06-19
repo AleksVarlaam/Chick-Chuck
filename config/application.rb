@@ -47,7 +47,7 @@ module ChickChuck
     
     # Email
     if Rails.env.production?
-      config.action_mailer.asset_host = 'https://chick-chuck.com'
+      config.action_mailer.asset_host = 'http://chick-chuck.com'
     else
       config.action_mailer.asset_host = 'http://localhost:3000'
     end

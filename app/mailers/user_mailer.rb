@@ -6,8 +6,13 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome(user)
+  def sending(user)
     @user = user
-    mail to: user.email
+    mail to: user.email, 
+         subject: 'Обновление'
+  end
+  
+  def company
+    Company.all.each { |company| UserMailer.sending(company).deliver_now }
   end
 end
