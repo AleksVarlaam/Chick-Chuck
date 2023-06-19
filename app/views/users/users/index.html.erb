@@ -2,7 +2,8 @@
 <% provide :page_title, t('company.carriers').capitalize %>
 
 <!-- Main Title -->
-<%= tag.h1 "#{t('company.find_carrier')}: #{@title_district}#{',' if @title_district && @title_language} #{@title_language}", class: 'text-3xl font-semibold text-gray-800  text-center col-span-full my-6'%>
+<%= tag.h1 "#{t('company.find_carrier') + ':' unless params[:service_ids].present? && params[:service_ids].count > 1} #{@title_h1.capitalize}", 
+    class: 'text-2xl font-semibold text-gray-800  text-center col-span-full my-6 px-4' %>
 <!-- Filter -->
 <%= tag.div (render 'shared/navigations/links_board', path: users_path, frame: 'companies', company: nil), class: 'mt-8'%>
 <!-- Best carriers -->
