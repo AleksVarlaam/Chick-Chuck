@@ -1,0 +1,13 @@
+<%= tag.h1 @h1, class: "text-lg" %>
+
+<%= tag.p simple_format(@main_content)%>
+
+<div class="flex justify-start">
+    <%= link_to "Войти в личный кабинет", new_company_session_url, class: "link-button"%>
+</div>
+
+<p>
+   P.S. С радостью принимаю любые отзывы и предложения для улучшения сервиса, которые вы можете оставить <%= link_to 'здесь', about_url(anchor: 'comments_title') %> или ответив на данное email сообщение. Вместе мы сделаем этот сервис лучше!<br>
+   Я желаю вам успеха и процветания в вашем бизнесе и во всех ваших делах! С уважением, Александр.
+</p>
+

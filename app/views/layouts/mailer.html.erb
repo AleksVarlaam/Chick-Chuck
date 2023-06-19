@@ -31,20 +31,21 @@
             color: hsl(0, 100%, 100%); 
             border-radius: 0.5rem;
         }
-        body { background-color: hsl(0, 0%, 97%); }
+        body { 
+            background-color: hsl(0, 0%, 97%); 
+            padding: 1rem 1rem 1rem 1rem;
+        }
     </style>
   </head>
 
   <body>
       <!-- Logotype -->
-      <div class="flex justify-center pt-6">
+      <div class="flex justify-center">
           <%= link_to root_url do %>
-              <!-- Chick-Chuck logotype -->
-              <%= image_tag('icons/chick-chuck/chick-chuck-logo.png', alt: 'chick-chuck-logotype',
-                  class: "object-cover h-10")%>
+              <%= image_tag('icons/chick-chuck/chick-chuck-logo.png', alt: 'chick-chuck-logotype', class: "object-cover h-10")%>
           <% end %>
       </div>
-
+      <!-- Main -->
       <div>
           <%= yield %>
       </div>
