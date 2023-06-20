@@ -22,6 +22,10 @@ module MetaTagsHelper
         { 
           href: image_url(asset_path('apple-touch-icon.png')), rel: 'apple-touch-icon',
           sizes: '180x180', type: 'image/png' 
+        },
+        { 
+          href: image_url(asset_path('favicon.svg')), rel: 'icon',
+          sizes: '120x120', type: 'image/x-icon' 
         }
       ],
       og: {
