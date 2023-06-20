@@ -14,7 +14,7 @@ module Users
       @best_companies = companies.take(3)
       latest_companies = companies.drop(3)
       @companies_count = latest_companies.count
-      @pagy_a, @latest_companies = pagy_array(latest_companies, items: 10)
+      @pagy_a, @latest_companies = pagy_array(latest_companies, items: 8)
     end
 
     def show
