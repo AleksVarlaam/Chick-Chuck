@@ -4,15 +4,11 @@ ru:
         search:           'Поиска чата'
     language:
         language_select:  'Выберите языки, на которых вы говорите'
-        add_btn:          'Добавить язык'
-        edit_btn:         'Изменить язык'
     category:
         add_btn:          'Добавить категорию'
         edit_btn:         'Изменить категорию'
     thing:
         add_btn:          'Добавить вещь'
-    district:
-        add_btn:          'Добавить регион'
     body_type:
         add_btn:          'Добавить тип' 
     message:

@@ -4,17 +4,11 @@ en:
         search:           'Search chat'
     language:
         language_select:  'Select the languages you speak'
-        add_btn:          'Add language'
-        edit_btn:         'Edit languages'
     category:
         add_btn:          'Add category'
         edit_btn:         'Edit category'
     thing:
         add_btn:          'Add item'
-    district:
-        add_btn:          'Add district'
-    body_type:
-        add_btn:          'Add type'  
     message:
         placeholder:      'Your message...'
     comment:

@@ -4,15 +4,11 @@ he:
         search:           "חיפוש בצ'אט"
     language:
         language_select:  "בחר את השפות שאתה מדבר"
-        add_btn:          "הוסף שפה"
-        edit_btn:         "לשנות שפה"
     category:
         add_btn:          "הוסף קטגוריה"
         edit_btn:         "שנה קטגוריה"
     thing:
         add_btn:          "תוסיף משהו"
-    district:
-        add_btn:          "הוסף אזור"
     body_type:
         add_btn:          "הוסף סוג" 
     message:

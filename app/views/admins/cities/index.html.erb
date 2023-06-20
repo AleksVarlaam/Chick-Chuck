@@ -1,0 +1,26 @@
+<% currently_at @district.title %>
+<% provide :page_title, @district.title %>
+<% provide :parent_title, t('admin_menu.lang_dist') %>
+<% provide :parent_path, admins_districts_path %>
+<% provide :nav_title, @district.title %>
+<% provide :nav_path, admins_district_cities_path(@district) %>
+<% provide :main_title, @district.title %>
+
+<!-- Cities table -->
+<%= turbo_frame_tag 'cities',
+    class: "grid grid-flow-row auto-rows-max w-full mb-6" do 
+%>
+    <%= tag.p City.model_name.human, class: "text-start text-gray-500 text-xl font-bold uppercase mb-2" %>
+    <div class="grid grid-cols-9 gap-6 bg-gray-200 p-1">
+        <%= tag.div 'Ru', class: 'col-span-2'%>
+        <%= tag.div 'En', class: 'col-span-2'%>
+        <%= tag.div 'He', class: 'col-span-2'%>
+        <%= tag.div 'Uk', class: 'col-span-2'%>
+    </div>
+    <%= render @cities %>
+<% end %>
+
+<!-- Add district -->
+<%= render 'shared/buttons/add', id: dom_id(City.new), title: t('global.add_btn', model: City.model_name.human.downcase), 
+    path: new_admins_district_city_path(@district)%>
+

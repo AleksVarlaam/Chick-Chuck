@@ -4,15 +4,11 @@ uk:
         search:           'Пошук чату'
     language:
         language_select:  'Оберіть мови, на яких ви спілкуєтесь'
-        add_btn:          'Додати мову'
-        edit_btn:         'Змінити мову'
     category:
         add_btn:          'Додати категорію'
         edit_btn:         'Змінити категорію'
     thing:
         add_btn:          'Додати річ'
-    district:
-        add_btn:          'Додати регіон'
     body_type:
         add_btn:          'Додати тип'
     message:

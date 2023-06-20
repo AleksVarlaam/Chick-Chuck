@@ -71,7 +71,9 @@ Rails.application.routes.draw do
         end
         resources :news, except: %i[show]
         resources :languages, except: %i[index show]
-        resources :districts, except: %i[show]
+        resources :districts, except: %i[show] do 
+          resources :cities
+        end
         resource :dashboard, only: :show do
           get :users
         end

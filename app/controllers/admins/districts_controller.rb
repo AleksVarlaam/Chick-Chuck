@@ -4,7 +4,7 @@ module Admins
   class DistrictsController < ApplicationController
     layout 'profile_layout'
     before_action :authenticate_admin!
-    before_action :set_district, only: %i[edit update destroy]
+    before_action :set_district, only: %i[show edit update destroy]
 
     def new
       @district = District.new
@@ -25,7 +25,7 @@ module Admins
     end
 
     def index
-      @districts = District.all.decorate
+      @districts = District.all.decorate.drop(1)
       @languages = Language.all
     end
 

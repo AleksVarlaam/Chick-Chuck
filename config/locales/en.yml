@@ -1,28 +1,29 @@
 en:
-  en: 'English'
-  he: 'עברית'
-  ru: 'Русский'
-  uk: 'Українська'
-  israel:  'Israel'
+  en: "English"
+  he: "עברית"
+  ru: "Русский"
+  uk: "Українська"
+  israel:  "Israel"
   # Global
   global:
-      save_btn:         'Save'
-      are_you_sure:     'Are you sure?'
-      select:           'Select: '
-      destroy_btn:      'Remove'
-      edit_btn:         'Edit'
-      read_more:        'Read more'
-      view_all:         'View all'
-      send_btn:         'Send'
-      dismiss_btn:      'Dismiss' 
-      views:            'Views count'
-      publish_btn:      'Publish in general view'
-      hide_btn:         'Hide from general view'
-      image:            'Image'
+      save_btn:         "Save"
+      are_you_sure:     "Are you sure?"
+      select:           "Select: "
+      destroy_btn:      "Remove"
+      edit_btn:         "Edit"
+      add_btn:          "Add %{model}"
+      read_more:        "Read more"
+      view_all:         "View all"
+      send_btn:         "Send"
+      dismiss_btn:      "Dismiss" 
+      views:            "Views count"
+      publish_btn:      "Publish in general view"
+      hide_btn:         "Hide from general view"
+      image:            "Image"
       unavailable_html: "Our service is just launched and the %{model} are currently unavailable, please come back later.<br>
 Subscribe to our news to monitor our progress."
-      da:               'Yes'
-      net:              'No'
+      da:               "Yes"
+      net:              "No"
       find_btn:         "Find %{model}"
       upload:           "Upload %{model}"
       update:           "Update %{model}"
@@ -31,13 +32,13 @@ Subscribe to our news to monitor our progress."
   # Flash
   flash:
       type:
-          success:      'Success'
-          info:         'Info'
-          danger:       'Danger'
-          warning:      'Warning'
-          alert:        'Alert'
-          notice:       'Notice'
-      account:      'Your account'
+          success:      "Success"
+          info:         "Info"
+          danger:       "Danger"
+          warning:      "Warning"
+          alert:        "Alert"
+          notice:       "Notice"
+      account:      "Your account"
       success:
           created:      "%{model} has been created successfully."
           saved:        "%{model} has been saved successfully."
@@ -45,10 +46,10 @@ Subscribe to our news to monitor our progress."
           destroyed:    "%{model} has been destroyed successfully."
           published:    "%{model} has been published successfully to general view." 
           hided:        "%{model} has been hided successfully from general view."
-      alert:       'Something went wrong.'
+      alert:       "Something went wrong."
       mailers:
-          success:      'You have successfully subscribed to our news!'
-          info:         'This email already exists, please check your email or expect new news from us!'
+          success:      "You have successfully subscribed to our news!"
+          info:         "This email already exists, please check your email or expect new news from us!"
   # Date and Time
   time:
       formats:

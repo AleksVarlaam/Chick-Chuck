@@ -2,13 +2,17 @@
 <%= turbo_frame_tag dom_id(district), 
     class: 'items-center inline-flex mx-auto w-full grid grid-cols-9 gap-6 border-b border-b-gray-300 hover:border-b-gray-500' do %>
     <!-- Ru -->
-    <%= tag.div district.ru, class: "break-all ml-1 col-span-2 py-1.5"%>
+    <%= link_to  district.ru, admins_district_cities_path(district), data: { turbo_frame: '_top'}, 
+        class: "break-all ml-1 col-span-2 py-1.5 hover:underline hover:text-gray-900"%>
     <!-- En -->
-    <%= tag.div district.en, class: "break-all col-span-2 py-1.5"%>
+    <%= link_to  district.en, admins_district_cities_path(district), data: { turbo_frame: '_top'}, 
+        class: "break-all col-span-2 py-1.5 hover:underline hover:text-gray-900"%>
     <!-- He -->
-    <%= tag.div district.he, class: "break-all col-span-2 py-1.5"%>
+    <%= link_to  district.he, admins_district_cities_path(district), data: { turbo_frame: '_top'}, 
+        class: "break-all col-span-2 py-1.5 hover:underline hover:text-gray-900"%>
     <!-- He -->
-    <%= tag.div district.uk, class: "break-all col-span-2 py-1.5"%>
+    <%= link_to  district.uk, admins_district_cities_path(district), data: { turbo_frame: '_top'}, 
+        class: "break-all col-span-2 py-1.5 hover:underline hover:text-gray-900"%>
     <div class="flex items-center justify-end -ml-2 sm:mr-1">
         <!-- Edit -->
         <%= link_to edit_admins_district_path(district), data: {turbo_frame: dom_id(district)},

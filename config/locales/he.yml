@@ -1,27 +1,28 @@
 he:
-  en: 'English'
-  he: 'עברית'
-  ru: 'Русский'
-  uk: 'Українська'
-  israel:  'ישראל'
+  en: "English"
+  he: "עברית"
+  ru: "Русский"
+  uk: "Українська"
+  israel:  "ישראל"
   # Global
   global:
-      save_btn:         'לשמור'
-      are_you_sure:     'אתה בטוח?'
-      select:           'בחר: '
-      destroy_btn:      'להסיר'
-      edit_btn:         'לערוך'
-      read_more:        'עוד'
-      view_all:         'צפייה בכל'
-      send_btn:         'לשלוח'
-      dismiss_btn:      'להחמיץ את'
-      views:            'מספר הצפיות'
-      publish_btn:      'תחלוק'
-      hide_btn:         'הסתר מתצוגה כללית'
-      image:            'תמונה'
+      save_btn:         "לשמור"
+      are_you_sure:     "אתה בטוח?"
+      select:           "בחר: "
+      destroy_btn:      "להסיר"
+      edit_btn:         "לערוך"
+      add_btn:          "להוסיף %{model}"
+      read_more:        "עוד"
+      view_all:         "צפייה בכל"
+      send_btn:         "לשלוח"
+      dismiss_btn:      "להחמיץ את"
+      views:            "מספר הצפיות"
+      publish_btn:      "תחלוק"
+      hide_btn:         "הסתר מתצוגה כללית"
+      image:            "תמונה"
       unavailable_html: "השירות שלנו הוא רק התחיל וברגע %{model} חסר, אנא בקר מאוחר יותר. <br> להירשם החדשות שלנו כדי לעקוב אחר הפיתוח שלנו."
-      da:               'כן'
-      net:              'לא' 
+      da:               "כן"
+      net:              "לא" 
       find_btn:         "למצוא %{model}"
       upload:           "להעלות %{model}"
       update:           "לעדכן את %{model}"
@@ -30,13 +31,13 @@ he:
   # Flash
   flash:
       type:
-          success:      'בהצלחה'
-          info:         'מידע'
-          danger:       'סכנה'
-          warning:      'בחשבון'
-          alert:        'בחשבון'
-          notice:       'הודעה'
-      account:      'החשבון שלך'
+          success:      "בהצלחה"
+          info:         "מידע"
+          danger:       "סכנה"
+          warning:      "בחשבון"
+          alert:        "בחשבון"
+          notice:       "הודעה"
+      account:      "החשבון שלך"
       success:
           created:      "נוצר בהצלחה %{model}"
           saved:        "נשמר בהצלחה %{model}"
@@ -44,10 +45,10 @@ he:
           destroyed:    "הוסר בהצלחה %{model}"
           published:    "פורסם בהצלחה בתצוגה כללית %{model}" 
           hided:        "מוסתר בהצלחה מהתצוגה הכללית %{model}"
-      alert:        'משהו השתבש' 
+      alert:        "משהו השתבש" 
       mailers:
-          success:      'נרשמת בהצלחה לחדשות שלנו'
-          info:         'דוא"ל זה כבר קיים, בדוק את הדוא"ל שלך או המתן לחדשות חדשות מאיתנו'
+          success:      "נרשמת בהצלחה לחדשות שלנו"
+          info:         "דואיל זה כבר קיים, בדוק את הדויל שלך או המתן לחדשות חדשות מאיתנו"
   # Date and Time
   time:
       formats:
