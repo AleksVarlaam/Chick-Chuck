@@ -20,7 +20,7 @@ module Users
     def show
       set_meta_tags( 
         title: [t('israel'), @user.user_name.capitalize],
-        description: (@user.class.name == Company.name && @user.description.present?) ? @user.description.to_s : "#{@user.user_name.capitalize} | #{t('company.carriers').capitalize} | #{t('israel')}"
+        description: (@user.class.name == Company.name && @user.description.present?) ? @user.description.to_s : "#{@user.user_name.capitalize} | #{t('company.carriers').capitalize} | #{t('home_page.main_features.reviews_desc')}"
       )
       
       return redirect_to root_path unless @user.instance_of?(Company)
@@ -45,8 +45,7 @@ module Users
     def contacts
       set_meta_tags( 
         title: [t('contacts'), @user.user_name.capitalize],
-        description: ("#{@user.user_name.capitalize} | #{t('contacts')}"),
-        noindex: true
+        description: ("#{@user.user_name.capitalize} | #{t('contacts')} | #{t('contacts_desc_html')}")
       )
       # return redirect_to new_client_session_path, alert: t('devise.failure.unauthenticated') unless user_signed_in?
     end
