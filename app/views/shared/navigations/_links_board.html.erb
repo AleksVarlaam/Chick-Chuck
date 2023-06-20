@@ -36,7 +36,7 @@
                         </div>
                     </li>
                     <!-- Services list -->
-                    <%= f.collection_check_boxes(:service_ids, Service.all, :id, I18n.locale, multiple: true, checked: params[:service_ids]) do |b| %> 
+                    <%= f.collection_check_boxes(:service_id, Service.all, :id, I18n.locale, multiple: true, checked: params[:service_id]) do |b| %> 
                         </li>
                             <div class="flex items-center p-2 rounded-lg">
                                 <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-300 hover:text-gray-100 bg-clip-padding rounded-lg border border-solid border-gray-500") do %>

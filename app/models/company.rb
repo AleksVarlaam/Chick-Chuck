@@ -27,8 +27,8 @@ class Company < User
   scope :filter_by_language_id, lambda { |language_id|
                                   joins(:languages).where 'languages.id' => language_id
                                 }
-  scope :filter_by_service_ids, lambda { |service_ids|
-                                  joins(:services).where('services.id' => service_ids).uniq if service_ids.count > 1
+  scope :filter_by_service_id, lambda { |service_id|
+                                  joins(:services).where('services.id' => service_id).uniq if service_id.count > 1
                                 }
 
   def avatar_attachment_path

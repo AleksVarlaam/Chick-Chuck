@@ -56,7 +56,7 @@ module Users
     def set_index_title
       title_district = District.find(params[:district_id]).decorate.title if params[:district_id].present?
       title_language = Language.model_name.human.downcase + '-' + Language.find(params[:language_id]).title if params[:language_id].present?
-      title_services = Service.where(id: params[:service_ids]).decorate.map(&:title).join(', ').downcase if params[:service_ids].present?
+      title_services = Service.where(id: params[:service_id]).decorate.map(&:title).join(', ').downcase if params[:service_id].present?
       
       @title_h1 = [ 
         title_district, title_services, title_language 
@@ -80,7 +80,7 @@ module Users
     end
 
     def filter_params
-      params.permit(:district_id, :language_id, service_ids: [])
+      params.permit(:district_id, :language_id, service_id: [])
     end
 
     def set_user
