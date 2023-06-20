@@ -1,7 +1,7 @@
 <% currently_at @user.user_name%>
 <% provide :page_title, @user.user_name%>
 
-<%= render TurboProfileComponent.new(title: nil) do %>
+<%= render TurboProfileComponent.new(title: nil, user: nil) do %>
     <% if @user.class.name == Company.name %>
         <%= render 'companies/shared/company', company: @user%>
     <% else %>

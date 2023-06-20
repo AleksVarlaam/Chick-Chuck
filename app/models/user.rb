@@ -24,5 +24,5 @@ class User < ApplicationRecord
 
   # Scopes
   scope :filter_by_type, ->(type) { where type: }
-  scope :filter_by_user_name, ->(user_name) { User.all.select { |user| user.user_name == user_name } }
+  scope :filter_by_user_name, ->(user_name) { User.all.select { |user| user.user_name.downcase.include?(user_name.downcase) } }
 end

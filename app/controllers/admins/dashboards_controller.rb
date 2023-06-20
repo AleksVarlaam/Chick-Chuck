@@ -23,7 +23,7 @@ module Admins
     end
 
     def set_models
-      @users = User.user_filter(filter_params).newest
+      @users = User.newest.user_filter(filter_params)
     end
   end
 end

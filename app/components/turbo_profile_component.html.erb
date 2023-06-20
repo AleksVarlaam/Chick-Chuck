@@ -9,7 +9,10 @@
       <div class="relative p-6 w-full max-w-lg h-full sm:h-auto bg-gray-50 border rounded-lg">
         <div class="text-center mx-2 h-auto">
             <!-- Title -->
-            <%= tag.h1 @title, class: "text-3xl font-semibold text-center text-gray-700" if @title.present?%>
+            <%= tag.h1 class: "z-10 w-full flex flex-col justify-center font-medium text-center text-gray-800 mx-auto" do %>
+                <%= tag.span @title, class: 'text-xl text-gray-500'%>
+                <%= tag.span @user&.user_name, class: "hover:underline text-2xl"%>
+            <% end if @title.present?%>
             <!-- Close button -->
             <%= render 'shared/buttons/close'%>
         </div>

@@ -1,7 +1,7 @@
 <% currently_at 'Contacts'%>
 <% provide :page_title, 'Contacts'%>
 
-<%= render TurboProfileComponent.new(title: t('contacts')) do %>
+<%= render TurboProfileComponent.new(title: t('contacts'), user: @user) do %>
     <!-- Contacts -->
     <%= tag.div class: "flex justify-center items-center mt-3" do %>
         <div class="flex justify-center items-center mb-3 rounded-md grid grid-cols-1 gap-0.5" role="group">
