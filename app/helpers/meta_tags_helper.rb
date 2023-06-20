@@ -13,7 +13,10 @@ module MetaTagsHelper
       manifest: '/manifest.webmanifest',
       icon: [
         { 
-          href: image_url(asset_path('favicon.ico')), sizes: 'any'
+          href: image_url(asset_path('favicon.svg')), rel: 'icon', type: 'image/svg+xml' 
+        },
+        { 
+          href: image_url(asset_path('favicon.ico')), rel: 'icon', sizes: 'any', type: 'image/x-icon'
         },
         { 
           href: image_url(asset_path('android-chrome-512x512.png')), rel: 'icon',
@@ -23,10 +26,7 @@ module MetaTagsHelper
           href: image_url(asset_path('apple-touch-icon.png')), rel: 'apple-touch-icon',
           sizes: '180x180', type: 'image/png' 
         },
-        { 
-          href: image_url(asset_path('favicon.svg')), rel: 'icon',
-          sizes: '120x120', type: 'image/x-icon' 
-        }
+        
       ],
       og: {
         title: :title,
