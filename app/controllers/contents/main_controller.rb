@@ -21,7 +21,14 @@ module Contents
       Statistic.first.update(moving_preparation: Statistic.first.moving_preparation + 1) unless user_signed_in?
     end
     
-    def sitemap; end
+    def sitemap
+      @locales   = I18n.available_locales
+      @users     = Company.confirmed
+      @districts = District.ids
+      @languages = Language.ids
+      @services  = Service.ids
+      @products  = Product.published
+    end
     
     def robots; end
   end
