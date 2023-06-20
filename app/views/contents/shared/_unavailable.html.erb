@@ -8,7 +8,7 @@
     <section class="flex justify-center pt-6 mx-auto text-center">
         <!-- Link -->
         <div class="flex justify-center">
-            <%= link_to new_users_product_path, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'},
+            <%= link_to user_signed_in? ? new_users_product_path : new_client_session_path, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'},
                 class: "py-2 px-3 font-semibold rounded-lg text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br dark:text-gray-900 dark:bg-violet-400 cursor-pointer flex items-center" do %>
                 <%= heroicon 'shopping-bag', class: 'w-5 h-5 mr-2'%>
                 <%= t('product.to_advertise')%>
