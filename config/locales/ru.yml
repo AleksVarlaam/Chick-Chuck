@@ -13,6 +13,7 @@ ru:
       edit_btn:         "Изменить"
       add_btn:          "Добавить %{model}"
       read_more:        "Подробнее"
+      read_less:        "Скрыть"
       view_all:         "Смотреть все"
       send_btn:         "Отправить"
       dismiss_btn:      "Пропустить"

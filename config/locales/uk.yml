@@ -13,6 +13,7 @@ uk:
       edit_btn:         "Змінити"
       add_btn:          "Додати %{model}"
       read_more:        "Детальніше"
+      read_less:        "Приховувати"
       view_all:         "Дивитись усе"
       send_btn:         "Відправити"
       dismiss_btn:      "Пропустити"

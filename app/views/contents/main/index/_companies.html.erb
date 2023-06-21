@@ -7,7 +7,7 @@
         class: "flex grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-screen container mx-auto py-8" do %>
         <% if @companies.present?%>
             <!-- Companies -->
-            <%= render partial: 'companies/shared/company', collection: @companies%>
+            <%= render partial: 'companies/shared/company_card', collection: @companies%>
         <% else %>
             <!-- Unavalaible -->
             <%= tag.div (render 'contents/shared/unavailable', model: t('company.carriers')), class: 'col-span-full'%>

@@ -1,3 +1,11 @@
 @import "application.tailwind";
 @import "_header";
 @import "_colors";
+
+//Stimulus ReadMore
+.my-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--read-more-line-clamp, 2);
+}

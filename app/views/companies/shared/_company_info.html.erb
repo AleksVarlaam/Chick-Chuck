@@ -1,0 +1,32 @@
+<!-- Information -->
+<%= tag.div do %>
+	<div class="w-full mx-auto space-y-4">
+        <!-- Services list -->
+        <div class="flex justify-center items-center w-full grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <% company.services.each do |service| %>
+                <%= link_to users_path(service_id: service), data: {turbo_frame: '_top'}, 
+                    class: "flex items-center justify-center px-2 py-1.5 text-base font-semibold text-gray-700 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500 hover:underline" do %>
+                    <%= service.decorate.title %>
+                    <%= heroicon 'check', class: 'w-5 h-5 text-green-500 flex-none ltr:ml-1 rtl:mr-1'%>
+                <% end %>
+            <% end %>
+        </div>
+		<div class="px-1 flex flex-col items-center text-center w-full space-y-4 rounded-md lg:h-full dark:bg-gray-900 dark:text-gray-100">
+            <!-- Gallery -->
+            <%= tag.div class: "w-full sm:w-1/2 flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl" do %>
+                <!-- Images -->
+                <%= render 'carrierwave/images/carousel', object: company %>
+            <% end if company.images.present? %>
+            <!-- Description -->
+			<%= tag.p class: "w-full text-lg italic font-medium text-gray-700" do %>
+                <%= company.description%>
+            <% end if company.description.present?%>
+            <!-- Website -->
+			<%= tag.div class:"text-center flex items-center text-md font-medium text-gray-500 hover:text-blue-600 
+                dark:text-gray-400 space-x-2" do %>
+                <%= heroicon 'globe-alt', class: 'w-6 h-6 flex-none'%>
+                <%= link_to company.website, company.website, target: '_blank', class: %>
+            <% end if company.website.present?%>
+		</div>
+	</div>
+<% end if [action_name, controller_name].eql?(['show', 'users'])%>

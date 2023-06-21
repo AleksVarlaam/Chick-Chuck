@@ -10,5 +10,9 @@ eagerLoadControllersFrom("controllers", application)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
 
+// Chechbox select all
 import CheckboxSelectAll from 'stimulus-checkbox-select-all'
 application.register('checkbox-select-all', CheckboxSelectAll)
+// ReadMore
+import ReadMore from 'stimulus-read-more'
+application.register('read-more', ReadMore)

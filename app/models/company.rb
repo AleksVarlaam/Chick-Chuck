@@ -32,7 +32,7 @@ class Company < User
                                 }
 
   def avatar_attachment_path
-    avatar.present? ? avatar.avatar.url : 'icons/chick-chuck/laavor_favicon.png'
+    avatar.present? ? avatar.avatar.url : 'icons/chick-chuck/og-chick-chuck.png'
   end
 
   def user_name

@@ -1,7 +1,7 @@
 <!-- Ratings -->
 <%= turbo_frame_tag dom_id(object, "rating"), class: "flex items-center justify-center my-1 space-x-2" do %>
     <!-- Rating Star -->
-    <%= tag.p class: "flex items-center text-lg font-medium text-gray-500" do %>
+    <%= tag.p class: "flex items-center text-lg font-medium text-gray-200" do %>
         <%= heroicon 'star', variant: 'solid', 
             class: "w-6 h-6 mr-1 #{total_star_rating_color(object.rating)}" %>
         <%= "#{object.rating} #{"(10+)" if object.reviews.count > 10}" %>

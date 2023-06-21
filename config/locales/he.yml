@@ -13,6 +13,7 @@ he:
       edit_btn:         "לערוך"
       add_btn:          "להוסיף %{model}"
       read_more:        "עוד"
+      read_less:        "להסתיר"
       view_all:         "צפייה בכל"
       send_btn:         "לשלוח"
       dismiss_btn:      "להחמיץ את"
