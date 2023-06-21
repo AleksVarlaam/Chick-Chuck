@@ -21,7 +21,7 @@
             <% end %>
             <!-- Index Services params -->
             <% @services.each do |id| %>
-                <%= render 'sitemap_url', url: users_url(service_id: id, locale: locale), date: nil, priority: 0.9 %>
+                <%= render 'sitemap_url', url: users_url(service_id: ['', id], locale: locale), date: nil, priority: 0.9 %>
             <% end %>
             <!-- Index Languages params -->
             <% @languages.each do |id| %>

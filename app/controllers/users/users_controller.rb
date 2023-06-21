@@ -55,11 +55,13 @@ module Users
     def set_index_title
       title_district = District.find(params[:district_id]).decorate.title if params[:district_id].present?
       title_language = Language.model_name.human.downcase + '-' + Language.find(params[:language_id]).title if params[:language_id].present?
-      title_services = Service.where(id: params[:service_id]).decorate.map(&:title).join(', ').downcase if params[:service_id].present?
+      title_services = Service.where(id: params[:service_id]).decorate.map(&:title).join(', ').downcase unless params[:service_id].blank?
       
-      @title_h1 = [ 
+      title_h1 = [ 
         title_district, title_services, title_language 
-      ].join(', ').sub(/^(, )+/, '').sub(/(, )+$/, '').sub(/( , )+/, ' ')
+      ].join(', ').sub(/^(, )+/, '').sub(/(, )+$/, '').sub(/( , )+/, ' ')&.capitalize
+      
+      @title_h1 = title_services.blank? ? (t('company.find_carrier') + ': ' + title_h1) : title_h1
       
       title_meta =  if title_services.present?
                       [t('israel'), title_services.capitalize]
