@@ -3,19 +3,19 @@
     <% unless current_user.favorites.include?(@favorite || Favorite.find_by(favorited_id: object.id))%>
         <%= form_with model: [:users, Favorite.new], 
             data: { 'popover-target' => 'follow ' + object.title},
-            class: "flex font-medium rounded-lg text-sm p-2 text-center " do |f| %>
+            class: "flex font-medium rounded-lg text-sm text-center " do |f| %>
             <!-- Icon -->
             <%= f.hidden_field :favorited_id, value: object.id %>
             <%= f.hidden_field :favorited_type, value: object.class.name %>
             <%= f.button type: 'submit'  do %>
-                <%= heroicon 'bookmark', class: 'w-6 h-6 flex-none hover:text-yellow-400 text-gray-500', variant: "outline"%>
+                <%= heroicon 'bookmark', class: 'w-6 h-6 flex-none hover:text-yellow-400 text-gray-400', variant: "outline"%>
             <% end %>
         <% end %>
     <% else%>
     <!-- Delete object from saved -->
         <%= link_to users_favorite_path(Favorite.find_by(favorited_id: object.id)), 
             data: {turbo_method: :delete, 'popover-target' => 'follow ' + object.title},
-            class: "flex font-medium rounded-lg text-sm p-2 text-center " do %>
+            class: "flex font-medium rounded-lg text-sm  text-center " do %>
                 <%= heroicon 'bookmark', class: 'w-6 h-6 flex-none text-yellow-400 hover:text-red-500', variant: "solid"%>
         <% end %>
     <% end %>
