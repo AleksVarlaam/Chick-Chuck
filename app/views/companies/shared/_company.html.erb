@@ -1,39 +1,9 @@
 <!-- Company card -->
 <%= turbo_frame_tag company, 
     class: "bg-white py-4 rounded-lg border-gray-200 shadow-md hover:shadow-xl #{'border' unless ['show', 'modal'].include?(action_name) }" do %>
-    <section class="flex flex-col items-center space-y-4">
+    <section class="flex flex-col items-center space-y-4 ">
         <!-- Header -->
-        <%= render 'companies/shared/company_header', company: company%>
-        <!-- Body -->
-        <div class="w-full sm:max-w-4xl grid grid-cols-2 gap-2 mx-auto border-y divide-x">
-            <!-- Districts -->
-            <div class="p-2 flex items-center space-x-2 justify-center">
-                <%= heroicon 'map', class: 'w-6 h-6 flex-none'%>
-                <ul class="flex flex-col font-medium text-gray-500 text-center <%= 'sm:text-lg' if ['show', 'users'].eql?([action_name, controller_name])%>">
-                    <% company.districts.decorate.each do |district|%>
-                        <li>
-                            <%= link_to users_path(district_id: district), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
-                                <%= (!company.districts.include?(District.first) && district != company.districts.last) ? district.title + ',' : district.title%>
-                            <% end %>
-                        </li>
-                        <% break if company.districts.include?(District.first)%>
-                    <% end %>
-                </ul>
-            </div>
-            <!-- Languages -->
-            <div class="p-2 flex items-center space-x-2 justify-center">
-                <%= heroicon 'language', class: 'w-6 h-6 flex-none'%>
-                <ul class="flex flex-col font-medium text-gray-500 <%= 'sm:text-lg' if ['show', 'users'].eql?([action_name, controller_name])%>">
-                    <% company.languages.each do |language|%>
-                        <li>
-                            <%= link_to users_path(language_id: language), class: 'hover:underline', data: {turbo_frame: '_top'} do  %>
-                                <%= language != company.languages.last ? language.title + ',' : language.title%>
-                            <% end %>
-                        </li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
+        <%= render 'companies/shared/company_info', company: company%>
         <!-- Footer -->
         <%= tag.div class: "col-span-full flex flex-col space-y-4 pt-1 justify-center items-center text-gray-500 text-sm" do %>
             <!-- Views -->
@@ -41,8 +11,11 @@
             <!-- Created at -->
             <%# tag.span company.decorate.created_at, class: 'text-sm text-gray-500'%>
         <% end %>
-        <!-- Information -->
-        <%= render 'companies/shared/company_info', company: company%>
+        <!-- Gallery -->
+        <%= tag.div class: "w-full sm:w-1/2 flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl" do %>
+            <!-- Images -->
+            <%= render 'carrierwave/images/carousel', object: company %>
+        <% end if company.images.present? %>
     </section>
 <% end %>
 
