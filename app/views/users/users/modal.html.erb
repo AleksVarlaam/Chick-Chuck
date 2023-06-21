@@ -3,7 +3,7 @@
 
 <%= render TurboProfileComponent.new(title: nil, user: nil) do %>
     <% if @user.class.name == Company.name %>
-        <%= render 'companies/shared/company', company: @user%>
+        <%= render 'companies/shared/company_card', company_card: @user%>
     <% else %>
         <%= render 'clients/shared/about_client', client: @user%>
     <% end %>
