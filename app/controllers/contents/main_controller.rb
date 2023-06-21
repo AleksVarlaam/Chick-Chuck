@@ -4,7 +4,7 @@ module Contents
   class MainController < ApplicationController
     def index
       set_meta_tags(
-        title: t('meta.home_page.title'),
+        title: [params[:locale]&.capitalize, t('meta.home_page.title')],
         description: t('meta.home_page.desc')
       )
       @companies = Company.confirmed.take(3)
