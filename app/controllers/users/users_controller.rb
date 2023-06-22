@@ -6,7 +6,7 @@ module Users
     include PricesHelper
     before_action :set_user, only: %i[show modal contacts]
     before_action :set_index_title, only: :index
-    after_action :update_views, only: :show
+    after_action  :update_views, only: :show
 
     def index
       Statistic.first.update(companies: Statistic.first.companies + 1) unless user_signed_in?
@@ -52,16 +52,20 @@ module Users
 
     private
     
+    def service_ids_check?
+      params[:service_ids].kind_of?(Array) && !params[:service_ids].blank?
+    end
+    
     def set_index_title
       title_district = District.find(params[:district_id]).decorate.title if params[:district_id].present?
       title_language = Language.model_name.human.downcase + '-' + Language.find(params[:language_id]).title if params[:language_id].present?
-      title_services = Service.where(id: params[:service_id]).decorate.map(&:title).join(', ').downcase unless params[:service_id].blank?
+      title_services = Service.where(id: params[:service_ids]).decorate.map(&:title).join(', ').downcase if service_ids_check?
       
       title_h1 = [ 
         title_district, title_services, title_language 
       ].join(', ').sub(/^(, )+/, '').sub(/(, )+$/, '').sub(/( , )+/, ' ')&.capitalize
       
-      @title_h1 = title_services.blank? ? (t('company.find_carrier') + ': ' + title_h1) : title_h1
+      @title_h1 = title_services.blank? ? (t('company.find_carrier') + ': ' + title_h1) : t('global.find_btn', model: nil).chop + ': ' + title_h1
       
       title_meta =  if title_services.present?
                       [t('israel'), title_services.capitalize]
@@ -81,7 +85,7 @@ module Users
     end
 
     def filter_params
-      params.permit(:district_id, :language_id, service_id: [])
+      params.permit(:district_id, :language_id, { service_ids: [] } )
     end
 
     def set_user
