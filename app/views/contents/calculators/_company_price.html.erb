@@ -1,7 +1,7 @@
 <!-- All companies and their prices -->
 <%= link_to user_modal_path(company), class: "mb-3 flex items-center p-1 relative border-b border-b-gray-300 hover:border-b-gray-500 text-gray-600 hover:text-gray-800", data: { turbo_frame: 'modal' } do %>
     <!-- Avatar -->
-    <%= image_tag(company.avatar_attachment_path,
+    <%= image_tag(company.avatar_thumb,
         class: "object-cover h-7 w-7 rounded-full border border-gray-500 m-1", alt: "avatar")%>
     <!-- Company_name -->
     <%= tag.p company.title, class: 'text-2xl' %>
