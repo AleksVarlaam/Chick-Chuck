@@ -65,16 +65,22 @@ module Users
         title_district, title_services, title_language 
       ].join(', ').sub(/^(, )+/, '').sub(/(, )+$/, '').sub(/( , )+/, ' ')&.capitalize
       
-      @title_h1 = title_services.blank? ? (t('company.find_carrier') + ': ' + title_h1) : t('global.find_btn', model: nil).chop + ': ' + title_h1
-      
-      title_meta =  if title_services.present?
-                      [t('israel'), title_services.capitalize]
-                    elsif title_district.present?
-                      [t('israel'), title_district, t('meta.carriers.title')]
-                    elsif title_language.present?
-                      [t('israel'), title_language, t('meta.carriers.title')]
+      @title_h1  =  if title_h1.present? && !title_services.blank?
+                      t('global.find_btn', model: nil).chop + ': ' + title_h1
+                    elsif params[:district_id] && params[:language_id]
+                      (t('company.find_carrier') + ': ' + title_h1)
                     else
-                      [t('israel'), t('meta.carriers.title')]
+                      t('meta.carriers.title')                    
+                    end
+      
+      title_meta =  if title_h1.present? && !title_services.blank?
+                      [t('israel'), title_services.capitalize]
+                    elsif !params[:district_id].blank? || !params[:language_id].blank?
+                      [t('israel'), title_language, title_district, t('company.find_carrier')]
+                    elsif !params[:district_id].present? && !params[:language_id].present? && !params[:service_ids].present? 
+                      t('meta.carriers.title')  
+                    else
+                      [t('israel'), t('company.find_carrier')]
                     end
       
       set_meta_tags( 
