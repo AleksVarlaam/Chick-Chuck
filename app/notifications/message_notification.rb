@@ -32,7 +32,7 @@ class MessageNotification < Noticed::Base
   end
 
   def avatar
-    params[:message].user.avatar_attachment_path
+    params[:message].user.avatar_thumb
   end
 
   def author

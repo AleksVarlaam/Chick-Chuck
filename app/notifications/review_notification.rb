@@ -32,7 +32,7 @@ class ReviewNotification < Noticed::Base
   end
 
   def avatar
-    params[:review].user.avatar_attachment_path
+    params[:review].user.avatar_thumb
   end
 
   def author

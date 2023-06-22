@@ -45,7 +45,7 @@ class CommentNotification < Noticed::Base
   end
 
   def avatar
-    comment.user.avatar_attachment_path
+    comment.user.avatar_thumb
   end
 
   def author
