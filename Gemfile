@@ -8,7 +8,7 @@ ruby '3.2.2'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
 gem 'bootsnap', require: false
-gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
+gem 'carrierwave', '>= 3.0.0.rc', '< 4.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'draper'

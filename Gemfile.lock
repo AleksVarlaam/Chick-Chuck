@@ -78,7 +78,7 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-    carrierwave (3.0.0.beta)
+    carrierwave (3.0.0.rc)
       activemodel (>= 6.0.0)
       activesupport (>= 6.0.0)
       addressable (~> 2.6)
@@ -413,7 +413,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  carrierwave (>= 3.0.0.beta, < 4.0)
+  carrierwave (>= 3.0.0.rc, < 4.0)
   debug
   devise
   devise-i18n
