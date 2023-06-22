@@ -4,7 +4,7 @@ class CommentDecorator < ApplicationDecorator
   delegate_all
 
   def avatar
-    h.image_tag(model.user.avatar_attachment_path,
+    h.image_tag(model.user.avatar_thumb,
                 class: 'mt-2 object-cover rounded-full w-8 h-8 sm:w-10 sm:h-10', alt: 'user-avatar')
   end
 

@@ -11,10 +11,10 @@
     <% @favorite_items.each do |item| %>
         <!-- If Company -->
         <% if item.favorited_type == Company.name %>
-            <%= render "companies/shared/company", company: User.find(item.favorited_id)%>
+            <%= render "companies/shared/company_card", company_card: User.find(item.favorited_id)%>
         <!-- If Product -->
         <% else %>
-            <%= render "contents/products/product", product: Product.find(item.favorited_id).decorate%>
+            <%= render "contents/products/product", product: Product.find(item.favorited_id)&.decorate%>
         <% end %>
     <% end %>
 <% end %>

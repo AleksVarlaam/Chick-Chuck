@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Client < User
+  include ClientDecorate
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   has_many :products, class_name: 'Product', dependent: :destroy, foreign_key: :user_id
@@ -32,19 +33,4 @@ class Client < User
     Subscriber.create(email:) unless Subscriber.where(email:).present?
   end
 
-  # Decorators
-
-  def avatar_attachment_path
-    if avatar.present?
-      remote_avatar_url || avatar.avatar.url
-    else
-      gender == 'female' ? 'icons/avatar-f.png' : 'icons/avatar-m.png'
-    end
-  end
-
-  def user_name
-    return "#{first_name&.capitalize} #{last_name&.capitalize}" if first_name.present?
-
-    email.split('@')[0].capitalize
-  end
 end

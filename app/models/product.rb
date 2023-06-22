@@ -21,6 +21,8 @@ class Product < ApplicationRecord
   scope :filter_by_delivery,    ->(delivery)    { where delivery:, published: true }
   scope :filter_by_price_min,   ->(price_min)   { where 'price >= ?', price_min, published: true }
   scope :filter_by_price_max,   ->(price_max)   { where 'price <= ?', price_max, published: true }
+  
+  after_destroy :clear_favorites
 
   def self.condition_select
     [
@@ -42,5 +44,11 @@ class Product < ApplicationRecord
     [
       [I18n.t('product.seller.client'), 'Client'], [I18n.t('product.seller.company'), 'Company']
     ]
+  end
+  
+  private 
+  
+  def clear_favorites
+    Favorite.where(favorited_type: 'ProductDecorator', favorited_id: self.id).destroy_all
   end
 end

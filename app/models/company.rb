@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Company < User
+  include CompanyDecorate
   validates :title, uniqueness: true, presence: true
   validates :districts, :languages, presence: true
   validates :description, length: { maximum: 1000 }
@@ -30,12 +31,13 @@ class Company < User
   scope :filter_by_service_id, lambda { |service_id|
                                   joins(:services).where('services.id' => service_id).uniq if service_id.count > 1
                                 }
-
-  def avatar_attachment_path
-    avatar.present? ? avatar.avatar.url : 'icons/chick-chuck/og-chick-chuck.png'
+                                
+  after_destroy :clear_favorites
+  
+  private 
+  
+  def clear_favorites
+    Favorite.where(favorited_type: 'Company', favorited_id: self.id).destroy_all
   end
 
-  def user_name
-    title
-  end
 end

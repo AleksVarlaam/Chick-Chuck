@@ -6,7 +6,7 @@
             <div class="flex flex-row py-4 px-2 items-center space-x-3 rtl:space-x-reverse">
               <!-- Recipient avatar -->
               <div class="">
-                  <%= image_tag room.recipient(current_user).avatar_attachment_path, class: "object-cover h-12 w-12 rounded-full"%>
+                  <%= image_tag room.recipient(current_user).avatar_thumb, class: "object-cover h-12 w-12 rounded-full"%>
               </div>
   
               <!-- Recipient username and last message -->

@@ -3,8 +3,8 @@
 class Admin < User
   has_many :news, class_name: 'News', foreign_key: :user_id
 
-  def avatar_attachment_path
-    avatar.present? ? avatar.avatar.url : 'icons/avatar-m.png'
+  def avatar_thumb
+    avatar.present? ? avatar.thumb.url : 'icons/avatar-m.png'
   end
 
   def user_name

@@ -26,7 +26,7 @@
             <%= heroicon "bars-3", class: "mx-2 hidden sm:block", size: 20, alt: "user-menu-button"%>
             <!-- Avatar -->
             <% if user_signed_in? %>
-                <%= image_tag(current_user.avatar_attachment_path, 
+                <%= image_tag(current_user.avatar_thumb, 
                     class: "object-cover h-8 w-8 rounded-full border border-gray-500 m-1", alt: "user-avatar")%>
             <% else %>
                 <%= heroicon "user-circle", class: "w-8 h-8 text-gray-600 rounded-full border m-1", alt: "user-avatar" %>
@@ -52,7 +52,7 @@
                   id:"personalInfoLink" do
                 %>
                     <!-- Avatar -->
-                    <%= image_tag(current_user.avatar_attachment_path, class: "object-cover w-16 h-16 mx-2 mb-3 rounded-full", alt: "user-avatar")%>
+                    <%= image_tag(current_user.avatar_thumb, class: "object-cover w-16 h-16 mx-2 mb-3 rounded-full", alt: "user-avatar")%>
                     <!-- User name -->
                     <%= tag.h4 (current_user.user_name), class: "px-4 font-medium text-gray-800 text-center hover:underline"%>
                     <!-- Email -->
