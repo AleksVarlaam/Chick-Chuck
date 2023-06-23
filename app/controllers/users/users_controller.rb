@@ -52,32 +52,28 @@ module Users
 
     private
     
-    def service_ids_check?
-      params[:service_ids].kind_of?(Array) && !params[:service_ids].blank?
-    end
-    
     def set_index_title
-      title_district = District.find(params[:district_id]).decorate.title if params[:district_id].present?
-      title_language = Language.model_name.human.downcase + '-' + Language.find(params[:language_id]).title if params[:language_id].present?
-      title_services = Service.where(id: params[:service_ids]).decorate.map(&:title).join(', ').downcase if service_ids_check?
+      title_district = District.find(params[:district_id]).decorate.title if filter_params[:district_id].present?
+      title_language = Language.model_name.human.downcase + '-' + Language.find(params[:language_id]).title if filter_params[:language_id].present?
+      title_services = Service.where(id: params[:service_ids]).decorate.map(&:title).join(', ').downcase if filter_params[:service_ids].present?
       
       title_h1 = [ 
         title_district, title_services, title_language 
       ].join(', ').sub(/^(, )+/, '').sub(/(, )+$/, '').sub(/( , )+/, ' ')&.capitalize
       
-      @title_h1  =  if title_h1.present? && !title_services.blank?
+      @title_h1  =  if filter_params.present? && !title_services.blank?
                       t('global.find_btn', model: nil).chop + ': ' + title_h1
-                    elsif params[:district_id] && params[:language_id]
+                    elsif filter_params.present? && title_services.blank?
                       (t('company.find_carrier') + ': ' + title_h1)
                     else
                       t('meta.carriers.title')                    
                     end
       
-      title_meta =  if title_h1.present? && !title_services.blank?
+      title_meta =  if filter_params.present? && !title_services.blank?
                       [t('israel'), title_services.capitalize]
-                    elsif !params[:district_id].blank? || !params[:language_id].blank?
+                    elsif filter_params.present? && title_services.blank?
                       [t('israel'), title_language, title_district, t('company.find_carrier')]
-                    elsif !params[:district_id].present? && !params[:language_id].present? && !params[:service_ids].present? 
+                    elsif !filter_params.present?
                       t('meta.carriers.title')  
                     else
                       [t('israel'), t('company.find_carrier')]
