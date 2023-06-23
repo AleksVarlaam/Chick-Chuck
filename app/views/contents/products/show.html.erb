@@ -8,7 +8,7 @@
     <!-- About Seller -->
     <%= tag.section class: "relative w-full h-auto block bg-white rounded-lg shadow-md col-span-1 md:col-span-3 hover:shadow-xl py-3" do %>
         <% if @product.user.class.name == Company.name %>
-            <%= render 'companies/shared/company', company: @user %>
+            <%= render 'companies/shared/company_card', company_card: @user %>
         <% else %>
             <%= render 'clients/shared/about_client', client: @user%>
         <% end %>

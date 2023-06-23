@@ -5,7 +5,7 @@
     <!-- Contacts -->
     <%= tag.div class: "flex justify-center items-center mt-3" do %>
         <div class="flex justify-center items-center mb-3 rounded-md grid grid-cols-1 gap-0.5" role="group">
-            <%= tag.span t('contacts_desc_html'), class: 'text-gray-500 text-center mb-6'%>
+            <%= tag.span t('contacts_desc_html'), class: 'text-gray-500 text-center mb-6' if @user.instance_of?(Company)%>
             <!-- Additional Phone number -->
             <%= button_tag class: "w-full inline-flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-600 bg-transparent 
                 rounded border border-gray-300 hover:bg-gray-200 hover:text-gray-900 space-x-2 rtl:space-x-reverse" do%>
