@@ -10,7 +10,7 @@ module CompanyDecorate
     end
     
     def avatar_thumb
-      avatar.present? ? avatar.thumb.url : 'icons/chick-chuck/og-chick-chuck.png'
+      avatar.present? ? avatar.thumb.url : 'android-chrome-512x512.png'
     end
   
     def avatar_medium

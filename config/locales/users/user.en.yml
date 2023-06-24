@@ -43,4 +43,4 @@ en:
     facebook:
         facebook_popover: 'Copy and past your Facebook link'
     sure_to_del_account:  'Are you sure you want to delete your account?'
-        
+    did_not_get_email:  "You didn’t get the letter?"

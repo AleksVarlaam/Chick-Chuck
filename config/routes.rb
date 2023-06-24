@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   #     end
     end
     # Admins
-    devise_for :admins, controllers: { registrations: 'admins/registrations' }, skip: [:registrations]
+    devise_for :admins, controllers: { registrations: 'admins/registrations' }, skip: [:registrations, :confirmations]
     as :admin do
       get 'admins/edit',  to: 'admins/registrations#edit',    as: 'edit_admin_registration'
       put 'admins',       to: 'admins/registrations#update',  as: 'admin_registration'

@@ -9,4 +9,16 @@ module ApplicationHelper
   def prepend_flash
     turbo_stream.prepend 'flash_messages', partial: 'shared/flash_messages'
   end
+  
+  def current_locale_path(locale)
+    url = request.original_url
+    
+    if url.include?('/confirmation/new')
+      new_confirmation_path(resource, locale: locale)
+    elsif url.include?('/password/new')
+      new_password_path(resource, locale: locale)
+    else 
+      url_for(locale: locale)
+    end
+  end
 end

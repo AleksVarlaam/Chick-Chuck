@@ -43,4 +43,4 @@ ru:
     facebook:
         facebook_popover: 'Скопируйте и вставьте ссылку на ваш Facebook'
     sure_to_del_account:  'Вы уверены, что хотите удалить ваш аккаунт?'
-        
+    did_not_get_email:  "Не получили письмо?"

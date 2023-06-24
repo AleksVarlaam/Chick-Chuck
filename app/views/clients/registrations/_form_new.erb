@@ -93,7 +93,9 @@
     <div class="">
        <div class="flex items-center"><span class="text-red-500 mr-1">&nbsp;*</span>
            <%= f.label :gender, class: "text-lg" %></div>
-       <%= f.select(:gender, options_for_select([[User.human_attribute_name('male'), 'male'], [User.human_attribute_name('female'), 'female']]), {include_blank: t('global.select')}, {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: true})%>
+       <%= f.select(:gender, options_for_select([[User.human_attribute_name('male'), 'male'], [User.human_attribute_name('female'), 'female']]), 
+           {include_blank: t('global.select')}, 
+           {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: true})%>
     </div>
 
     <!-- Birthday -->

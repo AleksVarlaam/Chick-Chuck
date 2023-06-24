@@ -26,14 +26,6 @@ module Devisable
      :additional_phone, :whatsapp, :telegram, :facebook, :title, :website, :description, { district_ids: [], language_ids: [], service_ids: [] }]
   end
 
-  # def after_sign_up_path_for(resource)
-  #     root_path
-  #   end
-  #
-  #   def after_inactive_sign_up_path_for(resource)
-  #     root_path
-  #   end
-  #
   def after_sign_in_path_for(_resource)
     flash[:success] = "You are welcome, #{current_user.user_name}!"
 
@@ -63,4 +55,5 @@ module Devisable
       request.referer
     end
   end
+  
 end
