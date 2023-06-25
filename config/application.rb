@@ -24,8 +24,8 @@ module ChickChuck
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-    config.exceptions_app = ->(env) {
-          ErrorsController.action(:show).call(env)
+    config.exceptions_app = lambda { |env|
+      ErrorsController.action(:show).call(env)
     }
 
     # ActiveJob adapter
@@ -44,12 +44,12 @@ module ChickChuck
 
     # Active storage
     config.active_storage.replace_on_assign_to_many = false
-    
+
     # Email
-    if Rails.env.production?
-      config.action_mailer.asset_host = 'http://chick-chuck.com'
-    else
-      config.action_mailer.asset_host = 'http://localhost:3000'
-    end
+    config.action_mailer.asset_host = if Rails.env.production?
+                                        'http://chick-chuck.com'
+                                      else
+                                        'http://localhost:3000'
+                                      end
   end
 end

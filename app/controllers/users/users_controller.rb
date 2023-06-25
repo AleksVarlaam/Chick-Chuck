@@ -18,11 +18,11 @@ module Users
     end
 
     def show
-      set_meta_tags( 
+      set_meta_tags(
         title: [t('israel'), @user.user_name.capitalize],
-        description: (@user.class.name == Company.name && @user.description.present?) ? @user.description.to_s : "#{@user.user_name.capitalize} | #{t('company.carriers').capitalize} | #{t('home_page.main_features.reviews_desc')}"
+        description: @user.instance_of?(Company) && @user.description.present? ? @user.description.to_s : "#{@user.user_name.capitalize} | #{t('company.carriers').capitalize} | #{t('home_page.main_features.reviews_desc')}"
       )
-      
+
       return redirect_to root_path unless @user.instance_of?(Company)
 
       @commentable = @user
@@ -35,51 +35,55 @@ module Users
     end
 
     def modal
-      set_meta_tags( 
+      set_meta_tags(
         title: [t('user_menu.profile'), @user.user_name.capitalize],
-        description: ("#{@user.user_name.capitalize} | #{t('user_menu.profile')}"),
+        description: "#{@user.user_name.capitalize} | #{t('user_menu.profile')}",
         noindex: true
       )
     end
 
     def contacts
-      set_meta_tags( 
+      set_meta_tags(
         title: [t('contacts'), @user.user_name.capitalize],
-        description: ("#{@user.user_name.capitalize} | #{t('contacts')} | #{t('contacts_desc_html')}")
+        description: "#{@user.user_name.capitalize} | #{t('contacts')} | #{t('contacts_desc_html')}"
       )
       # return redirect_to new_client_session_path, alert: t('devise.failure.unauthenticated') unless user_signed_in?
     end
 
     private
-    
+
     def set_index_title
       title_district = District.find(params[:district_id]).decorate.title if filter_params[:district_id].present?
-      title_language = Language.model_name.human.downcase + '-' + Language.find(params[:language_id]).title if filter_params[:language_id].present?
-      title_services = Service.where(id: params[:service_ids]).decorate.map(&:title).join(', ').downcase if filter_params[:service_ids].present?
-      
-      title_h1 = [ 
-        title_district, title_services, title_language 
+      if filter_params[:language_id].present?
+        title_language = "#{Language.model_name.human.downcase}-#{Language.find(params[:language_id]).title}"
+      end
+      if filter_params[:service_ids].present?
+        title_services = Service.where(id: params[:service_ids]).decorate.map(&:title).join(', ').downcase
+      end
+
+      title_h1 = [
+        title_district, title_services, title_language
       ].join(', ').sub(/^(, )+/, '').sub(/(, )+$/, '').sub(/( , )+/, ' ')&.capitalize
-      
+
       @title_h1  =  if filter_params.present? && !title_services.blank?
-                      t('global.find_btn', model: nil).chop + ': ' + title_h1
+                      "#{t('global.find_btn', model: nil).chop}: #{title_h1}"
                     elsif filter_params.present? && title_services.blank?
-                      (t('company.find_carrier') + ': ' + title_h1)
+                      "#{t('company.find_carrier')}: #{title_h1}"
                     else
-                      t('meta.carriers.title')                    
+                      t('meta.carriers.title')
                     end
-      
+
       title_meta =  if filter_params.present? && !title_services.blank?
                       [t('israel'), title_services.capitalize]
                     elsif filter_params.present? && title_services.blank?
                       [t('israel'), title_language, title_district, t('company.find_carrier')]
                     elsif !filter_params.present?
-                      t('meta.carriers.title')  
+                      t('meta.carriers.title')
                     else
                       [t('israel'), t('company.find_carrier')]
                     end
-      
-      set_meta_tags( 
+
+      set_meta_tags(
         title: title_meta,
         description: t('meta.carriers.desc'),
         keywords: @title_h1
@@ -87,7 +91,7 @@ module Users
     end
 
     def filter_params
-      params.permit(:district_id, :language_id, { service_ids: [] } )
+      params.permit(:district_id, :language_id, { service_ids: [] })
     end
 
     def set_user

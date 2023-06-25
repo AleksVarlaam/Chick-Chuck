@@ -31,13 +31,12 @@ class Company < User
   scope :filter_by_service_ids, lambda { |service_ids|
                                   joins(:services).where('services.id' => service_ids).uniq if service_ids.count > 1
                                 }
-                                
-  after_destroy :clear_favorites
-  
-  private 
-  
-  def clear_favorites
-    Favorite.where(favorited_type: 'Company', favorited_id: self.id).destroy_all
-  end
 
+  after_destroy :clear_favorites
+
+  private
+
+  def clear_favorites
+    Favorite.where(favorited_type: 'Company', favorited_id: id).destroy_all
+  end
 end

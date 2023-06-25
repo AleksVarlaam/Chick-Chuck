@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 module Companies
   class ImagesController < ApplicationController
     layout 'profile_layout'
     before_action :authenticate_company!
     before_action :set_company
-    
+
     def index
       @images = @company.images
     end
-    
-    def upload_images
 
+    def upload_images
       respond_to do |format|
         if @company.update(images_params)
           format.turbo_stream do
@@ -24,16 +25,15 @@ module Companies
         end
       end
     end
-    
+
     private
-    
+
     def images_params
-      params.require(:company).permit( images: [] )
+      params.require(:company).permit(images: [])
     end
-    
+
     def set_company
       @company = current_company
     end
-    
   end
 end

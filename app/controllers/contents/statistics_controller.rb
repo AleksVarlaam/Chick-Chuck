@@ -3,11 +3,11 @@
 module Contents
   class StatisticsController < ApplicationController
     def show
-      set_meta_tags( 
+      set_meta_tags(
         title: t('meta.about.title'),
         description: t('meta.about.desc')
       )
-      
+
       Statistic.first.update(about: Statistic.first.about + 1) unless user_signed_in?
       @statistic = @commentable = Statistic.first
       @clients = Client.count

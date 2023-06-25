@@ -32,5 +32,4 @@ class Client < User
   def after_confirmation
     Subscriber.create(email:) unless Subscriber.where(email:).present?
   end
-
 end

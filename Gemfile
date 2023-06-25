@@ -26,6 +26,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'pagy', '~> 6.0'
 gem 'pg', '~> 1.1'
 gem 'phonelib'
+gem 'premailer-rails'
 gem 'puma', '~> 6.0'
 gem 'rails_heroicon'
 gem 'rails-i18n', '~> 7.0.0'
@@ -38,7 +39,6 @@ gem 'tailwindcss-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component', '~> 2.74'
-gem 'premailer-rails'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

@@ -3,7 +3,7 @@
 module MetaTagsHelper
   def default_meta_tags
     {
-      charset:  'utf-8',
+      charset: 'utf-8',
       site: 'Chick-Chuck.com',
       reverse: true,
       separator: '|',
@@ -12,21 +12,21 @@ module MetaTagsHelper
       noindex: !Rails.env.production?,
       manifest: '/manifest.webmanifest',
       icon: [
-        { 
-          href: image_url(asset_path('favicon.svg')), rel: 'icon', type: 'image/svg+xml' 
+        {
+          href: image_url(asset_path('favicon.svg')), rel: 'icon', type: 'image/svg+xml'
         },
-        { 
+        {
           href: image_url(asset_path('favicon.ico')), rel: 'icon', sizes: 'any', type: 'image/x-icon'
         },
-        { 
+        {
           href: image_url(asset_path('android-chrome-512x512.png')), rel: 'icon',
-          sizes: '512x512', type: 'image/png' 
+          sizes: '512x512', type: 'image/png'
         },
-        { 
+        {
           href: image_url(asset_path('apple-touch-icon.png')), rel: 'apple-touch-icon',
-          sizes: '180x180', type: 'image/png' 
-        },
-        
+          sizes: '180x180', type: 'image/png'
+        }
+
       ],
       og: {
         title: :title,

@@ -14,7 +14,11 @@ module Users
     end
 
     def new
-      return redirect_to new_client_session_path, alert: t('devise.failure.unauthenticated') unless client_signed_in? || company_signed_in?
+      unless client_signed_in? || company_signed_in?
+        return redirect_to new_client_session_path,
+                           alert: t('devise.failure.unauthenticated')
+      end
+
       @product = current_user.products.new.decorate
     end
 

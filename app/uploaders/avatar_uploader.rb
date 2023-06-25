@@ -38,12 +38,12 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process convert: 'webp'
     process resize_to_fit: [200, 200]
   end
-  
+
   version :medium do
     process convert: 'webp'
     process resize_to_fit: [500, 350]
   end
-  
+
   version :large do
     process convert: 'webp'
     process resize_to_fit: [900, 600]

@@ -11,7 +11,7 @@ module Contents
         title: t('meta.market.title'),
         description: t('meta.market.desc')
       )
-      
+
       Statistic.first.update(market: Statistic.first.market + 1) unless user_signed_in?
       total_products = Product.filter(filter_params).newest
       @pagy, @products = pagy(total_products, items: 11, fragment: '#products')
@@ -28,7 +28,7 @@ module Contents
       @pagy, @products = pagy(total_products, items: 11, fragment: '#products')
       @products = @products.decorate
       @products_count = total_products.count
-      
+
       set_meta_tags(
         title: [t('pages.market'), @user.user_name],
         description: "#{t('about.market.title')}. #{t('home_page.main_features.market_desc')}"
@@ -47,7 +47,7 @@ module Contents
 
       set_meta_tags(
         title: [t('pages.market'), @product.title],
-        description: @product.description&.to_s || "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}"
+        description: @product.description.to_s || "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}"
       )
 
       return if @user == current_user

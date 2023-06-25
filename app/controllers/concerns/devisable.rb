@@ -55,5 +55,4 @@ module Devisable
       request.referer
     end
   end
-  
 end
