@@ -12,6 +12,7 @@ uk:
         edit:                        "Змінити відгук"
         total_ratings_count_html:    "Загальний рейтинг: <span itemprop='ratingCount'>%{count}</span>"
         out_of_html:                 "<span itemprop='ratingValue'>%{count}</span> з <span itemprop='bestRating'>5</span>"
+        no_feedback:                 "Немає відгуків"
         form:
             title:                  "Ваша думка дуже важлива"
             rating_desc:            "Як би ви оцінили послуги перевізника?"

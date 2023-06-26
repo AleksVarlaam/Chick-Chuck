@@ -6,12 +6,7 @@
             class:"object-cover object-center w-full h-56", alt: company_card.title%>
     <% end %>
     <!-- Rating -->
-    <div class="flex justify-center px-6 py-3 bg-gray-700">
-        <div class="mx-3 text-lg font-semibold !text-white">
-            <%= render 'feedbacks/shared/rating', object: company_card%>
-        </div>
-    </div>
-
+    <%= render 'feedbacks/shared/rating', object: company_card%>
     <div class="px-6 py-4">
         <!-- Title -->
         <%= link_to user_path(company_card), target: "_blank", data: { turbo_frame: '_top' },  
