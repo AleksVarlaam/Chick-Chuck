@@ -12,6 +12,8 @@ module NavigationHelper
                         css_class
                       end
 
+    title = tag.span title, itemprop: "name" 
+    
     link_to title, url, options
   end
 

@@ -32,7 +32,7 @@
             <p class="w-full px-2 text-md">
                 <% company_card.districts.decorate.each do |district|%>
                         <%= link_to users_path(district_id: district), class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
-                            <%= (!company_card.districts.include?(District.first) && district != company_card.districts.last) ? district.title + ',' : district.title%>
+                            <%= tag.span (!company_card.districts.include?(District.first) && district != company_card.districts.last) ? district.title + ',' : district.title, itemprop: 'location'%>
                         <% end %>
                     <% break if company_card.districts.include?(District.first)%>
                 <% end %>
@@ -44,7 +44,7 @@
             <p class="w-full px-2 text-md">
                 <% company_card.languages.each do |language|%>
                         <%= link_to users_path(language_id: language), class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
-                            <%= (!company_card.languages.include?(District.first) && language != company_card.languages.last) ? language.title + ',' : language.title%>
+                            <%= tag.span (!company_card.languages.include?(District.first) && language != company_card.languages.last) ? language.title + ',' : language.title, itemprop: 'knowsLanguage'%>
                         <% end %>
                     <% break if company_card.languages.include?(District.first)%>
                 <% end %>

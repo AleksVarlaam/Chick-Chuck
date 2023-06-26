@@ -1,25 +1,45 @@
 <!-- Content links list -->
- <!-- Home -->
-<%= nav_tab t('pages.home'), root_path, 
-  class: link_class, current_page: current_page, 
-  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
- <!-- Carriers -->
-<%= nav_tab t('company.carriers').capitalize, users_path, 
-  class: link_class, current_page: current_page, 
-  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
-  <!-- Market -->
-<%= nav_tab t('pages.market'), products_path, 
-  class: link_class, current_page: current_page, 
-  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
- <!-- Calculator -->
-<%= nav_tab t('pages.calculator'), calculator_path,
-  class: link_class, current_page: current_page, 
-  data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
-  <!-- News -->
-<%= nav_tab t('pages.news'), news_index_path, 
-  class: link_class, current_page: current_page, 
-  data: {action: "dropdown#toggle", turbo_frame: '_top'}  if News.count.positive?%>
-  <!-- About -->
-<%= nav_tab t('pages.about'), about_path, 
-class: link_class, current_page: current_page, 
-data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<!-- Home -->
+<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="<%= link_class%>">
+    <%= nav_tab t('pages.home'), root_path, itemprop: "item", 
+        class: 'hover:text-gray-900', current_page: current_page, 
+        data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+    <meta itemprop="position" content="1" />
+</span>
+<!-- Carriers -->
+<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="<%= link_class%>">
+    <%= nav_tab t('company.carriers').capitalize, users_path, itemprop: "item",
+        class: 'hover:text-gray-900', current_page: current_page, 
+        data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+    <meta itemprop="position" content="2" />
+</span>
+<!-- Market -->
+<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="<%= link_class%>">
+    <%= nav_tab t('pages.market'), products_path, itemprop: "item",
+        class: 'hover:text-gray-900', current_page: current_page, 
+        data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+    <meta itemprop="position" content="3" />
+</span>
+<!-- Calculator -->
+<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="<%= link_class%>">
+    <%= nav_tab t('pages.calculator'), calculator_path,itemprop: "item",
+        class: 'hover:text-gray-900', current_page: current_page, 
+        data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+    <meta itemprop="position" content="4" />
+</span>
+<!-- About -->
+<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="<%= link_class%>">
+    <%= nav_tab t('pages.about'), about_path, itemprop: "item",
+        class: 'hover:text-gray-900', current_page: current_page, 
+        data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+    <meta itemprop="position" content="5" />
+</span>
+<!-- News -->
+<% if News.count.positive? %>
+    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="<%= link_class%>">
+        <%= nav_tab t('pages.news'), news_index_path, itemprop: "item",
+            class: 'hover:text-gray-900', current_page: current_page, 
+            data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+        <meta itemprop="position" content="6" />
+    </span>
+<% end %>
