@@ -13,10 +13,12 @@ module MetaTagsHelper
       manifest: '/manifest.webmanifest',
       icon: [
         {
-          href: image_url(asset_path('favicon.svg')), rel: 'icon', type: 'image/svg+xml'
+          href: image_url(asset_path('favicon.png')), rel: 'icon', 
+          sizes: '120x120', type: 'image/png'
         },
         {
-          href: image_url(asset_path('favicon.ico')), rel: 'icon', sizes: 'any', type: 'image/x-icon'
+          href: image_url(asset_path('favicon.ico')), rel: 'icon', 
+          sizes: 'any', type: 'image/x-icon'
         },
         {
           href: image_url(asset_path('android-chrome-512x512.png')), rel: 'icon',
