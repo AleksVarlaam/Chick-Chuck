@@ -7,11 +7,11 @@ ru:
                 rating:   'Рейтинг'
                 price:    'Цена'
     review:
-        reviews:                "Отзывы"
-        add:                    "Оставить отзыв"
-        edit:                   "Изменить отзыв"
-        total_ratings_count:    "Всего рейтингов: %{count}"
-        out_of:                 "%{count} из 5"
+        reviews:                     "Отзывы"
+        add:                         "Оставить отзыв"
+        edit:                        "Изменить отзыв"
+        total_ratings_count_html:    "Всего рейтингов: <span itemprop='ratingCount'>%{count}</span>"
+        out_of_html:                 "<span itemprop='ratingValue'>%{count}</span> из <span itemprop='bestRating'>5</span>"
         form:
             title:                  "Ваше мнение очень важно"
             rating_desc:            "Как бы вы оценили услуги перевозчика?"

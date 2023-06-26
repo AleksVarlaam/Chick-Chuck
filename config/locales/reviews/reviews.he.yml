@@ -7,11 +7,11 @@ he:
                 rating:   "דירוג"
                 price:    "מחיר"
     review:
-        reviews:                "תגובות"
-        add:                    "להשאיר תגובה"
-        edit:                   "שנה ביקורת"
-        total_ratings_count:    "דירוג כולל: %{count}"
-        out_of:                 "%{count} מתוך 5"
+        reviews:                     "תגובות"
+        add:                         "להשאיר תגובה"
+        edit:                        "שנה ביקורת"
+        total_ratings_count_html:    "דירוג כולל: <span itemprop='ratingCount'>%{count}</span>"
+        out_of_html:                 "<span itemprop='ratingValue'>%{count}</span> מתוך <span itemprop='bestRating'>5</span>"
         form:
             title:                  "דעתך חשובה מאוד"
             rating_desc:            "איך היית מדרג את שירותיו של המוביל?"

@@ -1,9 +1,10 @@
 <!-- Information -->
-<%= turbo_frame_tag company, 
+<%= turbo_frame_tag company,
     class: "w-full flex flex-col max-w-xl justify-center dark:bg-gray-800 rounded-lg" do %>
     <div class="flex justify-center">
         <!-- Avatar -->
-        <%= image_tag company.avatar_large, class: "object-cover object-center w-full max-w-xl h-56 sm:h-72 rounded-t-lg", alt: company.title%>
+        <%= image_tag company.avatar_large, itemprop: "image",
+            class: "object-cover object-center w-full max-w-xl h-56 sm:h-72 rounded-t-lg", alt: company.title%>
     </div>
     <!-- Rating -->
     <div class="flex justify-center px-6 py-3 bg-gray-700 rounded-b-lg">
@@ -65,13 +66,14 @@
                 <%= tag.div class: "flex items-center mt-4 text-gray-700 dark:text-gray-200" do %>
                     <%= heroicon 'globe-alt', class: 'w-6 h-6 flex-none'%>
                     <p class="w-full px-2 text-md max-w-screen break-all">
-                        <%= link_to company.website, company.website, target: '_blank', class:'hover:text-blue-800' %>
+                        <%= link_to company.website, company.website, itemprop: "url",
+                            target: '_blank', class:'hover:text-blue-800' %>
                     </p>
                 <% end if company.website.present?%>
             </div>
         </div>
         <!-- Description -->
-        <%= tag.div  do %>
+        <%= tag.div itemprop: "description" do %>
           <p class="my-content my-2 text-gray-700 dark:text-gray-400">
             <%= company.description %>
           </p>

@@ -7,11 +7,11 @@ en:
                 rating:   'Rating'
                 price:    'Price'
     review:
-        reviews:                "Reviews"
-        add:                    "Leave feedback"
-        edit:                   "Edit feedback"
-        total_ratings_count:    "Global ratings: %{count}"
-        out_of:                 "%{count} out of 5"
+        reviews:                     "Reviews"
+        add:                         "Leave feedback"
+        edit:                        "Edit feedback"
+        total_ratings_count_html:    "Global ratings: <span itemprop='ratingCount'>%{count}</span>"
+        out_of_html:                 "<span itemprop='ratingValue'>%{count}</span> out of <span itemprop='bestRating'>5</span>"
         form:
             title:                  "Your opinion matters"
             rating_desc:            "How would you rate the services of the carrier?"
