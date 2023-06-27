@@ -18,7 +18,7 @@
       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
       id: "email-input",
       placeholder: "Email address",
-      required: false
+      required: true
      %>
   </div>
   
@@ -32,7 +32,7 @@
       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
       id: "phone-input",
       placeholder: '+(972) __-___ ____',
-      required: false
+      required: true
      %>
   </div>
 
@@ -50,7 +50,7 @@
       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
       id: "password-input",
       placeholder: User.human_attribute_name('password'),
-      required: false
+      required: true
     %>
   </div>
 
@@ -64,7 +64,7 @@
        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
        id: "passwordConfirmation-input",
        placeholder: User.human_attribute_name('password_confirmation'),
-       required: false
+       required: true
      %>
   </div>
 </div>  
@@ -78,45 +78,57 @@
 <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2 mb-12">
     <!-- First Name input -->
     <div class="">
-       <%= f.label :first_name, class: "text-lg" %>
+       <div class="flex items-center">
+           <span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :first_name, class: "text-lg" %>
+       </div>
        <%= f.text_field :first_name, autocomplete: "first_name", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         id: "firstName-input",
         placeholder: User.human_attribute_name('first_name'),
-        required: false
+        required: true
        %>
     </div>
 
     <!-- Last Name input -->
     <div class="">
-       <%= f.label :last_name, class: "text-lg" %>
+       <div class="flex items-center">
+           <span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :last_name, class: "text-lg" %>
+       </div>
        <%= f.text_field :last_name, autocomplete: "last_name", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         id: "lastName-input",
         placeholder: User.human_attribute_name('last_name'),
-        required: false
+        required: true
        %>
     </div>
 
     <!-- City input -->
     <div class="">
-       <%= f.label :city, class: "text-lg" %>
+       <div class="flex items-center">
+           <span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :city, class: "text-lg" %>
+       </div>
        <%= f.text_field :city, autocomplete: "city", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         id: "city-input",
         placeholder:User.human_attribute_name('city'),
-        required: false
+        required: true
        %>
     </div>
 
     <!-- Birthday -->
     <div class="">
-       <%= f.label :birthday, class: "text-lg" %>
+       <div class="flex items-center">
+           <span class="text-red-500 mr-1">&nbsp;*</span>
+           <%= f.label :birthday, class: "text-lg" %>
+       </div>
        <%= f.date_field :birthday, autocomplete: "birthday", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         id: "birthday-input",
         placeholder: "Birthday",
-        required: false
+        required: true
        %>
     </div>
 </div>
@@ -136,7 +148,7 @@
        <%= f.text_field :title, autocomplete: "phone", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         placeholder: Company.human_attribute_name('title'),
-        required: false
+        required: true
        %>
     </div>
     
@@ -242,7 +254,7 @@
        <%= f.text_field :additional_phone, autocomplete: "phone", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         placeholder: '+(972) __-___ ____',
-        required: false
+        required: true
        %>
     </div>
     
