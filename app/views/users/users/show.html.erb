@@ -2,6 +2,8 @@
 <% provide :page_title, @user.title %>
 <% provide :nav_title, @user.title %>
 
+<!-- Schema -->
+<%= render 'shared/schema/organization', user: @user%>
 <%= turbo_stream_from @user%>
 
 <%= tag.section itemscope: '', itemtype: "http://schema.org/Organization",

@@ -20,9 +20,10 @@
   </head>
 
   <body class="flex flex-col h-screen w-screen justify-between">
-      <% if user_signed_in? %>
-        <%= turbo_stream_from "broadcast_to_user_#{current_user.id}" %>
-      <% end %>
+      <!-- Schema json -->
+      <%= yield :schema_json %>
+      <!-- Current user id -->
+      <%= turbo_stream_from "broadcast_to_user_#{current_user.id}" if user_signed_in?%>
       <!-- Header -->
       <%= yield :navbar%>
       <!-- Main -->
