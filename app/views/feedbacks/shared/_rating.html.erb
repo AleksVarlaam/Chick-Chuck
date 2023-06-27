@@ -9,7 +9,7 @@
                     <%= heroicon 'star', variant: 'solid', 
                         class: "w-6 h-6 mr-1 #{total_star_rating_color(object.rating)}" %>
                     <%= tag.span object.rating, itemprop: "ratingValue" %>
-                    <%= heroicon 'user', class: "ml-2 mr-1 w-6 h-6 text-gray-400", alt: "views-count"%>
+                    <%= heroicon 'user', class: "ml-2 mr-1 w-6 h-6 text-gray-400" %>
                     <%= tag.span object.reviews.count, itemprop: "ratingCount" %>
                 </button>
                 <div data-popover id="<%= object.title %>-rating-count" role="tooltip" class="absolute z-10 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">

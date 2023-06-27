@@ -70,7 +70,7 @@
                 <%= link_to t('user_menu.sign_in'), new_client_session_path, 
                     class: "font-medium block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", 
                     data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
-                    role: "menuitem",
+                    role: "menubar",
                     tabindex:"-1",
                     id: "clientSignInLink"
                 %>
@@ -78,7 +78,7 @@
                 <%= link_to t('user_menu.sign_up'), new_client_registration_path, 
                     class: "font-medium block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", 
                     data: {action: "dropdown#toggle"}, 
-                    role: "menuitem",
+                    role: "menubar",
                     tabindex:"-1",
                     id: "clientSignUpLink"
                 %>
@@ -90,7 +90,7 @@
                         <%= link_to new_company_session_path, 
                             class: "font-medium flex block  px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
                             data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
-                            role: "menuitem",
+                            role: "menubar",
                             tabindex:"-1",
                             id: "companySignInLink" do
                         %>
@@ -102,7 +102,7 @@
                         <%= link_to new_company_registration_path, 
                             class: "font-medium flex block  px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
                             data: {action: "dropdown#toggle"}, 
-                            role: "menuitem",
+                            role: "menubar",
                             tabindex:"-1",
                             id:"companySignUpLink" do
                         %>
