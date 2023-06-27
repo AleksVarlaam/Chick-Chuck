@@ -38,7 +38,7 @@ module Companies
 
     def set_profile_params
       params.require(:company).permit(
-        :first_name, :last_name, :gender, :birthday, :city
+        :first_name, :last_name, :gender, :birthday, :city_id
       )
     end
 

@@ -65,7 +65,7 @@ module Companies
 
     def permitted_attributes
       [:email, :phone, :password, :password_confirmation,
-       :first_name, :last_name, :avatar, :remove_avatar, :gender, :birthday, :city,
+       :first_name, :last_name, :avatar, :remove_avatar, :gender, :birthday, :city_id,
        :additional_phone, :whatsapp, :telegram, :facebook, :title, :website, :description, { district_ids: [], language_ids: [], service_ids: [] }]
     end
 

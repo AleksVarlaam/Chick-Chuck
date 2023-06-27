@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  validates :first_name, :last_name, :city, allow_blank: true, length: { in: 2..25 }
+  validates :first_name, :last_name, allow_blank: true, length: { in: 2..25 }
   has_and_belongs_to_many :rooms, class_name: 'Room', dependent: :destroy
   has_many :comments, class_name: 'Comment', dependent: :destroy
   has_many :messages, class_name: 'Message', dependent: :destroy

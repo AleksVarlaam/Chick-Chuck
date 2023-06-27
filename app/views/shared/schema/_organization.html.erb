@@ -9,11 +9,11 @@
           "url": "<%= user.website || user_url(user) %>",
           "founder": {
               "@type": "Person",
-              "name": "<%= user.first_name + ' ' + user.last_name %>"
+              "name": "<%= "#{user.first_name} #{user.last_name}" %>"
           },
           "foundingLocation": {
                "@type": "Place",
-               "address": "<%= t('israel') + ', ' + user.city %>"
+               "address": "<%= "#{t('israel')}, #{user.city&.decorate&.title}"%>"
           },
           <% if user.reviews.present? %>
                 "aggregateRating": {
@@ -40,11 +40,10 @@
           <% end %>
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "<%= user.city %>",
+            "addressLocality": "<%= user.city&.decorate&.title %>",
             "addressCountry": "<%= t('israel') %>"
           },
           "telephone": "<%= user.additional_phone %>",
-          "email": "<%= user.email %>",
           "knowsLanguage": "<%= user.languages.map(&:title).join(', ').sub(/(, )+$/, '') %>",
           "keywords": "<%= user.services.decorate.map(&:title).join(', ').sub(/(, )+$/, '') %>"
         }

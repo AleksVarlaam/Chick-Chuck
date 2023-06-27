@@ -7,6 +7,7 @@ class Company < User
   validates :description, length: { maximum: 1000 }
   validates :rating, numericality: { in: 0..5 }
 
+  belongs_to :city
   has_rich_text :description
   mount_uploaders :images, ImageUploader
   has_and_belongs_to_many :districts, class_name: 'District', foreign_key: :user_id

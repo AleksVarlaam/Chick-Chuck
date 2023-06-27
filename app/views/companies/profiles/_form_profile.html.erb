@@ -17,17 +17,18 @@
         </div>
         
         <!-- City -->
-        <div>
+        <div class="">
             <%= f.label :city, class: "text-gray-700 text-lg"%>
-            <%= f.text_field :city, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
-                placeholder: User.human_attribute_name('city')%>
+            <%= f.grouped_collection_select(:city_id, District.all.decorate.drop(1), :cities, :title, :id, I18n.locale, 
+                { include_blank: t('global.select'), selected: params[:city_id] || @company.city_id}, 
+                {class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"})%>
         </div>
         
         <!-- Birthday -->
         <div>
             <%= f.label :birthday, class: "text-gray-700 text-lg" %>
             <%= f.date_field :birthday, autocomplete: "birthday", 
-                 class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
+                 class: "block w-full px-4 py-2 mt-1 text-gray-500 bg-white border border-gray-300 rounded-md focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
                  plcaholder: User.human_attribute_name('birthday')%>
         </div>
     </div>
