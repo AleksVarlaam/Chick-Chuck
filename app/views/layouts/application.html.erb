@@ -30,7 +30,8 @@
       <main class="flex w-full grid grid-flow-row auto-rows-max relative <%= 'mt-20' unless controller_name == 'errors' %>" id="top">
           <!-- Flash messages -->
           <% unless ['new', 'create'].include?(action_name) %>
-              <%= tag.div (render 'shared/flash_messages'), class: "fixed right-3 sm:right-6 sm:top-20 z-30 sm:max-w-sm'", id: "flash_messages"%>
+              <%= tag.div (render 'shared/flash_messages'), id: "flash_messages", 
+                  class: "fixed right-3 sm:right-6 sm:top-20 z-30 sm:max-w-sm'"%>
           <% end %>
           <!-- Modal -->
           <%= turbo_frame_tag 'modal'%>

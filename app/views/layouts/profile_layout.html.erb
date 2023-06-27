@@ -12,7 +12,9 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    
+    <!-- Trix -->
+    <%= javascript_import_module_tag "trix" %>
+    <%= javascript_import_module_tag "@rails/actiontext" %>
     <!-- Current user -->
     <%= render 'layouts/shared/current_user_meta'%>
     <!-- Google analytics -->
