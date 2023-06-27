@@ -4,7 +4,7 @@
         <!-- District -->
         <div class="w-full h-14 items-center flex border-0 border-b border-gray-500 bg-opacity-90 font-medium 
             rtl:sm:border-l rtl:pr-3 ltr:sm:border-r ltr:pl-3 rounded-tl-3xl rtl:sm:rounded-none <%= controller_name == 'main' ? 'bg-gray-700' : ''%>">
-            <%= heroicon 'map', class: 'w-6 h-6 mr-1 text-gray-400', alt: "district"%>
+            <%= heroicon 'map', class: 'w-6 h-6 mr-1 text-gray-400' %>
             <%= f.collection_select(:district_id, District.all.decorate, :id, :title, 
             { include_blank: District.model_name.human, selected: params[:district_id]}, 
             {class: "h-full text-base md:rounded-l-xl block w-full p-2.5 placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rounded-tl-3xl rtl:bg-left rtl:ml-3 sm:ml-0 bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
@@ -12,7 +12,7 @@
         <!-- Language -->
         <div class="w-full h-14 items-center flex border-0 border-b border-gray-500 relative bg-opacity-90 font-medium
             rtl:pr-3 rtl:rounded-tl-3xl ltr:pl-3 <%= controller_name == 'main' ? 'bg-gray-700' : ''%>">
-            <%= heroicon 'language', class: 'w-6 h-6 mr-1 text-gray-400', alt: "language-select"%>
+            <%= heroicon 'language', class: 'w-6 h-6 mr-1 text-gray-400' %>
             <%= f.collection_select(:language_id, Language.all, :id, :title, {include_blank: Language.model_name.human, selected: params[:language_id]}, {class: "h-full text-base block w-full p-2.5  placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rtl:rounded-tl-3xl rtl:bg-left rtl:ml-3 bg-opacity-80 #{controller_name == 'main' ? 'bg-gray-700' : 'bg-gray-600'}"})%>
         </div>
         <!-- Services -->
@@ -20,30 +20,26 @@
             col-span-full  <%= controller_name == 'main' ? 'bg-gray-700' : ''%>">
             <!-- Button -->
             <button id="dropdownServicesButton" data-dropdown-toggle="dropdownServices" class="inline-flex items-center w-full text-base font-medium text-center text-gray-300 hover:text-gray-100" type="button">
-                <%= heroicon 'list-bullet', class: 'w-6 h-6 mx-3 text-gray-400', alt: "service-select"%>
+                <%= heroicon 'list-bullet', class: 'w-6 h-6 mx-3 text-gray-400' %>
                 <%= Company.human_attribute_name('services')%>
             </button>
             <!-- Services dropdown menu -->
             <div id="dropdownServices" class="z-10 hidden rounded-lg shadow bg-gray-700 min-w-full">
                 <ul class="h-72 px-3 pb-3 overflow-y-auto rounded-lg bg-gray-700 min-w-full text-start" aria-labelledby="dropdownServicesButton">
                     <!-- Select All / Deselect All -->
-                    </li>
-                        <div class="flex items-center p-2 rounded-lg">
-                            <label class="text-base form-control block w-full p-2 font-normal text-gray-300 hover:text-gray-100 bg-clip-padding rounded-lg border border-solid border-gray-500">
-                                <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
-                                <%= tag.span "#{t('global.select_all')} / #{t('global.deselect_all')}"%>
-                            </label>
-                        </div>
+                    <li class="flex items-center p-2 rounded-lg">
+                        <label class="text-base form-control block w-full p-2 font-normal text-gray-300 hover:text-gray-100 bg-clip-padding rounded-lg border border-solid border-gray-500">
+                            <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+                            <%= tag.span "#{t('global.select_all')} / #{t('global.deselect_all')}"%>
+                        </label>
                     </li>
                     <!-- Services list -->
                     <%= f.collection_check_boxes(:service_ids, Service.all.decorate, :id, :title, multiple: true, checked: params[:service_ids]) do |b| %> 
-                        </li>
-                            <div class="flex items-center p-2 rounded-lg">
-                                <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-300 hover:text-gray-100 bg-clip-padding rounded-lg border border-solid border-gray-500") do %>
-                                    <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
-                                    <%= b.text %>
-                                <% end %>
-                            </div>
+                        <li class="flex items-center p-2 rounded-lg">
+                            <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-300 hover:text-gray-100 bg-clip-padding rounded-lg border border-solid border-gray-500") do %>
+                                <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
+                                <%= b.text %>
+                            <% end %>
                         </li>
                     <% end%>
                 </ul>
@@ -59,7 +55,7 @@
             <%= link_to calculator_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                 <%= t('home_page.calculate')%>
                 <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-                    class: "mx-1.5 w-5 h-5", alt: "arrow-small-right"%>
+                    class: "mx-1.5 w-5 h-5" %>
             <% end %>
         </div>
         
@@ -70,7 +66,7 @@
                 <%= link_to moving_preparation_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= t('moving_preparation.title')%>
                     <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-                        class: "mx-1.5 w-5 h-5", alt: "arrow-small-right"%>
+                        class: "mx-1.5 w-5 h-5" %>
                 <% end %>
             </div>
             <!-- Market link -->
@@ -78,7 +74,7 @@
                 <%= link_to products_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-800 rounded-lg border border-gray-800 hover:bg-gray-900 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
                     <%= t('pages.market')%>
                     <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-                        class: "mx-1.5 w-5 h-5", alt: "arrow-small-right"%>
+                        class: "mx-1.5 w-5 h-5" %>
                 <% end %>
             </div>
         <% end %>

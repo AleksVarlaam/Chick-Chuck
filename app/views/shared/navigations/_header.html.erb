@@ -22,11 +22,11 @@
                     aria-expanded="false"
                     aria-labelledby="mobile-menu-button" 
                 >
-                    <%= heroicon 'bars-3', class: 'h-6 w-6', alt: 'burger-menu-button'%>
+                    <%= heroicon 'bars-3', class: 'h-6 w-6'%>
                 </button>
               </div>
               <!-- Navigations -->
-              <nav itemscope itemtype="http://schema.org/BreadcrumbList" class="hidden lg:flex space-x-6 rtl:space-x-reverse">
+              <nav class="hidden lg:flex space-x-6 rtl:space-x-reverse">
                   <%= render 'shared/navigations/content_links_list', 
                       link_class: "text-base font-medium hover:text-gray-900",
                       current_page: current_page %>

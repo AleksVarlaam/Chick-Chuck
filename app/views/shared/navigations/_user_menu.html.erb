@@ -23,13 +23,13 @@
             data-action="dropdown#toggle click@window->dropdown#hide"
             class="flex text-sm rounded-full border-2 border-gray-300 hover:border-gray-400 focus:outline-none drop-shadow-2xl hover:drop-shadow-lg items-center" 
           >
-            <%= heroicon "bars-3", class: "mx-2 hidden sm:block", size: 20, alt: "user-menu-button"%>
+            <%= heroicon "bars-3", class: "mx-2 hidden sm:block", size: 20 %>
             <!-- Avatar -->
             <% if user_signed_in? %>
                 <%= image_tag(current_user.avatar_thumb, 
                     class: "object-cover h-8 w-8 rounded-full border border-gray-500 m-1", alt: "user-avatar")%>
             <% else %>
-                <%= heroicon "user-circle", class: "w-8 h-8 text-gray-600 rounded-full border m-1", alt: "user-avatar" %>
+                <%= heroicon "user-circle", class: "w-8 h-8 text-gray-600 rounded-full border m-1" %>
             <% end %>
           </button>
         </div>
@@ -72,7 +72,7 @@
                     data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
                     role: "menuitem",
                     tabindex:"-1",
-                    id: "signInLink"
+                    id: "clientSignInLink"
                 %>
                 <!-- Sign Up -->
                 <%= link_to t('user_menu.sign_up'), new_client_registration_path, 
@@ -80,7 +80,7 @@
                     data: {action: "dropdown#toggle"}, 
                     role: "menuitem",
                     tabindex:"-1",
-                    id: "signUpLink"
+                    id: "clientSignUpLink"
                 %>
                 <hr>
                 <!-- Company -->
@@ -92,9 +92,10 @@
                             data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
                             role: "menuitem",
                             tabindex:"-1",
-                            id: "signInLink" do
+                            id: "companySignInLink" do
                         %>
-                            <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2", alt: "log-in-as-company")%>
+                            <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), 
+                                class: "w-4 h-4 rtl:ml-2 ltr:mr-2", alt: "log-in-as-company")%>
                             <%= t('user_menu.sign_in_company')%>
                         <% end %>
                         <!-- Become a Carrier -->
@@ -103,7 +104,7 @@
                             data: {action: "dropdown#toggle"}, 
                             role: "menuitem",
                             tabindex:"-1",
-                            id:"become-a-Carrier-link" do
+                            id:"companySignUpLink" do
                         %>
                                 <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), 
                                     class: "w-4 h-4 rtl:ml-2 ltr:mr-2 flex-none", alt: "become-a-carrier")%>
