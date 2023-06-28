@@ -5,7 +5,7 @@
     <%= link_to t('home_page.newslatter.subscribe'), root_path(anchor: 'newsletter'), data: { turbo_frame: '_top' }, 
         class: "text-blue-600 hover:text-blue-800 mt-3"%>
     <!-- Add product -->
-    <section class="flex justify-center pt-6 mx-auto text-center">
+    <div class="flex justify-center pt-6 mx-auto text-center">
         <!-- Link -->
         <div class="flex justify-center">
             <%= link_to user_signed_in? ? new_users_product_path : new_client_session_path, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'},
@@ -14,5 +14,5 @@
                 <%= t('product.to_advertise')%>
             <% end %>
         </div>
-    </section>
+    </div>
 </div>

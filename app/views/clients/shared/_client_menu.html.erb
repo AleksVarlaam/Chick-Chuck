@@ -4,7 +4,6 @@
 <%= link_to rooms_path, 
   class: link_class, 
   data: {action: "dropdown#toggle"}, 
-  role: "menubar",
   tabindex:"-1",
   id:"profilePageLink" do
 %>
@@ -17,7 +16,6 @@
 <%= link_to new_users_product_path, 
    class: link_class, 
    data: {action: "dropdown#toggle"}, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -29,7 +27,6 @@
 <%= link_to users_products_path, 
    class: link_class, 
    data: { action: "dropdown#toggle" }, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -43,7 +40,6 @@
 <%= link_to users_favorites_path, 
    class: link_class, 
    data: { action: "dropdown#toggle" }, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -56,7 +52,6 @@
 <!-- <%= link_to clients_dashboard_path,
   class: link_class,
   data: {action: "dropdown#toggle"},
-  role: "menubar",
   tabindex:"-1",
   id:"profilePageLink" do
 %>
@@ -68,7 +63,6 @@
 <%= link_to edit_clients_profile_path, 
   class: link_class, 
   data: {action: "dropdown#toggle"}, 
-  role: "menubar",
   tabindex:"-1",
   id:"personalInfoLink" do
 %>
@@ -80,7 +74,6 @@
 <%= link_to edit_client_registration_path, 
   class: link_class, 
   data: { action: "dropdown#toggle" }, 
-  role: "menubar",
   tabindex:"-1",
   id:"password&SecurityLink" do 
 %>
@@ -92,8 +85,7 @@
 <!-- Sign Out -->
 <%= link_to destroy_client_session_path, 
   class: link_class,
-  data: {action: "dropdown#toggle", turbo_method: :delete, turbo_confirm: t('global.are_you_sure')}, 
-  role: "menubar", 
+  data: {action: "dropdown#toggle", turbo_method: :delete, turbo_confirm: t('global.are_you_sure')},  
   tabindex:"-1", 
   id:"signOutLink" do 
 %>

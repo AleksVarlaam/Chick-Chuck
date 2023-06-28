@@ -4,7 +4,6 @@
 <%= link_to rooms_path, 
    class: link_class, 
    data: {action: "dropdown#toggle"}, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -16,7 +15,6 @@
 <%= link_to admins_dashboard_path, 
    class: link_class, 
    data: { action: "dropdown#toggle" }, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -29,7 +27,6 @@
 <%= link_to new_admins_news_path, 
    class: link_class, 
    data: { action: "dropdown#toggle" }, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -41,7 +38,6 @@
 <%= link_to admins_news_index_path, 
    class: link_class, 
    data: { action: "dropdown#toggle" }, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -55,7 +51,6 @@
 <%= link_to users_favorites_path, 
    class: link_class, 
    data: { action: "dropdown#toggle" }, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -68,7 +63,6 @@
 <%= link_to admins_categories_path, 
    class: link_class, 
    data: { action: "dropdown#toggle" }, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -80,7 +74,6 @@
 <%= link_to admins_districts_path, 
    class: link_class, 
    data: { action: "dropdown#toggle" }, 
-   role: "menubar",
    tabindex:"-1",
    id:"profilePageLink" do
 %>
@@ -93,7 +86,6 @@
 <%= link_to edit_admin_registration_path, 
   class: link_class, 
   data: { action: "dropdown#toggle" }, 
-  role: "menubar",
   tabindex:"-1",
   id:"password&SecurityLink" do 
 %>
@@ -105,8 +97,7 @@
 <!-- Sign Out -->
 <%= link_to destroy_admin_session_path, 
   class: link_class,
-  data: {action: "dropdown#toggle", turbo_method: :delete, turbo_confirm: t('global.are_you_sure')}, 
-  role: "menubar", 
+  data: {action: "dropdown#toggle", turbo_method: :delete, turbo_confirm: t('global.are_you_sure')},  
   tabindex:"-1", 
   id:"signOutLink" do 
 %>
