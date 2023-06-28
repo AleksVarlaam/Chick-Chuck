@@ -10,8 +10,10 @@ he:
         reviews:                     "תגובות"
         add:                         "להשאיר תגובה"
         edit:                        "שנה ביקורת"
+        total_ratings_count:         "דירוג כולל: %{count}"
         total_ratings_count_html:    "דירוג כולל: <span itemprop='ratingCount'>%{count}</span>"
-        out_of_html:                 "<span itemprop='ratingValue'>%{count}</span> מתוך <span itemprop='bestRating'>5</span>"
+        out_of:                      "מתוך 5 {count}"
+        out_of_html:                 "<span itemprop='bestRating'>5</span> מתוך <span itemprop='ratingValue'>%{count}</span>"
         no_feedback:                 "אין משוב"
         form:
             title:                  "דעתך חשובה מאוד"

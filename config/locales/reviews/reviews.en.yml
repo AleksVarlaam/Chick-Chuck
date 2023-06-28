@@ -10,7 +10,9 @@ en:
         reviews:                     "Reviews"
         add:                         "Leave feedback"
         edit:                        "Edit feedback"
+        total_ratings_count:         "Global ratings: %{count}"
         total_ratings_count_html:    "Global ratings: <span itemprop='ratingCount'>%{count}</span>"
+        out_of:                      "%{count} out of 5"
         out_of_html:                 "<span itemprop='ratingValue'>%{count}</span> out of <span itemprop='bestRating'>5</span>"
         no_feedback:                 "No feedback"
         form:

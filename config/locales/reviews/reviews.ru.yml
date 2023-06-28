@@ -10,7 +10,9 @@ ru:
         reviews:                     "Отзывы"
         add:                         "Оставить отзыв"
         edit:                        "Изменить отзыв"
+        total_ratings_count:         "Всего рейтингов: %{count}"
         total_ratings_count_html:    "Всего рейтингов: <span itemprop='ratingCount'>%{count}</span>"
+        out_of:                      "%{count} из 5"
         out_of_html:                 "<span itemprop='ratingValue'>%{count}</span> из <span itemprop='bestRating'>5</span>"
         no_feedback:                 "Нету отзывов"
         form:

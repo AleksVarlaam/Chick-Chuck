@@ -3,14 +3,14 @@
     <!-- Rating stars -->
     <div class="flex flex-col justify-center mb-3 space-y-4">
         <% if company.rating.positive? %>
-            <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating" class="space-y-2">
+            <div class="space-y-2">
                 <!-- Rating -->
                 <div class="flex items-center justify-center">
                     <% 1.upto(5) do |i| %>
                         <%= heroicon 'star', variant: 'solid',
                             class: "w-6 h-6 #{review_star_color(company.rating, i)}" %>
                     <% end %>
-                    <%= tag.p t('review.out_of_html', count: company.rating), class: "ml-2 text-lg font-medium text-gray-500" %>
+                    <%= tag.p t('review.out_of', count: company.rating), class: "ml-2 text-lg font-medium text-gray-500" %>
                 </div>
                 <!-- Price -->
                 <!-- <div class="flex items-center justify-center">
@@ -20,7 +20,7 @@
                     <% end %>
                     <%= tag.p t('review.out_of', count: company.price), class: "ml-2 text-lg font-medium text-gray-500" %>
                 </div> -->
-                <%= tag.p t('review.total_ratings_count_html', count: company.reviews.count), 
+                <%= tag.p t('review.total_ratings_count', count: company.reviews.count), 
                 class: "text-center text-base md:text-lg mt-3 font-medium text-gray-500 dark:text-gray-400" %>
             </div>
         <% else %>
