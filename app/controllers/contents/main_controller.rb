@@ -31,5 +31,6 @@ module Contents
     end
 
     def robots; end
+    
   end
 end

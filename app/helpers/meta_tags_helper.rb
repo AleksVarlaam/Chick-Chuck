@@ -13,19 +13,19 @@ module MetaTagsHelper
       manifest: '/manifest.webmanifest',
       icon: [
         {
-          href: image_url(asset_path('favicon.png')), rel: 'icon', 
+          href: image_url('/favicon.png'), rel: 'icon', 
           sizes: '120x120', type: 'image/png'
         },
         {
-          href: image_url(asset_path('favicon.ico')), rel: 'icon', 
+          href: image_url('/favicon.ico'), rel: 'icon', 
           sizes: 'any', type: 'image/x-icon'
         },
         {
-          href: image_url(asset_path('android-chrome-512x512.png')), rel: 'icon',
+          href: image_url('/android-chrome-512x512.png'), rel: 'icon',
           sizes: '512x512', type: 'image/png'
         },
         {
-          href: image_url(asset_path('apple-touch-icon.png')), rel: 'apple-touch-icon',
+          href: image_url('/apple-touch-icon.png'), rel: 'apple-touch-icon',
           sizes: '180x180', type: 'image/png'
         }
 
@@ -36,10 +36,7 @@ module MetaTagsHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        image: {
-          url: image_url(asset_path('icons/chick-chuck/og-chick-chuck.png')),
-          type: 'image/png'
-        }
+        image: image_url('icons/chick-chuck/og-chick-chuck.png')
       },
       fb: {
         app_id: '2318377664996656'
