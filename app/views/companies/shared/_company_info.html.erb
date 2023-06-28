@@ -1,6 +1,5 @@
 <!-- Information -->
-<%= turbo_frame_tag company,
-    class: "w-full flex flex-col max-w-xl justify-center dark:bg-gray-800 rounded-lg" do %>
+<%= tag.div class: "w-full flex flex-col max-w-xl justify-center dark:bg-gray-800 rounded-lg" do %>
     <div class="flex justify-center">
         <!-- Avatar -->
         <%= image_tag company.avatar_large,
@@ -69,10 +68,8 @@
             </div>
         </div>
         <!-- Description -->
-        <%= tag.div  do %>
-          <p class="my-content my-2 text-gray-700 dark:text-gray-400">
+        <%= tag.div class: "my-2 text-gray-700 dark:text-gray-400" do %>
             <%= company.description %>
-          </p>
         <% end if company.description.present? %>
     </div>
     <div class="py-4">
