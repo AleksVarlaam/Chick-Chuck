@@ -3,7 +3,7 @@
 <% provide :nav_title, @user.title %>
 
 <!-- Schema -->
-<%= render 'shared/schema/organization', user: @user%>
+<%= render 'shared/schema/organization_json', user: @user%>
 <%= turbo_stream_from @user%>
 
 <%= tag.section itemscope: '', itemtype: "http://schema.org/Organization",
