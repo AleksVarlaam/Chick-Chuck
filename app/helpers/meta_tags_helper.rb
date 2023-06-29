@@ -11,25 +11,6 @@ module MetaTagsHelper
       canonical: request.original_url,
       noindex: !Rails.env.production?,
       manifest: '/manifest.webmanifest',
-      icon: [
-        {
-          href: image_url('/favicon.png'), rel: 'icon', 
-          sizes: '120x120', type: 'image/png'
-        },
-        {
-          href: image_url('/favicon.ico'), rel: 'icon', 
-          sizes: 'any', type: 'image/x-icon'
-        },
-        {
-          href: image_url('/android-chrome-512x512.png'), rel: 'icon',
-          sizes: '512x512', type: 'image/png'
-        },
-        {
-          href: image_url('/apple-touch-icon.png'), rel: 'apple-touch-icon',
-          sizes: '180x180', type: 'image/png'
-        }
-
-      ],
       og: {
         title: :title,
         site_name: 'Chick-Chuck.com',
