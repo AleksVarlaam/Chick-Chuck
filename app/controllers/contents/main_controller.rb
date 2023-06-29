@@ -14,14 +14,6 @@ module Contents
       Statistic.first.update(main: Statistic.first.main + 1) unless user_signed_in?
     end
 
-    def moving_preparation
-      set_meta_tags(
-        title: t('meta.moving_preparation.title'),
-        description: t('meta.moving_preparation.desc')
-      )
-      Statistic.first.update(moving_preparation: Statistic.first.moving_preparation + 1) unless user_signed_in?
-    end
-
     def sitemap
       @locales   = I18n.available_locales
       @users     = Company.confirmed

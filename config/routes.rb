@@ -49,7 +49,7 @@ Rails.application.routes.draw do
       end
 
       # Moving preparation
-      get '/moving_preparation', to: 'contents/main#moving_preparation'
+      get '/moving_preparation', to: 'contents/moving_preparation#index', as: 'moving_preparation'
 
       # Comments
       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
