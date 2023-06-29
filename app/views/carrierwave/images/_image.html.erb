@@ -13,11 +13,20 @@
             <% end %>
         <% end %>
         
-        <%= link_to image_path(index, object), data: {turbo_frame: 'modal'} do %>
-            <%= image_tag(action_name != 'index' ? image.large.url : image.medium.url, 
-                class: "rounded-t-lg h-full w-full object-cover absolute block ", 
-                alt: "#{object.title}")
-            %>
+        <% if action_name == 'show' %>
+            <%= link_to image_path(index, object), data: {turbo_frame: 'modal'} do %>
+                <%= image_tag(action_name != 'index' ? image.large.url : image.medium.url, 
+                    class: "rounded-t-lg h-full w-full object-cover absolute block ", 
+                    alt: "#{object.title}")
+                %>
+            <% end %>
+        <% else %>
+            <%= link_to object, data: {turbo_frame: '_top'} do %>
+                <%= image_tag(action_name != 'index' ? image.large.url : image.medium.url, 
+                    class: "rounded-t-lg h-full w-full object-cover absolute block ", 
+                    alt: "#{object.title}")
+                %>
+            <% end %>
         <% end %>
     </div>
 <% end %>
