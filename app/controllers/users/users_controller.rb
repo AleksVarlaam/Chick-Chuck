@@ -5,10 +5,17 @@ module Users
     include Feedbacks::ReviewsHelper
     include PricesHelper
     before_action :set_user, only: %i[show modal contacts]
-    before_action :set_index_title, only: :index
     after_action  :update_views, only: :show
 
     def index
+      set_meta_tags(
+        title: t('meta.carriers.title'),
+        description: t('meta.carriers.desc'),
+        keywords: Service.all.decorate.map(&:title).join(', ').sub(/(, )+$/, ''),
+        canonical: users_url,
+        noindex: request.original_url.include?('?') ? true : false
+      )
+      
       Statistic.first.update(companies: Statistic.first.companies + 1) unless user_signed_in?
       companies = Company.confirmed.user_filter(filter_params)
       @best_companies = companies.take(3)
@@ -52,19 +59,6 @@ module Users
     end
 
     private
-    
-    def set_index_title
-      @title_h1  = title_meta = t('meta.carriers.title')
-      keywords   = Service.all.decorate.map(&:title).join(', ').sub(/(, )+$/, '')
-
-      set_meta_tags(
-        title: title_meta,
-        description: t('meta.carriers.desc'),
-        keywords: keywords,
-        canonical: users_url,
-        noindex: request.original_url.include?('?') ? true : false
-      )
-    end
 
     def filter_params
       params.permit(:district_id, :language_id, { service_ids: [] })

@@ -7,11 +7,10 @@ module Contents
     before_action :params_for_select, only: %i[index user_products]
 
     def index
-      keywords   = Category.all.decorate.map(&:title).join(', ').sub(/(, )+$/, '')
       set_meta_tags(
         title: t('meta.market.title'),
         description: t('meta.market.desc'),
-        keywords: keywords,
+        keywords: Category.all.decorate.map(&:title).join(', ').sub(/(, )+$/, ''),
         canonical: products_url,
         noindex: request.original_url.include?('?') ? true : false
       )
@@ -50,12 +49,11 @@ module Contents
     def set_show
       @product = Product.find_by_id(params[:id]).decorate
       @user = User.find(@product.user_id)
-      keywords = @product.category.decorate.title + ', ' + @product.thing.decorate.title
 
       set_meta_tags(
         title: [t('pages.market'), @product.title],
         description: @product.description.to_s || "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}",
-        keywords: keywords
+        keywords: @product.category.decorate.title + ', ' + @product.thing.decorate.title
       )
 
       return if @user == current_user
