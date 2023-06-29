@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     # Sitemap
     get 'sitemap.xml', to: 'contents/main#sitemap', format: 'xml', as: :sitemap
     # Robots
-    get 'robots.txt',  to: 'contents/main#robots', format: 'txt', as: :robots
+    get 'robots.txt',  to: 'contents/main#robots',  format: 'txt', as: :robots
+    # Favicon
+    get 'favicon.png', to: 'contents/main#favicon', format: 'png', as: :favicon
     # Root path
     root to: 'contents/main#index'
 

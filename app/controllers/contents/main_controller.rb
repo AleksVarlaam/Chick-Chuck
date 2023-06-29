@@ -33,5 +33,11 @@ module Contents
 
     def robots; end
     
+    def favicon 
+      respond_to do |format|
+        format.png {  send_file 'app/assets/images/favicon.png', type: "image/png", disposition: 'inline', sizes: '120x120' }
+      end
+    end
+    
   end
 end
