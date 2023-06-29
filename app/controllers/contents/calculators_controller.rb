@@ -7,7 +7,9 @@ module Contents
     def show
       set_meta_tags(
         title: t('meta.calculator.title'),
-        description: t('meta.calculator.desc')
+        description: t('meta.calculator.desc'),
+        canonical: calculator_url,
+        noindex: request.original_url.include?('?') ? true : false
       )
 
       Statistic.first.update(calculator: Statistic.first.calculator + 1) unless user_signed_in?
@@ -21,7 +23,9 @@ module Contents
 
       set_meta_tags(
         title: [t('calculator.title'), @company.title],
-        description: t('home_page.main_features.calculator_desc')
+        description: t('home_page.main_features.calculator_desc'),
+        canonical: company_calculator_url(@company),
+        noindex: request.original_url.include?('?') ? true : false
       )
     end
   end

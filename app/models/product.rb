@@ -13,14 +13,14 @@ class Product < ApplicationRecord
   belongs_to :city
 
   scope :published,             -> { where published: true }
-  scope :filter_by_category_id, ->(category_id) { where category_id:, published: true }
-  scope :filter_by_thing_id,    ->(thing_id)    { where thing_id:, published: true }
-  scope :filter_by_district_id, ->(district_id) { where district_id:, published: true }
-  scope :filter_by_city_id,     ->(city_id)     { where city_id:, published: true }
-  scope :filter_by_condition,   ->(condition)   { where condition:, published: true }
-  scope :filter_by_delivery,    ->(delivery)    { where delivery:, published: true }
-  scope :filter_by_price_min,   ->(price_min)   { where 'price >= ?', price_min, published: true }
-  scope :filter_by_price_max,   ->(price_max)   { where 'price <= ?', price_max, published: true }
+  scope :filter_by_category_id, ->(category_id) { where category_id: }
+  scope :filter_by_thing_id,    ->(thing_id)    { where thing_id: }
+  scope :filter_by_district_id, ->(district_id) { where district_id: }
+  scope :filter_by_city_id,     ->(city_id)     { where city_id: }
+  scope :filter_by_condition,   ->(condition)   { where condition: }
+  scope :filter_by_delivery,    ->(delivery)    { where delivery: }
+  scope :filter_by_price_min,   ->(price_min)   { where 'price >= ?', price_min }
+  scope :filter_by_price_max,   ->(price_max)   { where 'price <= ?', price_max }
 
   after_destroy :clear_favorites
 

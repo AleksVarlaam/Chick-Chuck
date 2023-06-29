@@ -7,43 +7,16 @@
         <!-- Root with locale -->
         <%= render 'sitemap_url', url: root_url(locale: locale), date: nil, priority: 1.0 %>
         <!-- Users -->
-            <!-- Client sign in & sign up -->
-            <%= render 'sitemap_url', url: client_registration_url(locale: locale), date: nil, priority: 0.5 %>
-            <%= render 'sitemap_url', url: client_session_url(locale: locale), date: nil, priority: 0.5 %>
-            <!-- Company sign in & sign up -->
-            <%= render 'sitemap_url', url: company_registration_url(locale: locale), date: nil, priority: 0.5 %>
-            <%= render 'sitemap_url', url: company_session_url(locale: locale), date: nil, priority: 0.5 %>
             <!-- Index -->
             <%= render 'sitemap_url', url: users_url(locale: locale), date: nil, priority: 1.0 %>
-            <!-- Index Districts params -->
-            <% @districts.each do |id| %>
-                <%= render 'sitemap_url', url: users_url(district_id: id, locale: locale), date: nil, priority: 0.9 %>
-            <% end %>
-            <!-- Index Services params -->
-            <% @services.each do |id| %>
-                <%= render 'sitemap_url', url: users_url(service_ids: ['', id], locale: locale), date: nil, priority: 0.9 %>
-            <% end %>
-            <!-- Index Languages params -->
-            <% @languages.each do |id| %>
-                <%= render 'sitemap_url', url: users_url(language_id: id, locale: locale), date: nil, priority: 0.6 %>
-            <% end %>
             <!-- List -->
             <% @users.each do |user| %>
                 <!-- Show -->
                 <%= render 'sitemap_url', url: user_url(user, locale: locale), 
-                    date: user.updated_at, priority: 0.8 %>
+                    date: user.created_at, priority: 0.8 %>
                 <!-- Contacts -->
                 <%= render 'sitemap_url', url: user_contacts_url(user, locale: locale), 
-                    date: user.updated_at, priority: 0.6 %>
-                <!-- Modal -->
-                <%= render 'sitemap_url', url: user_modal_url(user, locale: locale), 
-                    date: user.updated_at, priority: 0.2 %>
-                <!-- User Products -->
-                <%= render 'sitemap_url', url: user_products_url(user, locale: locale), 
-                    date: user.updated_at, priority: 0.4 %>
-                <!-- User calculator -->
-                <%= render 'sitemap_url', url: company_calculator_url(user, locale: locale), 
-                    date: user.updated_at, priority: 0.2 %>
+                    date: user.created_at, priority: 0.6 %>
             <% end %>
         <!--  -->
         <!-- Products -->
@@ -51,7 +24,7 @@
             <%= render 'sitemap_url', url: products_url(locale: locale), date: nil, priority: 1.0 %>
             <!-- Show -->
             <% @products.each do |product| %>
-                <%= render 'sitemap_url', url: product_url(product, locale: locale), date: product.updated_at, priority: 0.8 %>
+                <%= render 'sitemap_url', url: product_url(product, locale: locale), date: product.created_at, priority: 0.8 %>
             <% end %>
         <!-- -->
         <!-- Calculator -->

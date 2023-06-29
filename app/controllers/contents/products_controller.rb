@@ -7,9 +7,13 @@ module Contents
     before_action :params_for_select, only: %i[index user_products]
 
     def index
+      keywords   = Category.all.decorate.map(&:title).join(', ').sub(/(, )+$/, '')
       set_meta_tags(
         title: t('meta.market.title'),
-        description: t('meta.market.desc')
+        description: t('meta.market.desc'),
+        keywords: keywords,
+        canonical: products_url,
+        noindex: request.original_url.include?('?') ? true : false
       )
 
       Statistic.first.update(market: Statistic.first.market + 1) unless user_signed_in?
@@ -31,7 +35,9 @@ module Contents
 
       set_meta_tags(
         title: [t('pages.market'), @user.user_name],
-        description: "#{t('about.market.title')}. #{t('home_page.main_features.market_desc')}"
+        description: "#{t('about.market.title')}. #{t('home_page.main_features.market_desc')}",
+        canonical: user_products_url(@user),
+        noindex: request.original_url.include?('?') ? true : false
       )
     end
 
@@ -44,10 +50,12 @@ module Contents
     def set_show
       @product = Product.find_by_id(params[:id]).decorate
       @user = User.find(@product.user_id)
+      keywords = @product.category.decorate.title + ', ' + @product.thing.decorate.title
 
       set_meta_tags(
         title: [t('pages.market'), @product.title],
-        description: @product.description.to_s || "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}"
+        description: @product.description.to_s || "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}",
+        keywords: keywords
       )
 
       return if @user == current_user

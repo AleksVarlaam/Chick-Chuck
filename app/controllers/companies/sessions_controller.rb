@@ -6,7 +6,10 @@ module Companies
 
     # GET /resource/sign_in
     def new
-      set_meta_tags title: t('sign_in.title')
+      set_meta_tags(
+        title: t('sign_in.title'),
+        noindex: true
+      )
       super
     end
 

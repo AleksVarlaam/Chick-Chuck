@@ -10,7 +10,8 @@ module Companies
     def new
       set_meta_tags(
         title: t('meta.company.sign_up.title'),
-        description: t('meta.company.sign_up.desc')
+        description: t('meta.company.sign_up.desc'),
+        noindex: true
       )
       super
       # build_resource({})
