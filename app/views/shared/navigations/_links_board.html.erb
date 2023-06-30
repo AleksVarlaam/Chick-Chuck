@@ -1,23 +1,26 @@
 <!-- Trucks filter -->
 <%= form_with url: path, method: :get, data: {turbo_frame: frame, controller: 'checkbox-select-all'} do |f| %>
-    <% tag.div class: "w-full fixed bottom-0 inline-flex items-center z-10 grid grid-cols-1 sm:grid-cols-4 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto" do %>
+    <% tag.div class: "w-full absolute bottom-0 inline-flex items-center z-10 grid grid-cols-1 sm:grid-cols-4 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl sm:mx-auto", data: { controller: "reveal" } do %>
         <!-- District -->
-        <div class="w-full h-14 items-center flex  bg-opacity-90 font-medium 
-             rtl:pr-3 ltr:pl-3 rounded-tl-3xl rtl:sm:rounded-none ">
+        <div class="w-full h-14 items-center flex bg-opacity-90 font-medium rtl:pr-3 ltr:pl-3 rounded-tl-3xl rtl:sm:rounded-none hidden sm:flex"
+             data-reveal-target="item"
+        >
             <%= heroicon 'map', class: 'w-6 h-6 mr-1 text-gray-400' %>
             <%= f.collection_select(:district_id, District.all.decorate, :id, :title, 
             { include_blank: District.model_name.human, selected: params[:district_id]}, 
             {class: "h-full text-base md:rounded-l-xl block w-full p-2.5 placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rounded-tl-3xl rtl:bg-left rtl:ml-3 sm:ml-0 bg-opacity-90 #{controller_name == 'main' ? 'bg-gray-700/0' : 'bg-gray-600'}"})%>
         </div>
         <!-- Language -->
-        <div class="w-full h-14 items-center flex  relative bg-opacity-90 font-medium
-            rtl:pr-3 rtl:rounded-tl-3xl ltr:pl-3 ">
+        <div class="w-full h-14 items-center flex relative bg-opacity-90 font-medium rtl:pr-3 rtl:rounded-tl-3xl ltr:pl-3 hidden sm:flex"
+            data-reveal-target="item"
+        >
             <%= heroicon 'language', class: 'w-6 h-6 mr-1 text-gray-400' %>
             <%= f.collection_select(:language_id, Language.all, :id, :title, {include_blank: Language.model_name.human, selected: params[:language_id]}, {class: "h-full text-base block w-full p-2.5  placeholder-gray-400 text-gray-300 hover:text-gray-100 focus:ring-0 focus:border-gray-100 focus:text-gray-100 border-0 rtl:rounded-tl-3xl rtl:bg-left rtl:ml-3 bg-opacity-90 #{controller_name == 'main' ? 'bg-gray-700/0' : 'bg-gray-600'}"})%>
         </div>
         <!-- Services -->
-        <div class="w-full h-14 items-center flex justify-center border-0  relative bg-opacity-90
-             ">
+        <div class="w-full h-14 items-center flex justify-center border-0  relative bg-opacity-90 hidden sm:flex"
+            data-reveal-target="item"
+        >
             <!-- Button -->
             <button id="dropdownServicesButton" data-dropdown-toggle="dropdownServices" class="inline-flex items-center w-full text-base font-medium text-center text-gray-300 hover:text-gray-100" type="button">
                 <%= heroicon 'list-bullet', class: 'w-6 h-6 mx-3 text-gray-400' %>
@@ -46,7 +49,11 @@
             </div>
         </div>
         <!-- Search button -->
-        <div class=" w-full h-auto p-3 ">
+        <div class=" w-full h-auto p-3 flex justify-center items-center space-x-2 rtl:space-x-reverse">
+            <button data-action="click->reveal#toggle" type="button" class="btn sm:hidden">
+                <%= heroicon 'adjustments-horizontal', class: 'w-7 h-7 text-gray-300'%>
+            </button>
+            
             <%= button_tag t('company.find_carrier'), class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-500 border-blue-500 hover:bg-blue-600 text-gray-200'}", name: "find carrier" %>
         </div>
         

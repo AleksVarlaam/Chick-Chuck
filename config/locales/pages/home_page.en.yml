@@ -2,7 +2,7 @@
 en:
     home_page: 
         h1:           'Easy way to find the right carrier'
-        h2:           'Service that helps customer and carrier find each other.'
+        h2_html:      "Welcome to our carrier search site! <br> Our site provides you with a wide range of carriers throughout Israel. You can easily find someone who meets your requirements and provides services in the desired direction. Do not waste time searching for carriers yourself. Use our site and find a reliable partner for your transportation today!"
         calculate:    'Calculate the cost of moving'
         top_features:
             title:        'What do we offer?'

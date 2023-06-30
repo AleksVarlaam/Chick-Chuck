@@ -25,3 +25,6 @@ application.register('dropdown', Dropdown)
 // Scroll to
 import ScrollTo from 'stimulus-scroll-to'
 application.register('scroll-to', ScrollTo)
+// Reveal controller
+import Reveal from 'stimulus-reveal-controller'
+application.register('reveal', Reveal)
