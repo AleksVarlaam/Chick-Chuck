@@ -1,14 +1,77 @@
 <div 
-    class="relative min-h-screen w-full bg-cover -mt-20 bg-center bg-cover" 
-    style="background-image: url(<%= asset_path('bg/main_header_bg.webp')%>)"
+    class="relative h-full min-h-screen w-full bg-cover -mt-20 bg-center bg-cover bg-gray-800 bg-scroll	" 
+    style="background-image: url(<%= asset_path('bg/hero-bg.png')%>)"
 >
-    <!-- Photo by -->
-    <span class="sr-only"> Photo by Steve Johnson on Unsplash - https://unsplash.com/photos/gBv0ikRUuLI</span>
-    <!-- Content -->
-    <div class="text-center pt-24 sm:pt-48">
-        <%= tag.h1 t('home_page.h1'), class: "mb-4 px-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl "%>
-        <%= tag.p t('home_page.h2'), class: "mb-6 px-2 text-lg font-normal text-gray-400 lg:text-xl sm:px-16 xl:px-48"%>
-        <!-- Filter -->
-        <%= render 'shared/navigations/links_board', path: users_path, frame: '_top', company: nil%>
+    <div class="h-full lg:flex items-center lg:px-6">
+        <div class="lg:w-2/3 pt-24 lg:pt-0">
+            <!-- Content -->
+            <div class="text-center lg:-mt-20">
+                <%= tag.h1 t('home_page.h1'), class: "mb-4 px-2 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl"%>
+                <!-- Mobile version description -->
+                <%= tag.div class: "flex justify-center w-full flex-col sm:hidden", 
+                    data: { controller: "read-more", 'read-more-more-text-value' => t('global.read_more'), 'read-more-less-text-value' => t('global.read_less')} do %>
+                    <p class="my-content px-2 text-md font-normal text-gray-300 rounded-lg" 
+                        data-read-more-target="content"
+                    >
+                        Добро пожаловать на наш сайт по поиску перевозчиков!<br>
+                        Наш сайт предоставляет вам широкий выбор перевозчиков по всему Израилю. Вы можете легко найти того, кто соответствует вашим требованиям и предоставляет услуги в нужном вам направлении.
+
+                        Не теряйте время на поиск перевозчиков самостоятельно. Воспользуйтесь нашим сайтом и найдите надежного партнера для вашей перевозки уже сегодня!
+                    </p>
+                    <button data-action="read-more#toggle" class="text-blue-700"><%= t('global.read_more')%></button>
+                <% end %>
+                <!-- Desctop version description -->
+                <div class="flex justify-center w-full sm:px-6 hidden sm:block">
+                    <p class="px-2 text-md font-normal text-gray-300 lg:text-lg rounded-lg" >
+                        Добро пожаловать на наш сайт по поиску перевозчиков!<br>
+                        Наш сайт предоставляет вам широкий выбор перевозчиков по всему Израилю. Вы можете легко найти того, кто соответствует вашим требованиям и предоставляет услуги в нужном вам направлении.
+
+                        Не теряйте время на поиск перевозчиков самостоятельно. Воспользуйтесь нашим сайтом и найдите надежного партнера для вашей перевозки уже сегодня!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+            <%= image_tag "https://pics.clipartpng.com/midle/Red_Truck_PNG_Clip_Art-2693.png", alt: 'bg-truck-image',
+                class: "w-auto h-72 sm:h-[22rem] lg:w-full lg:h-full max-w-lg"%>
+        </div>
     </div>
+    <!-- Filter -->
+    <%= render 'shared/navigations/links_board', path: users_path, frame: '_top', company: nil%>
 </div>
+
+
+
+
+
+
+
+
+
+
+<% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto" do %>
+    <!-- Calculator link -->
+    <div class=" w-full h-auto pb-3 px-3 col-span-full">
+        <%= link_to calculator_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-900 rounded-lg border border-gray-800 hover:bg-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+            <%= t('home_page.calculate')%>
+            <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
+                class: "mx-1.5 w-5 h-5" %>
+        <% end %>
+    </div>
+    <!-- Preparation link -->
+    <div class=" w-full h-auto pb-3 px-3 col-span-full">
+        <%= link_to moving_preparation_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-900 rounded-lg border border-gray-800 hover:bg-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+            <%= t('moving_preparation.title')%>
+            <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
+                class: "mx-1.5 w-5 h-5" %>
+        <% end %>
+    </div>
+    <!-- Market link -->
+    <div class=" w-full h-auto pb-3 px-3 col-span-full">
+        <%= link_to products_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-900 rounded-lg border border-gray-800 hover:bg-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
+            <%= t('pages.market')%>
+            <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
+                class: "mx-1.5 w-5 h-5" %>
+        <% end %>
+    </div>
+<% end if true%>
