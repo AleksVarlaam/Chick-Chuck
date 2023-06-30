@@ -7,18 +7,19 @@
               <div class="flex justify-start w-auto flex-auto">
                   <%= link_to root_path, class: 'flex items-center', data: {turbo_frame: '_top'} do %>
                       <!-- Chick-Chuck logotype mobile -->
-                      <%= image_tag('icons/chick-chuck/chick-chuck-mobile-logo.png', 
+                      <%= image_tag('icons/chick-chuck/chick-chuck-mobile-logo.webp', 
                         class: "h-10 w-10 object-cover object-center sm:hidden", alt: 'chick-chuck-logotype') %>
                       <!-- Chick-Chuck logotype -->
                       <%= image_tag('icons/chick-chuck/chick-chuck-logo.png', 
-                        class: "h-10 w-auto object-cover hidden sm:block", alt: 'chick-chuck-logotype')%>
+                        class: "h-10 w-56 object-cover hidden sm:block", alt: 'chick-chuck-logotype')%>
                   <% end %>
               </div>
               <!-- Mobile menu button -->
               <div class="flex justify-center flex-none lg:hidden w-auto">
                 <button 
                     data-action="dropdown#toggle click@window->dropdown#hide" 
-                    type="button" class="rounded-lg p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
+                    type="button" 
+                    class="rounded-lg p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
                     aria-expanded="false"
                     aria-labelledby="mobile-menu-button" 
                 >
