@@ -33,36 +33,5 @@
         </div>
     </div>
     <!-- Filter -->
-    <%= render 'shared/navigations/links_board', path: users_path, frame: '_top', company: nil%>
+    <%= render 'shared/navigations/companies_filter', path: users_path, frame: '_top', company: nil%>
 </div>
-
-
-
-
-
-<% tag.div class: "max-w-2xl inline-flex items-center z-10 grid grid-cols-1 bg-opacity-90 rounded-tl-3xl rounded-br-3xl mx-2 sm:mx-auto" do %>
-    <!-- Calculator link -->
-    <div class=" w-full h-auto pb-3 px-3 col-span-full">
-        <%= link_to calculator_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-900 rounded-lg border border-gray-800 hover:bg-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
-            <%= t('home_page.calculate')%>
-            <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-                class: "mx-1.5 w-5 h-5" %>
-        <% end %>
-    </div>
-    <!-- Preparation link -->
-    <div class=" w-full h-auto pb-3 px-3 col-span-full">
-        <%= link_to moving_preparation_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-900 rounded-lg border border-gray-800 hover:bg-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
-            <%= t('moving_preparation.title')%>
-            <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-                class: "mx-1.5 w-5 h-5" %>
-        <% end %>
-    </div>
-    <!-- Market link -->
-    <div class=" w-full h-auto pb-3 px-3 col-span-full">
-        <%= link_to products_path, class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium text-gray-300 bg-gray-900 rounded-lg border border-gray-800 hover:bg-gray-700 focus:ring-1 focus:outline-none focus:ring-gray-300" do %>
-            <%= t('pages.market')%>
-            <%= heroicon I18n.locale == :he ? 'arrow-small-left' : 'arrow-small-right', 
-                class: "mx-1.5 w-5 h-5" %>
-        <% end %>
-    </div>
-<% end if true%>

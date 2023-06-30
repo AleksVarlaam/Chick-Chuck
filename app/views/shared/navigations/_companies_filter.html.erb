@@ -1,6 +1,6 @@
 <!-- Trucks filter -->
 <%= form_with url: path, method: :get, data: {turbo_frame: frame, controller: 'checkbox-select-all'} do |f| %>
-    <% tag.div class: "w-full absolute bottom-0 inline-flex items-center z-10 grid grid-cols-1 sm:grid-cols-4 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl sm:mx-auto", data: { controller: "reveal" } do %>
+    <% tag.div class: "w-full absolute #{current_page?(root_path) ? 'bottom-0' : 'top-0'} inline-flex items-center z-10 grid grid-cols-1 sm:grid-cols-4 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl sm:mx-auto", data: { controller: "reveal" } do %>
         <!-- District -->
         <div class="w-full h-14 items-center flex bg-opacity-90 font-medium rtl:pr-3 ltr:pl-3 rounded-tl-3xl rtl:sm:rounded-none hidden sm:flex"
              data-reveal-target="item"
@@ -54,8 +54,7 @@
                 <%= heroicon 'adjustments-horizontal', class: 'w-7 h-7 text-gray-300'%>
             </button>
             
-            <%= button_tag t('company.find_carrier'), class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-500 border-blue-500 hover:bg-blue-600 text-gray-200'}", name: "find carrier" %>
+            <%= button_tag t('company.find_carrier'), class: "flex items-center justify-center w-full px-2 py-2 h-full text-base font-medium rounded-lg border bg-opacity-90 focus:ring-1 focus:outline-none focus:ring-gray-300 #{controller_name == 'main' ? 'bg-orange-700 border-orange-700 hover:bg-orange-800 text-gray-300' : 'bg-blue-600 border-blue-600 hover:bg-blue-700 text-gray-100'}", name: "find carrier" %>
         </div>
-        
     <% end %>
 <% end %>
