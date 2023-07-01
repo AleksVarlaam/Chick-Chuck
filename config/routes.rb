@@ -67,7 +67,10 @@ Rails.application.routes.draw do
       get 'admins/edit',  to: 'admins/registrations#edit',    as: 'edit_admin_registration'
       put 'admins',       to: 'admins/registrations#update',  as: 'admin_registration'
       namespace :admins, constraints: AdminConstraint.new do
-        mount Sidekiq::Web => '/sidekiq' # Sidekiq
+        # Analytics
+        mount ActiveAnalytics::Engine => "/analytics"
+        # Sidekiq
+        mount Sidekiq::Web => '/sidekiq' 
         resources :categories, except: %i[show], controller: 'catalog/categories' do
           resources :things, except: %i[show], controller: 'catalog/things'
         end
