@@ -6,10 +6,7 @@ module Admins
     before_action :authenticate_admin!
     before_action :set_models
 
-    def show
-      @statistic = Statistic.first
-      @companies_count = Company.confirmed.count
-    end
+    def show; end
 
     def users
       @users_count = @users.count

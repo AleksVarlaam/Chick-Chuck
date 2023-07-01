@@ -8,7 +8,7 @@ module Analytics
 
     def record_page_view
       # This condition should skip bots.
-      unless request.is_crawler?
+      unless request.is_crawler? || admin_signed_in?
         ActiveAnalytics.record_request(request)
       end
     end
