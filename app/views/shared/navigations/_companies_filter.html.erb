@@ -1,6 +1,6 @@
 <!-- Trucks filter -->
 <%= form_with url: path, method: :get, data: {turbo_frame: frame, controller: 'checkbox-select-all'} do |f| %>
-    <% tag.div class: "w-full absolute #{current_page?(root_path) ? 'bottom-0' : 'top-0'} inline-flex items-center z-10 grid grid-cols-1 sm:grid-cols-4 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl sm:mx-auto", data: { controller: "reveal" } do %>
+    <% tag.div class: "w-full absolute #{[action_name, controller_name].eql?(['index', 'main']) ? 'bottom-0' : 'top-0'} inline-flex items-center z-10 grid grid-cols-1 sm:grid-cols-4 border-gray-700 bg-gray-700 border bg-opacity-90 rounded-tl-3xl rounded-br-3xl sm:mx-auto", data: { controller: "reveal" } do %>
         <!-- District -->
         <div class="w-full h-14 items-center flex bg-opacity-90 font-medium rtl:pr-3 ltr:pl-3 rounded-tl-3xl rtl:sm:rounded-none hidden sm:flex"
              data-reveal-target="item"
