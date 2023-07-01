@@ -6,7 +6,7 @@ module Contents
       set_meta_tags(
         title: [params[:locale]&.capitalize, t('meta.home_page.title')],
         description: t('meta.home_page.desc'),
-        canonical: I18n.locale.to_s == params[:locale].to_s || I18n.default_locale.to_s ? root_url(locale: I18n.locale) : request.original_url,
+        canonical: I18n.locale.to_s == params[:locale].to_s || I18n.default_locale.to_s ? root_url(locale: I18n.locale) : request.original_url
       )
       @companies = Company.confirmed.take(3)
       @products = Product.where(published: true).decorate.take(6)
@@ -24,12 +24,13 @@ module Contents
     end
 
     def robots; end
-    
-    def favicon 
+
+    def favicon
       respond_to do |format|
-        format.png {  send_file 'app/assets/images/favicon.png', type: "image/png", disposition: 'inline', sizes: '120x120' }
+        format.png do
+          send_file 'app/assets/images/favicon.png', type: 'image/png', disposition: 'inline', sizes: '120x120'
+        end
       end
     end
-    
   end
 end

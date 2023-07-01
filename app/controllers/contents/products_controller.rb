@@ -53,7 +53,7 @@ module Contents
       set_meta_tags(
         title: [t('pages.market'), @product.title],
         description: @product.description.to_s || "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}",
-        keywords: @product.category.decorate.title + ', ' + @product.thing.decorate.title
+        keywords: "#{@product.category.decorate.title}, #{@product.thing.decorate.title}"
       )
 
       return if @user == current_user

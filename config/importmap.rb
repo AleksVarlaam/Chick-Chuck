@@ -18,4 +18,4 @@ pin '@rails/actiontext', to: 'https://ga.jspm.io/npm:@rails/actiontext@7.0.4-2/a
 pin 'flowbite', to: 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.turbo.min.js'
 pin 'stimulus-checkbox-select-all', to: 'https://ga.jspm.io/npm:stimulus-checkbox-select-all@5.2.0/dist/stimulus-checkbox-select-all.mjs'
 pin 'stimulus-read-more', to: 'https://ga.jspm.io/npm:stimulus-read-more@4.1.0/dist/stimulus-read-more.mjs'
-pin "stimulus-reveal-controller", to: "https://ga.jspm.io/npm:stimulus-reveal-controller@4.1.0/dist/stimulus-reveal-controller.mjs"
+pin 'stimulus-reveal-controller', to: 'https://ga.jspm.io/npm:stimulus-reveal-controller@4.1.0/dist/stimulus-reveal-controller.mjs'

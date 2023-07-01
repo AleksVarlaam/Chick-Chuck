@@ -15,7 +15,7 @@ module Users
         canonical: users_url,
         noindex: request.original_url.include?('?') ? true : false
       )
-      
+
       Statistic.first.update(companies: Statistic.first.companies + 1) unless user_signed_in?
       companies = Company.confirmed.user_filter(filter_params)
       @best_companies = companies.take(3)
