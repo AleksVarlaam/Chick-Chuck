@@ -1,0 +1,127 @@
+<!-- Feedback form -->
+<%= turbo_frame_tag @feedback do %>
+    <%= form_with model: @review,
+        class: "flex justify-center" do |f| 
+    %>
+      <!-- Errors -->
+      <% if @feedback.errors.any? %>
+        <% @feedback.errors.each do |error| %>
+          <%= error.full_message %>
+        <% end %>
+      <% end %>
+      <div class="flex flex-col w-full h-full dark:bg-gray-900 dark:text-gray-100">
+      	<div class="flex flex-col items-center w-full">
+            <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
+                <!-- Ratings -->
+          		<div class="flex flex-col items-center space-y-2">
+                    <!-- Rating -->
+          			<%= tag.span '1. На сколько удобно и просто вам было пользоваться сайтом?', 
+                        class: "text-center text-gray-500" %>
+                    <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
+                        <% 0.upto(5) do |i| %>
+                            <%= button_to new_review_path, 
+                                method: :get, 
+                                class: "#{'hidden' if i == 0}",
+                                data: {turbo_frame: 'modal'} do %>
+                                <%= heroicon 'star', variant: 'solid',
+                                    class: "w-8 h-8 hover:text-yellow-400 #{@feedback.decorate.star_color(params, i)}" %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+          		</div>
+          		<div class="flex flex-col items-center space-y-2">
+                    <!-- Rating -->
+          			<%= tag.span '2. Как вы оцениваете скорость работы сайта?', 
+                        class: "text-center text-gray-500" %>
+                    <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
+                        <% 0.upto(5) do |i| %>
+                            <%= button_to new_review_path, 
+                                method: :get, 
+                                class: "#{'hidden' if i == 0}",
+                                data: {turbo_frame: 'modal'} do %>
+                                <%= heroicon 'star', variant: 'solid',
+                                    class: "w-8 h-8 hover:text-yellow-400 #{@feedback.decorate.star_color(params, i)}" %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+          		</div>
+          		<div class="flex flex-col items-center space-y-2">
+                    <!-- Rating -->
+          			<%= tag.span '3. Как вы оцениваете дизайн и визуальное оформление сайта?', 
+                        class: "text-center text-gray-500" %>
+                    <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
+                        <% 0.upto(5) do |i| %>
+                            <%= button_to new_review_path, 
+                                method: :get, 
+                                class: "#{'hidden' if i == 0}",
+                                data: {turbo_frame: 'modal'} do %>
+                                <%= heroicon 'star', variant: 'solid',
+                                    class: "w-8 h-8 hover:text-yellow-400 #{@feedback.decorate.star_color(params, i)}" %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+          		</div>
+          		<div class="flex flex-col items-center space-y-2">
+                    <!-- Rating -->
+          			<%= tag.span '4. Какова ваша общая оценка качества предоставляемых на сайте услуг?', 
+                        class: "text-center text-gray-500" %>
+                    <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
+                        <% 0.upto(5) do |i| %>
+                            <%= button_to new_review_path, 
+                                method: :get, 
+                                class: "#{'hidden' if i == 0}",
+                                data: {turbo_frame: 'modal'} do %>
+                                <%= heroicon 'star', variant: 'solid',
+                                    class: "w-8 h-8 hover:text-yellow-400 #{@feedback.decorate.star_color(params, i)}" %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+          		</div>
+          		<div class="flex flex-col items-center space-y-2">
+                    <!-- Rating -->
+          			<%= tag.span '5. Есть ли на сайте достаточно информации о перевозчиках, чтобы сделать информированный выбор?', 
+                        class: "text-center text-gray-500" %>
+
+                    <div class="flex items-center w-44 text-sm font-medium rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        <div class="flex items-center px-4 w-full ltr:rounded-l-lg rtl:rounded-r-lg dark:border-gray-700">
+                            <input id="question-5-check-yes" type="radio" value="" name="question-5-check-yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="question-5-check-yes" class="w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300">Да</label>
+                        </div>
+                        <div class="flex items-center px-4 w-full ltr:rounded-r-lg rtl:rounded-l-lg dark:border-gray-700">
+                            <input id="question-5-check-no" type="radio" value="" name="question-5-check-yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="question-5-check-no" class="w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300">Нет</label>
+                        </div>
+                    </div> 
+          		</div>
+          		<div class="flex flex-col items-center space-y-2">
+                    <!-- Rating -->
+          			<%= tag.span '6. Были ли у вас проблемы или трудности при использовании сайта? Если да, то какие? Опишите в комментарие.', 
+                        class: "text-center text-gray-500" %>
+                    <div class="flex items-center w-44 text-sm font-medium dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        <div class="flex items-center px-4 w-full ltr:rounded-l-lg rtl:rounded-r-lg dark:border-gray-700">
+                            <input id="question-6-check-yes" type="radio" value="" name="question-6-check-yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="question-6-check-yes" class="w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300">Да</label>
+                        </div>
+                        <div class="flex items-center px-4 w-full ltr:rounded-r-lg rtl:rounded-l-lg dark:border-gray-700">
+                            <input id="question-6-check-no" type="radio" value="" name="question-6-check-yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="question-6-check-no" class="w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300">Нет</label>
+                        </div>
+                    </div>
+          		</div>
+            </div>
+            <!-- Review form -->
+      		<div class="flex flex-col w-full">
+                <!-- Title -->
+                <%= f.text_field :title, placeholder: t('review.form.title_placeholder'), 
+                    class: "p-2 rounded-md resize-none w-full h-auto bg-gray-100 dark:text-gray-100 dark:bg-gray-900"%>
+                <!-- Content -->
+                <%= f.text_area  :content, placeholder: t('review.form.comment_placeholder'), 
+                    class: "p-2 mt-3 rounded-md w-full h-[6rem] sm:h-[8rem] bg-gray-100 dark:text-gray-100 dark:bg-gray-900"%>
+                <!-- Submit -->
+                <%= f.submit t('global.send_btn'), 
+                    class: "py-4 mt-6 mb-3 font-semibold rounded-lg text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br  dark:text-gray-900 dark:bg-violet-400 cursor-pointer" %>
+      		</div>
+      	</div>
+      </div>
+    <% end %>
+<% end %>

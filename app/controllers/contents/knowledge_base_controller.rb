@@ -20,6 +20,7 @@ module Contents
         description: t('meta.about.desc')
       )
       
+      @feedback = Review.new
     end
   end
 end

@@ -5,6 +5,8 @@
        
 <!-- Comments section-->
 <div class="px-6 ">
-    <%= tag.h4 t('comment.about_page_title'), 
-        class: "py-6 text-2xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
+    <%= tag.h1 t('comment.about_page_title'), 
+        class: "py-6 text-3xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
+            
+    <%= render 'contents/knowledge_base/feedback/form'%>
 </div>
