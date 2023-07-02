@@ -4,7 +4,8 @@ en:
         calculator:       'Calculator'
         preparation:      'Preparation'
         market:           'Market'
-        news:             'News'   
+        news:             'News'  
+        knowledge_base:   'Knowledge base' 
         about:            'About'    
     product:
         to_advertise:     'To advertise'

@@ -5,6 +5,7 @@ uk:
         preparation:      'Підготовка'
         market:           'Оголошення'
         news:             'Новини'
+        knowledge_base:   'База знань'
         about:            'Про сервіс'
     product:
         to_advertise:     'Розмістити оголошення'

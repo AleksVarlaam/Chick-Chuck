@@ -5,6 +5,7 @@ ru:
         preparation:      'Подготовка'
         market:           'Барахолка'
         news:             'Новости'
+        knowledge_base:   'База знаний'
         about:            'О сервисе'
     product:
         to_advertise:     'Разместить объявление'

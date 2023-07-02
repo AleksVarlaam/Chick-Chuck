@@ -13,9 +13,9 @@
                     <%= tag.div (render 'shared/locales'), class: "absolute ltr:right-2 rtl:-left-3"%>
                 </div>
                 <!-- Main navigations -->
-                <div class="flex flex-wrap justify-center mt-5 -mx-4 items-center">
+                <div class="flex flex-wrap justify-center mt-5 items-center space-x-6 rtl:space-x-reverse">
                     <%= render 'shared/navigations/content_links_list', 
-                        link_class: "mx-4 text-gray-600 text-base font-medium transition-colors duration-300 hover:text-gray-900",
+                        link_class: "text-gray-600 text-base font-medium transition-colors duration-300 hover:text-gray-900",
                         current_page: current_page %>
                 </div>
                 <!-- Feedback -->
