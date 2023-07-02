@@ -1,7 +1,7 @@
 <!-- Comments section-->
-<section class="w-full col-span-full">
+<section class="w-full col-span-full relative">
   <!-- Count -->
-  <% if current_page?(about_path)%>
+  <% if [action_name, controller_name].eql?(['feedback', 'knowledge_base'])%>
       <%= tag.h4 t('comment.about_page_title'), 
           class: "py-6 text-2xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
   <% else %>
@@ -23,7 +23,9 @@
   </div>
   <!-- Form -->
   <% if user_signed_in?%>
-      <%= render "feedbacks/comments/form"%>
+      <div class="fixed bottom-0 left-0 w-full">
+          <%= render "feedbacks/comments/form"%>
+      </div>
   <% else%>
       <!-- Log in button -->
       <div class="text-center text-lg my-5">

@@ -40,9 +40,9 @@
         </li>
         <li>
             <!-- About -->
-            <%= nav_tab t('review.reviews'), about_path,
+            <%= nav_tab t('review.reviews'), feedback_path,
                 class: "#{link_class} px-4 py-2 hover:bg-gray-100 block w-full !mx-0", current_page: current_page, 
-                data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+                data: {action: "dropdown#toggle", turbo_frame: '_top'} unless Rails.env.production?%>
         </li>
       </ul>
   </div>

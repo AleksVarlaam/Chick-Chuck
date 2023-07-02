@@ -1,0 +1,10 @@
+<% currently_at t('review.reviews') %>
+<% provide :page_title, t('review.reviews') %>
+
+<%# turbo_stream_from @statistic%>       
+       
+<!-- Comments section-->
+<div class="px-6 ">
+    <%= tag.h4 t('comment.about_page_title'), 
+        class: "py-6 text-2xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
+</div>

@@ -9,8 +9,7 @@ module Contents
       )
       @companies = Company.confirmed.take(3)
       @products = Product.where(published: true).decorate.take(6)
-      @news = News.all.decorate.last(3)
-      Statistic.first.update(main: Statistic.first.main + 1) unless user_signed_in?
+      # @news = News.all.decorate.last(3)
     end
 
     def sitemap

@@ -252,18 +252,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_163108) do
     t.index ["user_id"], name: "index_services_users_on_user_id"
   end
 
-  create_table "statistics", force: :cascade do |t|
-    t.integer "main", default: 0
-    t.integer "calculator", default: 0
-    t.integer "companies", default: 0
-    t.integer "market", default: 0
-    t.integer "about", default: 0
-    t.integer "moving_preparation", default: 0
-    t.integer "news", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "subscribers", force: :cascade do |t|
     t.string "email", null: false
     t.datetime "created_at", null: false

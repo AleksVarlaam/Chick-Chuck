@@ -1,9 +1,6 @@
 <% currently_at t('pages.about') %>
 <% provide :page_title, t('pages.about') %>
 
-<%= turbo_stream_from @statistic%>
-
-
 <%= tag.section class: "grid grid-cols-4 flex w-full mx-auto h-full " do %>
     <!-- Main content -->
     <section class="bg-gray-50 col-span-full">
@@ -12,7 +9,7 @@
             <%= tag.h1 t('pages.about'), class: "text-3xl font-semibold text-gray-800 my-6 text-center"%>
             <div class="container mx-auto">
                 <!-- Header content -->
-                <%= render 'header_content'%>
+                <%= render 'contents/knowledge_base/about/header_content'%>
                 <!-- Arrow down -->
                 <div class="flex justify-center mt-16">
                     <%= link_to '#content', data: {controller: 'scroll-to', 'scroll-to-offset-value' => "50"} do %>
@@ -20,14 +17,10 @@
                     <% end %>
                 </div>
                 <!-- Main content -->
-                <%= render 'main_content'%>
+                <%= render 'contents/knowledge_base/about/main_content'%>
                 <!-- Statistic -->
-                <%= render 'statistic'%>
+                <%# render 'contents/knowledge_base/about/statistic'%>
             </div>
-        </div>
-        <!-- Comments section-->
-        <div class="px-6 ">
-            <%= render 'feedbacks/comments/comments_section' %>
         </div>
     </section>
 <% end %>

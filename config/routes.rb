@@ -37,8 +37,9 @@ Rails.application.routes.draw do
       resources :products, only: %i[index show], controller: 'contents/products'
       get 'seller/:user_id/user_products', to: 'contents/products#user_products', as: 'user_products'
 
-      # About page and comments
-      get 'about', to: 'contents/statistics#show', as: 'about'
+      # Knowledge base
+      get 'about', to: 'contents/knowledge_base#about', as: 'about'
+      get 'feedback', to: 'contents/knowledge_base#feedback', as: 'feedback'
       resources :statistics, only: :show, controller: 'contents/statistics' do
         resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
       end

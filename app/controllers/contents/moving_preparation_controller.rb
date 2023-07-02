@@ -7,7 +7,6 @@ module Contents
         title: t('meta.moving_preparation.title'),
         description: t('meta.moving_preparation.desc')
       )
-      Statistic.first.update(moving_preparation: Statistic.first.moving_preparation + 1) unless user_signed_in?
     end
   end
 end

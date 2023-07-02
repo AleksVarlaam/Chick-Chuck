@@ -15,7 +15,6 @@ module Contents
         noindex: request.original_url.include?('?') ? true : false
       )
 
-      Statistic.first.update(market: Statistic.first.market + 1) unless user_signed_in?
       total_products = Product.filter(filter_params).newest
       @pagy, @products = pagy(total_products, items: 11, fragment: '#products')
       @products = @products.decorate

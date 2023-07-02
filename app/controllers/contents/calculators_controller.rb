@@ -12,7 +12,6 @@ module Contents
         noindex: request.original_url.include?('?') ? true : false
       )
 
-      Statistic.first.update(calculator: Statistic.first.calculator + 1) unless user_signed_in?
       @categories = Category.all.decorate
       @companies = Company.confirmed
     end
