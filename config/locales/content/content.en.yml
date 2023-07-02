@@ -6,7 +6,7 @@ en:
         market:           'Market'
         news:             'News'  
         knowledge_base:   'Knowledge base' 
-        about:            'About'    
+        about:            'About service'    
     product:
         to_advertise:     'To advertise'
         add_btn:          'Add product'

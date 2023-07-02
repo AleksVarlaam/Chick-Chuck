@@ -12,7 +12,6 @@ module Contents
       @companies = Company.confirmed.count
       @products = Product.where(published: true).count
       @reviews = Review.count + Comment.count
-      
     end
     
     def feedback

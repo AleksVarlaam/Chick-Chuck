@@ -16,52 +16,51 @@ Rails.application.routes.draw do
         constraints: { subdomain: 'www' }
 
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
-    # Sitemap
-    get 'sitemap.xml', to: 'contents/main#sitemap', format: 'xml', as: :sitemap
-    # Robots
-    get 'robots.txt',  to: 'contents/main#robots',  format: 'txt', as: :robots
-    # Favicon
-    get 'favicon.png', to: 'contents/main#favicon', format: 'png', as: :favicon
     # Root path
-    root to: 'contents/main#index'
-
-    # Contents
-    scope :contents do
-      # Users
-      resources :users, only: %i[index show], controller: 'users/users' do
-        get '/modal',         to: 'users/users#modal',                  as: 'modal'
-        get '/contacts',      to: 'users/users#contacts',               as: 'contacts'
-      end
-
-      # Products
-      resources :products, only: %i[index show], controller: 'contents/products'
-      get 'seller/:user_id/user_products', to: 'contents/products#user_products', as: 'user_products'
-
-      # Knowledge base
-      get 'about', to: 'contents/knowledge_base#about', as: 'about'
-      get 'feedback', to: 'contents/knowledge_base#feedback', as: 'feedback'
-      resources :statistics, only: :show, controller: 'contents/statistics' do
-        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-      end
-
-      # Calculator
-      resource :calculator, only: %i[show], controller: 'contents/calculators' do
-        get '/company/:company_id/calculator', to: 'contents/calculators#company_calculator', as: 'company'
-      end
-
-      # Moving preparation
-      get '/moving_preparation', to: 'contents/moving_preparation#index', as: 'moving_preparation'
-
-      # Comments
-      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
-        resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-      end
-
-      # News content
-      # resources :news, only: %i[show index], controller: 'contents/news' do
-      #       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
-      #     end
+    root to: 'main#index'
+    # Sitemap
+    get 'sitemap.xml', to: 'main#sitemap', format: 'xml', as: :sitemap
+    # Robots
+    get 'robots.txt',  to: 'main#robots',  format: 'txt', as: :robots
+    # Favicon
+    get 'favicon.png', to: 'main#favicon', format: 'png', as: :favicon
+    
+    # --- Content ---
+    
+    # Users
+    resources :users, only: %i[index show], controller: 'users/users', path: 'carriers' do
+      get '/modal',         to: 'users/users#modal',                  as: 'modal'
+      get '/contacts',      to: 'users/users#contacts',               as: 'contacts'
     end
+
+    # Products
+    resources :products, only: %i[index show], controller: 'contents/products'
+    get 'seller/:user_id', to: 'contents/products#user_products', as: 'user_products'
+
+    # Calculator
+    resource :calculator, only: %i[show], controller: 'contents/calculators' do
+      get '/company/:company_id/calculator', to: 'contents/calculators#company_calculator', as: 'company'
+    end
+
+    # Moving preparation
+    get '/moving_preparation', to: 'contents/moving_preparation#index', as: 'moving_preparation'
+
+    # Comments
+    resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
+      resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+    end
+    
+    # Knowledge base
+    get 'about', to: 'contents/knowledge_base#about', as: 'about'
+    get 'feedback', to: 'contents/knowledge_base#feedback', as: 'feedback'
+    
+    # News content
+    # resources :news, only: %i[show index], controller: 'contents/news' do
+    #   resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
+    # end
+    
+    # --- End of content ---
+
     # Admins
     devise_for :admins, controllers: { registrations: 'admins/registrations' }, skip: %i[registrations confirmations]
     as :admin do
@@ -107,6 +106,7 @@ Rails.application.routes.draw do
       resource :profile, only: %i[edit update]
       get '/dashboard', to: 'dashboard#index', as: 'dashboard'
     end
+    
     # Users
     namespace :users do
       resources :favorites, only: %i[index create destroy]

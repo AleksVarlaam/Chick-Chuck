@@ -19,7 +19,7 @@
                         current_page: current_page %>
                 </div>
                 <!-- Feedback -->
-                <%= render 'feedbacks/shared/service_feedback_link'%>
+                <%= render 'feedbacks/shared/service_feedback_link' unless Rails.env.production? %>
             </div>
 
             <hr class="my-6 border-gray-400 md:my-10" />
