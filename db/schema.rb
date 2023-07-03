@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_085024) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_091728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,6 +130,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_085024) do
     t.datetime "updated_at", null: false
     t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.float "usability", default: 0.0, null: false
+    t.float "speed", default: 0.0, null: false
+    t.float "design", default: 0.0, null: false
+    t.float "quality", default: 0.0, null: false
+    t.boolean "informative", null: false
+    t.boolean "problems", null: false
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -316,6 +331,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_085024) do
   add_foreign_key "cities", "districts"
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "users"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "news", "users"

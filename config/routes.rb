@@ -50,9 +50,8 @@ Rails.application.routes.draw do
       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
     end
     
-    # Knowledge base
-    get 'about', to: 'contents/knowledge_base#about', as: 'about'
-    get 'feedback', to: 'contents/knowledge_base#feedback', as: 'feedback'
+    # About service
+    get 'about', to: 'contents/about#index', as: 'about'
     
     # News content
     # resources :news, only: %i[show index], controller: 'contents/news' do
@@ -117,6 +116,9 @@ Rails.application.routes.draw do
       # Email subscribers
       resources :mailers, only: [:create]
     end
+    
+    # Feedbacks
+    resources :feedbacks, only: %i[index new create edit update], controller: 'contents/feedbacks'
 
     # Reviews
     resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'

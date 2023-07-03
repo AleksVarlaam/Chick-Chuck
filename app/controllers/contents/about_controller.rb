@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Contents
-  class KnowledgeBaseController < ApplicationController
-    def about
+  class AboutController < ApplicationController
+    def index
       set_meta_tags(
         title: t('meta.about.title'),
         description: t('meta.about.desc')
@@ -14,13 +14,5 @@ module Contents
       @reviews = Review.count + Comment.count
     end
     
-    def feedback
-      set_meta_tags(
-        title: t('review.reviews'),
-        description: t('meta.about.desc')
-      )
-      
-      @feedback = Review.new
-    end
   end
 end

@@ -9,7 +9,7 @@
             <%= tag.h1 t('pages.about'), class: "text-3xl font-semibold text-gray-800 my-6 text-center"%>
             <div class="container mx-auto">
                 <!-- Header content -->
-                <%= render 'contents/knowledge_base/about/header_content'%>
+                <%= render 'contents/about/header_content'%>
                 <!-- Arrow down -->
                 <div class="flex justify-center mt-16">
                     <%= link_to '#content', data: {controller: 'scroll-to', 'scroll-to-offset-value' => "50"} do %>
@@ -17,9 +17,9 @@
                     <% end %>
                 </div>
                 <!-- Main content -->
-                <%= render 'contents/knowledge_base/about/main_content'%>
+                <%= render 'contents/about/main_content'%>
                 <!-- Statistic -->
-                <%# render 'contents/knowledge_base/about/statistic'%>
+                <%# render 'contents/about/statistic'%>
             </div>
         </div>
     </section>
