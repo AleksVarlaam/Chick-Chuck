@@ -17,23 +17,15 @@
       		<div class="flex flex-col items-center py-4 space-y-2">
                 <!-- Rating -->
       			<%= tag.span t('review.form.rating_desc'), class: "text-center text-gray-500" %>
-                <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
-                    <% 0.upto(5) do |i| %>
-                        <%= button_to current_client.company_review(@reviewable) ? edit_review_path(@review) : new_review_path, 
-                            method: :get, 
-                            params: {
-                                star_rating: i != params[:star_rating].to_i ? i : params[:star_rating].to_i , 
-                                price_rating: @review.decorate.price_value(params), 
-                                company_id: @reviewable.id
-                            }, 
-                            class: "#{'hidden' if i == 0}",
-                            data: {turbo_frame: 'modal'} do %>
-                            <%= heroicon 'star', variant: 'solid',
-                                class: "w-8 h-8 hover:text-yellow-400 #{@review.decorate.star_color(params, i)}" %>
+                <fieldset>
+                    <span class="star-cb-group">
+                        <% 5.downto(1) do |i| %>
+                            <%= f.radio_button :rating, i, id: "review_rating-#{i}" %>
+                            <%= f.label "rating-#{i}", i %>
                         <% end %>
-                    <% end %>
-                    <%= f.hidden_field :rating, value: params[:star_rating].to_i > 0 ? params[:star_rating].to_i : @review.rating %>
-                <% end %>
+                        <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                    </span>
+                </fieldset>
                 <!-- Price -->
                 <%= f.hidden_field :price, value: 0%>
                 <!-- <%= tag.span t('review.form.price_desc'), class: "text-center text-gray-500"%>

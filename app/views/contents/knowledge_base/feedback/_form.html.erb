@@ -12,73 +12,64 @@
       <div class="flex flex-col w-full h-full dark:bg-gray-900 dark:text-gray-100">
       	<div class="flex flex-col items-center w-full">
             <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
-                <!-- Ratings -->
+                <!-- Usability -->
           		<div class="flex flex-col items-center space-y-2">
-                    <!-- Rating -->
           			<%= tag.span '1. На сколько удобно и просто вам было пользоваться сайтом?', 
                         class: "text-center text-gray-500" %>
-                    <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
-                        <% 0.upto(5) do |i| %>
-                            <%= button_to new_review_path, 
-                                method: :get, 
-                                class: "#{'hidden' if i == 0}",
-                                data: {turbo_frame: 'modal'} do %>
-                                <%= heroicon 'star', variant: 'solid',
-                                    class: "w-8 h-8 hover:text-yellow-400 #{@feedback.decorate.star_color(params, i)}" %>
+                    <fieldset>
+                        <span class="star-cb-group">
+                            <% 5.downto(1) do |i| %>
+                                <%= f.radio_button :rating, i, id: "rating-#{i}" %>
+                                <%= f.label "rating-#{i}", i %>
                             <% end %>
-                        <% end %>
-                    <% end %>
+                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                        </span>
+                    </fieldset>
           		</div>
+                <!-- Speed -->
           		<div class="flex flex-col items-center space-y-2">
-                    <!-- Rating -->
           			<%= tag.span '2. Как вы оцениваете скорость работы сайта?', 
                         class: "text-center text-gray-500" %>
-                    <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
-                        <% 0.upto(5) do |i| %>
-                            <%= button_to new_review_path, 
-                                method: :get, 
-                                class: "#{'hidden' if i == 0}",
-                                data: {turbo_frame: 'modal'} do %>
-                                <%= heroicon 'star', variant: 'solid',
-                                    class: "w-8 h-8 hover:text-yellow-400 #{@feedback.decorate.star_color(params, i)}" %>
+                    <fieldset>
+                        <span class="star-cb-group">
+                            <% 5.downto(1) do |i| %>
+                                <%= f.radio_button :rating, i, id: "rating-#{i}" %>
+                                <%= f.label "rating-#{i}", i %>
                             <% end %>
-                        <% end %>
-                    <% end %>
+                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                        </span>
+                    </fieldset>
           		</div>
+                <!-- Design -->
           		<div class="flex flex-col items-center space-y-2">
-                    <!-- Rating -->
           			<%= tag.span '3. Как вы оцениваете дизайн и визуальное оформление сайта?', 
                         class: "text-center text-gray-500" %>
-                    <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
-                        <% 0.upto(5) do |i| %>
-                            <%= button_to new_review_path, 
-                                method: :get, 
-                                class: "#{'hidden' if i == 0}",
-                                data: {turbo_frame: 'modal'} do %>
-                                <%= heroicon 'star', variant: 'solid',
-                                    class: "w-8 h-8 hover:text-yellow-400 #{@feedback.decorate.star_color(params, i)}" %>
+                    <fieldset>
+                        <span class="star-cb-group">
+                            <% 5.downto(1) do |i| %>
+                                <%= f.radio_button :rating, i, id: "rating-#{i}" %>
+                                <%= f.label "rating-#{i}", i %>
                             <% end %>
-                        <% end %>
-                    <% end %>
+                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                        </span>
+                    </fieldset>
           		</div>
+                <!-- Quality -->
           		<div class="flex flex-col items-center space-y-2">
-                    <!-- Rating -->
           			<%= tag.span '4. Какова ваша общая оценка качества предоставляемых на сайте услуг?', 
                         class: "text-center text-gray-500" %>
-                    <%= turbo_frame_tag 'rating_stars', class: "flex space-x-3" do %>
-                        <% 0.upto(5) do |i| %>
-                            <%= button_to new_review_path, 
-                                method: :get, 
-                                class: "#{'hidden' if i == 0}",
-                                data: {turbo_frame: 'modal'} do %>
-                                <%= heroicon 'star', variant: 'solid',
-                                    class: "w-8 h-8 hover:text-yellow-400 #{@feedback.decorate.star_color(params, i)}" %>
+                    <fieldset>
+                        <span class="star-cb-group">
+                            <% 5.downto(1) do |i| %>
+                                <%= f.radio_button :rating, i, id: "rating-#{i}" %>
+                                <%= f.label "rating-#{i}", i %>
                             <% end %>
-                        <% end %>
-                    <% end %>
+                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                        </span>
+                    </fieldset>
           		</div>
+                <!-- informative -->
           		<div class="flex flex-col items-center space-y-2">
-                    <!-- Rating -->
           			<%= tag.span '5. Есть ли на сайте достаточно информации о перевозчиках, чтобы сделать информированный выбор?', 
                         class: "text-center text-gray-500" %>
 
@@ -93,8 +84,8 @@
                         </div>
                     </div> 
           		</div>
+                <!-- Problems -->
           		<div class="flex flex-col items-center space-y-2">
-                    <!-- Rating -->
           			<%= tag.span '6. Были ли у вас проблемы или трудности при использовании сайта? Если да, то какие? Опишите в комментарие.', 
                         class: "text-center text-gray-500" %>
                     <div class="flex items-center w-44 text-sm font-medium dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -109,7 +100,7 @@
                     </div>
           		</div>
             </div>
-            <!-- Review form -->
+            <!-- Comment form -->
       		<div class="flex flex-col w-full">
                 <!-- Title -->
                 <%= f.text_field :title, placeholder: t('review.form.title_placeholder'), 
