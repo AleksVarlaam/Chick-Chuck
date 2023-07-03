@@ -1,6 +1,6 @@
 <!-- Feedback form -->
 <%= turbo_frame_tag @feedback do %>
-    <%= form_with model: @review,
+    <%= form_with model: @feedback,
         class: "flex justify-center" do |f| 
     %>
       <!-- Errors -->
@@ -19,10 +19,11 @@
                     <fieldset>
                         <span class="star-cb-group">
                             <% 5.downto(1) do |i| %>
-                                <%= f.radio_button :rating, i, id: "rating-#{i}" %>
-                                <%= f.label "rating-#{i}", i %>
+                                <%= f.radio_button :usability, i, id: "feedback_usability-rating-#{i}" %>
+                                <%= f.label "usability-rating-#{i}", i %>
                             <% end %>
-                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                            <input type="radio" id="feedback_usability-rating-0" name="rating" value="0" class="star-cb-clear" />
+                            <label for="feedback_usability-rating-0">0</label>
                         </span>
                     </fieldset>
           		</div>
@@ -33,10 +34,11 @@
                     <fieldset>
                         <span class="star-cb-group">
                             <% 5.downto(1) do |i| %>
-                                <%= f.radio_button :rating, i, id: "rating-#{i}" %>
-                                <%= f.label "rating-#{i}", i %>
+                                <%= f.radio_button :speed, i, id: "feedback_speed-rating-#{i}" %>
+                                <%= f.label "speed-rating-#{i}", i %>
                             <% end %>
-                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                            <input type="radio" id="feedback_speed-rating-0" name="rating" value="0" class="star-cb-clear" />
+                            <label for="feedback_speed-rating-0">0</label>
                         </span>
                     </fieldset>
           		</div>
@@ -47,10 +49,10 @@
                     <fieldset>
                         <span class="star-cb-group">
                             <% 5.downto(1) do |i| %>
-                                <%= f.radio_button :rating, i, id: "rating-#{i}" %>
-                                <%= f.label "rating-#{i}", i %>
+                                <%= f.radio_button :design, i, id: "feedback_design-rating-#{i}" %>
+                                <%= f.label "design-rating-#{i}", i %>
                             <% end %>
-                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                            <input type="radio" id="feedback_design-rating-0" name="rating" value="0" class="star-cb-clear" /><label for="feedback_design-rating-0">0</label>
                         </span>
                     </fieldset>
           		</div>
@@ -61,10 +63,11 @@
                     <fieldset>
                         <span class="star-cb-group">
                             <% 5.downto(1) do |i| %>
-                                <%= f.radio_button :rating, i, id: "rating-#{i}" %>
-                                <%= f.label "rating-#{i}", i %>
+                                <%= f.radio_button :quality, i, id: "feedback_quality-rating-#{i}" %>
+                                <%= f.label "quality-rating-#{i}", i %>
                             <% end %>
-                            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                            <input type="radio" id="feedback_quality-rating-0" name="rating" value="0" class="star-cb-clear" />
+                            <label for="feedback_quality-rating-0">0</label>
                         </span>
                     </fieldset>
           		</div>
@@ -75,12 +78,16 @@
 
                     <div class="flex items-center w-44 text-sm font-medium rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                         <div class="flex items-center px-4 w-full ltr:rounded-l-lg rtl:rounded-r-lg dark:border-gray-700">
-                            <input id="question-5-check-yes" type="radio" value="" name="question-5-check-yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="question-5-check-yes" class="w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300">Да</label>
+                            <%= f.radio_button :informative, true, id: "feedback_informativity-yes", 
+                                class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" %>
+                            <%= f.label "informativity-yes", t('global.da'), 
+                                class: "w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300" %>
                         </div>
                         <div class="flex items-center px-4 w-full ltr:rounded-r-lg rtl:rounded-l-lg dark:border-gray-700">
-                            <input id="question-5-check-no" type="radio" value="" name="question-5-check-yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="question-5-check-no" class="w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300">Нет</label>
+                            <%= f.radio_button :informative, false, id: "feedback_informativity-no", 
+                            class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" %>
+                            <%= f.label "informativity-no", t('global.net'), 
+                                class: "w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300" %>
                         </div>
                     </div> 
           		</div>
@@ -88,14 +95,19 @@
           		<div class="flex flex-col items-center space-y-2">
           			<%= tag.span '6. Были ли у вас проблемы или трудности при использовании сайта? Если да, то какие? Опишите в комментарие.', 
                         class: "text-center text-gray-500" %>
-                    <div class="flex items-center w-44 text-sm font-medium dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    
+                    <div class="flex items-center w-44 text-sm font-medium rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                         <div class="flex items-center px-4 w-full ltr:rounded-l-lg rtl:rounded-r-lg dark:border-gray-700">
-                            <input id="question-6-check-yes" type="radio" value="" name="question-6-check-yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="question-6-check-yes" class="w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300">Да</label>
+                            <%= f.radio_button :problems, true, id: "feedback_problems-yes", 
+                                class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" %>
+                            <%= f.label "problems-yes", t('global.da'), 
+                                class: "w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300" %>
                         </div>
                         <div class="flex items-center px-4 w-full ltr:rounded-r-lg rtl:rounded-l-lg dark:border-gray-700">
-                            <input id="question-6-check-no" type="radio" value="" name="question-6-check-yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="question-6-check-no" class="w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300">Нет</label>
+                            <%= f.radio_button :problems, false, id: "feedback_problems-no", 
+                            class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" %>
+                            <%= f.label "problems-no", t('global.net'), 
+                                class: "w-full py-2 ml-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300" %>
                         </div>
                     </div>
           		</div>

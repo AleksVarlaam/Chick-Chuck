@@ -8,8 +8,18 @@ module Contents
         description: t('meta.about.desc')
       )
       
-      @feedback = Review.new
+      @feedback = Feedback.new
     end 
+    
+    def create
+
+    end
+    
+    private
+    
+    def feedback_params
+      params.require(:feedback).permit(:usability, :speed, :design, :quality, :informative, :problems, :title, :content)
+    end
     
   end
 end
