@@ -1,0 +1,22 @@
+he:
+    activerecord:
+        models:
+            feedback:       "תגובה"
+        attributes:
+            feedback:
+                usability:    "נוחות"
+                speed:        "מהירות"
+                design:       "עיצוב"
+                quality:      "איכות"
+                informative:  "תוכן אינפורמטיבי"
+                problems:     "בעיות"
+                title:        "כותרת"
+                content:      "תגובה"
+    feedback:
+        form:
+            usability:    "1. עד כמה קל ונוח להשתמש באתר?"
+            speed:        "2. כיצד אתה מדרג את מהירות האתר?"
+            design:       "3. איך אתה מדרג את העיצוב החזותי של האתר?"
+            quality:      "4. מהי ההערכה הכוללת שלך לגבי איכות השירותים הניתנים באתר?"
+            informative:  "5. האם יש מספיק מידע באתר על ספקים כדי לקבל החלטה מושכלת?"
+            problems:     "6. האם היו לך בעיות או קשיים בשימוש באתר? אם כן, מה? תאר את ההערה."
