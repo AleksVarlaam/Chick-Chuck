@@ -1,0 +1,31 @@
+<%= turbo_frame_tag review, 
+    class: "border p-4 rounded-lg shadow-md hover:shadow-lg bg-gray-100" do%>
+    <article>
+        <!-- Author -->
+        <div class="flex items-center mb-4 space-x-4">
+            <%= image_tag(review.user.avatar_thumb, class: "w-10 h-10 rounded-full object-cover", alt: review.user.user_name) %>
+            <div class="space-y-1 font-medium dark:text-white">
+                <p>
+                    <%= tag.span review.user.user_name%>
+                    <%= tag.time review.user.decorate.created_at, datetime: review.user.decorate.created_at, 
+                        class: "block text-sm text-gray-500 dark:text-gray-400" %>
+                </p>
+            </div>
+        </div>
+        <!-- Stars -->
+        <%= tag.h3 review.title, class: "font-semibold text-gray-900 dark:text-white" %>
+        <div class="flex items-center my-1">
+            <% 1.upto(5) do |i| %>
+                <%= heroicon 'star', variant: 'solid',
+                    class: "w-5 h-5 #{review_star_color(total_feedback_rating(review), i)}" %>
+            <% end %>
+            <%= tag.p 'Общая оценка ' + t('review.out_of', count: total_feedback_rating(review)), class: "ml-2 text-sm font-medium text-gray-500" %>
+        </div>
+        <!-- Created_at -->
+        <footer class="mb-5 text-sm text-gray-500 dark:text-gray-400">
+            <p><time datetime="<%= review.created_at%>"><%= review.decorate.created_at%></time></p>
+        </footer>
+        <!-- Content -->
+        <%= tag.p review.content, itemprop: "description", class: "mb-2 text-gray-500 dark:text-gray-400" %>
+    </article>
+<% end %>

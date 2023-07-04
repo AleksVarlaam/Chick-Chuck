@@ -10,6 +10,18 @@ module Contents
       )
       
       @feedback ||= Feedback.new
+      feedbacks = Feedback.all
+      
+      @global_feedback = {
+        usability:  (feedbacks.map(&:usability).sum.to_f / feedbacks.count), 
+        speed:      (feedbacks.map(&:speed).sum.to_f / feedbacks.count),
+        design:     (feedbacks.map(&:design).sum.to_f / feedbacks.count),
+        quality:    (feedbacks.map(&:quality).sum.to_f / feedbacks.count)
+      }
+      
+      @total_rating = (@global_feedback.values.sum / 4).round(1)
+      
+      @reviews = Feedback.where.not(content: nil || '', title: nil || '')
     end 
     
     def create
@@ -19,7 +31,7 @@ module Contents
       respond_to do |format|
         if @feedback.save
           # set_company_rating(@reviewable)
-          format.turbo_stream { flash.now[:success] = t('flash.success.created', model: @feedback.model_name.human.to_s) }
+          format.html { redirect_to feedbacks_path, success:  t('flash.success.created', model: @feedback.model_name.human.to_s) }
         else
           format.html { redirect_to feedbacks_path, alert: t('flash.alert') }
         end

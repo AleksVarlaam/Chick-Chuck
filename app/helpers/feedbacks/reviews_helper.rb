@@ -31,8 +31,9 @@ module Feedbacks
       company.update(rating:, price:)
     end
 
-    def rating_bar(review)
-      review.present? ? review * 10 : 0
+    def total_feedback_rating(feedback)
+      rating = (feedback.usability + feedback.speed + feedback.design + feedback.quality) / 4
+      rating.round(1)
     end
 
     def review_star_color(rating, i)
