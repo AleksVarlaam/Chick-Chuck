@@ -46,7 +46,7 @@ module Contents
     end
     
     def set_feedback
-      @feedback = Feedback.find_by(user_id: current_user.id) if user_signed_in? 
+      @feedback = Feedback.find_by(user_id: current_user.id) if client_signed_in? || company_signed_in?
     end
     
   end

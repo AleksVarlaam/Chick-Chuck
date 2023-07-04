@@ -1,7 +1,7 @@
 <!-- Edit Feedback -->
 <%= turbo_frame_tag dom_id(@feedback), class: "flex justify-center pt- mx-auto text-center" do %>
     <!-- Link -->
-    <% if user_signed_in? %>
+    <% if client_signed_in? || company_signed_in? %>
         <div class="flex justify-center">
             <%= link_to edit_feedback_path(@feedback) , data: { turbo_frame: '_top' },
                 class: "py-2 px-3 font-semibold rounded-lg text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br dark:text-gray-900 dark:bg-violet-400 cursor-pointer flex items-center" do %>
