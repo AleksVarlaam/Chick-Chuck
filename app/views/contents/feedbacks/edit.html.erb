@@ -1,0 +1,9 @@
+<% currently_at t('review.edit') %>
+<% provide :page_title, t('review.edit') %>
+
+<div class="px-6 ">
+    <%= tag.h1 t('review.edit'), 
+        class: "py-6 text-3xl font-semibold text-gray-900 text-center", id: 'feedback_title'%>
+            
+    <%= render 'contents/feedbacks/form'%>
+</div>

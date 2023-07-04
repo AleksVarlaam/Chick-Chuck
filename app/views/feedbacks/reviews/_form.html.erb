@@ -20,7 +20,7 @@
                 <fieldset>
                     <span class="star-cb-group">
                         <% 5.downto(1) do |i| %>
-                            <%= f.radio_button :rating, i, id: "review_rating-#{i}" %>
+                            <%= f.radio_button :rating, i, id: "review_rating-#{i}", checked: @review.rating == i ? true : false %>
                             <%= f.label "rating-#{i}", i %>
                         <% end %>
                         <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>

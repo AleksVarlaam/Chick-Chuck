@@ -118,7 +118,7 @@ Rails.application.routes.draw do
     end
     
     # Feedbacks
-    resources :feedbacks, only: %i[index new create edit update], controller: 'contents/feedbacks'
+    resources :feedbacks, only: %i[index create edit update], controller: 'contents/feedbacks'
 
     # Reviews
     resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'

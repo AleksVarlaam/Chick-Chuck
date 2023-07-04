@@ -2,11 +2,14 @@
 <% provide :page_title, t('review.reviews') %>
 
 <%# turbo_stream_from @statistic%>       
-       
 <!-- Comments section-->
 <div class="px-6 ">
     <%= tag.h1 t('comment.about_page_title'), 
-        class: "py-6 text-3xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
+        class: "py-6 text-3xl font-semibold text-gray-900 text-center", id: 'feedback_title'%>
             
-    <%= render 'contents/feedbacks/form'%>
+    <% if user_signed_in? && !@feedback.id.present? %>
+        <%= render 'contents/feedbacks/form'%>
+    <% else%>
+        <%= render 'contents/feedbacks/shared/edit_feedback_button'%>
+    <% end %>
 </div>

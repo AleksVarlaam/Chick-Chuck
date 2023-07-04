@@ -1,7 +1,7 @@
 <!-- Feedback form -->
 <%= turbo_frame_tag @feedback do %>
     <%= form_with model: @feedback,
-        class: "flex justify-center" do |f| 
+        class: "flex justify-center", data: {turbo_frame: '_top'} do |f| 
     %>
       <!-- Errors -->
       <% if @feedback.errors.any? %>
@@ -19,7 +19,7 @@
                     <fieldset>
                         <span class="star-cb-group">
                             <% 5.downto(1) do |i| %>
-                                <%= f.radio_button :usability, i, id: "feedback_usability-rating-#{i}" %>
+                                <%= f.radio_button :usability, i, id: "feedback_usability-rating-#{i}", checked: @feedback.usability == i ? true : false %>
                                 <%= f.label "usability-rating-#{i}", i %>
                             <% end %>
                             <input type="radio" id="feedback_usability-rating-0" name="rating" value="0" class="star-cb-clear" />
@@ -34,7 +34,7 @@
                     <fieldset>
                         <span class="star-cb-group">
                             <% 5.downto(1) do |i| %>
-                                <%= f.radio_button :speed, i, id: "feedback_speed-rating-#{i}" %>
+                                <%= f.radio_button :speed, i, id: "feedback_speed-rating-#{i}", checked: @feedback.speed == i ? true : false %>
                                 <%= f.label "speed-rating-#{i}", i %>
                             <% end %>
                             <input type="radio" id="feedback_speed-rating-0" name="rating" value="0" class="star-cb-clear" />
@@ -49,7 +49,7 @@
                     <fieldset>
                         <span class="star-cb-group">
                             <% 5.downto(1) do |i| %>
-                                <%= f.radio_button :design, i, id: "feedback_design-rating-#{i}" %>
+                                <%= f.radio_button :design, i, id: "feedback_design-rating-#{i}", checked: @feedback.design == i ? true : false %>
                                 <%= f.label "design-rating-#{i}", i %>
                             <% end %>
                             <input type="radio" id="feedback_design-rating-0" name="rating" value="0" class="star-cb-clear" /><label for="feedback_design-rating-0">0</label>
@@ -63,7 +63,7 @@
                     <fieldset>
                         <span class="star-cb-group">
                             <% 5.downto(1) do |i| %>
-                                <%= f.radio_button :quality, i, id: "feedback_quality-rating-#{i}" %>
+                                <%= f.radio_button :quality, i, id: "feedback_quality-rating-#{i}", checked: @feedback.quality == i ? true : false %>
                                 <%= f.label "quality-rating-#{i}", i %>
                             <% end %>
                             <input type="radio" id="feedback_quality-rating-0" name="rating" value="0" class="star-cb-clear" />
@@ -115,10 +115,10 @@
             <!-- Comment form -->
       		<div class="flex flex-col w-full">
                 <!-- Title -->
-                <%= f.text_field :title, placeholder: t('review.form.title_placeholder'), 
+                <%= f.text_field :title, placeholder: t('review.form.title_placeholder'), value: @feedback.title || nil,
                     class: "p-2 rounded-md resize-none w-full h-auto bg-gray-100 dark:text-gray-100 dark:bg-gray-900"%>
                 <!-- Content -->
-                <%= f.text_area  :content, placeholder: t('review.form.comment_placeholder'), 
+                <%= f.text_area  :content, placeholder: t('review.form.comment_placeholder'), value: @feedback.content || nil,
                     class: "p-2 mt-3 rounded-md w-full h-[6rem] sm:h-[8rem] bg-gray-100 dark:text-gray-100 dark:bg-gray-900"%>
                 <!-- Submit -->
                 <%= f.submit t('global.send_btn'), 
