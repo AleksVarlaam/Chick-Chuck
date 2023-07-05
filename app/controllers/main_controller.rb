@@ -5,7 +5,13 @@ class MainController < ApplicationController
   def index
     set_meta_tags(
       title: [params[:locale]&.capitalize, t('meta.home_page.title')],
-      description: t('meta.home_page.desc')
+      description: t('meta.home_page.desc'),
+      alternate: {
+        "x-default" => root_url(locale: nil),
+        "en" => root_url(locale: :en),
+        "ru" => root_url(locale: :ru),
+        "ua" => root_url(locale: :ua),
+      }
     )
     @companies = Company.confirmed.take(3)
     @products = Product.where(published: true).decorate.take(6)
