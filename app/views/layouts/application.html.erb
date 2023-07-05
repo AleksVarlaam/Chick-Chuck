@@ -13,7 +13,11 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    
+    <!-- Trix editor -->
+    <% if current_page?(new_company_registration_url) %>
+        <%= javascript_import_module_tag "trix" %>
+        <%= javascript_import_module_tag "@rails/actiontext" %>
+    <% end %>
     <!-- Current user -->
     <%= render 'layouts/shared/current_user_meta'%>
     <!-- Google analytics -->
