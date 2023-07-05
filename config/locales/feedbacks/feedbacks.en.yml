@@ -13,6 +13,7 @@ en:
                 title:        "Title"
                 content:      "Comment"
     feedback:
+        total_rating:     "Total rating"
         form:
             usability:    "1. How convenient and easy for you to use the site?"
             speed:        "2. How do you rate the speed of the site?"

@@ -19,7 +19,7 @@
                 <%= heroicon 'star', variant: 'solid',
                     class: "w-5 h-5 #{review_star_color(total_feedback_rating(review), i)}" %>
             <% end %>
-            <%= tag.p 'Общая оценка ' + t('review.out_of', count: total_feedback_rating(review)), class: "ml-2 text-sm font-medium text-gray-500" %>
+            <%= tag.p "#{t('feedback.total_rating')} #{t('review.out_of', count: total_feedback_rating(review))}", class: "ml-2 text-sm font-medium text-gray-500" %>
         </div>
         <!-- Created_at -->
         <footer class="mb-5 text-sm text-gray-500 dark:text-gray-400">

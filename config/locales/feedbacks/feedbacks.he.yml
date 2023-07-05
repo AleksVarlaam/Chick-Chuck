@@ -13,6 +13,7 @@ he:
                 title:        "כותרת"
                 content:      "תגובה"
     feedback:
+        total_rating:     "דירוג כולל"
         form:
             usability:    "1. עד כמה קל ונוח להשתמש באתר?"
             speed:        "2. כיצד אתה מדרג את מהירות האתר?"

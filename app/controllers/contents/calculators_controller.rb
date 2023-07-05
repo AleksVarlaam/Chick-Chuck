@@ -9,7 +9,13 @@ module Contents
         title: t('meta.calculator.title'),
         description: t('meta.calculator.desc'),
         canonical: calculator_url,
-        noindex: request.original_url.include?('?') ? true : false
+        noindex: request.original_url.include?('?') ? true : false,
+        alternate: {
+          "x-default" => calculator_url(locale: nil),
+          "en" => calculator_url(locale: :en),
+          "ru" => calculator_url(locale: :ru),
+          "ua" => calculator_url(locale: :ua),
+        }
       )
 
       @categories = Category.all.decorate

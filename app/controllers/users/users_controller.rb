@@ -13,7 +13,13 @@ module Users
         description: t('meta.carriers.desc'),
         keywords: Service.all.decorate.map(&:title).join(', ').sub(/(, )+$/, ''),
         canonical: users_url,
-        noindex: request.original_url.include?('?') ? true : false
+        noindex: request.original_url.include?('?') ? true : false,
+        alternate: {
+          "x-default" => users_url(locale: nil),
+          "en" => users_url(locale: :en),
+          "ru" => users_url(locale: :ru),
+          "ua" => users_url(locale: :ua),
+        }
       )
 
       companies = Company.confirmed.user_filter(filter_params)

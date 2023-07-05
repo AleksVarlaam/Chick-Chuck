@@ -6,7 +6,13 @@ module Contents
     def index
       set_meta_tags(
         title: t('review.reviews'),
-        description: t('meta.about.desc')
+        description: t('meta.about.desc'),
+        alternate: {
+          "x-default" => feedbacks_url(locale: nil),
+          "en" => feedbacks_url(locale: :en),
+          "ru" => feedbacks_url(locale: :ru),
+          "ua" => feedbacks_url(locale: :ua),
+        }
       )
       
       @feedback ||= Feedback.new

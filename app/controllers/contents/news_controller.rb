@@ -6,7 +6,13 @@ module Contents
 
     def index
       set_meta_tags(
-        title: t('pages.news')
+        title: t('pages.news'),
+        alternate: {
+          "x-default" => news_url(locale: nil),
+          "en" => news_url(locale: :en),
+          "ru" => news_url(locale: :ru),
+          "ua" => news_url(locale: :ua),
+        }
       )
 
       @pagy, @news = pagy(News.where(published: true), items: 8, fragment: '#news')

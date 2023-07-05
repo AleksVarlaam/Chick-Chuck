@@ -12,7 +12,13 @@ module Contents
         description: t('meta.market.desc'),
         keywords: Category.all.decorate.map(&:title).join(', ').sub(/(, )+$/, ''),
         canonical: products_url,
-        noindex: request.original_url.include?('?') ? true : false
+        noindex: request.original_url.include?('?') ? true : false,
+        alternate: {
+          "x-default" => products_url(locale: nil),
+          "en" => products_url(locale: :en),
+          "ru" => products_url(locale: :ru),
+          "ua" => products_url(locale: :ua),
+        }
       )
 
       total_products = Product.filter(filter_params).newest
