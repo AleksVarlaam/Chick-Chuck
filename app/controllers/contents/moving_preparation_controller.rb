@@ -10,7 +10,7 @@ module Contents
           "x-default" => moving_preparation_url(locale: nil),
           "en" => moving_preparation_url(locale: :en),
           "ru" => moving_preparation_url(locale: :ru),
-          "ua" => moving_preparation_url(locale: :ua),
+          "uk" => moving_preparation_url(locale: :uk),
         }
       )
     end

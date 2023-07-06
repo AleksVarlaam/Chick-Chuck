@@ -17,7 +17,7 @@ module Contents
           "x-default" => products_url(locale: nil),
           "en" => products_url(locale: :en),
           "ru" => products_url(locale: :ru),
-          "ua" => products_url(locale: :ua),
+          "uk" => products_url(locale: :uk),
         }
       )
 

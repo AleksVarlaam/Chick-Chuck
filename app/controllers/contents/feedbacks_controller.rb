@@ -11,7 +11,7 @@ module Contents
           "x-default" => feedbacks_url(locale: nil),
           "en" => feedbacks_url(locale: :en),
           "ru" => feedbacks_url(locale: :ru),
-          "ua" => feedbacks_url(locale: :ua),
+          "uk" => feedbacks_url(locale: :uk),
         }
       )
       

@@ -18,7 +18,7 @@ module Users
           "x-default" => users_url(locale: nil),
           "en" => users_url(locale: :en),
           "ru" => users_url(locale: :ru),
-          "ua" => users_url(locale: :ua),
+          "uk" => users_url(locale: :uk),
         }
       )
 

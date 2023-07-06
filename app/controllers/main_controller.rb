@@ -10,7 +10,7 @@ class MainController < ApplicationController
         "x-default" => root_url(locale: nil),
         "en" => root_url(locale: :en),
         "ru" => root_url(locale: :ru),
-        "ua" => root_url(locale: :ua),
+        "uk" => root_url(locale: :uk),
       }
     )
     @companies = Company.confirmed.take(3)

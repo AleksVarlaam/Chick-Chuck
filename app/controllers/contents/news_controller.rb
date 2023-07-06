@@ -11,7 +11,7 @@ module Contents
           "x-default" => news_url(locale: nil),
           "en" => news_url(locale: :en),
           "ru" => news_url(locale: :ru),
-          "ua" => news_url(locale: :ua),
+          "uk" => news_url(locale: :uk),
         }
       )
 

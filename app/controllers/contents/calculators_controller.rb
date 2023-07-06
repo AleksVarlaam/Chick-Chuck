@@ -14,7 +14,7 @@ module Contents
           "x-default" => calculator_url(locale: nil),
           "en" => calculator_url(locale: :en),
           "ru" => calculator_url(locale: :ru),
-          "ua" => calculator_url(locale: :ua),
+          "uk" => calculator_url(locale: :uk),
         }
       )
 

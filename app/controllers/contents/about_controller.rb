@@ -10,7 +10,7 @@ module Contents
           "x-default" => about_url(locale: nil),
           "en" => about_url(locale: :en),
           "ru" => about_url(locale: :ru),
-          "ua" => about_url(locale: :ua),
+          "uk" => about_url(locale: :uk),
         }
       )
 
