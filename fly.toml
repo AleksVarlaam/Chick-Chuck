@@ -19,6 +19,6 @@ console_command = "/rails/bin/rails console"
   min_machines_running = 0
   processes = ["app"]
 
-[[statics]]
-  guest_path = "/rails/public"
-  url_prefix = "/"
+# [[statics]]
+#   guest_path = "/rails/public"
+#   url_prefix = "/"
