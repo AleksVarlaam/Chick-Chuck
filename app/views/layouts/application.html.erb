@@ -3,6 +3,8 @@
     lang="<%= response.header['Content-Language']%>" 
     dir="<%= response.header['Content-Language'] == 'he' ? 'rtl' : 'ltr' %>">
   <head>
+    <!-- Google tag manager -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=GTM-5B58X5G" data-turbo-track="reload" async></script>
     <!-- Meta -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= display_meta_tags(default_meta_tags) %>
@@ -20,8 +22,6 @@
     <% end %>
     <!-- Current user -->
     <%= render 'layouts/shared/current_user_meta'%>
-    <!-- Google analytics -->
-    <%= render 'layouts/shared/google_analytics'%>
   </head>
 
   <body class="flex flex-col h-screen w-screen justify-between">

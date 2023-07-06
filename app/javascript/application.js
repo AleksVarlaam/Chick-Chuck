@@ -16,10 +16,10 @@ document.addEventListener("turbo:frame-missing", (event) => {
   visit(response.url);
 });
 
-// Google analytics
+// Google tag manager
 document.addEventListener("turbo:load", function(event) {
   window.dataLayer = window.dataLayer || []
   function gtag(){dataLayer.push(arguments)}
   gtag('js', new Date())
-  gtag('config', 'G-1ME8JL8SKW', {'page_location': event.detail.url})
+  gtag('config', 'GTM-5B58X5G', {'page_location': event.detail.url})
 }, false)
