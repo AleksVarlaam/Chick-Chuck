@@ -3,8 +3,6 @@
     lang="<%= response.header['Content-Language']%>" 
     dir="<%= response.header['Content-Language'] == 'he' ? 'rtl' : 'ltr' %>">
   <head>
-    <!-- Google tag manager -->
-    <script src="https://www.googletagmanager.com/gtag/js?id=GTM-5B58X5G" data-turbo-track="reload" async></script>
     <!-- Meta -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= display_meta_tags(default_meta_tags) %>
@@ -15,6 +13,8 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <!-- Google tag manager -->
+    <%= render 'layouts/shared/google_tag_head' %>
     <!-- Trix editor -->
     <% if current_page?(new_company_registration_url) %>
         <%= javascript_import_module_tag "trix" %>
@@ -25,6 +25,8 @@
   </head>
 
   <body class="flex flex-col h-screen w-screen justify-between">
+      <!-- Google Tag Manager (noscript) -->
+      <%= render 'layouts/shared/google_tag_body' %>
       <!-- Schema json -->
       <%= render 'shared/schema/breadcrumbs_navbar_json'%>
       <%= yield :schema_json %>
