@@ -16,9 +16,6 @@ application.register('checkbox-select-all', CheckboxSelectAll)
 // ReadMore
 import ReadMore from 'stimulus-read-more'
 application.register('read-more', ReadMore)
-// Popover
-import Popover from 'stimulus-popover'
-application.register('popover', Popover)
 // Dropdown
 import Dropdown from 'stimulus-dropdown'
 application.register('dropdown', Dropdown)

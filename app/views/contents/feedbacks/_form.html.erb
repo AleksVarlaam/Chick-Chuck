@@ -1,7 +1,7 @@
 <!-- Feedback form -->
 <%= turbo_frame_tag @feedback do %>
     <%= form_with model: @feedback,
-        class: "flex justify-center", data: {turbo_frame: '_top'} do |f| 
+        class: "flex justify-center pt-6", data: {turbo_frame: '_top'} do |f| 
     %>
       <!-- Errors -->
       <% if @feedback.errors.any? %>

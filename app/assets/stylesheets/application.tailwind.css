@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/*Number input field hide arrows*/
-form input[type='number']::-webkit-outer-spin-button,
-form input[type='number']::-webkit-inner-spin-button {
-   -webkit-appearance: none;
-   margin: 0;
-}
-
 /*Pagy*/
 .pagy-nav,
 .pagy-nav-js {
@@ -79,4 +72,3 @@ form input[type='number']::-webkit-inner-spin-button {
 .pagy-combo-nav-js .page.next.disabled {
   @apply text-gray-400 cursor-default;
 }
-@import 'actiontext.css';

@@ -21,7 +21,7 @@
         <%= javascript_import_module_tag "@rails/actiontext" %>
     <% end %>
     <!-- Current user -->
-    <%= render 'layouts/shared/current_user_meta'%>
+    <%= render 'layouts/shared/current_user_meta' if user_signed_in? %>
   </head>
 
   <body class="flex flex-col h-screen w-screen justify-between">
