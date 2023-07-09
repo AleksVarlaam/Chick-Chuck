@@ -8,10 +8,10 @@
                   <%= link_to root_path, class: 'flex items-center', data: {turbo_frame: '_top'} do %>
                       <!-- Chick-Chuck logotype mobile -->
                       <%= image_tag('icons/chick-chuck/chick-chuck-mobile-logo.webp', 
-                        class: "h-10 w-10 object-cover object-center sm:hidden", alt: 'chick-chuck-logotype') %>
+                        class: "sm:hidden h-10 w-10 object-cover object-center", alt: 'chick-chuck-logotype') %>
                       <!-- Chick-Chuck logotype -->
                       <%= image_tag('icons/chick-chuck/chick-chuck-logo.png', 
-                        class: "h-10 w-56 object-cover hidden sm:block", alt: 'chick-chuck-logotype')%>
+                        class: "hidden sm:block h-10 w-56 object-cover", alt: 'chick-chuck-logotype')%>
                   <% end %>
               </div>
               <!-- Mobile menu button -->
@@ -33,7 +33,7 @@
                       current_page: current_page %>
               </nav>
               <!-- User menu -->
-              <div class="flex items-center justify-end flex-auto w-auto space-x-5">
+              <div class="flex items-center justify-end flex-auto w-auto space-x-5 rtl:space-x-reverse">
                   <!-- Locales -->
                   <%= render 'shared/locales'%>
                   <!-- Menu -->
