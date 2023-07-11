@@ -52,6 +52,9 @@ Rails.application.routes.draw do
 
     # About service
     get 'about', to: 'contents/about#index', as: 'about'
+    
+    # Feedbacks
+    resources :feedbacks, only: %i[index create edit update], controller: 'contents/feedbacks'
 
     # News content
     # resources :news, only: %i[show index], controller: 'contents/news' do
@@ -116,9 +119,6 @@ Rails.application.routes.draw do
       # Email subscribers
       resources :mailers, only: [:create]
     end
-
-    # Feedbacks
-    resources :feedbacks, only: %i[index create edit update], controller: 'contents/feedbacks'
 
     # Reviews
     resources :reviews, only: %i[new create edit update], controller: 'feedbacks/reviews'
