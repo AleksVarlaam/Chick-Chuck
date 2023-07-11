@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from active_analytics (originally 20210303094108)
 class CreateActiveAnalyticsViewsPerDays < ActiveRecord::Migration[5.2]
   def up
@@ -11,8 +13,10 @@ class CreateActiveAnalyticsViewsPerDays < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     add_index :active_analytics_views_per_days, :date
-    add_index :active_analytics_views_per_days, [:site, :page, :date], name: "index_active_analytics_views_per_days_on_site_and_date"
-    add_index :active_analytics_views_per_days, [:referrer_host, :referrer_path, :date], name: "index_active_analytics_views_per_days_on_referrer_and_date"
+    add_index :active_analytics_views_per_days, %i[site page date],
+              name: 'index_active_analytics_views_per_days_on_site_and_date'
+    add_index :active_analytics_views_per_days, %i[referrer_host referrer_path date],
+              name: 'index_active_analytics_views_per_days_on_referrer_and_date'
   end
 
   def down

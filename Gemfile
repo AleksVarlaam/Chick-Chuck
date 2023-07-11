@@ -7,8 +7,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
+gem 'active_analytics'
 gem 'bootsnap', require: false
 gem 'carrierwave', '>= 3.0.0.rc', '< 4.0'
+gem 'crawler_detect'
 gem 'devise'
 gem 'devise-i18n'
 gem 'draper'
@@ -39,8 +41,6 @@ gem 'tailwindcss-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component', '~> 2.74'
-gem 'active_analytics'
-gem 'crawler_detect'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

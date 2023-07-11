@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # lib/patches/active_analytics.rb
 
 ActiveAnalytics::ApplicationController.class_eval do
@@ -5,6 +7,6 @@ ActiveAnalytics::ApplicationController.class_eval do
 
   def require_admin
     # This example supposes there are current_user and User#admin? methods
-    raise ActionController::RoutingError.new("Not found") unless current_admin
+    raise ActionController::RoutingError, 'Not found' unless current_admin
   end
 end

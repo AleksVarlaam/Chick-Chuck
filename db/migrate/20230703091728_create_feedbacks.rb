@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFeedbacks < ActiveRecord::Migration[7.0]
   def up
     create_table :feedbacks do |t|
@@ -14,7 +16,7 @@ class CreateFeedbacks < ActiveRecord::Migration[7.0]
       t.timestamps
     end
   end
-  
+
   def down
     drop_table :feedbacks
   end

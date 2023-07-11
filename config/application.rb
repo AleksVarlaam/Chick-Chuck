@@ -27,13 +27,13 @@ module ChickChuck
     config.exceptions_app = lambda { |env|
       ErrorsController.action(:show).call(env)
     }
-    
+
     # Crawler detect
     config.middleware.use Rack::CrawlerDetect
-    
+
     # Anatalitycs
     config.after_initialize do
-      require "patches/active_analytics"
+      require 'patches/active_analytics'
     end
 
     # ActiveJob adapter

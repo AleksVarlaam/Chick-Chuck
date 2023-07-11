@@ -7,10 +7,10 @@ module Contents
         title: t('meta.about.title'),
         description: t('meta.about.desc'),
         alternate: {
-          "x-default" => about_url(locale: nil),
-          "en" => about_url(locale: :en),
-          "ru" => about_url(locale: :ru),
-          "uk" => about_url(locale: :uk),
+          'x-default' => about_url(locale: nil),
+          'en' => about_url(locale: :en),
+          'ru' => about_url(locale: :ru),
+          'uk' => about_url(locale: :uk)
         }
       )
 
@@ -19,6 +19,5 @@ module Contents
       @products = Product.where(published: true).count
       @reviews = Review.count + Comment.count
     end
-    
   end
 end

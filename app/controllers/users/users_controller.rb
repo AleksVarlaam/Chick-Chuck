@@ -15,10 +15,10 @@ module Users
         canonical: users_url,
         noindex: request.original_url.include?('?') ? true : false,
         alternate: {
-          "x-default" => users_url(locale: nil),
-          "en" => users_url(locale: :en),
-          "ru" => users_url(locale: :ru),
-          "uk" => users_url(locale: :uk),
+          'x-default' => users_url(locale: nil),
+          'en' => users_url(locale: :en),
+          'ru' => users_url(locale: :ru),
+          'uk' => users_url(locale: :uk)
         }
       )
 

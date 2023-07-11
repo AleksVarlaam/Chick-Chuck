@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-
 class MainController < ApplicationController
   def index
     set_meta_tags(
       title: [params[:locale]&.capitalize, t('meta.home_page.title')],
       description: t('meta.home_page.desc'),
       alternate: {
-        "x-default" => root_url(locale: nil),
-        "en" => root_url(locale: :en),
-        "ru" => root_url(locale: :ru),
-        "uk" => root_url(locale: :uk),
+        'x-default' => root_url(locale: nil),
+        'en' => root_url(locale: :en),
+        'ru' => root_url(locale: :ru),
+        'uk' => root_url(locale: :uk)
       }
     )
     @companies = Company.confirmed.take(3)
@@ -37,4 +36,3 @@ class MainController < ApplicationController
     end
   end
 end
-

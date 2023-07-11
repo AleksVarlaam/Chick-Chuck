@@ -11,10 +11,10 @@ module Contents
         canonical: calculator_url,
         noindex: request.original_url.include?('?') ? true : false,
         alternate: {
-          "x-default" => calculator_url(locale: nil),
-          "en" => calculator_url(locale: :en),
-          "ru" => calculator_url(locale: :ru),
-          "uk" => calculator_url(locale: :uk),
+          'x-default' => calculator_url(locale: nil),
+          'en' => calculator_url(locale: :en),
+          'ru' => calculator_url(locale: :ru),
+          'uk' => calculator_url(locale: :uk)
         }
       )
 

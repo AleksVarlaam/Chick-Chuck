@@ -24,9 +24,9 @@ Rails.application.routes.draw do
     get 'robots.txt',  to: 'main#robots',  format: 'txt', as: :robots
     # Favicon
     get 'favicon.png', to: 'main#favicon', format: 'png', as: :favicon
-    
+
     # --- Content ---
-    
+
     # Users
     resources :users, only: %i[index show], controller: 'users/users', path: 'carriers' do
       get '/modal',         to: 'users/users#modal',                  as: 'modal'
@@ -49,15 +49,15 @@ Rails.application.routes.draw do
     resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments' do
       resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
     end
-    
+
     # About service
     get 'about', to: 'contents/about#index', as: 'about'
-    
+
     # News content
     # resources :news, only: %i[show index], controller: 'contents/news' do
     #   resources :comments, only: %i[new edit create update destroy], controller: 'feedbacks/comments'
     # end
-    
+
     # --- End of content ---
 
     # Admins
@@ -67,9 +67,9 @@ Rails.application.routes.draw do
       put 'admins',       to: 'admins/registrations#update',  as: 'admin_registration'
       namespace :admins, constraints: AdminConstraint.new do
         # Analytics
-        mount ActiveAnalytics::Engine => "/analytics"
+        mount ActiveAnalytics::Engine => '/analytics'
         # Sidekiq
-        mount Sidekiq::Web => '/sidekiq' 
+        mount Sidekiq::Web => '/sidekiq'
         resources :categories, except: %i[show], controller: 'catalog/categories' do
           resources :things, except: %i[show], controller: 'catalog/things'
         end
@@ -105,7 +105,7 @@ Rails.application.routes.draw do
       resource :profile, only: %i[edit update]
       get '/dashboard', to: 'dashboard#index', as: 'dashboard'
     end
-    
+
     # Users
     namespace :users do
       resources :favorites, only: %i[index create destroy]
@@ -116,7 +116,7 @@ Rails.application.routes.draw do
       # Email subscribers
       resources :mailers, only: [:create]
     end
-    
+
     # Feedbacks
     resources :feedbacks, only: %i[index create edit update], controller: 'contents/feedbacks'
 

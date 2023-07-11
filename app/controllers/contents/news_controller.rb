@@ -8,10 +8,10 @@ module Contents
       set_meta_tags(
         title: t('pages.news'),
         alternate: {
-          "x-default" => news_url(locale: nil),
-          "en" => news_url(locale: :en),
-          "ru" => news_url(locale: :ru),
-          "uk" => news_url(locale: :uk),
+          'x-default' => news_url(locale: nil),
+          'en' => news_url(locale: :en),
+          'ru' => news_url(locale: :ru),
+          'uk' => news_url(locale: :uk)
         }
       )
 
@@ -27,7 +27,7 @@ module Contents
       set_meta_tags(
         title: t('pages.news')
       )
-      
+
       @new = News.find_by_id(params[:id]).decorate
       @news = News.all.decorate
       @commentable, @ratingable = @new

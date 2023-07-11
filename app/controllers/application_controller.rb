@@ -7,5 +7,4 @@ class ApplicationController < ActionController::Base
   include Analytics
 
   add_flash_types :info, :danger, :warning, :success, :notice
-  
 end

@@ -14,10 +14,10 @@ module Contents
         canonical: products_url,
         noindex: request.original_url.include?('?') ? true : false,
         alternate: {
-          "x-default" => products_url(locale: nil),
-          "en" => products_url(locale: :en),
-          "ru" => products_url(locale: :ru),
-          "uk" => products_url(locale: :uk),
+          'x-default' => products_url(locale: nil),
+          'en' => products_url(locale: :en),
+          'ru' => products_url(locale: :ru),
+          'uk' => products_url(locale: :uk)
         }
       )
 
