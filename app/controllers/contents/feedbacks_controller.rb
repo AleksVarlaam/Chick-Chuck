@@ -7,8 +7,8 @@ module Contents
 
     def index
       set_meta_tags(
-        title: t('review.reviews'),
-        description: t('meta.about.desc'),
+        title: t('meta.feedbacks.title'),
+        description: t('meta.feedbacks.desc'),
         alternate: {
           'x-default' => feedbacks_url(locale: nil),
           'en' => feedbacks_url(locale: :en),
@@ -38,7 +38,6 @@ module Contents
 
       respond_to do |format|
         if @feedback.save
-          # set_company_rating(@reviewable)
           format.html do
             redirect_to feedbacks_path, success: t('flash.success.created', model: @feedback.model_name.human.to_s)
           end
@@ -53,7 +52,6 @@ module Contents
     def update
       respond_to do |format|
         if @feedback.update(feedback_params)
-          # set_company_rating(@reviewable)
           format.html do
             redirect_to feedbacks_path, success: t('flash.success.updated', model: @feedback.model_name.human.to_s)
           end

@@ -18,6 +18,9 @@ en:
         about:
             title:  "More about the service"
             desc:   "I am talking about the idea of creating a service and its features. Leave your feedback or suggestion to improve the service."
+        feedbacks:
+            title:  "Feedbacks"
+            desc:   "Here you can leave your review or offer to improve the service. Together we will make this service better!"
         company:
             sign_up:
                 title:  "Become a carrier | Company Registration"
