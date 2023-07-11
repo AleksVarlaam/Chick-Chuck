@@ -8,7 +8,6 @@ module Contents
       set_meta_tags(
         title: t('meta.calculator.title'),
         description: t('meta.calculator.desc'),
-        canonical: calculator_url,
         noindex: request.original_url.include?('?') ? true : false,
         alternate: {
           'x-default' => calculator_url(locale: nil),

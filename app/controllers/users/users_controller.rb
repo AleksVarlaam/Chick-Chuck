@@ -12,7 +12,6 @@ module Users
         title: t('meta.carriers.title'),
         description: t('meta.carriers.desc'),
         keywords: Service.all.decorate.map(&:title).join(', ').sub(/(, )+$/, ''),
-        canonical: users_url,
         noindex: request.original_url.include?('?') ? true : false,
         alternate: {
           'x-default' => users_url(locale: nil),

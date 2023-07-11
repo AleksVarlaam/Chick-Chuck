@@ -11,7 +11,6 @@ module Contents
         title: t('meta.market.title'),
         description: t('meta.market.desc'),
         keywords: Category.all.decorate.map(&:title).join(', ').sub(/(, )+$/, ''),
-        canonical: products_url,
         noindex: request.original_url.include?('?') ? true : false,
         alternate: {
           'x-default' => products_url(locale: nil),
