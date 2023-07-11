@@ -7,7 +7,7 @@ module MetaTagsHelper
       site: 'Chick-Chuck.com',
       reverse: true,
       separator: '|',
-      keywords: "#{t('company.carriers')}, #{t('moving_preparation.title')}, #{t('moving')}, #{t('pages.market')}",
+      keywords: "#{t('company.carriers')}, #{t('moving_preparation.title')}, #{t('moving')}, #{t('pages.market')},  #{Service.all.decorate.map(&:title).join(', ').sub(/(, )+$/, '')}",
       canonical: request.original_url,
       noindex: !Rails.env.production?,
       manifest: '/manifest.webmanifest',
@@ -17,7 +17,7 @@ module MetaTagsHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        image: image_url('icons/chick-chuck/og-chick-chuck.png')
+        image: image_url('logo/og-chick-chuck.png')
       },
       fb: {
         app_id: '2318377664996656'

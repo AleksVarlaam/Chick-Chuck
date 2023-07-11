@@ -14,11 +14,11 @@ module CompanyDecorate
     end
 
     def avatar_medium
-      avatar.present? ? avatar.medium.url : 'icons/chick-chuck/og-chick-chuck.png'
+      avatar.present? ? avatar.medium.url : 'logo/og-chick-chuck.webp'
     end
 
     def avatar_large
-      avatar.present? ? avatar.large.url : 'icons/chick-chuck/og-chick-chuck.png'
+      avatar.present? ? avatar.large.url : 'logo/og-chick-chuck.webp'
     end
   end
 end
