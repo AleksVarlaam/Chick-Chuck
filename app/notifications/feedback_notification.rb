@@ -28,7 +28,7 @@ class FeedbackNotification < Noticed::Base
   end
 
   def url
-    feedbacks_path(anchor: "feedback_#{params[:feedback].id}")
+    feedbacks_url(anchor: "feedback_#{params[:feedback].id}")
   end
 
   def avatar

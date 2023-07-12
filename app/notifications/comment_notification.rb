@@ -32,14 +32,14 @@ class CommentNotification < Noticed::Base
   end
 
   def object_title
-    case comment.object_type
+    case comment&.object_type
     when News.name then "#{comment.object.model_name.human.downcase}: '#{comment.object.title}'"
     when User.name then "#{comment.object.model_name.human.downcase}: '#{comment.object.title}'"
     end
   end
 
   def url
-    return user_path(id: comment.object_id, anchor: "comment_#{comment.id}") if comment.object_type == User.name
+    return user_path(id: comment.object_id, anchor: "comment_#{comment.id}") if comment&.object_type == User.name
 
     [comment.object, { anchor: "comment_#{comment.id}" }]
   end
