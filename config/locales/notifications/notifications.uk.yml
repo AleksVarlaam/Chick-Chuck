@@ -1,0 +1,11 @@
+uk:
+    activerecord:
+        models:
+            notification: 'Сповіщення'
+    notification:
+        comment:          'Прокоментував'
+        reply:            'Відповів на ваш коментар у'
+        reply_truck:      'Вантажівці'    
+        review_truck:     'Поставив оцінку вантажівці'
+        no_notice:        'Немає повідомлень'
+    

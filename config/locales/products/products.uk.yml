@@ -1,0 +1,54 @@
+uk:
+    activerecord:
+        models:
+            product:      'Товар'
+            category:     'Категорія'
+            thing:        'Тип'
+            price:        'Ціна'
+        attributes:
+            product:
+                category:         'Категорія'
+                things:           'Тип'
+                thing:            'Тип'
+                title:            'Заголовок'
+                description:      'Опис'
+                price:            'Ціна'
+                condition:        'Стан'
+                delivery:         'Доставка'
+                images:           'зображення'
+                sold:             'Продано'
+                district:         'Регіон'
+                city:             'Міста'
+    product:
+        to_advertise:     'Розмістити оголошення'
+        add_btn:          'Додати товар'
+        edit_btn:         'Змінити товар'
+        my_products:      'Мої товари'
+        title:            'Назва'
+        mark_as_sold:     'Марка як продана'
+        product_by:       'Товар від перевізника'
+        products:         'товари'
+        user_products:    'Товари %{user_name}'
+        all_products:     'Всі товари'
+        total_products:   'Всього товарів'
+        condition:
+            any:              'Любе'
+            second_hand:      'Вживане'
+            new:              'Нове'
+        delivery: 
+            pickup:           'Самовивіз'
+            price_popover:    'Ціна без врахування доставки'
+        seller:           
+            title:            'Продавець'
+            client:           'Приватна особа'
+            company:          'Перевізник'
+        price:
+            min:              'Від'
+            max:              'До'
+    category:
+        add_btn:          'Додати категорію'
+        edit_btn:         'Змінити категорію'
+    thing:
+        add_btn:          'Додати річ'
+    price:
+        title:            'Назва'

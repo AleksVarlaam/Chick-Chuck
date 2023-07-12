@@ -1,0 +1,22 @@
+en:
+    activerecord:
+        models:
+            calculator:   'Calculator'
+        attributes:
+            calculator:
+                distance:             'Distance'
+                floor_down:           'Floor down'
+                floor_down_elevator:  'Floor down(elevator)'
+                floor_up:             'Floor up'
+                floor_up_elevator:    'Floor down(elevator)'
+    calculator:
+        title:            'Cost сalculator'
+        btn:              'Calculate'
+        km_span:          '₪ per 1 km'
+        floor_span:       '% per 1 floor'
+        options:          'Options'
+        price:            'Price per unit'
+        elevator:         'elevator'
+        note_html:        "Note: This calculator allows you to calculate a preliminary moving cost, which is approximate. <br> The exact cost is agreed with the carrier."
+        company_calculator_html: "Note: Specify the cost of your services so that the customer can calculate the approximate cost of moving. <br> The exact cost is agreed with the carrier."
+    

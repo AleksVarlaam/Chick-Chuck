@@ -1,4 +1,37 @@
 he:
+    activerecord:
+        models:
+            admin:        "מנהל"
+            client:       "משתמש"
+            district:     "אזור"
+            city:         "עיר"
+            language:     "לשון"
+            message:      "מסר"
+        attributes:
+            user:
+                login:            "Login"
+                password:         "סיסמה"
+                new_password:     "סיסמה חדשה"
+                current_password: "הסיסמה שלך"
+                phone:            "הפלאפון"
+                password_confirmation: "אישור סיסמה"
+                first_name:       "שם"
+                last_name:        "שם משפחה"
+                city:             "עיר"
+                gender:           "הרצפה"
+                male:             "הגברי"
+                female:           "נשי"
+                birthday:         "יום הולדת"
+                avatar:           "אווטר"
+                password_popover: "ערכי %{length} הם מינימליים."
+                current_popover:  "אנו זקוקים לסיסמה הנוכחית שלך כדי לאשר את השינויים שביצעת"
+                delete_account:   "מחק חשבון"
+                created_at:       "תאריך הרישום"
+                remove_avatar:    "הסר את האווטאר"
+                contacts:         "הצג אנשי קשר"
+                additional_phone: "טלפון תקשורת"
+            language:
+                title:            "כותרת"
     user_menu:   
         sign_in:          "להיכנס"
         sign_in_company:  "בוא כשליח"
@@ -44,4 +77,11 @@ he:
         facebook_popover: "העתק והדבק קישור ל- Facebook שלך"
     sure_to_del_account:  "האם אתה בטוח שברצונך למחוק את החשבון שלך?"
     did_not_get_email:  "לא קיבלת את המכתב?"
+    chat:
+        search:           "חיפוש בצ'אט"
+    language:
+        language_select:  "בחר את השפות שאתה מדבר"
+    message:
+        placeholder:      "ההודעה שלך..."
+    
         

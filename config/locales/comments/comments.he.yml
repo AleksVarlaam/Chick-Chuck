@@ -1,0 +1,15 @@
+he:
+    activerecord:
+        models:
+            comment:      "תגובה"
+    comment:
+        comments:         "הערות"
+        reply:            "להשיב"
+        edit:             "לשנות את"
+        delete:           "להסיר"
+        delete_as_admin:  'Delete as admin'
+        placeholder:      "ההערה שלך על ה..."
+        updated:          "שונה"
+        need_to_signin:   " כדי להשאיר תגובה, אתה חייב"
+        about_page_title: "השאירו את המשוב שלכם לשירות טוב יותר"
+    

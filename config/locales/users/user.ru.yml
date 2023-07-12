@@ -1,4 +1,37 @@
 ru:
+    activerecord:
+        models:
+            admin:        'Админ'
+            client:       'Пользователь'
+            district:     'Регион'
+            city:         'Город'
+            language:     'Язык'
+            message:      'Сообщение'
+        attributes:
+            user:
+                login:            'Логин'
+                password:         'Пароль'
+                new_password:     'Новый пароль'
+                current_password: 'Ваш пароль'
+                phone:            'Телефон'
+                password_confirmation: 'Подтверждение пароля'
+                first_name:       'Имя'
+                last_name:        'Фамилия'
+                city:             'Город'
+                gender:           'Пол'
+                male:             'Мужской'
+                female:           'Женский'
+                birthday:         'День рождения'
+                avatar:           'аватар'
+                password_popover: "%{length} значений минимум."
+                current_popover:  'Нам нужен ваш текущий пароль, чтобы подтвердить внесенные изменения.'
+                delete_account:   'Удалить аккаунт'
+                created_at:       'Дата регистрации'
+                remove_avatar:    'Удалить аватар'
+                contacts:         "Контакты"
+                additional_phone: "Телефон для связи"
+            language:
+                title:            'Заголовок'
     user_menu:   
         sign_in:          'Войти'
         sign_in_company:  'Войти как перевозчик'
@@ -44,3 +77,10 @@ ru:
         facebook_popover: 'Скопируйте и вставьте ссылку на ваш Facebook'
     sure_to_del_account:  'Вы уверены, что хотите удалить ваш аккаунт?'
     did_not_get_email:  "Не получили письмо?"
+    chat:
+        search:           'Поиска чата'
+    language:
+        language_select:  'Выберите языки, на которых вы говорите'
+    message:
+        placeholder:      'Ваше сообщение...'
+    

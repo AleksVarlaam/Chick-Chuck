@@ -1,0 +1,11 @@
+he:
+    activerecord:
+        models:
+            notification: "הודעה"
+    notification:
+        comment:          "הגיב על"
+        reply:            "תגובה לתגובה שלך"
+        reply_truck:      "במשאית"    
+        review_truck:     "דירג את המשאית"
+        no_notice:        "אין הודעה מוקדמת"
+    

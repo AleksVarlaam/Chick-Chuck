@@ -1,0 +1,54 @@
+ru:
+    activerecord:
+        models:
+            product:      'Товар'
+            category:     'Категория'
+            thing:        'Тип'
+            price:        'Цена'
+        attributes:
+            product:
+                category:         'Категория'
+                things:           'Тип'
+                thing:            'Тип'
+                title:            'Заголовок'
+                description:      'Описание'
+                price:            'Цена'
+                condition:        'Состояние'
+                delivery:         'Доставка'
+                images:           'изображения'
+                sold:             'Продано'
+                district:         'Регион'
+                city:             'Город'
+    product:
+        to_advertise:     'Разместить объявление'
+        add_btn:          'Добавить товар'
+        edit_btn:         'Изменить товар'
+        my_products:      'Мои товары'
+        title:            'Название'
+        mark_as_sold:     'Отметить как продано'
+        product_by:       'Товар от перевозчика'
+        products:         'товары'
+        user_products:    'Товары %{user_name}'
+        all_products:     'Все товары'
+        total_products:   'Всего товаров'
+        condition:
+            any:              'Любое'
+            second_hand:      'Б/У'
+            new:              'Новое'
+        delivery: 
+            pickup:           'Самовывоз'
+            price_popover:    'Цена без учета доставки'
+        seller:           
+            title:            'Продавец'
+            client:           'Частное лицо'
+            company:          'Перевозчик'
+        price:
+            min:              'От'
+            max:              'До'
+    category:
+        add_btn:          'Добавить категорию'
+        edit_btn:         'Изменить категорию'
+    thing:
+        add_btn:          'Добавить вещь'
+    price:
+        title:            'Название'

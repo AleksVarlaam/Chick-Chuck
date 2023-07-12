@@ -4,6 +4,15 @@ he:
   ru: "Русский"
   uk: "Українська"
   israel:  "ישראל"
+  # Pages
+  pages: 
+      home:             "ראש"
+      calculator:       "מחשבון"
+      preparation:      "הכנה"
+      market:           "שוק"
+      news:             "חדשות"
+      knowledge_base:   "בסיס ידע"
+      about:            "על השירות"
   # Global
   global:
       save_btn:         "לשמור"
@@ -29,6 +38,7 @@ he:
       update:           "לעדכן את %{model}"
       select_all:       "תבחרי הכל"
       deselect_all:     "לבטל את כל"
+  moving:           "העברה"
   # Flash
   flash:
       type:

@@ -2,70 +2,9 @@
 he:
     activerecord:
         models:
-            admin:        "מנהל"
-            client:       "משתמש"
-            category:     "קטגוריה"
-            thing:        "סוג"
-            district:     "אזור"
-            city:         "עיר"
-            language:     "לשון"
-            news:         "חדש"
-            truck:        "משאית"
-            product:      "מוצר"
-            calculator:   "מחשבון"
-            price:        "מחיר"
-            message:      "מסר"
-            comment:      "תגובה"
-            notification: "הודעה"
+            
         errors:
               messages:
                   in:         "%{value} אינו חוקי, הזן ערך בטווח %{count}"
         attributes:
-            user:
-                login:            "Login"
-                password:         "סיסמה"
-                new_password:     "סיסמה חדשה"
-                current_password: "הסיסמה שלך"
-                phone:            "הפלאפון"
-                password_confirmation: "אישור סיסמה"
-                first_name:       "שם"
-                last_name:        "שם משפחה"
-                city:             "עיר"
-                gender:           "הרצפה"
-                male:             "הגברי"
-                female:           "נשי"
-                birthday:         "יום הולדת"
-                avatar:           "אווטר"
-                password_popover: "ערכי %{length} הם מינימליים."
-                current_popover:  "אנו זקוקים לסיסמה הנוכחית שלך כדי לאשר את השינויים שביצעת"
-                delete_account:   "מחק חשבון"
-                created_at:       "תאריך הרישום"
-                remove_avatar:    "הסר את האווטאר"
-                contacts:         "הצג אנשי קשר"
-                additional_phone: "טלפון תקשורת"
-            calculator:
-                distance:             "מרחק"
-                floor_down:           "קומות למטה"
-                floor_down_elevator:  "מעלית (מעלית)"
-                floor_up:             "רמות למעלה"
-                floor_up_elevator:    "מעלית (מעלית)"
-            product:
-                category:         "קטגוריה"
-                things:           "סוג"
-                thing:            "סוג"
-                title:            "כותרת"
-                description:      "תיאור"
-                price:            "מחיר"
-                condition:        "מצב"
-                delivery:         "משלוח"
-                images:           "תמונות"
-                sold:             "נמכר"
-                district:         "אזור"
-                city:             "עיר"
-            news:
-                title:            "כותרת"
-                description:      "תיאור"
-                content:          "תוכן"
-                images:           "תמונות"
-            language:
-                title:            "כותרת"
+            

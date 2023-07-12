@@ -4,6 +4,15 @@ en:
   ru: "Русский"
   uk: "Українська"
   israel:  "Israel"
+  # Pages
+  pages: 
+      home:             'Home'
+      calculator:       'Calculator'
+      preparation:      'Preparation'
+      market:           'Market'
+      news:             'News'  
+      knowledge_base:   'Knowledge base' 
+      about:            'About service'
   # Global
   global:
       save_btn:         "Save"
@@ -30,6 +39,7 @@ Subscribe to our news to monitor our progress."
       update:           "Update %{model}"
       select_all:       "Select All"
       deselect_all:     "Deselect All"
+  moving:       "Moving"
   # Flash
   flash:
       type:

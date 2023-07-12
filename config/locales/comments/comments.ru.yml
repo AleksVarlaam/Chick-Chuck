@@ -1,0 +1,15 @@
+ru:
+    activerecord:
+        models:
+            comment:      'Комментарий'
+    comment:
+        comments:         'Комментарии'
+        reply:            'Ответить'
+        edit:             'Изменить'
+        delete:           'Удалить'
+        delete_as_admin:  'Удалить как админ'
+        placeholder:      'Ваш комментарий...'
+        updated:          'Изменено'
+        need_to_signin:   'Чтобы оставить комментарий, необходимо '
+        about_page_title: "Оставьте свой отзыв для улучшения сервиса"
+    

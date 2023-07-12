@@ -2,69 +2,9 @@
 ru:
     activerecord:
         models:
-            admin:        'Админ'
-            client:       'Пользователь'
-            category:     'Категория'
-            thing:        'Тип'
-            district:     'Регион'
-            city:         'Город'
-            language:     'Язык'
-            news:         'Новость'
-            product:      'Товар'
-            calculator:   'Калькулятор'
-            price:        'Цена'
-            message:      'Сообщение'
-            comment:      'Комментарий'
-            notification: 'Уведомление'
+            
         errors:
               messages:
                   in:         "%{value} недопустимое значение, введите значение в диапозоне %{count}"
         attributes:
-            user:
-                login:            'Логин'
-                password:         'Пароль'
-                new_password:     'Новый пароль'
-                current_password: 'Ваш пароль'
-                phone:            'Телефон'
-                password_confirmation: 'Подтверждение пароля'
-                first_name:       'Имя'
-                last_name:        'Фамилия'
-                city:             'Город'
-                gender:           'Пол'
-                male:             'Мужской'
-                female:           'Женский'
-                birthday:         'День рождения'
-                avatar:           'аватар'
-                password_popover: "%{length} значений минимум."
-                current_popover:  'Нам нужен ваш текущий пароль, чтобы подтвердить внесенные изменения.'
-                delete_account:   'Удалить аккаунт'
-                created_at:       'Дата регистрации'
-                remove_avatar:    'Удалить аватар'
-                contacts:         "Контакты"
-                additional_phone: "Телефон для связи"
-            calculator:
-                distance:             'Дистанция'
-                floor_down:           'Этажей вниз'
-                floor_down_elevator:  'Этажей вниз(лифт)'
-                floor_up:             'Этажей вверх'
-                floor_up_elevator:    'Этажей вверх(лифт)'
-            product:
-                category:         'Категория'
-                things:           'Тип'
-                thing:            'Тип'
-                title:            'Заголовок'
-                description:      'Описание'
-                price:            'Цена'
-                condition:        'Состояние'
-                delivery:         'Доставка'
-                images:           'изображения'
-                sold:             'Продано'
-                district:         'Регион'
-                city:             'Город'
-            news:
-                title:            'Заголовок'
-                description:      'Описание'
-                content:          'Содержание'
-                images:           'изображения'
-            language:
-                title:            'Заголовок'
+           

@@ -2,70 +2,9 @@
 uk:
     activerecord:
         models:
-            admin:        'Адмін'
-            client:       'Користувач'
-            category:     'Категорія'
-            thing:        'Тип'
-            district:     'Регіон'
-            city:         'Місто'
-            language:     'Мова'
-            news:         'Новини'
-            truck:        'Вантажівка'
-            product:      'Товар'
-            calculator:   'Калькулятор'
-            price:        'Ціна'
-            message:      'Повідомлення'
-            comment:      'Коментування'
-            notification: 'Сповіщення'
+            
         errors:
               messages:
                   in:         "%{value} неприпустиме значення, введіть значення в діапазоні %{count}"
         attributes:
-            user:
-                login:            'Логін'
-                password:         'Пароль'
-                new_password:     'Новий пароль'
-                current_password: 'Ваш пароль'
-                phone:            'Телефон'
-                password_confirmation: 'Подтвердження пароля'
-                first_name:       'Імʼя'
-                last_name:        'Прізвище'
-                city:             'Місто'
-                gender:           'Стать'
-                male:             'Чоловіча'
-                female:           'Жіноча'
-                birthday:         'День народження'
-                avatar:           'аватар'
-                password_popover: "%{length} значень мінімум."
-                current_popover:  'Нам потрібен ваш поточний пароль, для того щоб підтвердити внесені зміни.'
-                delete_account:   'Видалити акаунт'
-                created_at:       'Дата реєстрації'
-                remove_avatar:    'Вилучити аватар'
-                contacts:         "Контакти"
-                additional_phone: "Телефон зв'язку"
-            calculator:
-                distance:             'Дистанція'
-                floor_down:           'Поверхів вниз'
-                floor_down_elevator:  'Поверхів вниз(ліфт)'
-                floor_up:             'Поверхів вгору'
-                floor_up_elevator:    'Поверхів вгору(ліфт)'
-            product:
-                category:         'Категорія'
-                things:           'Тип'
-                thing:            'Тип'
-                title:            'Заголовок'
-                description:      'Опис'
-                price:            'Ціна'
-                condition:        'Стан'
-                delivery:         'Доставка'
-                images:           'зображення'
-                sold:             'Продано'
-                district:         'Регіон'
-                city:             'Міста'
-            news:
-                title:            'Заголовок'
-                description:      'Опис'
-                content:          'Зміст'
-                images:           'зображення'
-            language:
-                title:            'Заголовок'
+            

@@ -1,0 +1,14 @@
+uk:
+    activerecord:
+        models:
+            news:         'Новини'
+        attributes:
+            news:
+                title:            'Заголовок'
+                description:      'Опис'
+                content:          'Зміст'
+                images:           'зображення'
+    news:
+        all_news:         'Новини'
+        add_btn:          'Додати новини'
+        edit_btn:         'Редагувати новину'

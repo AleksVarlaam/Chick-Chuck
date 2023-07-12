@@ -4,6 +4,15 @@ ru:
   ru: "Русский"
   uk: "Українська"
   israel:  "Израиль"
+  # Pages
+  pages: 
+      home:             'Главная'
+      calculator:       'Калькулятор'
+      preparation:      'Подготовка'
+      market:           'Барахолка'
+      news:             'Новости'
+      knowledge_base:   'База знаний'
+      about:            'О сервисе'
   # Global
   global:
       save_btn:         "Сохранить"
@@ -29,6 +38,7 @@ ru:
       update:           "Обновить %{model}"
       select_all:       "Выбрать все"
       deselect_all:     "Отменить все"
+  moving:           "Переезд"
   # Flash
   flash:
       type:
