@@ -3,9 +3,10 @@ he:
         models:
             notification: "הודעה"
     notification:
+        no_notice:        "אין הודעה מוקדמת"
         comment:          "הגיב על"
         reply:            "תגובה לתגובה שלך"
-        reply_truck:      "במשאית"    
-        review_truck:     "דירג את המשאית"
-        no_notice:        "אין הודעה מוקדמת"
-    
+        rating:           "מעריך את החברה שלך"
+        review:           "השאיר סקירה של החברה שלך"
+        feedback:         "השאיר סקירה חדשה של השירות"
+        

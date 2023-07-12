@@ -3,9 +3,11 @@ en:
         models:
             notification: "Notification"
     notification:
-        comment:          "Commented on the"
-        reply:            "Reply on your comment on the"
-        reply_truck:      "Truck"
-        review_truck:     "Rated the truck"
         no_notice:        "No notice"
+        comment:          "Commented on the"
+        reply:            "Responded to your comment in "
+        rating:           "Appreciated your company"
+        review:           "Left a review of your company"
+        feedback:         "Left a new review of the service"
+        
     

@@ -1,0 +1,10 @@
+<%= tag.h1 @h1, class: "text-lg" %>
+
+<%= tag.p simple_format(@title)%>
+<%= tag.p simple_format(@title_content)%>
+<%= tag.p simple_format(@main_content)%>
+
+<div class="flex justify-start">
+    <%= link_to "Посмотреть", feedbacks_url, class: "link-button"%>
+</div>
+

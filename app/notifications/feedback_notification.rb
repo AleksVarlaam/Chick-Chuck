@@ -9,7 +9,7 @@ class FeedbackNotification < Noticed::Base
   # Add your delivery methods
   #
   deliver_by :database
-  # deliver_by :email, mailer: "UserMailer"
+  deliver_by :email, mailer: "AdminMailer"
   # deliver_by :slack
   # deliver_by :custom, class: "MyDeliveryMethod"
 
@@ -20,7 +20,7 @@ class FeedbackNotification < Noticed::Base
   # Define helper methods to make rendering easier.
   #
   def message
-    t('notification.review')
+    t('notification.feedback')
   end
 
   def object

@@ -3,9 +3,11 @@ uk:
         models:
             notification: 'Сповіщення'
     notification:
-        comment:          'Прокоментував'
-        reply:            'Відповів на ваш коментар у'
-        reply_truck:      'Вантажівці'    
-        review_truck:     'Поставив оцінку вантажівці'
-        no_notice:        'Немає повідомлень'
+        no_notice:        "Немає повідомлень"
+        comment:          "Прокоментував"
+        reply:            "Оцінили вашу компанію "
+        rating:           "Appreciated your company"
+        review:           "Залишив відгук про вашу компанію"
+        feedback:         "Залишив новий огляд сервісу"
+        
     
