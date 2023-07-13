@@ -54,7 +54,7 @@ module Admins
     end
 
     def permitted_attributes
-      %i[ email phone password password_confirmation
+      %i[ email phone password password_confirmation locale
           first_name last_name avatar remove_avatar gender birthday city]
     end
 

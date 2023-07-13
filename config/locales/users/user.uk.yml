@@ -30,6 +30,7 @@ uk:
                 remove_avatar:    'Вилучити аватар'
                 contacts:         "Контакти"
                 additional_phone: "Телефон зв'язку"
+                locale:           "Мова за замовчуванням"
             language:
                 title:            'Заголовок'
     user_menu:   

@@ -72,7 +72,7 @@ module Clients
     end
 
     def permitted_attributes
-      %i[ email phone password password_confirmation
+      %i[ email phone password password_confirmation locale
           first_name last_name avatar gender birthday city_id additional_phone whatsapp telegram facebook]
     end
 

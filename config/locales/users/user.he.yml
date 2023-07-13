@@ -30,6 +30,7 @@ he:
                 remove_avatar:    "הסר את האווטאר"
                 contacts:         "הצג אנשי קשר"
                 additional_phone: "טלפון תקשורת"
+                locale:           "שפת ברירת מחדל"
             language:
                 title:            "כותרת"
     user_menu:   

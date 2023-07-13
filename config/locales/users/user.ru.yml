@@ -30,6 +30,7 @@ ru:
                 remove_avatar:    'Удалить аватар'
                 contacts:         "Контакты"
                 additional_phone: "Телефон для связи"
+                locale:           "Язык по умолчанию"
             language:
                 title:            'Заголовок'
     user_menu:   

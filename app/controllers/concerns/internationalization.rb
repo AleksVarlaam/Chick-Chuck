@@ -5,15 +5,20 @@ module Internationalization
 
   # rubocop:disable Metrics/BlockLength
   included do
-    before_action { I18n.locale = locale_from_url || locale_from_headers || I18n.default_locale }
+    before_action { I18n.locale = current_user_locale || locale_from_url || locale_from_headers || I18n.default_locale }
     around_action :switch_locale
 
     private
 
     def switch_locale(&action)
-      locale = locale_from_url || locale_from_headers || I18n.default_locale
+      locale = current_user_locale || locale_from_url || locale_from_headers || I18n.default_locale
       response.set_header 'Content-Language', locale
       I18n.with_locale locale, &action
+    end
+    
+    def current_user_locale
+      return unless user_signed_in? && params[:locale].nil?
+      current_user.locale
     end
 
     # Adapted from https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/locale.rb

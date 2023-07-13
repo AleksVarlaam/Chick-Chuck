@@ -1,2 +1,4 @@
-        
+<%= turbo_stream.replace "user_locale" do %>        
+    <%= image_tag("icons/locales/icons8-#{current_user.locale}-48.png", class: 'w-6 h-6', alt: "#{current_user.locale}-flag", id: "user_locale")%>
+<% end %>
 <%= prepend_flash %>

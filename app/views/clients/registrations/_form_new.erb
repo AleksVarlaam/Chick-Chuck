@@ -1,6 +1,9 @@
 <!-- Form for new User -->
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: 'false'}) do |f| %>
   <%= render "shared/error_messages", resource: resource %>
+  
+  <!-- Locale -->
+  <%= f.hidden_field :locale, value: I18n.locale %>
 
 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 justify-center flex">
   <!-- Email input -->

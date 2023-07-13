@@ -22,7 +22,7 @@ module Devisable
 
   def permitted_attributes
     [:email, :phone, :password, :password_confirmation,
-     :first_name, :last_name, :avatar, :remove_avatar, :gender, :birthday, :city_id,
+     :first_name, :last_name, :avatar, :remove_avatar, :gender, :birthday, :city_id, :locale,
      :additional_phone, :whatsapp, :telegram, :facebook, :title, :website, :description, { district_ids: [], language_ids: [], service_ids: [] }]
   end
 
