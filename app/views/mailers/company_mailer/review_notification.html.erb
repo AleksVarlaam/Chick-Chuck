@@ -1,0 +1,12 @@
+<!-- Greeting -->
+<%= tag.h1 t('mailer.greeting', recipient: @recipient.email), class: "text-lg" %>
+<!-- Title -->
+<%= tag.p "#{@resource.user.user_name} 
+    #{t(@resource.title.present? || @resource.content.present? ? 'notification.review' : 'notification.rating').downcase}"%>
+<%= tag.p simple_format(@resource.title) %>
+<%= tag.p simple_format(@resource.content) %>
+
+<div class="flex justify-start">
+    <%= link_to t('global.read_more'), user_url(id: @resource.reviewable_id, anchor: "review_#{@resource.id}"), class: "link-button"%>
+</div>
+
