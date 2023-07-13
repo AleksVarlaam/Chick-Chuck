@@ -1,0 +1,3 @@
+ru:
+    mailer:
+        greeting:   "Здравствуйте, %{recipient}!"

@@ -5,28 +5,20 @@
 
 class AdminMailer < ApplicationMailer
   prepend_view_path "app/views/mailers"
-  
-  def message_template(recipient, subject, title, title_content, main_content)
-    @h1 = "Привет #{recipient.user_name} 👋🏻"
-    @title = title
-    @title_content = title_content
-    @main_content  = main_content
-
-    mail to: recipient.email,
-         subject:
-  end
+  before_action :set_recipient
   
   def feedback_notification
-    feedback  = params[:feedback]
-    subject   = Feedback.model_name.human
-    recipient = Admin.first
-    title     = "#{feedback.user.user_name} #{I18n.t('notification.feedback').downcase}:"
-    title_content = feedback.title   || nil
-    main_content  = feedback.content || nil
+    @resource  = params[:feedback]
     
-    AdminMailer.message_template(recipient, subject, title, title_content, main_content).deliver_now
+    mail to: @recipient.email,
+         subject: I18n.t('review.reviews')
   end
 
-
+  private
+  
+  def set_recipient
+    @recipient  = Admin.first
+    I18n.locale = @recipient.locale
+  end
 end
 

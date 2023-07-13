@@ -1,4 +1,4 @@
-<%= tag.h1 @h1, class: "text-lg" %>
+<%= tag.h1 t('mailer.greeting', recipient: @recipient.email), class: "text-lg" %>
 
 <%= tag.p simple_format(@main_content)%>
 
