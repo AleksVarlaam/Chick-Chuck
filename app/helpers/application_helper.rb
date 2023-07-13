@@ -13,7 +13,9 @@ module ApplicationHelper
   def current_locale_path(locale)
     url = request.original_url
 
-    if url.include?('/confirmation/new')
+    if url.include?('/sign_in')
+      new_session_path(resource, locale:)
+    elsif url.include?('/confirmation/new')
       new_confirmation_path(resource, locale:)
     elsif url.include?('/password/new')
       new_password_path(resource, locale:)

@@ -30,4 +30,5 @@ class User < ApplicationRecord
                                   user.user_name.downcase.include?(user_name.downcase)
                                 end
                               }
+                              
 end
