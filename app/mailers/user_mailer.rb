@@ -3,16 +3,16 @@
 # Preview all emails at http://localhost:3000/rails/mailers/company_mailer/example.html
 
 
-class CompanyMailer < ApplicationMailer
+class UserMailer < ApplicationMailer
   prepend_view_path "app/views/mailers"
   
-  def review_notification
-    @resource   = params[:review]
-    @recipient  = @resource.reviewable
+  def message_notification
+    @resource   = params[:message]
+    @recipient  = @resource.recipient
     I18n.locale = @recipient.locale
     
     mail to: @recipient.email,
-         subject: Review.model_name.human
+         subject: Message.model_name.human
   end
 end
 

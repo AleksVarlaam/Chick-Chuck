@@ -1,3 +1,5 @@
 en:
     mailer:
         greeting:   "Hello, %{recipient}!"
+        notification:
+            message:    "%{user} sent you a new message"

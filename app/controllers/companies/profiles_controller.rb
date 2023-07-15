@@ -9,9 +9,12 @@ module Companies
     def profile; end
 
     def profile_update
+      I18n.locale = set_profile_params[:locale] unless set_profile_params[:locale] == @company.locale
       respond_to do |format|
         if @company.update set_profile_params
-          format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: t('flash.account')) }
+          format.html do 
+            redirect_to companies_profile_path, success: t('flash.success.updated', model: t('flash.account')) 
+          end
         else
           format.html { render :profile, status: :unprocessable_entity }
         end

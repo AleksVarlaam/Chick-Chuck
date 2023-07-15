@@ -7,13 +7,16 @@ module Clients
     before_action :set_profile, only: %i[edit update]
 
     def edit; end
-
+    
     def update
+      I18n.locale = set_profile_params[:locale] unless set_profile_params[:locale] == @user.locale
       respond_to do |format|
-        if @profile.update(set_profile_params)
-          format.turbo_stream { flash.now[:success] = t('flash.success.updated', model: t('flash.account')) }
+        if @user.update set_profile_params
+          format.html do 
+            redirect_to edit_clients_profile_path, success: t('flash.success.updated', model: t('flash.account')) 
+          end
         else
-          format.html { render :edit, alert: 'Something went wrong' }
+          format.html { render :edit, status: :unprocessable_entity }
         end
       end
     end
@@ -21,7 +24,7 @@ module Clients
     private
 
     def set_profile
-      @profile = current_client
+      @user = current_client
     end
 
     def set_profile_params
