@@ -6,6 +6,8 @@ module Carrierwave
 
     def show
       @images = @object.images
+      start_index = params[:id].to_i
+      @images = @images.select.with_index {|img, index| index.to_i >= start_index} + @images.select.with_index {|img, index| index.to_i < start_index}
     end
 
     def destroy
@@ -28,13 +30,10 @@ module Carrierwave
 
     def remove_image_at_index(index)
       remain_images = @object.images
-      if index.zero? && @object.images.size == 1
-        @object.remove_images!
-      else
-        deleted_image = remain_images.delete_at(index)
-        deleted_image.try(:remove!)
-        @object.images = remain_images
-      end
+  
+      deleted_image = remain_images.delete_at(index)
+      deleted_image.try(:remove!)
+      @object.images = remain_images
     end
 
     def set_object

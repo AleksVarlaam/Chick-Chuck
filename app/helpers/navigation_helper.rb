@@ -28,4 +28,18 @@ module NavigationHelper
       base_title
     end
   end
+  
+  def current_locale_path(locale)
+    url = request.original_url
+
+    if url.include?('/sign_in')
+      new_session_path(resource, locale:)
+    elsif url.include?('/confirmation/new')
+      new_confirmation_path(resource, locale:)
+    elsif url.include?('/password/new')
+      new_password_path(resource, locale:)
+    else
+      url_for(locale:)
+    end
+  end
 end
