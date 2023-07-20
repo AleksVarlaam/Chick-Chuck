@@ -35,3 +35,4 @@
 !/app/assets/builds/.keep
 
 /brainstorm.txt
+.DS_Store

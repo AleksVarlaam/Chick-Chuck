@@ -9,7 +9,6 @@ class AdminConstraint
 end
 
 Rails.application.routes.default_url_options[:host] = Rails.env.production? ? 'http://chick-chuck.com' : 'localhost:3000'
-
 Rails.application.routes.draw do
   # WWW redirect
   match '(*any)',
