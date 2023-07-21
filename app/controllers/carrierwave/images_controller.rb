@@ -5,9 +5,13 @@ module Carrierwave
     before_action :set_object
 
     def show
-      @images = @object.images
-      start_index = params[:id].to_i
-      @images = @images.select.with_index {|img, index| index.to_i >= start_index} + @images.select.with_index {|img, index| index.to_i < start_index}
+      if params[:avatar].present?
+        @images = [@object.avatar]
+      else
+        @images = @object.images
+        start_index = params[:id].to_i
+        @images = @images.select.with_index {|img, index| index.to_i >= start_index} + @images.select.with_index {|img, index| index.to_i < start_index}
+      end
     end
 
     def destroy
@@ -43,5 +47,6 @@ module Carrierwave
       @object = Message.find(params[:message_id]) if params[:message_id].present?
       @object = News.find(params[:news_id])       if params[:news_id].present?
     end
+    
   end
 end
