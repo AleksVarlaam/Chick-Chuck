@@ -10,10 +10,15 @@
                         data-carousel-target="slide"
                     >
                         <div class="flex justify-center">
-                            <%= image_tag(image.url, 
-                                class: "absolute block max-w-full max-h-screen py-8 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2", 
-                                alt: "Slide #{image.identifier}")
-                            %>
+                            <%= button_tag "Close", 
+                                data: { action: "turbo-modal#hideModal" }, 
+                                type: "button", 
+                                class:"cursor-zoom-out" do %>
+                                <%= image_tag(image.url, 
+                                    class: "absolute block max-w-full max-h-screen py-8 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2", 
+                                    alt: "Slide #{image.identifier}")
+                                %>
+                            <% end %>
                         </div>
                         <%= tag.span "#{index + 1} / #{@images.count}", 
                             class: 'absolute bottom-2 text-gray-600 text-sm font-medium' if @images.count > 1%>
