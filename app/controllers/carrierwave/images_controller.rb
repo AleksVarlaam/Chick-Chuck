@@ -10,7 +10,11 @@ module Carrierwave
       else
         @images = @object.images
         start_index = params[:id].to_i
-        @images = @images.select.with_index {|img, index| index.to_i >= start_index} + @images.select.with_index {|img, index| index.to_i < start_index}
+        @images = @images.select.with_index { |_img, index|
+          index.to_i >= start_index
+        } + @images.select.with_index do |_img, index|
+              index.to_i < start_index
+            end
       end
     end
 
@@ -34,7 +38,7 @@ module Carrierwave
 
     def remove_image_at_index(index)
       remain_images = @object.images
-  
+
       deleted_image = remain_images.delete_at(index)
       deleted_image.try(:remove!)
       @object.images = remain_images
@@ -47,6 +51,5 @@ module Carrierwave
       @object = Message.find(params[:message_id]) if params[:message_id].present?
       @object = News.find(params[:news_id])       if params[:news_id].present?
     end
-    
   end
 end

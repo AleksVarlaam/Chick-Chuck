@@ -9,7 +9,7 @@ class ReviewNotification < Noticed::Base
   # Add your delivery methods
   #
   deliver_by :database
-  deliver_by :email, mailer: "CompanyMailer"
+  deliver_by :email, mailer: 'CompanyMailer'
   # deliver_by :slack
   # deliver_by :custom, class: "MyDeliveryMethod"
 

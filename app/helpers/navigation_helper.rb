@@ -28,7 +28,7 @@ module NavigationHelper
       base_title
     end
   end
-  
+
   def current_locale_path(locale)
     url = request.original_url
 

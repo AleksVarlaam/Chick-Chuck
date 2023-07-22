@@ -12,8 +12,8 @@ module Companies
       I18n.locale = set_profile_params[:locale] unless set_profile_params[:locale] == @company.locale
       respond_to do |format|
         if @company.update set_profile_params
-          format.html do 
-            redirect_to companies_profile_path, success: t('flash.success.updated', model: t('flash.account')) 
+          format.html do
+            redirect_to companies_profile_path, success: t('flash.success.updated', model: t('flash.account'))
           end
         else
           format.html { render :profile, status: :unprocessable_entity }

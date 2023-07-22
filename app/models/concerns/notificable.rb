@@ -13,9 +13,9 @@ module Notificable
     def unviewed_messages_count
       notifications.unviewed_messages.count
     end
-    
+
     def send_devise_notification(notification, *args)
-      I18n.with_locale(self.locale) { super(notification, *args) }
+      I18n.with_locale(locale) { super(notification, *args) }
     end
   end
 end

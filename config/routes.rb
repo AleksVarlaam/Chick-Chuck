@@ -8,7 +8,8 @@ class AdminConstraint
   end
 end
 
-Rails.application.routes.default_url_options[:host] = Rails.env.production? ? 'http://chick-chuck.com' : 'localhost:3000'
+Rails.application.routes.default_url_options[:host] =
+  Rails.env.production? ? 'http://chick-chuck.com' : 'localhost:3000'
 Rails.application.routes.draw do
   # WWW redirect
   match '(*any)',
@@ -53,7 +54,7 @@ Rails.application.routes.draw do
 
     # About service
     get 'about', to: 'contents/about#index', as: 'about'
-    
+
     # Feedbacks
     resources :feedbacks, only: %i[index create edit update], controller: 'contents/feedbacks'
 

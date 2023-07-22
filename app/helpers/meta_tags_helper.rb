@@ -7,7 +7,9 @@ module MetaTagsHelper
       site: 'Chick-Chuck.com',
       reverse: true,
       separator: '|',
-      keywords: "#{t('company.carriers')}, #{t('moving_preparation.title')}, #{t('moving')}, #{t('pages.market')},  #{Service.all.decorate.map(&:title).join(', ').sub(/(, )+$/, '')}",
+      keywords: "#{t('company.carriers')}, #{t('moving_preparation.title')}, #{t('moving')}, #{t('pages.market')},  #{Service.all.decorate.map(&:title).join(', ').sub(
+        /(, )+$/, ''
+      )}",
       canonical: request.original_url,
       noindex: !Rails.env.production?,
       manifest: '/manifest.webmanifest',

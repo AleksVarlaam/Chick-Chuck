@@ -15,9 +15,10 @@ module Internationalization
       response.set_header 'Content-Language', locale
       I18n.with_locale locale, &action
     end
-    
+
     def current_user_locale
       return unless user_signed_in? && params[:locale].nil?
+
       current_user.locale
     end
 

@@ -9,7 +9,7 @@ class FeedbackNotification < Noticed::Base
   # Add your delivery methods
   #
   deliver_by :database
-  deliver_by :email, mailer: "AdminMailer"
+  deliver_by :email, mailer: 'AdminMailer'
   # deliver_by :slack
   # deliver_by :custom, class: "MyDeliveryMethod"
 
