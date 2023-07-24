@@ -3,7 +3,7 @@
 <% provide :nav_title, @user.title %>
 
 <!-- Schema -->
-<%= render 'shared/schema/organization_json', user: @user%>
+<%= render 'shared/meta/organization_json', user: @user%>
 <%= turbo_stream_from @user%>
 
 <%= tag.div class: "grid grid-flow-row auto-rows-max flex w-full px-2 lg:px-6" do %>

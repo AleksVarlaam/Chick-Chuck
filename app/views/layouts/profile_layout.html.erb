@@ -6,7 +6,7 @@
     <!-- Meta -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><%= full_title(yield(:page_title)) %></title>
-    <%= render 'layouts/shared/favicon'%>
+    <%= render 'shared/metafavicon'%>
     <!-- CSRF & stylesheets -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +17,7 @@
     <%= javascript_import_module_tag "trix" %>
     <%= javascript_import_module_tag "@rails/actiontext" %>
     <!-- Current user -->
-    <%= render 'layouts/shared/current_user_meta'%>
+    <%= render 'shared/meta/current_user_meta'%>
   </head>
 
   <body class="flex flex-col h-screen w-screen justify-between">
