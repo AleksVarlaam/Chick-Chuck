@@ -19,7 +19,7 @@ module MetaTagsHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        image: image_url('logo/og-chick-chuck.png')
+        image: [image_url('logo/og-chick-chuck.png'), image_url('logo/og-chick-chuck-sm.png')]
       },
       fb: {
         app_id: '2318377664996656'

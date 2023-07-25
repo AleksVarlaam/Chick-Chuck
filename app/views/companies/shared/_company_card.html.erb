@@ -1,7 +1,7 @@
 <%= turbo_frame_tag company_card, 
     class: "w-full max-w-lg overflow-hidden bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl dark:bg-gray-800" do %>
     <!-- Avatar -->
-    <%= link_to user_path(company_card), data: { turbo_frame: '_top'} do%>
+    <%= link_to user_path(company_card), data: { turbo: false} do%>
         <%= image_tag company_card.avatar_medium,
             class:"object-cover object-center w-full h-56", alt: company_card.title%>
     <% end %>

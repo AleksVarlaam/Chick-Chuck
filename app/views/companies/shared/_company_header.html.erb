@@ -1,13 +1,13 @@
 
-<div class="sm:flex sm:items-center sm:space-x-4 space-y-4 sm:space-y-0">
+<div class="flex items-center space-y-4 sm:space-y-0 flex-row flex-wrap">
     <!-- Title -->
-    <%= tag.h1 class: "text-2xl font-semibold text-gray-800 flex flex-col" do %>
+    <%= tag.h1 class: "text-2xl font-semibold text-gray-800 flex flex-col ltr:mr-4 rtl:ml-4" do %>
            <%= tag.span page_title, class: 'text-sm text-gray-500'%>
            <%= tag.span company.title, class: ' hover:underline' %>
     <% end %>
     <!-- Message -->
     <%= form_with model: Room.new, remote: true, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'},
-         class: 'sm:pt-5 flex items-center text-gray-700 dark:text-gray-200' do |f| %>
+         class: 'sm:pt-5 flex items-center text-gray-700 dark:text-gray-200 ltr:mr-4 rtl:ml-4' do |f| %>
         <%= f.hidden_field :recipient_id, value: company.id%>
         <%= heroicon 'chat-bubble-left-right', class: 'w-6 h-6 flex-none'%>
         <p class="w-full px-2 text-md max-w-screen">
@@ -15,7 +15,7 @@
         </p>
     <% end %>
     <!-- Contacts -->
-    <div class="sm:pt-5 flex items-center text-gray-700 dark:text-gray-200">
+    <div class="sm:pt-5 flex items-center text-gray-700 dark:text-gray-200 ltr:mr-4 rtl:ml-4">
         <%= heroicon 'phone', class: 'w-6 h-6 flex-none'%>
         <p class="w-full px-2 text-md max-w-screen">
             <%= link_to user_contacts_path(company), data: {turbo_frame: 'modal'}, aria: {label: company.title + '_contacts'} do %>
@@ -24,7 +24,7 @@
         </p>
     </div>
     <!-- about -->
-    <%= tag.div class: "sm:pt-5 flex items-center text-gray-700 dark:text-gray-200" do %>
+    <%= tag.div class: "sm:pt-5 flex items-center text-gray-700 dark:text-gray-200 ltr:mr-4 rtl:ml-4" do %>
         <%= heroicon 'identification', class: 'w-6 h-6 flex-none'%>
         <p class="w-full px-2 text-md max-w-screen">
             <%= link_to user_path(company), data: {turbo_frame: 'modal'}, aria: {label: company.title + '_about'} do %>
@@ -32,4 +32,13 @@
             <% end %>
         </p>
     <% end unless current_page?(user_path(company))%>
+    <!-- Share Facebook -->
+    <div class="sm:pt-5 flex items-center">
+        <!-- Your share button code -->
+        <div data-turbo-permanent class="fb-share-button flex items-center" 
+        data-href="<%= request.original_url %>" 
+        data-layout="button_count"
+        data-size="large">
+        </div>
+    </div>
 </div>

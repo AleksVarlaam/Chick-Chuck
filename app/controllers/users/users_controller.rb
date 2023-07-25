@@ -32,7 +32,10 @@ module Users
       set_meta_tags(
         title: [t('israel'), @user.user_name.capitalize],
         keywords: @user.services.decorate.map(&:title).join(', ').sub(/(, )+$/, ''),
-        description: @user.instance_of?(Company) && @user.description.present? ? @user.description.to_s : "#{@user.user_name.capitalize} | #{t('company.carriers').capitalize} | #{t('home_page.main_features.reviews_desc')}"
+        description: @user.instance_of?(Company) && @user.description.present? ? @user.description.to_s : "#{@user.user_name.capitalize} | #{t('company.carriers').capitalize} | #{t('home_page.main_features.reviews_desc')}",
+        og: {
+          image: @user.avatar.url
+        }
       )
 
       return redirect_to root_path unless @user.instance_of?(Company)
