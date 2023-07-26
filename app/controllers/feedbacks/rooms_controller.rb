@@ -49,7 +49,7 @@ module Feedbacks
 
     def set_rooms
       @current_user = current_user
-      @rooms =  search_chat || current_user.rooms.includes(:messages).order('messages.created_at DESC')
+      @rooms = search_chat || current_user.rooms.includes(:messages).order('messages.created_at DESC')
     end
 
     def search_chat
