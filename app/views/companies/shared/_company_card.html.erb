@@ -1,5 +1,6 @@
 <%= turbo_frame_tag company_card, 
-    class: "w-full max-w-lg overflow-hidden bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl dark:bg-gray-800" do %>
+    class: "w-full max-w-lg overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl dark:bg-gray-800 
+        #{'border border-gray-200' unless controller_name == 'products'}" do %>
     <!-- Avatar -->
     <%= link_to user_path(company_card), data: { turbo: false} do%>
         <%= image_tag company_card.avatar_medium,

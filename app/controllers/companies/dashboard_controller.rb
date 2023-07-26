@@ -6,7 +6,9 @@ module Companies
     before_action :authenticate_company!
     before_action :set_company, only: %i[index]
 
-    def index; end
+    def index
+      @products = @company.products.where(sold: true).decorate
+    end
 
     private
 

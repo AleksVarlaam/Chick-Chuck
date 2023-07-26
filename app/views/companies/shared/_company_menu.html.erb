@@ -1,5 +1,17 @@
 <!-- Company menu links list -->
 <hr>
+<!-- Dashboard page -->
+<%= link_to companies_dashboard_path,
+   class: link_class,
+   data: { turbo: false, action: "dropdown#toggle"},
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+  <%= heroicon "rectangle-group", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('user_menu.dashboard')%>
+<% end %>
+
+<hr>
 <!-- Chats -->
 <%= link_to rooms_path, 
    class: link_class, 
@@ -10,17 +22,6 @@
   <%= heroicon "chat-bubble-left-right", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
   <%= t('user_menu.chats')%>
 <% end %>
-
-<!-- Dashboard page -->
-<!-- <%= link_to companies_dashboard_path,
-   class: link_class,
-   data: {action: "dropdown#toggle"},
-   tabindex:"-1",
-   id:"profilePageLink" do
-%>
-  <%= heroicon "rectangle-group", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
-  <%= t('user_menu.dashboard')%>
-<% end %> -->
 
 <!-- Calculator -->
 <%= link_to companies_prices_path, 

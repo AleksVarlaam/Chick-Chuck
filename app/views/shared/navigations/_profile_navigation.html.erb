@@ -5,11 +5,12 @@
 
     <!-- Home path -->
     <%= link_to (heroicon "home", class: "w-5 h-5 hover:text-black"), root_path %>    
-    <%= tag.span '/', class: "mx-5 text-gray-700" if admin_signed_in?%>
+    <%= tag.span '/', class: "mx-5 text-gray-700" if admin_signed_in? || company_signed_in?%>
 
     <!-- Dashboard path -->
     <%= link_to t('user_menu.dashboard'), admins_dashboard_path, class: "text-gray-700 hover:underline" if admin_signed_in?%>
-    <%# link_to t('user_menu.dashboard'), companies_dashboard_path, class: "text-gray-700 hover:underline" if company_signed_in?%>
+    <%= link_to t('user_menu.dashboard'), companies_dashboard_path, data: {turbo:false},
+        class: "text-gray-700 hover:underline" if company_signed_in?%>
     <%# link_to t('user_menu.dashboard'), clients_dashboard_path, class: "text-gray-700 hover:underline" if client_signed_in?%>
 
     <!-- Parent path -->

@@ -6,18 +6,7 @@
 <%= render 'shared/meta/organization_json', user: @user%>
 <%= turbo_stream_from @user%>
 <!-- Load Facebook SDK for JavaScript -->
-<div data-turbo-permanent id="fb-root"></div>
-<script>
-    document.addEventListener("turbo:load", ()=>{
-        (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    })
-</script>
+<%= render 'shared/buttons/facebook_sdk_js'%>
 
 <%= tag.div class: "grid grid-flow-row auto-rows-max flex w-full px-2 lg:px-6" do %>
     <!-- About company section -->

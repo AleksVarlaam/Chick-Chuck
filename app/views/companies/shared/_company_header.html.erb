@@ -33,12 +33,12 @@
         </p>
     <% end unless current_page?(user_path(company))%>
     <!-- Share Facebook -->
-    <div class="sm:pt-5 flex items-center">
+    <%= tag.div class: "sm:pt-5 flex items-center" do %>
         <!-- Your share button code -->
         <div data-turbo-permanent class="fb-share-button flex items-center" 
         data-href="<%= request.original_url %>" 
         data-layout="button_count"
         data-size="large">
         </div>
-    </div>
+    <% end if current_page?(user_path(company))%>
 </div>
