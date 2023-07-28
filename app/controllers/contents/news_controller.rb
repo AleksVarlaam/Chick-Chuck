@@ -2,7 +2,7 @@
 
 module Contents
   class NewsController < ApplicationController
-    before_action :set_show, only: :show
+    after_action  :update_views, only: :show
 
     def index
       set_meta_tags(
@@ -19,11 +19,7 @@ module Contents
       @news = @news.decorate
     end
 
-    def show; end
-
-    private
-
-    def set_show
+    def show
       set_meta_tags(
         title: t('pages.news')
       )
@@ -34,8 +30,12 @@ module Contents
       @comment = Comment.new
       @pagy, @comments = pagy(@new.comments.where(commentable_type: News.name).newest, items: 10,
                                                                                        fragment: '#comments')
+    end
 
-      return if current_admin
+    private
+    
+    def update_views
+      return if request.is_crawler? || current_admin
 
       @new.update(views: @new.views + 1)
     end

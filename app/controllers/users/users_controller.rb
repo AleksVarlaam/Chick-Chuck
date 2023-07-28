@@ -76,7 +76,7 @@ module Users
     end
 
     def update_views
-      return if current_admin || current_company == @user
+      return if request.is_crawler? || current_admin || current_company == @user
 
       @user.update(views: @user.views + 1)
     end

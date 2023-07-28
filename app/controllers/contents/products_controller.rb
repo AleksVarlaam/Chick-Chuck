@@ -3,9 +3,9 @@
 module Contents
   class ProductsController < ApplicationController
     include Feedbacks::ReviewsHelper
-    before_action :set_show, only: :show
     before_action :params_for_select, only: %i[index user_products]
-
+    after_action  :update_views, only: :show
+    
     def index
       set_meta_tags(
         title: t('meta.market.title'),
@@ -27,7 +27,16 @@ module Contents
       @products_count = total_products.count
     end
 
-    def show; end
+    def show
+      @product = Product.find_by_id(params[:id]).decorate
+      @user = User.find(@product.user_id)
+
+      set_meta_tags(
+        title: [t('pages.market'), @product.title],
+        description: @product.description.to_s || "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}",
+        keywords: "#{@product.category.decorate.title}, #{@product.thing.decorate.title}"
+      )
+    end
 
     def user_products
       @user = User.find(params[:user_id])
@@ -50,17 +59,8 @@ module Contents
       params.permit(:category_id, :thing_id, :district_id, :city_id, :price_min, :price_max, :condition, :delivery)
     end
 
-    def set_show
-      @product = Product.find_by_id(params[:id]).decorate
-      @user = User.find(@product.user_id)
-
-      set_meta_tags(
-        title: [t('pages.market'), @product.title],
-        description: @product.description.to_s || "#{t('about.market.title')}. #{@product.category.decorate.title}. #{@product.thing.decorate.title}",
-        keywords: "#{@product.category.decorate.title}, #{@product.thing.decorate.title}"
-      )
-
-      return if @user == current_user
+    def update_views
+      return if request.is_crawler? || current_admin || @user == current_user
 
       @product.update(views: @product.views + 1)
     end
