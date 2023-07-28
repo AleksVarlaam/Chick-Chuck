@@ -4,7 +4,7 @@
         <!-- Carousel wrapper -->
         <%= tag.div class: "h-screen w-auto m-auto relative overflow-hidden rounded-lg" do %>
             <% @images.each_with_index do |image, index| %>
-                <%= turbo_frame_tag image.identifier do %>
+                <%= turbo_frame_tag image do %>
                     <div
                         class="duration-700 ease-in-out absolute inset-0 transition-all text-center"
                         data-carousel-target="slide"
@@ -14,9 +14,9 @@
                                 data: { action: "turbo-modal#hideModal" }, 
                                 type: "button", 
                                 class:"cursor-zoom-out" do %>
-                                <%= image_tag(image.url, 
+                                <%= image_tag(image.instance_of?(Image) ? image.file.url : image.url, 
                                     class: "absolute block max-w-full max-h-screen py-8 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2", 
-                                    alt: "Slide #{image.identifier}")
+                                    alt: "Slide #{image.instance_of?(Image) ? image.id : image.identifier}")
                                 %>
                             <% end %>
                         </div>

@@ -7,13 +7,13 @@
 <!-- Note -->
 <%= tag.p t('company.gallery.desc'), class: 'text-center text-gray-500 mb-4 px-4' %>
 <!-- Form -->
-<%= render 'companies/images/form'%>
+<%= render 'carrierwave/images/form', imageable: @company%>
 <!-- Gallery -->
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6" id="gallery">
-    <% @images.each_with_index do |image, index| %>
+    <% @images.each do |image| %>
         <%= tag.div class: "relative" do%>
             <!-- Destroy -->
-            <%= link_to image_path(index, @company),
+            <%= link_to image_path(image, @company),
                 data: { turbo_method: :delete, turbo_confirm: t('global.are_you_sure'), turbo_frame: '_top' },
                 remote: :true,
                 class: "justify-content-end absolute z-20 bg-gray-100 right-0 rounded-md text-red-700 p-1 m-1" do
@@ -21,9 +21,9 @@
                 <%= heroicon 'minus-circle', class: 'w-6 h-6', alt: 'remove-image'%>
             <% end %>
             <!-- Image -->
-            <%= link_to image_path(index, @company), data: {turbo_frame: 'modal'} do %>
-                <%= image_tag image.medium.url, class: "h-auto max-w-full rounded-lg", alt: "#{@company.title} - #{t('company.carriers')}"%>
+            <%= link_to image_path(image, @company), data: {turbo_frame: 'modal'} do %>
+                <%= image_tag image.file.medium.url, class: "h-auto max-w-full rounded-lg", alt: "#{@company.title} - #{t('company.carriers')}"%>
             <% end %>
         <% end %>
-    <% end %>
+    <% end if @images.count.positive? %>
 </div>

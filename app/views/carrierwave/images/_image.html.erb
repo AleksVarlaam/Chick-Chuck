@@ -1,4 +1,4 @@
-<%= turbo_frame_tag image.identifier do %>
+<%= turbo_frame_tag image do %>
     <div
         class="duration-700 ease-in-out absolute inset-0 transition-all text-center"
         data-carousel-target="slide"
@@ -14,15 +14,15 @@
         <% end %>
         
         <% if action_name == 'show' %>
-            <%= link_to image_path(index, object), data: {turbo_frame: 'modal'} do %>
-                <%= image_tag(action_name != 'index' ? image.large.url : image.medium.url, 
+            <%= link_to image_path(image, object), data: {turbo_frame: 'modal'} do %>
+                <%= image_tag(action_name != 'index' ? image.file.large.url : image.file.medium.url, 
                     class: "rounded-t-lg h-full w-full object-cover absolute block cursor-zoom-in", 
                     alt: "#{object.title}")
                 %>
             <% end %>
         <% else %>
             <%= link_to object, data: {turbo_frame: '_top'} do %>
-                <%= image_tag(action_name != 'index' ? image.large.url : image.medium.url, 
+                <%= image_tag(action_name != 'index' ? image.file.large.url : image.file.medium.url, 
                     class: "rounded-t-lg h-full w-full object-cover absolute block ", 
                     alt: "#{object.title}")
                 %>

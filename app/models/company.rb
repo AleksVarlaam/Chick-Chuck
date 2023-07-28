@@ -9,7 +9,7 @@ class Company < User
 
   belongs_to :city
   has_rich_text :description
-  mount_uploaders :images, ImageUploader
+  # mount_uploaders :images, ImageUploader
   has_and_belongs_to_many :districts, class_name: 'District', foreign_key: :user_id
   has_and_belongs_to_many :languages, class_name: 'Language', foreign_key: :user_id
   has_and_belongs_to_many :services,  class_name: 'Service',  foreign_key: :user_id
@@ -20,6 +20,8 @@ class Company < User
   has_many :reviews,  as: :reviewable,  dependent: :destroy, class_name: 'Review'
   has_many :comments, as: :commentable, dependent: :destroy, class_name: 'Comment', foreign_key: :user_id
   has_many :comments, as: :object,      dependent: :destroy, class_name: 'Comment', foreign_key: :user_id
+  has_many :images,   as: :imageable,   dependent: :destroy, class_name: 'Image'
+  accepts_nested_attributes_for :images
 
   # Scopes
   scope :confirmed, -> { where.not(confirmed_at: nil).order(rating: :desc) }

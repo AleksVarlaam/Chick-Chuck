@@ -7,7 +7,7 @@ module Companies
     before_action :set_company
 
     def index
-      @images = @company.images
+      @images = @company.images.where.not(id: nil)
     end
 
     def upload_images

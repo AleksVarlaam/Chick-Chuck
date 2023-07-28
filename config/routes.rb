@@ -128,6 +128,7 @@ Rails.application.routes.draw do
     # Carrierwave attachments
     namespace :carrierwave do
       resources :images, only: %i[show destroy]
+      patch 'upload_images', to: 'images#upload_images', as: 'upload_images'
     end
 
     # Rooms
