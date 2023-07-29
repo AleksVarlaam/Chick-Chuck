@@ -3,11 +3,13 @@
     <%= render "shared/error_messages", resource: @user %>
     
     <!-- Personal info -->
-    <%= render 'users/form/personal_info',    form: form %>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <%= render 'users/form/personal_info_fields',    form: form %>
+    </div>
     <!-- Avatar -->
     <%= render 'carrierwave/avatar_field',    form: form, imageable: current_user %>
     <!-- Contacts section -->
-    <%= render 'users/form/contacts_section', form: form %>
+    <%= render 'users/form/contacts_section_fields', form: form %>
     <!-- Default locale -->
     <%= render 'users/form/default_locale',   form: form %>
     

@@ -3,7 +3,9 @@
     <%= render "shared/error_messages", resource: @company %>
     
     <!-- Personal info -->
-    <%= render 'users/form/personal_info',  form: form %>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <%= render 'users/form/personal_info_fields',    form: form %>
+    </div>
     <!-- Default locale -->
     <%= render 'users/form/default_locale', form: form %>
     

@@ -10,7 +10,7 @@
        <%= form.label :additional_phone, class: "text-lg" %>
        <%= form.text_field :additional_phone, 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-        placeholder: User.human_attribute_name('additional_phone'), value: current_user.formatted_additional_phone,
+        placeholder: User.human_attribute_name('additional_phone'), value: current_user&.formatted_additional_phone,
         required: false
        %>
     </div>
@@ -20,7 +20,7 @@
        <%= form.label :whatsapp, 'WhatsApp', class: "text-lg" %>
        <%= form.text_field :whatsapp, 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-        placeholder: '+(___) __-___ ____', value: current_user.formatted_whatsapp,
+        placeholder: '+(___) __-___ ____', value: current_user&.formatted_whatsapp,
         required: false
        %>
     </div>
@@ -34,7 +34,7 @@
        </div>
        <%= form.text_field :telegram, 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-        placeholder: '@example', value: current_user.telegram,
+        placeholder: '@example', value: current_user&.telegram,
         required: false
        %>
     </div>
