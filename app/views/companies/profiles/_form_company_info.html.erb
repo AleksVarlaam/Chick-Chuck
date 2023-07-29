@@ -1,12 +1,13 @@
 <!-- Company info form -->
-<%= form_with model: @company, url: companies_company_info_path, method: :put, data: { controller: 'checkbox-select-all' } do |f| %>
+<%= form_with model: @company, url: companies_company_info_path, 
+    method: :put, data: { controller: 'checkbox-select-all' } do |form| %>
     <%= render "shared/error_messages", resource: @company %>
     <!-- Company Info -->
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mb-6">
         <!-- Company name input -->
         <div class="">
-           <%= f.label :title, class: "text-lg" %>
-           <%= f.text_field :title, 
+           <%= form.label :title, class: "text-lg" %>
+           <%= form.text_field :title, 
             class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
             placeholder: Company.human_attribute_name('title'),
             required: true
@@ -15,8 +16,8 @@
     
         <!-- Company website input -->
         <div class="">
-           <%= f.label :website, 'Website URL', class: "text-lg" %>
-           <%= f.text_field :website, autocomplete: "website", 
+           <%= form.label :website, 'Website URL', class: "text-lg" %>
+           <%= form.text_field :website, autocomplete: "website", 
             class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
             placeholder: "https://example.com/",
             required: false
@@ -25,9 +26,9 @@
     </div>
         <!-- Districts -->
         <div class="mb-6">
-           <%= f.label :districts, class: "text-lg" %>
+           <%= form.label :districts, class: "text-lg" %>
            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
-               <%= f.collection_check_boxes(:district_ids, District.all, :id, I18n.locale) do |b| %> 
+               <%= form.collection_check_boxes(:district_ids, District.all, :id, I18n.locale) do |b| %> 
                    <%= b.label class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300", data: {'checkbox-select-all-target' => b.text == District.first.decorate.title ?  "checkboxAll" : ''} do %>
                          <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
                          <%= b.text %>
@@ -39,11 +40,11 @@
         <!-- Languages -->
         <div class="mb-6">
            <div class="flex items-center space-x-2 rtl:space-x-reverse">
-               <%= f.label :languages, class: "text-lg" %>
+               <%= form.label :languages, class: "text-lg" %>
                <%= render 'shared/buttons/popover', text: t('language.language_select'), icon: 'icons/icons8-info-50.png'%>
            </div>
            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
-              <%= f.collection_check_boxes(:language_ids, Language.all, :id, :title) do |b| %> 
+              <%= form.collection_check_boxes(:language_ids, Language.all, :id, :title) do |b| %> 
                   <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
               <% end%>
            </div>
@@ -51,9 +52,9 @@
         
         <!-- Services -->
         <div class="mb-6">
-           <%= f.label :services, class: "text-lg" %>
+           <%= form.label :services, class: "text-lg" %>
            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
-               <%= f.collection_check_boxes(:service_ids, Service.all, :id, I18n.locale) do |b| %> 
+               <%= form.collection_check_boxes(:service_ids, Service.all, :id, I18n.locale) do |b| %> 
                    <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
                <% end%>
            </div>
@@ -62,102 +63,21 @@
         <!-- Description input -->
         <div class="mb-6">
            <div class="flex items-center space-x-2 rtl:space-x-reverse">
-               <%= f.label :description, class: "text-lg" %>
+               <%= form.label :description, class: "text-lg" %>
                <%= render 'shared/buttons/popover', text: t('company.sign_up.slogan_length', length: 1000), icon: "icons/icons8-info-50.png"%>
            </div>
            <div class="text-gray-600 justify-center col-span-full mt-6 w-full">
-               <%= f.rich_text_area :description, class: "w-full p-2 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring"%>
+               <%= form.rich_text_area :description, class: "w-full p-2 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring"%>
            </div>
         </div>
     
         <!-- Logo -->
-        <div class="flex grid grid-rows-1 text-center items-center justify-center">
-            <label class="block text-sm font-medium text-white">
-            Image
-          </label>
-          <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-            <div class="space-y-1 text-center">
-              <%= f.label :avatar, class: "cursor-pointer" do %>
-                  <% if current_company.avatar.present?%>
-                      <%= image_tag(current_company.avatar_thumb, class: "cursor-pointer object-cover mx-auto h-12 w-12 rounded-full", alt: "avatar") %>
-                  <% else %>
-                  <svg class="mx-auto h-12 w-12 text-gray-700" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <% end %>
-                  <div class="text-gray-700 mt-1 mb-2 justify-center text-center text-base" data-controller="image" id="Img">
-                      <span class="relative rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                          <%= t(current_user.avatar.present? ? 'global.update' : 'global.upload', model: Company.human_attribute_name('avatar'))%>
-                      </span>
-                          <%= f.file_field :avatar, multiple: false, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#preview" %>
-                  </div>
-                  <p class="text-xs text-gray-700">
-                    PNG, JPG, GIF up to 10MB
-                  </p>
-              <% end %>
-            </div>
-          </div>
-          <%= tag.p class: 'mt-3 space-x-1' do %>
-                <%= f.check_box :remove_avatar %>
-                <%= f.label :remove_avatar%>
-          <% end if current_company.avatar.present? %>
-        </div>
-        
-        <!-- Contacts -->
-        <%= tag.h1 t('contacts'), class: "my-6 text-xl font-bold text-gray-700 capitalize dark:text-gray-700"%>
-        
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mb-6">
-            <!-- Additional Phone input -->
-            <div class="">
-               <%= f.label :additional_phone, class: "text-lg" %>
-               <%= f.text_field :additional_phone, 
-                class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-                placeholder: Company.human_attribute_name('additional_phone'), value: @company.formatted_additional_phone,
-                required: false
-               %>
-            </div>
-    
-            <!-- WhatsApp input -->
-            <div class="">
-               <%= f.label :whatsapp, 'WhatsApp', class: "text-lg" %>
-               <%= f.text_field :whatsapp, 
-                class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-                placeholder: '+(___) __-___ ____', value: @company.formatted_whatsapp,
-                required: false
-               %>
-            </div>
-    
-            <!-- Telegram input -->
-            <div class="">
-               <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                   <%= f.label :telegram, 'Telegram', class: "text-lg" %>
-                   <!-- Popover button-->
-                   <%= render 'shared/buttons/popover', text: t('telegram.telegram_popover'), icon: 'icons/icons8-info-50.png'%>
-               </div>
-               <%= f.text_field :telegram, 
-                class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-                placeholder: '@example', value: @company.telegram,
-                required: false
-               %>
-            </div>
-    
-            <!-- Facebook input -->
-            <div class="">
-               <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                   <%= f.label :facebook, 'Facebook', class: "text-lg" %>
-                   <!-- Popover button-->
-                   <%= render 'shared/buttons/popover', text: t('facebook.facebook_popover'), icon: 'icons/icons8-info-50.png'%>
-               </div>
-               <%= f.text_field :facebook, 
-                class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-                placeholder: 'https://web.facebook.com/example',
-                required: false
-               %>
-            </div>
-        </div>
+        <%= render 'carrierwave/avatar_field', form: form, imageable: current_user %>
+        <!-- Contacts section -->
+        <%= render 'users/form/contacts_section', form: form %>
     
     <!-- Button Save -->
     <div class="flex justify-start">
-        <%= f.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+        <%= form.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
     </div>
 <% end %>

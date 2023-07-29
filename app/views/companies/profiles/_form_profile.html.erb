@@ -1,75 +1,14 @@
 <!-- Personal info form -->
-<%= form_with model: @company, url: companies_profile_path, method: :put do |f| %>
+<%= form_with model: @company, url: companies_profile_path, method: :put do |form| %>
     <%= render "shared/error_messages", resource: @company %>
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <!-- First Name -->
-        <div>
-            <%= f.label :first_name, class: "text-gray-700 text-lg"%>
-            <%= f.text_field :first_name, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
-                placeholder: User.human_attribute_name('first_name')%>
-        </div>
-        
-        <!-- Last Name -->
-        <div>
-            <%= f.label :last_name, class: "text-gray-700 text-lg"%>
-            <%= f.text_field :last_name, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
-                placeholder: User.human_attribute_name('last_name')%>
-        </div>
-        
-        <!-- City -->
-        <div class="">
-            <%= f.label :city, class: "text-gray-700 text-lg"%>
-            <%= f.grouped_collection_select(:city_id, District.all.decorate.drop(1), :cities, :title, :id, I18n.locale, 
-                { include_blank: t('global.select'), selected: params[:city_id] || @company.city_id}, 
-                {class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"})%>
-        </div>
-        
-        <!-- Birthday -->
-        <div>
-            <%= f.label :birthday, class: "text-gray-700 text-lg" %>
-            <%= f.date_field :birthday, autocomplete: "birthday", 
-                 class: "block w-full px-4 py-2 mt-1 text-gray-500 bg-white border border-gray-300 rounded-md focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", 
-                 plcaholder: User.human_attribute_name('birthday')%>
-        </div>
-        
-        <!-- Default locale -->
-        <div data-controller="dropdown" class="relative flex items-center space-x-2 rtl:space-x-reverse">
-           <%= f.label :locale, class: "text-gray-700 text-lg mb-1" %>
-          <button type="button" data-action="dropdown#toggle click@window->dropdown#hide"
-              class="flex items-center ltr:-mr-3 whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-              <svg aria-hidden="true" class="w-4 h-4 mr-1 ltr:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-              <%= image_tag("icons/locales/icons8-#{current_user.locale}-48.png", class: 'w-6 h-6', 
-                  alt: "#{current_user.locale}-flag", id: "user_locale")%>
-              <svg aria-hidden="true" class="w-4 h-4 ml-1 rtl:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-          </button>
-
-          <div
-            data-dropdown-target="menu"
-            class="hidden transition transform absolute  z-50 w-auto mt-2 border shadow-md hover:shadow-lg rounded-lg"
-            data-transition-enter-from="opacity-0 scale-95"
-            data-transition-enter-to="opacity-100 scale-100"
-            data-transition-leave-from="opacity-100 scale-100"
-            data-transition-leave-to="opacity-0 scale-95"
-          >
-            <ul class="py-1 text-sm w-auto text-gray-700 bg-white rounded-lg shadow-lg">
-              <% I18n.available_locales.each do |locale| %>
-                  <li class="flex items-center w-full font-medium block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 rtl:ml-4 ltr:mr-4 space-x-2 rtl:space-x-reverse">
-                      <%= f.radio_button :locale, locale %>
-                      <%= f.label "locale_#{locale}",
-                          class: "flex items-center cursor-pointer" do %>
-                          <%= image_tag("icons/locales/icons8-#{locale}-48.png", 
-                            class: "w-5 h-5 ltr:mr-2 rtl:ml-2", alt: "#{locale}-flag")%>
-                          <%= t(locale)%>
-                      <% end %>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-    </div>
+    
+    <!-- Personal info -->
+    <%= render 'users/form/personal_info',  form: form %>
+    <!-- Default locale -->
+    <%= render 'users/form/default_locale', form: form %>
     
     <!-- Button Save -->
     <div class="flex justify-start mt-6">
-        <%= f.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+        <%= form.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
     </div>
 <% end %>

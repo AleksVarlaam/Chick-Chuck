@@ -1,44 +1,15 @@
 <!-- Password & Security form -->
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: 'false'}) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), 
+    html: { method: :put }, data: { turbo: 'false'}) do |form| %>
   <%= render "shared/error_messages", resource: resource %>
   
     <!-- Avatar -->
-    <div class="flex mt-6 grid grid-rows-1 text-center items-center justify-center">
-        <label class="block text-sm font-medium text-white">
-        Image
-      </label>
-      <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-        <div class="space-y-1 text-center">
-          <%= f.label :avatar, class: "cursor-pointer" do %>
-              <% if current_admin.avatar.present?%>
-                  <%= image_tag(current_admin.avatar_thumb, class: "cursor-pointer object-cover mx-auto h-12 w-12 rounded-full", alt: "avatar") %>
-              <% else %>
-              <svg class="mx-auto h-12 w-12 text-gray-700" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <% end %>
-              <div class="text-gray-700 mt-1 mb-2 justify-center text-center text-base" data-controller="image" id="Img">
-                  <span class="relative rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                      <%= t(current_user.avatar.present? ? 'global.update' : 'global.upload', model: User.human_attribute_name('avatar'))%>
-                  </span>
-                      <%= f.file_field :avatar, multiple: false, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#preview" %>
-              </div>
-              <p class="text-xs text-gray-700">
-                PNG, JPG, GIF up to 10MB
-              </p>
-          <% end %>
-        </div>
-      </div>
-      <%= tag.p class: 'mt-3 space-x-1' do %>
-            <%= f.check_box :remove_avatar %>
-            <%= f.label :remove_avatar%>
-      <% end if current_admin.avatar.present? %>
-    </div>
+    <%= render 'carrierwave/avatar_field', form: form, imageable: current_admin %>
   
     <!-- First Name input -->
     <div class="mb-6">
-       <div class="flex items-center"><%= f.label :first_name, class: "text-lg" %></div>
-       <%= f.text_field :first_name, autocomplete: "first_name", 
+       <div class="flex items-center"><%= form.label :first_name, class: "text-lg" %></div>
+       <%= form.text_field :first_name, autocomplete: "first_name", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         id: "firstName-input",
         placeholder: User.human_attribute_name('first_name'),
@@ -48,8 +19,8 @@
 
     <!-- Last Name input -->
     <div class="mb-6">
-       <%= f.label :last_name, class: "text-lg" %>
-       <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", 
+       <%= form.label :last_name, class: "text-lg" %>
+       <%= form.text_field :last_name, autofocus: true, autocomplete: "last_name", 
         class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
         id: "lastName-input",
         placeholder: User.human_attribute_name('last_name'),
@@ -59,8 +30,8 @@
 
   <!-- Email input -->
   <div class="mb-6">
-     <%= f.label :email, class: "text-lg" %>
-     <%= f.email_field :email, autocomplete: "email", 
+     <%= form.label :email, class: "text-lg" %>
+     <%= form.email_field :email, autocomplete: "email", 
       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
       id: "email-input",
       placeholder: "Email address",
@@ -70,20 +41,20 @@
   
   <!-- Phone -->
   <div class="mb-6">
-      <%= f.label :phone, class: "text-gray-700 text-lg"%>
-      <%= f.text_field :phone, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", id: "phone", placeholder: User.human_attribute_name('phone')%>
+      <%= form.label :phone, class: "text-gray-700 text-lg"%>
+      <%= form.text_field :phone, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", id: "phone", placeholder: User.human_attribute_name('phone')%>
   </div>
 
   <!-- Password input -->
   <div class="mb-6">
     <div class="flex items-center">
-        <%= f.label :password, User.human_attribute_name('new_password') , class: "text-lg mr-1" %>
+        <%= form.label :password, User.human_attribute_name('new_password') , class: "text-lg mr-1" %>
         <% if @minimum_password_length %>
             <!-- Popover button-->
             <%= render 'shared/buttons/popover', text: User.human_attribute_name('password_popover', length: @minimum_password_length)%>
         <% end %>
     </div>
-    <%= f.password_field :password, autocomplete: "new-password",
+    <%= form.password_field :password, autocomplete: "new-password",
       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
       id: "newPassword-input",
       placeholder: User.human_attribute_name('new_password'),
@@ -93,8 +64,8 @@
 
   <!-- Password confirmation -->
   <div class="mb-6">
-     <%= f.label :password_confirmation, class: "text-lg" %>
-     <%= f.password_field :password_confirmation, autocomplete: "new-password",
+     <%= form.label :password_confirmation, class: "text-lg" %>
+     <%= form.password_field :password_confirmation, autocomplete: "new-password",
        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
        id: "passwordConfirmation-input",
        placeholder: User.human_attribute_name('password_confirmation'),
@@ -106,11 +77,11 @@
   <div class="mb-6">
      <div class="flex items-center">
          <span class="text-red-500 mr-1">&nbsp;*</span>
-         <%= f.label :current_password, User.human_attribute_name('current_password') , class: "text-lg mr-1" %>
+         <%= form.label :current_password, User.human_attribute_name('current_password') , class: "text-lg mr-1" %>
          <!-- Popover button-->
          <%= render 'shared/buttons/popover', text: "#{User.human_attribute_name('current_popover')}"%>
      </div>
-     <%= f.password_field :current_password, autocomplete: "current_password",
+     <%= form.password_field :current_password, autocomplete: "current_password",
        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
        id: "currentPassword-input",
        placeholder: User.human_attribute_name('current_password'),
@@ -122,45 +93,13 @@
   </div>
   
   <!-- Default locale -->
-  <div data-controller="dropdown" class="relative flex items-center space-x-2 rtl:space-x-reverse mb-6">
-     <%= f.label :locale, class: "text-gray-700 text-lg mb-1" %>
-    <button type="button" data-action="dropdown#toggle click@window->dropdown#hide"
-        class="flex items-center ltr:-mr-3 whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-        <svg aria-hidden="true" class="w-4 h-4 mr-1 ltr:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        <%= image_tag("icons/locales/icons8-#{current_user.locale}-48.png", class: 'w-6 h-6', 
-            alt: "#{current_user.locale}-flag", id: "user_locale")%>
-        <svg aria-hidden="true" class="w-4 h-4 ml-1 rtl:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-    </button>
-
-    <div
-      data-dropdown-target="menu"
-      class="hidden transition transform absolute  z-50 w-auto mt-2 border shadow-md hover:shadow-lg rounded-lg"
-      data-transition-enter-from="opacity-0 scale-95"
-      data-transition-enter-to="opacity-100 scale-100"
-      data-transition-leave-from="opacity-100 scale-100"
-      data-transition-leave-to="opacity-0 scale-95"
-    >
-      <ul class="py-1 text-sm w-auto text-gray-700 bg-white rounded-lg shadow-lg">
-        <% I18n.available_locales.each do |locale| %>
-            <li class="flex items-center w-full font-medium block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 rtl:ml-4 ltr:mr-4 space-x-2 rtl:space-x-reverse">
-                <%= f.radio_button :locale, locale %>
-                <%= f.label "locale_#{locale}",
-                    class: "flex items-center cursor-pointer" do %>
-                    <%= image_tag("icons/locales/icons8-#{locale}-48.png", 
-                      class: "w-5 h-5 ltr:mr-2 rtl:ml-2", alt: "#{locale}-flag")%>
-                    <%= t(locale)%>
-                <% end %>
-            </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+  <%= render 'users/form/default_locale', form: form %>
  
   <!-- Buttons -->
   <div class="flex mt-6 grid grid-cols-4">
       <!-- Button Save -->
       <div class="flex justify-start col-span-3">
-          <%= f.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+          <%= form.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
       </div>
   </div>  
 <% end %>     
