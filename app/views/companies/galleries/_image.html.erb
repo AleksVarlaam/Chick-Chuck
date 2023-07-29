@@ -9,6 +9,7 @@
     <% end %>
     <!-- Image -->
     <%= link_to image_path(image, @company), data: {turbo_frame: 'modal'} do %>
-        <%= image_tag image.file.medium.url, class: "h-auto max-w-full rounded-lg", alt: "#{@company.title} - #{t('company.carriers')}"%>
+        <%= image_tag image.file.medium.url, alt: "#{@company.title} - #{t('company.carriers')}", 
+            class: "h-auto max-w-full rounded-lg cursor-zoom-in"%>
     <% end %>
 <% end %>

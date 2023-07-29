@@ -3,8 +3,9 @@
 class News < ApplicationRecord
   validates :title, :description, :content, :images, presence: true
 
-  mount_uploaders :images, ImageUploader
   belongs_to :admin, foreign_key: :user_id
+  has_many :images,   as: :imageable,   dependent: :destroy, class_name: 'Image'
+  accepts_nested_attributes_for :images
 
   has_rich_text :content
   has_many :comments, as: :commentable, dependent: :destroy, class_name: 'Comment'

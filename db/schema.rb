@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_28_112156) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_29_150612) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -100,7 +100,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_112156) do
     t.bigint "object_id", null: false
     t.string "commentable_type", null: false
     t.bigint "commentable_id", null: false
-    t.json "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
@@ -170,7 +169,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_112156) do
   create_table "messages", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
-    t.json "images"
     t.text "content"
     t.boolean "readed", default: false
     t.datetime "created_at", null: false
@@ -181,7 +179,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_112156) do
 
   create_table "news", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.json "images"
     t.string "title", null: false
     t.text "description", null: false
     t.boolean "published", default: true, null: false
@@ -217,7 +214,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_112156) do
     t.bigint "thing_id", null: false
     t.bigint "district_id", null: false
     t.bigint "city_id", null: false
-    t.json "images"
     t.string "title", null: false
     t.string "description"
     t.integer "condition", null: false
@@ -326,7 +322,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_112156) do
     t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "images"
     t.bigint "city_id"
     t.string "locale", default: "en", null: false
     t.index ["city_id"], name: "index_users_on_city_id"
