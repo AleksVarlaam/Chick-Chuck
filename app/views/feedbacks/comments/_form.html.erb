@@ -1,7 +1,7 @@
 <%= turbo_frame_tag dom_id(@commentable, :new_comment) do%>
     
     <%= form_with model: [@commentable, @comment], method: :post,
-        data: { controller: :form, remote: true, action: "turbo:submit-end->form#clear" } do |f| %>
+        data: { controller: :form, remote: true, action: "turbo:submit-end->form#clear" } do |form| %>
       <% if @comment.errors.any? %>
         <% @comment.errors.each do |error| %>
           <%= error.full_message %>
@@ -11,25 +11,26 @@
           <!-- Comment content -->
           <div class="px-4 py-2 bg-white rounded-t-lg">
               <span id="Img" class="flex items-center my-2 overflow-x-auto space-x-3"></span>
-              <%= f.text_area :content, id: "chat", class: "w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0", 
+              <%= form.text_area :content, id: "chat", class: "w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0", 
                   placeholder: t('comment.placeholder'), required: true,
                   autofocus: @commentable.class.name == Comment.name ? true : false%>
           </div>
           <!-- Button submit -->
           <div class="flex items-center justify-between px-3 py-2 border-t">
-              <%= f.button t('global.send_btn'), type: 'submit', 
+              <%= form.button t('global.send_btn'), type: 'submit', 
                   class: "inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800"%>
               <div class="flex pl-0 space-x-1 sm:pl-2">
                   <!-- Upload Images -->
-                  <% @comment.images.each do |image| %>
-                    <%= f.hidden_field :images, multiple: true, value: image.identifier, id: image.identifier %>
-                  <% end %>
                   <button type="button" class="inline-flex justify-center p-2 rounded-lg cursor-pointer text-gray-400 hover:text-white hover:bg-gray-600">
                         <div class="space-y-1 text-center">
-                          <%= f.label :images, class: "cursor-pointer" do %>
+                          <%= form.label :images, class: "cursor-pointer" do %>
                               <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
                               <span class="sr-only">Upload image</span>
-                                  <%= f.file_field :images, multiple: true, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#comment_preview" %>
+                                  <%= form.fields_for :images, Image.new do |image| %>
+                                      <%= form.file_field :images, multiple: true, class: "sr-only", name: "images[file][]", 
+                                          accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", 
+                                          "data-action": "image#comment_preview" %>
+                                  <% end %>
                           <% end %>
                         </div>
                   </button>

@@ -17,6 +17,7 @@ module Feedbacks
       @new_comment.object = @new_comment.commentable.instance_of?(Comment) ? @commentable.object : @commentable
 
       if @new_comment.save
+        helpers.upload_image(@new_comment)
         if @new_comment.commentable.instance_of?(Comment)
           @new_comment.broadcast_append_to @new_comment.commentable,
                                            target: helpers.dom_id(@new_comment.commentable, :replies),
@@ -38,7 +39,7 @@ module Feedbacks
     def update
       respond_to do |format|
         if current_user.comments.include?(@comment) && @comment.update(comment_params)
-
+          helpers.upload_image(@comment)
           @comment.broadcast_update_to @comment.commentable,
                                        target: helpers.dom_id(@comment),
                                        partial: 'feedbacks/comments/comment', locals: { comment: @comment.decorate }
@@ -71,7 +72,7 @@ module Feedbacks
     private
 
     def comment_params
-      params.require(:comment).permit(:content, images: [], append_images: [])
+      params.require(:comment).permit(:content, images_attributes: [:id, :file])
     end
 
     def set_commentable

@@ -10,7 +10,8 @@ module Feedbacks
       @new_message = current_user.messages.build(message_params)
 
       return unless @new_message.save
-
+      
+      helpers.upload_image(@new_message)
       @room = @new_message.room
       recipient = @new_message.recipient
 
@@ -33,6 +34,7 @@ module Feedbacks
       return unless current_user.messages.include?(@message)
       return unless @message.update(message_params)
 
+      helpers.upload_image(@message)
       @message.broadcast_update_to @room, target: "room_#{@room.id}_message_#{@message.id}",
                                           partial: 'feedbacks/messages/message'
       respond_to do |format|
@@ -53,7 +55,7 @@ module Feedbacks
     private
 
     def message_params
-      params.require(:message).permit(:room_id, :content, images: [], append_images: [])
+      params.require(:message).permit(:room_id, :content, images_attributes: [:id, :file])
     end
 
     def set_message
