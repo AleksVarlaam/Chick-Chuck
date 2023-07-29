@@ -14,7 +14,7 @@
         <% end %>
         
         <% if ['show', 'edit', 'update'].include?(action_name) %>
-            <%= link_to image_path(image, object), data: {turbo_frame: 'modal'} do %>
+            <%= link_to carrierwave_image_path(image), data: {turbo_frame: 'modal'} do %>
                 <%= image_tag(action_name != 'index' ? image.file.large.url : image.file.medium.url, 
                     class: "rounded-t-lg h-full w-full object-cover absolute block cursor-zoom-in", 
                     alt: "#{object.title}")

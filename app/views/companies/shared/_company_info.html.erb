@@ -2,7 +2,7 @@
 <%= tag.div class: "w-full flex flex-col max-w-xl justify-center dark:bg-gray-800 rounded-lg" do %>
     <div class="flex justify-center">
         <!-- Avatar -->
-        <%= link_to image_path(0, company, true), data: {turbo_frame: 'modal'}, class: "w-full" do %>
+        <%= link_to carrierwave_image_path(company, avatar: true), data: {turbo_frame: 'modal'}, class: "w-full" do %>
             <%= image_tag company.avatar_large,
                 class: "object-cover object-center w-full max-w-xl h-56 sm:h-72 rounded-t-lg cursor-zoom-in", alt: company.title%>
         <% end %>

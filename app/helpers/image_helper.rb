@@ -10,6 +10,10 @@ module ImageHelper
     @images.present?
   end
   
+  def is_avatar?
+    params[:avatar].present?
+  end
+  
   def image_path(image, object, avatar = nil)
     if    object.instance_of?(Product)
       carrierwave_image_path(id: image, product_id: object.id, avatar:)
