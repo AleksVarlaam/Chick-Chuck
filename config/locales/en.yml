@@ -30,6 +30,7 @@ en:
       publish_btn:      "Publish in general view"
       hide_btn:         "Hide from general view"
       image:            "Image"
+      images:           "Images"
       unavailable_html: "Our service is just launched and the %{model} are currently unavailable, please come back later.<br>
 Subscribe to our news to monitor our progress."
       da:               "Yes"

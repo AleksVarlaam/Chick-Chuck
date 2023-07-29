@@ -27,6 +27,10 @@ module Users
 
       respond_to do |format|
         if @product.save
+          @images = []
+          params[:images]['file'].each do |image|
+            @images << @product.images.create!(file: image) if image.present?
+          end
           format.turbo_stream do
             flash.now[:success] = t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}")
           end
@@ -41,6 +45,10 @@ module Users
     def update
       respond_to do |format|
         if @product.update(product_params)
+          @images = []
+          params[:images]['file'].each do |image|
+            @images << @product.images.create!(file: image) if image.present?
+          end
           format.turbo_stream do
             flash.now[:success] = t('flash.success.updated', model: "#{@product.model_name.human} #{@product.title}")
           end
@@ -102,7 +110,7 @@ module Users
 
     def product_params
       params.require(:product).permit(:category_id, :thing_id, :district_id, :city_id, :title, :condition, :delivery,
-                                      :description, :price, { images: [] })
+                                      :description, :price, { images_attributes: [:id, :file] })
     end
 
     def filter_product

@@ -34,8 +34,9 @@ module Carrierwave
     end
 
     def destroy
+      @image = Image.find(params[:id])
       respond_to do |format|
-        if remove_image_at_index(params[:id].to_i) && @object.save!
+        if @image.destroy
           format.turbo_stream do
             flash[:success] = t('flash.success.destroyed', model: t('global.image'))
             redirect_to request.referer
@@ -53,14 +54,6 @@ module Carrierwave
     
     def images_params
       params.require(:imageable).permit(images_attributes: [:id, :file])
-    end
-
-    def remove_image_at_index(index)
-      remain_images = @object.images
-
-      deleted_image = remain_images.delete_at(index)
-      deleted_image.try(:remove!)
-      @object.images = remain_images
     end
 
     def set_object
