@@ -3,7 +3,7 @@
 class Product < ApplicationRecord
   include Filterable
   validates_associated :category, :thing, :district, :city
-  validates :title, :condition, :delivery, :price, :images, presence: true
+  validates :title, :condition, :delivery, :price, presence: true
 
   belongs_to :user, foreign_key: :user_id
   belongs_to :category

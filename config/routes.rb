@@ -95,8 +95,7 @@ Rails.application.routes.draw do
     namespace :companies do
       resources :prices,     only: %i[index create update]
       resource  :calculator, only: %i[create update]
-      get  '/images',                   to: 'images#index',                 as: 'images'
-      put  '/images',                   to: 'images#upload_images',         as: 'upload_images'
+      resource  :gallery,    only: %i[show create]
       get  '/dashboard',                to: 'dashboard#index',              as: 'dashboard'
       get  '/profile',                  to: 'profiles#profile',             as: 'edit_profile'
       put  '/profile',                  to: 'profiles#profile_update',      as: 'profile'
@@ -128,7 +127,6 @@ Rails.application.routes.draw do
     # Carrierwave attachments
     namespace :carrierwave do
       resources :images, only: %i[show destroy]
-      patch 'upload_images', to: 'images#upload_images', as: 'upload_images'
     end
 
     # Rooms

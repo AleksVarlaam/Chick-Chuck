@@ -1,0 +1,14 @@
+<% currently_at t('company.gallery.title') %>
+<% provide :page_title, t('company.gallery.title') %>
+<% provide :nav_title, t('company.gallery.title') %>
+<% provide :nav_path, companies_gallery_path %>
+<% provide :main_title, t('company.gallery.title') %>
+
+<!-- Note -->
+<%= tag.p t('company.gallery.desc'), class: 'text-center text-gray-500 mb-4 px-4' %>
+<!-- Form -->
+<%= render 'companies/galleries/form', imageable: @company%>
+<!-- Gallery -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6" id="gallery">
+    <%= render partial: 'companies/galleries/image', collection: @images %>
+</div>

@@ -27,10 +27,7 @@ module Users
 
       respond_to do |format|
         if @product.save
-          @images = []
-          params[:images]['file'].each do |image|
-            @images << @product.images.create!(file: image) if image.present?
-          end
+          helpers.upload_image(@product)
           format.turbo_stream do
             flash.now[:success] = t('flash.success.created', model: "#{@product.model_name.human} #{@product.title}")
           end
@@ -45,10 +42,7 @@ module Users
     def update
       respond_to do |format|
         if @product.update(product_params)
-          @images = []
-          params[:images]['file'].each do |image|
-            @images << @product.images.create!(file: image) if image.present?
-          end
+          helpers.upload_image(@product)
           format.turbo_stream do
             flash.now[:success] = t('flash.success.updated', model: "#{@product.model_name.human} #{@product.title}")
           end

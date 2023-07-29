@@ -1,8 +1,0 @@
-<!-- Reload form -->
-<%= turbo_stream.replace 'images_form', render('images/form')%>
-<!-- Reload images -->
-<% @images.each do |image| %>
-    <%= turbo_stream.append dom_id(@gallery, :images), render('images/image', image: image) %>
-<% end if @images.present? %>
-
-<%= prepend_flash %>

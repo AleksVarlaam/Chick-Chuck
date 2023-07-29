@@ -1,11 +1,9 @@
 <!-- Images form -->
-<%= form_with model: imageable.images.new, method: :patch, 
-    url: carrierwave_upload_images_path("#{imageable.class.name.downcase}_id" => imageable.id), 
-    html: { multipart: true }, class: "contents" do |f| %>
+<%= form_with model: @company, url: companies_gallery_path, method: :post, class: "contents" do |f| %>
     <!-- Errors -->
-    <%= render 'shared/error_messages', resource: imageable %>
-    <!-- Image field -->
-    <%= render 'carrierwave/images/image_field', form: f, imageable: imageable%>
+    <%= render 'shared/error_messages', resource: @company %>
+    <!-- Images -->
+    <%= render 'carrierwave/images/image_field', imageable: @company, form: f, avatar: false%>
     <!-- Button Save -->
     <div class="flex justify-start mt-6">
         <%= f.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none rtl:bg-left bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
