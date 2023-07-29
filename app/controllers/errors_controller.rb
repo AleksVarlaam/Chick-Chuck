@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class ErrorsController < ApplicationController
+  def page_not_found
+    respond_to do |format|
+      format.html { render template: 'errors/404', status: 404 }
+      format.all  { render nothing: true, status: 404 }
+    end
+  end
+  
   def show
     @exception = request.env['action_dispatch.exception']
     @status_code = @exception.try(:status_code) ||
