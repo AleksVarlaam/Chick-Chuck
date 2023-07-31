@@ -33,7 +33,7 @@
   >
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400 text-center divide-y divide-gray-200" aria-labelledby="dropdownAbout">
         <li>
-          <!-- About -->
+          <!-- Moving preparation -->
           <%= nav_tab t('moving_preparation.title'), moving_preparation_path,
               class: "#{link_class} px-4 py-2 hover:bg-gray-100 block w-full !mx-0", current_page: current_page, 
               data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
@@ -45,7 +45,7 @@
               data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
         </li>
         <li>
-            <!-- Reviews -->
+            <!-- Feedbacks -->
             <%= nav_tab t('review.reviews'), feedbacks_path,
                 class: "#{link_class} px-4 py-2 hover:bg-gray-100 block w-full !mx-0", current_page: current_page, 
                 data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
