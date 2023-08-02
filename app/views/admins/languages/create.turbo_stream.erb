@@ -1,0 +1,6 @@
+<%= turbo_stream.replace dom_id(Language.new) do %>
+    <%= render 'shared/buttons/add', id: dom_id(Language.new), title: t('admin.add_language'), path: new_admins_language_path%>
+<% end %>
+
+<%= turbo_stream.append 'languages', render(@language)%>
+<%= prepend_flash%>

@@ -1,0 +1,115 @@
+<!-- Password & Security form -->
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), 
+    html: { method: :put }, data: { turbo: 'false'}) do |form| %>
+  <%= render "shared/error_messages", resource: resource %>
+  
+    <!-- Avatar -->
+    <%= render 'carrierwave/avatar_field', form: form, imageable: current_admin %>
+  
+    <!-- First Name input -->
+    <div class="mb-6">
+       <div class="flex items-center"><%= form.label :first_name, class: "text-lg" %></div>
+       <%= form.text_field :first_name, autocomplete: "first_name", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        id: "firstName-input",
+        placeholder: User.human_attribute_name('first_name'),
+        required: false
+       %>
+    </div>
+
+    <!-- Last Name input -->
+    <div class="mb-6">
+       <%= form.label :last_name, class: "text-lg" %>
+       <%= form.text_field :last_name, autofocus: true, autocomplete: "last_name", 
+        class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+        id: "lastName-input",
+        placeholder: User.human_attribute_name('last_name'),
+        required: false
+       %>
+    </div>
+
+  <!-- Email input -->
+  <div class="mb-6">
+     <%= form.label :email, class: "text-lg" %>
+     <%= form.email_field :email, autocomplete: "email", 
+      class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+      id: "email-input",
+      placeholder: "Email address",
+      required: false
+     %>
+  </div>
+  
+  <!-- Phone -->
+  <div class="mb-6">
+      <%= form.label :phone, class: "text-gray-700 text-lg"%>
+      <%= form.text_field :phone, class: "block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring", id: "phone", placeholder: User.human_attribute_name('phone')%>
+  </div>
+
+  <!-- Password input -->
+  <div class="mb-6">
+    <div class="flex items-center">
+        <%= form.label :password, User.human_attribute_name('new_password') , class: "text-lg mr-1" %>
+        <% if @minimum_password_length %>
+            <!-- Popover button-->
+            <%= render 'shared/buttons/popover', text: User.human_attribute_name('password_popover', length: @minimum_password_length)%>
+        <% end %>
+    </div>
+    <%= form.password_field :password, autocomplete: "new-password",
+      class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+      id: "newPassword-input",
+      placeholder: User.human_attribute_name('new_password'),
+      required: false
+    %>
+  </div>
+
+  <!-- Password confirmation -->
+  <div class="mb-6">
+     <%= form.label :password_confirmation, class: "text-lg" %>
+     <%= form.password_field :password_confirmation, autocomplete: "new-password",
+       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+       id: "passwordConfirmation-input",
+       placeholder: User.human_attribute_name('password_confirmation'),
+       required: false
+     %>
+  </div>
+  
+  <!-- Current password -->
+  <div class="mb-6">
+     <div class="flex items-center">
+         <span class="text-red-500 mr-1">&nbsp;*</span>
+         <%= form.label :current_password, User.human_attribute_name('current_password') , class: "text-lg mr-1" %>
+         <!-- Popover button-->
+         <%= render 'shared/buttons/popover', text: "#{User.human_attribute_name('current_popover')}"%>
+     </div>
+     <%= form.password_field :current_password, autocomplete: "current_password",
+       class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+       id: "currentPassword-input",
+       placeholder: User.human_attribute_name('current_password'),
+       required: true
+     %>
+     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+       <%= link_to "Forgot password?", new_password_path(resource_name), class: "text-gray-800" %>
+     <% end %>
+  </div>
+  
+  <!-- Default locale -->
+  <%= render 'users/form/default_locale', form: form %>
+ 
+  <!-- Buttons -->
+  <div class="flex mt-6 grid grid-cols-4">
+      <!-- Button Save -->
+      <div class="flex justify-start col-span-3">
+          <%= form.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+      </div>
+  </div>  
+<% end %>     
+ 
+  <!-- Delete account -->
+  <div class="flex justify-end col-span-1 -mt-7">
+      <%= link_to admin_registration_path, data: { turbo_method: :delete, turbo_confirm: t('sure_to_del_account') }, class: "justify-end items-center flex mx-0 leading-5 text-gray-700 " do %>
+          <%= image_tag(asset_path('icons/icons8-remove-32.png'), class: 'w-5 h-5 mr-2')%>
+          <%= User.human_attribute_name('delete_account')%>
+      <% end %>
+  </div>
+  
+

@@ -1,0 +1,38 @@
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "<%= t('pages.home') %>",
+          "item": "<%= root_url %>"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "<%= t('company.carriers').capitalize %>",
+          "item": "<%= users_url %>"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "<%= t('pages.market') %>",
+          "item": "<%= products_url %>"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "<%= t('pages.calculator') %>",
+          "item": "<%= calculator_url %>"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "<%= t('pages.about') %>",
+          "item": "<%= about_url %>"
+        }
+      ]
+     }
+ </script>

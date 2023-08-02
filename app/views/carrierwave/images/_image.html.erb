@@ -1,0 +1,32 @@
+<%= turbo_frame_tag image do %>
+    <div
+        class="duration-700 ease-in-out absolute inset-0 transition-all text-center"
+        data-carousel-target="slide"
+    >
+        <% if user_signed_in? && ['edit', 'update'].include?(action_name) %>
+            <%= link_to path,
+                data: { turbo_method: :delete, turbo_confirm: t('global.are_you_sure'), turbo_frame: '_top' },
+                remote: :true,
+                class: "justify-content-end absolute z-20 bg-gray-100 right-0 rounded-md text-red-700 p-1 m-1" do
+            %>
+                <%= heroicon 'minus-circle', class: 'w-6 h-6', alt: 'remove-image'%>
+            <% end %>
+        <% end %>
+        
+        <% if ['show', 'edit', 'update'].include?(action_name) %>
+            <%= link_to carrierwave_image_path(image), data: {turbo_frame: 'modal'} do %>
+                <%= image_tag(action_name != 'index' ? image.file.large.url : image.file.medium.url, 
+                    class: "rounded-t-lg h-full w-full object-cover absolute block cursor-zoom-in", 
+                    alt: "#{object.title}")
+                %>
+            <% end %>
+        <% else %>
+            <%= link_to object, data: {turbo_frame: '_top'} do %>
+                <%= image_tag(action_name != 'index' ? image.file.large.url : image.file.medium.url, 
+                    class: "rounded-t-lg h-full w-full object-cover absolute block ", 
+                    alt: "#{object.title}")
+                %>
+            <% end %>
+        <% end %>
+    </div>
+<% end %>

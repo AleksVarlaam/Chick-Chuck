@@ -1,0 +1,6 @@
+<%= t('mailer.greeting', recipient: @recipient.email) %>
+==========================================
+<%= "#{@resource.user.user_name} #{t('notification.feedback').downcase}" %>
+<%= @resource.title%>
+<%= @resource.content%>
+

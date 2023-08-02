@@ -1,0 +1,48 @@
+<!-- Images full screen Carousel -->
+<%= turbo_frame_tag "carousel" do %>
+    <div id="indicators-carousel" class="relative" data-controller="carousel">
+        <!-- Carousel wrapper -->
+        <%= tag.div class: "h-screen w-auto m-auto relative overflow-hidden rounded-lg" do %>
+            <% @images.each_with_index do |image, index| %>
+                <%= turbo_frame_tag image do %>
+                    <div
+                        class="duration-700 ease-in-out absolute inset-0 transition-all text-center"
+                        data-carousel-target="slide"
+                    >
+                        <div class="flex justify-center">
+                            <%= button_tag "Close", 
+                                data: { action: "turbo-modal#hideModal" }, 
+                                type: "button", 
+                                class:"cursor-zoom-out" do %>
+                                <%= image_tag(image.instance_of?(Image) ? image.file.url : image.url, 
+                                    class: "absolute block max-w-full max-h-screen py-8 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2", 
+                                    alt: "Slide #{image.instance_of?(Image) ? image.id : image.identifier}")
+                                %>
+                            <% end %>
+                        </div>
+                        <%= tag.span "#{index + 1} / #{@images.count}", 
+                            class: 'absolute bottom-2 text-gray-600 text-sm font-medium' if @images.count > 1%>
+                    </div>
+                <% end %>
+            <% end %>
+        <% end %>
+   
+        <% if @images.count > 1 %>
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 left-0 z-20 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-action="carousel#previous">
+                <span class="inline-flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 right-0 z-20 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-action="carousel#next">
+                <span class="inline-flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
+        <% end %>
+    </div>
+<% end %>
+
+

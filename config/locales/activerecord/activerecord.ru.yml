@@ -1,0 +1,10 @@
+# Active Record section
+ru:
+    activerecord:
+        models:
+            
+        errors:
+              messages:
+                  in:         "%{value} недопустимое значение, введите значение в диапозоне %{count}"
+        attributes:
+           

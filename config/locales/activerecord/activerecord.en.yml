@@ -1,0 +1,9 @@
+en:
+    activerecord:
+        models:
+           
+        errors:
+              messages:
+                  in:         "%{value} is not valid, enter a value in range %{count}"
+        attributes:
+           

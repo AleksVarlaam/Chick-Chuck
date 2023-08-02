@@ -1,0 +1,17 @@
+<% currently_at t('sign_in.title') %>
+<% provide :page_title, t('sign_in.title') %>
+
+
+<%= render TurboModalComponent.new(title: t('sign_in.title')) do %>
+    <!-- Sign in as company -->
+    <p class="text-sm text-gray-300 font-semibold my-3 text-center">
+        <%= t('sign_in.as_company')%>
+        <%= link_to t('sign_in.click_here'), new_company_session_path, 
+            class:"text-blue-600 hover:text-blue-700 focus:text-blue-700 transition  duration-200 ease-in-out", 
+            data: {turbo_frame: 'modal'}%>
+    </p>
+    <!-- Omniauth -->
+    <%= render 'shared/buttons/omniauth_enter'%>
+    <!-- Form -->
+    <%= render 'form'%>
+<% end %>

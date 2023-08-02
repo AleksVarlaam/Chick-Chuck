@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-50 scroll-smooth" 
+    lang="<%= response.header['Content-Language']%>" 
+    dir="<%= response.header['Content-Language'] == 'he' ? 'rtl' : 'ltr' %>">
+  <head>
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= display_meta_tags(default_meta_tags) %>
+    <%= render 'shared/meta/favicon'%>
+    <!-- CSRF & stylesheets -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <!-- Google tag manager -->
+    <%= render 'shared/meta/google_tag_head' %>
+    <!-- Trix editor -->
+    <% if current_page?(new_company_registration_url) %>
+        <%= javascript_import_module_tag "trix" %>
+        <%= javascript_import_module_tag "@rails/actiontext" %>
+    <% end %>
+    <!-- Current user -->
+    <%= render 'shared/meta/current_user_meta' if user_signed_in? %>
+  </head>
+
+  <body class="flex flex-col h-screen w-screen justify-between">
+      <!-- Google Tag Manager (noscript) -->
+      <%= render 'shared/meta/google_tag_body' %>
+      <!-- Schema json -->
+      <%= render 'shared/meta/breadcrumbs_navbar_json'%>
+      <%= yield :schema_json %>
+      <!-- Current user id -->
+      <%= turbo_stream_from "broadcast_to_user_#{current_user.id}" if user_signed_in?%>
+      <!-- Header -->
+      <%= yield :navbar%>
+      <!-- Main -->
+      <main class="flex w-full grid grid-flow-row auto-rows-max relative <%= 'mt-20' unless controller_name == 'errors' %>" id="top">
+          <!-- Flash messages -->
+          <% unless ['new', 'create'].include?(action_name) %>
+              <%= tag.div (render 'shared/flash_messages'), id: "flash_messages", 
+                  class: "fixed right-3 sm:right-6 sm:top-20 z-30 sm:max-w-sm'"%>
+          <% end %>
+          <!-- Modal -->
+          <%= turbo_frame_tag 'modal'%>
+          <!-- Content -->
+          <div class="min-h-screen relative overflow-x-hidden">
+              <%= yield %>
+          </div>
+      </main>      
+      <!-- Footer -->
+      <%= yield :footer %>
+  </body>
+</html>

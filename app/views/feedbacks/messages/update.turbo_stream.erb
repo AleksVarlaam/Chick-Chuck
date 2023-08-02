@@ -1,0 +1,2 @@
+<%= turbo_stream.replace 'message-form', render('feedbacks/messages/form', room: @room, message: Message.new)%>
+<%= prepend_flash %>

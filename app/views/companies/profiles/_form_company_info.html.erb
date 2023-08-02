@@ -1,0 +1,83 @@
+<!-- Company info form -->
+<%= form_with model: @company, url: companies_company_info_path, 
+    method: :put, data: { controller: 'checkbox-select-all' } do |form| %>
+    <%= render "shared/error_messages", resource: @company %>
+    <!-- Company Info -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mb-6">
+        <!-- Company name input -->
+        <div class="">
+           <%= form.label :title, class: "text-lg" %>
+           <%= form.text_field :title, 
+            class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+            placeholder: Company.human_attribute_name('title'),
+            required: true
+           %>
+        </div>
+    
+        <!-- Company website input -->
+        <div class="">
+           <%= form.label :website, 'Website URL', class: "text-lg" %>
+           <%= form.text_field :website, autocomplete: "website", 
+            class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+            placeholder: "https://example.com/",
+            required: false
+           %>
+        </div>
+    </div>
+        <!-- Districts -->
+        <div class="mb-6">
+           <%= form.label :districts, class: "text-lg" %>
+           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
+               <%= form.collection_check_boxes(:district_ids, District.all, :id, I18n.locale) do |b| %> 
+                   <%= b.label class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300", data: {'checkbox-select-all-target' => b.text == District.first.decorate.title ?  "checkboxAll" : ''} do %>
+                         <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
+                         <%= b.text %>
+                   <% end %>
+               <% end%>
+           </div>
+        </div>
+        
+        <!-- Languages -->
+        <div class="mb-6">
+           <div class="flex items-center space-x-2 rtl:space-x-reverse">
+               <%= form.label :languages, class: "text-lg" %>
+               <%= render 'shared/buttons/popover', text: t('language.language_select'), icon: 'icons/icons8-info-50.png'%>
+           </div>
+           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
+              <%= form.collection_check_boxes(:language_ids, Language.all, :id, :title) do |b| %> 
+                  <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
+              <% end%>
+           </div>
+        </div>
+        
+        <!-- Services -->
+        <div class="mb-6">
+           <%= form.label :services, class: "text-lg" %>
+           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 gap-3 mt-1">
+               <%= form.collection_check_boxes(:service_ids, Service.all, :id, I18n.locale) do |b| %> 
+                   <%= b.label(class: "text-base form-control block w-full p-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 ") { b.check_box + '  ' + b.text}%>
+               <% end%>
+           </div>
+        </div>
+        
+        <!-- Description input -->
+        <div class="mb-6">
+           <div class="flex items-center space-x-2 rtl:space-x-reverse">
+               <%= form.label :description, class: "text-lg" %>
+               <%= render 'shared/buttons/popover', text: t('company.sign_up.slogan_length', length: 1000), icon: "icons/icons8-info-50.png"%>
+           </div>
+           <div class="text-gray-600 justify-center col-span-full mt-6 w-full">
+               <%= form.rich_text_area :description, class: "w-full p-2 mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring"%>
+           </div>
+        </div>
+    
+        <!-- Logo -->
+        <%= render 'carrierwave/avatar_field', form: form, imageable: current_user %>
+        <!-- Contacts section -->
+        <%= render 'users/form/contacts_section_fields', form: form %>
+    
+    <!-- Button Save -->
+    <div class="flex justify-start">
+        <%= form.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+    </div>
+<% end %>

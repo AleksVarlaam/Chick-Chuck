@@ -1,0 +1,123 @@
+<!-- Calculator form -->
+<%= form_with url: path, method: :get, turbo: {turbo_frame: frame},
+    class: 'flex items-center justify-center grid grid-flow-row auto-rows-max w-full p-4' do |f| 
+%>
+<div class="overflow-y-auto overflow-x-hidden w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="col-span-full flex justify-center">
+        <div class="w-full sm:w-1/2">
+            <!-- Distance -->
+            <%= tag.div class: "items-center grid grid-cols-2 mx-auto px-1 w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+                <!-- Title -->
+                <%= f.label Calculator.human_attribute_name('distance'), class: "flex justify-start"%>
+                <!-- Amount -->
+                <div class="flex justify-end items-center" data-controller="quantity-input">
+                    <!-- Minus button -->
+                    <button data-action="quantity-input#minus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200">
+                        <%= heroicon 'minus', class: 'w-4 h-4'%>
+                    </button>
+                    <!-- Input field -->
+                    <%= f.number_field :distance, class: "bg-gray-50 w-[2.5rem] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-1.5 py-1 mx-1.5 text-center", value: params[:distance] || nil, min: 0,
+                        data: {'quantity-input-target' => 'field'} %>
+                    <!-- Plus button -->
+                    <button data-action="quantity-input#plus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"> 
+                        <%= heroicon 'plus', class: 'w-4 h-4'%>
+                    </button>
+                    <span class="ltr:ml-2 rtl:hidden">km.</span>
+                    <span class="rtl:mr-2 ltr:hidden">.km</span>
+                </div>
+            <% end %>
+            <!-- Floor down -->
+            <%= tag.div class: "items-center grid grid-cols-3 mx-auto px-1 w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+                <div class="flex items-center justify-start col-span-2">
+                    <!-- Title -->
+                    <%= f.label class: 'flex items-center' do %>
+                        <%= Calculator.human_attribute_name('floor_down') + ', ' + t('calculator.elevator')%>
+                        <%= f.check_box :elevator_down, 
+                            class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2", 
+                            checked: params[:elevator_down] == '1' ? true : false%>
+                    <% end %>
+                </div>
+                <!-- Amount -->
+                <div class="flex justify-end items-center" data-controller="quantity-input">
+                    <!-- Minus button -->
+                    <button data-action="quantity-input#minus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200">
+                        <%= heroicon 'minus', class: 'w-4 h-4'%>
+                    </button>
+                    <!-- Input field -->
+                    <%= f.number_field :floor_down, class: "bg-gray-50 w-[2.5rem] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-1.5 py-1 mx-1.5 text-center", value: params[:floor_down] || nil, min: 0,
+                        data: {'quantity-input-target' => 'field'} %>
+                    <!-- Plus button -->
+                    <button data-action="quantity-input#plus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"> 
+                        <%= heroicon 'plus', class: 'w-4 h-4'%>
+                    </button>
+                </div>
+            <% end %>
+            <!-- Floor up -->
+            <%= tag.div class: "items-center grid grid-cols-3 mx-auto px-1 w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+                <div class="flex items-center justify-start col-span-2">
+                    <!-- Title -->
+                    <%= f.label class: 'flex items-center' do %>
+                        <%= Calculator.human_attribute_name('floor_up') + ', ' + t('calculator.elevator')%>
+                        <%= f.check_box :elevator_up, 
+                            class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2", 
+                            checked: params[:elevator_up] == '1' ? true : false%>
+                    <% end %>
+                </div>
+                <!-- Amount -->
+                <div class="flex justify-end items-center" data-controller="quantity-input">
+                    <!-- Minus button -->
+                    <button data-action="quantity-input#minus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200">
+                        <%= heroicon 'minus', class: 'w-4 h-4'%>
+                    </button>
+                    <!-- Input field -->
+                    <%= f.number_field :floor_up, class: "bg-gray-50 w-[2.5rem] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-1.5 py-1 mx-1.5 text-center", value: params[:floor_up] || nil, min: 0,
+                        data: {'quantity-input-target' => 'field'} %>
+                    <!-- Plus button -->
+                    <button data-action="quantity-input#plus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"> 
+                        <%= heroicon 'plus', class: 'w-4 h-4'%>
+                    </button>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    
+    <% @categories.each do |category| %>
+        <%= turbo_frame_tag category do %>
+            <div class="border border-gray-300 hover:border-gray-400 rounded-md p-2 h-full">
+                <!-- Category title -->
+                <%= tag.div class: 'items-center justify-center flex my-4 mx-1 w-full relative border-b border-b-gray-300' do %>
+                    <%= tag.p category.title, class: "text-center text-gray-500 text-lg font-bold uppercase" %>
+                <% end %>
+                <!-- Things -->
+                <%= tag.div class: "overflow-y-auto overflow-x-hidden h-[19rem] sm:h-[24rem] mb-4 w-auto justify-center" do %>
+                    <% category.things.decorate.each do |thing|%>
+                        <%= turbo_frame_tag thing.title.downcase, 
+                            class: "items-center grid grid-cols-2 mx-auto px-1 w-full text-gray-500 hover:text-gray-800 border-b border-b-gray-300 hover:border-b-gray-500 h-auto py-2" do %>
+                            <!-- Title -->
+                            <%= tag.p thing.title, class: "flex justify-start"%>
+                            <!-- Amount -->
+                            <div class="flex justify-end items-center" data-controller="quantity-input">
+                                <!-- Minus button -->
+                                <button data-action="quantity-input#minus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200">
+                                    <%= heroicon 'minus', class: 'w-4 h-4'%>
+                                </button>
+                                <!-- Input field -->
+                                <%= f.number_field (thing.id.to_s).to_sym, class: "bg-gray-50 w-[2.5rem] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-1.5 py-1 mx-1.5 text-center", value: params[(thing.id.to_s).to_sym] || nil, min: 0,
+                                    data: {'quantity-input-target' => 'field'} %>
+                                <!-- Plus button -->
+                                <button data-action="quantity-input#plus" type="button" class="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"> 
+                                    <%= heroicon 'plus', class: 'w-4 h-4'%>
+                                </button>
+                            </div>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+    <!-- Button -->
+    <%= f.submit t('calculator.btn'), class: 'my-6 cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4'%>
+    <!-- All companies and their prices -->
+    <%= total_prices %>
+<% end %>

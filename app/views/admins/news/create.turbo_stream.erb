@@ -1,0 +1,5 @@
+<%= turbo_stream.replace dom_id(News.new, 'form') do %>
+    <%= render 'shared/add_button', id: dom_id(News.new, 'form'), title: t('admin_menu.add_news'), path: new_admins_news_path%>
+<% end %>
+<%= turbo_stream.append 'news', render( 'contents/news/news', news: @new)%>
+<%= prepend_flash%>

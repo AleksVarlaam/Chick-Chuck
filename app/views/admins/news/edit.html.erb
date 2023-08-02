@@ -1,0 +1,7 @@
+<% currently_at t('news.edit_btn') %>
+<% provide :page_title, t('news.edit_btn') %>
+<% provide :nav_title, t('news.edit_btn') %>
+<% provide :nav_path, edit_newss_news_pbtn(@new) %>
+<% provide :main_title, t('news.edit_btn') %>
+
+<%= render 'form', path: admins_news_path, method: :put%>

@@ -1,0 +1,9 @@
+<%= turbo_stream.replace dom_id(@reviewable, 'rating'), render('feedbacks/shared/rating', object: @reviewable)%>
+<%= turbo_stream.replace dom_id(@reviewable, 'global_ratings'), render('feedbacks/shared/global_ratings', company: @reviewable)%>
+<%= turbo_stream.prepend 'reviews_list', render('feedbacks/reviews/review', review: @review)%>
+<%= turbo_stream.replace 'reviews' do %>
+    <!-- Title -->
+    <%= tag.h3 "#{t('review.reviews')}: #{@reviewable.reviews.count}", 
+        class: "my-5 text-2xl font-semibold text-gray-900 text-center col-span-full", id: 'reviews'%>
+<% end %>
+<%= prepend_flash%>

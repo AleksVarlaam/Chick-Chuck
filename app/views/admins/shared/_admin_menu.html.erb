@@ -1,0 +1,106 @@
+<!-- Admin menu links list -->
+<hr>
+<!-- Chats -->
+<%= link_to rooms_path, 
+   class: link_class, 
+   data: {action: "dropdown#toggle"}, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+  <%= heroicon "chat-bubble-left-right", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('user_menu.chats')%>
+<% end %>
+
+<!-- Dashboard -->
+<%= link_to admins_dashboard_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= heroicon "rectangle-group", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+   <%= t('user_menu.dashboard')%>
+<% end %>
+
+<hr>
+<!-- Add News -->
+<%= link_to new_admins_news_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= heroicon "plus-circle", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+   <%= t('news.add_btn')%>
+<% end %>
+
+<!-- News -->
+<%= link_to admins_news_index_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= image_tag(asset_path('icons/icons8-news-64.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2")%>
+   <%= t('news.all_news')%>
+<% end %>
+
+<hr>
+
+<!-- Saved list -->
+<%= link_to users_favorites_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= heroicon "bookmark", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+   <%= t('user_menu.saved')%>
+<% end %>
+
+<hr>
+<!-- Catalog -->
+<%= link_to admins_categories_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= image_tag(asset_path('icons/icons8-sorting-64.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2")%>
+   <%= t('admin_menu.catalog')%>
+<% end %>
+
+<!-- Languages and districts -->
+<%= link_to admins_districts_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= heroicon "language", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+   <%= t('admin_menu.lang_dist')%>
+<% end %>
+
+<hr>
+<!-- Credential Info -->
+<%= link_to edit_admin_registration_path, 
+  class: link_class, 
+  data: { action: "dropdown#toggle" }, 
+  tabindex:"-1",
+  id:"password&SecurityLink" do 
+%>
+  <%= heroicon "lock-closed", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('user_menu.credential')%>
+<% end %>
+
+<hr>
+<!-- Sign Out -->
+<%= link_to destroy_admin_session_path, 
+  class: link_class,
+  data: {action: "dropdown#toggle", turbo_method: :delete, turbo_confirm: t('global.are_you_sure')},  
+  tabindex:"-1", 
+  id:"signOutLink" do 
+%>
+ <%= heroicon "arrow-right-on-rectangle", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+ <%= t('user_menu.sign_out')%>
+<% end %>

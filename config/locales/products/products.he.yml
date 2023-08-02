@@ -1,0 +1,56 @@
+he:
+    activerecord:
+        models:
+            product:      "מוצר"
+            category:     "קטגוריה"
+            thing:        "סוג"
+            price:        "מחיר"
+        attributes:
+            product:
+                category:         "קטגוריה"
+                things:           "סוג"
+                thing:            "סוג"
+                title:            "כותרת"
+                description:      "תיאור"
+                price:            "מחיר"
+                condition:        "מצב"
+                delivery:         "משלוח"
+                images:           "תמונות"
+                sold:             "נמכר"
+                district:         "אזור"
+                city:             "עיר"
+    product:
+        to_advertise:     "לפרסם מודעה"
+        add_btn:          "הוסף מוצר"
+        edit_btn:         "שנה פריט"
+        my_products:      "הסחורה שלי"
+        title:            "שם"
+        mark_as_sold:     "מארק נמכר"
+        product_by:       "מוצרים של המוביל"
+        products:         "מוצרים"
+        user_products:    "מוצרים %{user_name}"
+        all_products:     "כל המוצרים"
+        total_products:   "סך הכל"
+        condition:
+            any:              "בכל"
+            second_hand:      "שימוש לשעבר"
+            new:              "חדש"
+        delivery: 
+            pickup:           "איסוף עצמי"
+            price_popover:    "מחיר לא כולל משלוח"
+        seller:          
+            title:            "מוכר"
+            client:           "אדם פרטי"
+            company:          "המוביל"
+        price:
+            min:              "של"
+            max:              "ועד"
+    category:
+        add_btn:          "הוסף קטגוריה"
+        edit_btn:         "שנה קטגוריה"
+    thing:
+        add_btn:          "תוסיף משהו"
+    price:
+        title:            "שם"
+    
+            

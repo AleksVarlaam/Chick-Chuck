@@ -1,0 +1,22 @@
+<% currently_at @company.title %>
+<% provide :page_title, @company.title %>
+
+
+<!-- Header -->
+<%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2 lg:px-6" do %>
+    <div class="px-6 py-4 w-full max-w-screen sm:col-span-2">
+        <%= render 'companies/shared/company_header', company: @company,  page_title: t('pages.calculator')%>
+    </div>
+<% end %>
+
+<!-- Calculator -->
+<%= turbo_frame_tag 'calculation',
+    class: "container mx-auto grid grid-flow-row auto-rows-max w-full justify-center mb-6" do 
+%>
+    <%= tag.p t('calculator.note_html'), class: 'text-center text-gray-500 mb-4 px-4' %>
+    <!-- Form -->
+    <div class="sm:min-w-[32rem] pb-6 shadow-md hover:shadow-xl rounded-xl">
+        <%= render 'contents/calculators/form', path: company_calculator_path(@company), 
+            total_prices: (render 'company_price', company: @company), frame: '_top'%>
+    </div>
+<% end %>

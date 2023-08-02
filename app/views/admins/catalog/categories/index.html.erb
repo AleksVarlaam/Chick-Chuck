@@ -1,0 +1,16 @@
+<% currently_at t('admin_menu.catalog') %>
+<% provide :page_title, t('admin_menu.catalog') %>
+<% provide :nav_title, t('admin_menu.catalog') %>
+<% provide :nav_path, admins_categories_path %>
+<% provide :main_title, t('admin_menu.catalog') %>
+
+<!-- Categories table -->
+<%= turbo_frame_tag 'categories',
+    class: "grid grid-flow-row auto-rows-max w-full overflow-x-auto" do 
+%>
+    <%= render @categories %>
+<% end %>
+
+<!-- New category -->
+<hr class="my-6">
+<%= render 'shared/buttons/add', id: dom_id(Category.new, 'form'), title: t('category.add_btn'), path: new_admins_category_path%>

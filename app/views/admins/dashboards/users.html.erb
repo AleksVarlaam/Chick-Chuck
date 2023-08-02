@@ -1,0 +1,7 @@
+<% currently_at t('user_menu.dashboard') %>
+<% provide :nav_title, 'Users' %>
+<% provide :nav_path, users_admins_dashboard_path %>
+<% provide :main_title, 'Users'%>
+
+<!-- Users -->
+<%= render 'admins/dashboards/users/users_table'%>

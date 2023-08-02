@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@commentable), (render @commentable.decorate) if @commentable.instance_of?(Comment)%>
+<%= turbo_stream.remove 'Img'%>
+<%= prepend_flash %>

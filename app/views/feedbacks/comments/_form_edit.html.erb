@@ -1,0 +1,61 @@
+<%= turbo_frame_tag dom_id(@comment, :edit) do%>
+    <%= form_with model: [@comment.commentable, @comment],
+        data: { controller: :form, remote: true, action: "turbo:submit-end->form#clear" }, 
+        method: :put do |f| 
+    %>
+      <% if @comment.errors.any? %>
+        <% @comment.errors.each do |error| %>
+          <%= error.full_message %>
+        <% end %>
+      <% end %>
+      
+      <!-- Comment content -->
+      <div class="mt-2">
+          <!-- Images -->
+          <% if @comment.images.present? %>
+              <div class="flex items-center my-2 overflow-x-auto">
+                  <% @comment.images.each do |img| %>
+                      <%= turbo_frame_tag img do %>
+                      <div class="relative">
+                          <%= link_to active_storage_attachment_path(img),
+                              data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this image?" },
+                              remote: :true,
+                              class: "justify-content-end absolute z-50 bg-gray-100 right-0 rounded-md text-red-700 p-1 mt-1 mr-2" do
+                          %>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                          <% end %>
+                          <%= image_tag(medium(img), class: 'pr-1 h-36 w-auto object-cover rounded-md')%>
+                      </div>
+                      <% end %>
+                  <% end %>
+              </div>
+          <% end %>
+          <!-- Content -->
+          <%= f.text_area :content, id: "chat", class: "block py-1 px-2 w-full h-full items-center text-md text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500", placeholder: t('comment.placeholder'), required: true, autofocus: true%>
+      </div>
+      <!-- Comment buttons -->
+      <div class="flex items-center my-3 py-2 px-3 bg-gray-100 rounded-lg shadow-md h-12 w-full">
+          <!-- Upload Images -->
+          <% @comment.images.each do |image| %>
+            <%= f.hidden_field :images, multiple: true, value: image.identifier, id: image.identifier %>
+          <% end %>
+          <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                <div class="space-y-1 text-center">
+                  <%= f.label :images, class: "cursor-pointer" do %>
+                      <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
+                      <span class="sr-only">Upload image</span>
+                          <%= f.file_field :images, multiple: true, class: "sr-only", accept: "image/png, image/jpeg, image/jpg", "data-image-target": "input", "data-action": "image#comment_preview" %>
+                  <% end %>
+                </div>
+          </button>
+          <span id="Img"></span>
+          <!-- Button submit -->
+          <%= f.button type: 'submit', class: "inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600"  do %>
+              <svg aria-hidden="true" class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+              <span class="sr-only">Send message</span>
+          <% end %>
+      </div>
+    <% end %>
+<% end %>

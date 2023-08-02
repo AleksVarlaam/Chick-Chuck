@@ -1,0 +1,32 @@
+he:
+    activerecord:
+        models:
+            company:      "חברה"
+        attributes:
+            company:
+                districts:        "אזור"
+                languages:        "לשונות"
+                services:         "שירותים"
+                title:            "שם"
+                working_area:     "אזור"
+                description:      "תיאור או סיסמה"
+                avatar:           "לוגו"
+                images:           "תמונות"
+    company:
+        carriers:         "נשאים"
+        top_carriers:     "נושאות מטוסים מובילות"
+        latest_carriers:  "כל נושאות המטוסים"
+        about:            "אודות החברה"
+        we_speak:         "אנו אומרים ל:"
+        find_carrier:     "מצא את המוביל"
+        sign_up:    
+            link:             "להפוך לנושאת מטוסים"
+            title:            "רישום החברה"
+            credential:       "נתוני כניסה"
+            personal:         "מידע ייצוגי"
+            slogan_length:    "%{length} תווים לכל היותר"
+            meta_desc:        "רשום את החברה שלך כדי לקבל פרסום חינם למשוך לקוחות אפילו יותר עבור העסק שלך!"
+        gallery:          
+            title:        "גלריה"
+            view_btn:     "הגלריה הזאת"
+            desc:         "הערה: כאן באפשרותך להעלות תמונות עבור תיק ההשקעות שלך, לדוגמה, הצי שלך והצוות שלך."

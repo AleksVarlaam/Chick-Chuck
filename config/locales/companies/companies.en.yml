@@ -1,0 +1,31 @@
+en:
+    activerecord:
+        models:
+            company:      "Company"
+        attributes:
+            company:
+                districts:        "District"
+                languages:        "Languages"
+                services:         "Services"
+                title:            "Title"
+                working_area:     "District"
+                description:      "Description or slogan"
+                avatar:           "logotype"
+                images:           "images"
+    company:
+        carriers:         "carriers"
+        top_carriers:     "Top carriers"
+        latest_carriers:  "Latest carriers"
+        about:            "About company"
+        we_speak:         "We speak on: "
+        find_carrier:     "Find carrier"
+        sign_up:    
+            link:             "Become a Carrier"
+            title:            "Company registration"
+            credential:       "Credential information"
+            personal:         "Representative information"
+            slogan_length:    "%{length} characters maximum"
+        gallery:          
+            title:        "Gallery"
+            view_btn:     "View the gallery"
+            desc:         "Note: Here you can upload photos for your portfolio, for example, your fleet and your team."

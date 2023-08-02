@@ -1,0 +1,9 @@
+
+<%= form_with model: Room.new, remote: true, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'} do |f| %>
+    <%= f.hidden_field :recipient_id, value: recipient.id%>
+    <%= f.button id: "message", aria: {label: "chats"}, 
+        class: "h-10 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2 lg:px-4 text-center flex items-center space-x-2 rtl:space-x-reverse" do %>
+        <%= heroicon 'chat-bubble-left-right', class: 'w-6 h-6'%>
+        <%= tag.span t('write_message'), class: 'text-lg hidden lg:block'%>
+    <% end %>
+<% end %>

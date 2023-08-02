@@ -1,0 +1,61 @@
+<!-- Content links list -->
+<!-- Home -->
+<%= nav_tab t('pages.home'), root_path, 
+    class: link_class, current_page: current_page, 
+    data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<!-- Carriers -->
+<%= nav_tab t('company.carriers').capitalize, users_path,
+    class: link_class, current_page: current_page, 
+    data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<!-- Market -->
+<%= nav_tab t('pages.market'), products_path,
+    class: link_class, current_page: current_page, 
+    data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<!-- Calculator -->
+<%= nav_tab t('pages.calculator'), calculator_path,
+    class: link_class, current_page: current_page, 
+    data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<!-- About service -->
+<div data-controller="dropdown" class="relative">
+  <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" 
+      class="<%= link_class %> flex items-center text-gray-500 justify-center w-full">
+      <%= t('pages.knowledge_base')%>
+      <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </button>
+
+  <div
+    data-dropdown-target="menu"
+    class="hidden transition transform origin-top-right absolute right-0 z-10 border font-normal bg-gray-50 divide-y divide-gray-100 rounded-lg shadow w-full lg:w-[12rem]"
+    data-transition-enter-from="opacity-0 scale-95"
+    data-transition-enter-to="opacity-100 scale-100"
+    data-transition-leave-from="opacity-100 scale-100"
+    data-transition-leave-to="opacity-0 scale-95"
+  >
+      <ul class="py-2 text-sm text-gray-700 dark:text-gray-400 text-center divide-y divide-gray-200" aria-labelledby="dropdownAbout">
+        <li>
+          <!-- About -->
+          <%= nav_tab t('moving_preparation.title'), moving_preparation_path,
+              class: "#{link_class} px-4 py-2 hover:bg-gray-100 block w-full !mx-0", current_page: current_page, 
+              data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+        </li>
+        <li>
+          <!-- About -->
+          <%= nav_tab t('pages.about'), about_path,
+              class: "#{link_class} px-4 py-2 hover:bg-gray-100 block w-full !mx-0", current_page: current_page, 
+              data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+        </li>
+        <li>
+            <!-- Reviews -->
+            <%= nav_tab t('review.reviews'), feedbacks_path,
+                class: "#{link_class} px-4 py-2 hover:bg-gray-100 block w-full !mx-0", current_page: current_page, 
+                data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+        </li>
+      </ul>
+  </div>
+</div>
+<!-- News -->
+<% if News.count.positive? %>
+    <%= nav_tab t('pages.news'), news_index_path,
+        class: link_class, current_page: current_page, 
+        data: {action: "dropdown#toggle", turbo_frame: '_top'} %>
+<% end %>

@@ -1,0 +1,27 @@
+<% currently_at t('review.reviews') %>
+<% provide :page_title, t('review.reviews') %>
+
+<%# turbo_stream_from @statistic%>       
+<!-- Comments section-->
+<div class="px-6 space-y-6 pb-6">
+    <%= tag.h1 t('comment.about_page_title'), 
+        class: "pt-6 text-3xl font-semibold text-gray-900 text-center", id: 'feedback_title'%>
+        
+    <%= render 'contents/feedbacks/shared/rating'%>
+            
+    <% if (client_signed_in? || company_signed_in?) && !@feedback.id.present? %>
+        <%= render 'contents/feedbacks/form'%>
+    <% else%>
+        <%= render 'contents/feedbacks/shared/edit_feedback_button'%>
+    <% end %>
+    
+    <%= render 'contents/feedbacks/shared/global_feedbacks'%>
+    
+    <!-- Title -->
+    <%= tag.h3 "#{t('review.reviews')}: #{@reviews.count}", 
+        class: "my-5 text-2xl font-semibold text-gray-900 text-center col-span-full", id: 'reviews'%>
+    <!-- Reviews list -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="reviews_list">
+        <%= render partial: 'contents/feedbacks/shared/review', collection: @reviews%>
+    </div>
+</div>

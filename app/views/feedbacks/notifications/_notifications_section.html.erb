@@ -1,0 +1,7 @@
+<!-- Notifications section -->
+<%= tag.div class: "relative h-6 w-6 mb-3" do %>
+    <!-- Icon && counter-->
+    <%= render 'feedbacks/notifications/count', count: current_user.unviewed_notifications_count %>
+    <!-- Notifications list -->
+    <%= turbo_frame_tag :modal %>
+<% end %>

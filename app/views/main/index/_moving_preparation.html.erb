@@ -1,0 +1,21 @@
+<section class="bg-gray-50 py-16 sm:flex sm:justify-center">
+    <div class="bg-gray-50 sm:mx-8 sm:flex sm:max-w-5xl rounded-lg">
+        <!-- Image -->
+        <div class="sm:w-1/2">
+            <div class="h-64 bg-cover bg-center rounded-lg sm:h-full" 
+                style="background-image:url(<%= asset_path('bg/moving_preparation.webp')%>)">    
+            </div>
+        </div>
+
+        <!-- Text content -->
+        <div class="max-w-xl px-6 py-12 sm:max-w-5xl sm:w-1/2">
+            <%= tag.h6 t('moving_preparation.title'), class: "text-2xl font-bold text-gray-800 md:text-3xl"%>
+            <%= tag.p t('moving_preparation.header'), class: "mt-4 text-gray-600"%>
+
+            <div class="mt-8">
+                <!-- View more button -->
+                <%= render 'shared/buttons/view_more', path: moving_preparation_path, link_title: t('moving_preparation.title')%>
+            </div>
+        </div>
+    </div>
+</section>

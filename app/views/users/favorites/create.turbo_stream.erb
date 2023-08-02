@@ -1,0 +1,2 @@
+<%= turbo_stream.replace dom_id(@favorite.favorited, "favorite"), render( 'users/favorites/form', object: @favorite.favorited)%>
+<%= prepend_flash%>

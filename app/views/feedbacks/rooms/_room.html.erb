@@ -1,0 +1,25 @@
+<%= turbo_stream_from [current_user, room]%>
+
+<%= turbo_frame_tag room do %>
+    <% if current_user.class.name != Company.name || room.messages.count > 0%>
+        <%= link_to room_path(room.title), class: "flex items-center w-full border-b-2 relative hover:border-gray-300" do %>
+            <div class="flex flex-row py-4 px-2 items-center space-x-3 rtl:space-x-reverse">
+              <!-- Recipient avatar -->
+              <div class="">
+                  <%= image_tag room.recipient(current_user).avatar_thumb, class: "object-cover h-12 w-12 rounded-full"%>
+              </div>
+  
+              <!-- Recipient username and last message -->
+              <div>
+                <%= tag.div room.recipient(current_user).user_name, class: "text-lg font-semibold"%>
+                <%= render 'feedbacks/rooms/last_message', room: room %>
+              </div>
+            </div>
+
+            <!-- Unread messages count -->
+            <div class="absolute ltr:right-3 rtl:left-3 bottom-2 text-end">
+                <%= render 'feedbacks/rooms/unread_messages', room: room, count: room.messages&.where.not(user: current_user).unread %>
+            </div>
+        <% end %>
+    <% end %>
+<% end if room.users.count > 1%>

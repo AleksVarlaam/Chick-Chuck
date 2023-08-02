@@ -1,0 +1,10 @@
+<!-- Greeting -->
+<%= tag.h1 t('mailer.greeting', recipient: @recipient.email), class: "text-lg" %>
+<!-- Title -->
+<%= tag.p t('mailer.notification.message', user: @resource.user.user_name).downcase %>
+<%= tag.p simple_format(@resource.content) %>
+
+<div class="flex justify-start">
+    <%= link_to t('global.read_more'), room_url(title: @resource.room.title), class: "link-button"%>
+</div>
+

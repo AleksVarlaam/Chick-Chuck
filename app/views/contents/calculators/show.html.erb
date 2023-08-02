@@ -1,0 +1,15 @@
+<% currently_at t('pages.calculator') %>
+<% provide :page_title, t('pages.calculator') %>
+
+<!-- Calculator -->
+<%= turbo_frame_tag 'calculation',
+    class: "container mx-auto grid grid-flow-row auto-rows-max w-full justify-center mb-6" do 
+%>
+    <!-- Title -->
+    <%= tag.h1 t('calculator.title'), class: 'text-3xl font-semibold text-gray-800 my-6 text-center mx-2'%>
+    <%= tag.p t('calculator.note_html'), class: 'text-center text-gray-500 mb-4 px-4' %>
+    <!-- Form -->
+    <div class="sm:min-w-[32rem] pb-6 shadow-md hover:shadow-xl rounded-xl">
+        <%= render 'form', path: calculator_path, total_prices: (render 'companies_prices'), frame: '_top'%>
+    </div>
+<% end %>

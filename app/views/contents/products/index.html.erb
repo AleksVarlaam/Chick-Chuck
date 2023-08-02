@@ -1,0 +1,23 @@
+<% currently_at t('pages.market') %>
+<% provide :page_title, t('pages.market') %>
+
+
+<%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
+    <!-- Title -->
+    <%= tag.h1 t('pages.market'), class: 'text-3xl font-semibold text-gray-800  my-6 text-center'%>
+    <!-- Content -->
+    <%= turbo_frame_tag 'products',
+        class: "grid grid-cols-1 gap-y-6 sm:gap-6 my-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 flex items-center justify-center mx-auto w-full container" do 
+    %>
+        <!-- Filter -->
+        <%= render 'filter', path: products_path%>
+        <!-- Products -->
+        <% if @products.present? %>
+            <%= render partial: 'contents/products/product', collection: @products%>
+        <% else %>
+            <%= tag.div (render 'contents/shared/unavailable', model: t('product.products')), class: 'lg:col-span-2 xl:col-span-3'%>
+        <% end %>
+    <% end %>
+    <!-- Pagy -->
+    <%== pagy_nav(@pagy) if @products_count > 11%>
+<% end %>

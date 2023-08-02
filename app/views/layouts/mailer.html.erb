@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=yes, date=yes, address=yes, email=yes">
+    
+    <!-- Style -->
+    <style type="text/css">
+        .w-full { width: 100%; }
+        .w-auto { width: auto; }
+        .h-10 { height: 2.5rem; }
+        .flex { display: flex; }
+        .justify-center { justify-content: center; }
+        .justify-start { justify-content: start;  }
+        .text-gray-500 { border-color: rgb(243 244 246); }
+        .pt-6 { padding-top: 1.5rem; }
+        .pt-3 { padding-top: 0.75rem; }
+        .object-cover { object-fit: cover; }
+        .flex-col { flex-direction: column; }
+        .text-lg {
+            font-size: 1.125rem; 
+            line-height: 1.75rem;
+        }
+        .link-button { 
+            padding: 0.5rem 1rem 0.5rem 1rem; 
+            background-color: hsl(225, 100%, 50%); 
+            text-decoration-line: none; 
+            color: hsl(0, 100%, 100%); 
+            border-radius: 0.5rem;
+        }
+        body { 
+            background-color: hsl(0, 0%, 97%); 
+            padding: 1rem 1rem 1rem 1rem;
+        }
+    </style>
+  </head>
+
+  <body>
+      <!-- Logotype -->
+      <div class="flex justify-center">
+          <%= link_to root_url do %>
+              <%= image_tag('logo/chick-chuck-logo.png', alt: 'chick-chuck-logotype', class: "object-cover h-10")%>
+          <% end %>
+      </div>
+      <!-- Main -->
+      <div>
+          <%= yield %>
+      </div>
+  </body>
+</html>

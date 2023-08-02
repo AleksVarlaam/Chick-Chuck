@@ -1,0 +1,128 @@
+<!-- Company menu links list -->
+<hr>
+<!-- Dashboard page -->
+<%= link_to companies_dashboard_path,
+   class: link_class,
+   data: { turbo: false, action: "dropdown#toggle"},
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+  <%= heroicon "rectangle-group", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('user_menu.dashboard')%>
+<% end %>
+
+<hr>
+<!-- Chats -->
+<%= link_to rooms_path, 
+   class: link_class, 
+   data: {action: "dropdown#toggle"}, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+  <%= heroicon "chat-bubble-left-right", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('user_menu.chats')%>
+<% end %>
+
+<!-- Calculator -->
+<%= link_to companies_prices_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= image_tag(asset_path('icons/icons8-calculator-checked-64.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2")%>
+   <%= t('calculator.title')%>
+<% end %>
+
+<hr>
+<!-- New product -->
+<%= link_to new_users_product_path, 
+   class: link_class, 
+   data: {action: "dropdown#toggle"}, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= heroicon "plus-circle", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+   <%= t('product.add_btn')%>
+<% end %>
+
+<!-- All products -->
+<%= link_to users_products_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= image_tag(asset_path('icons/icons8-lounge-50.png'), class: "w-4 h-4 rtl:ml-2 ltr:mr-2")%>
+   <%= t('product.my_products')%>
+<% end %>
+
+<hr>
+
+<!-- Saved list -->
+<%= link_to users_favorites_path, 
+   class: link_class, 
+   data: { action: "dropdown#toggle" }, 
+   tabindex:"-1",
+   id:"profilePageLink" do
+%>
+   <%= heroicon "bookmark", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+   <%= t('user_menu.saved')%>
+<% end %>
+
+<hr>
+<!-- Personal Info -->
+<%= link_to companies_gallery_path, 
+  class: link_class, 
+  data: {action: "dropdown#toggle"}, 
+  tabindex:"-1",
+  id:"personalInfoLink" do
+%>
+  <%= heroicon "photo", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('company.gallery.title')%>
+<% end %>
+
+<!-- Personal Info -->
+<%= link_to companies_edit_profile_path, 
+  class: link_class, 
+  data: {action: "dropdown#toggle"}, 
+  tabindex:"-1",
+  id:"personalInfoLink" do
+%>
+  <%= heroicon "identification", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('user_menu.profile')%>
+<% end %>
+
+<!-- Company Info -->
+<%= link_to companies_edit_company_info_path, 
+  class: link_class, 
+  data: {action: "dropdown#toggle"}, 
+  tabindex:"-1",
+  id:"personalInfoLink" do
+%>
+  <%= heroicon "building-office", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('company.about')%>
+<% end %>
+
+<!-- Credential Info -->
+<%= link_to edit_company_registration_path, 
+  class: link_class, 
+  data: { action: "dropdown#toggle" }, 
+  tabindex:"-1",
+  id:"password&SecurityLink" do 
+%>
+  <%= heroicon "lock-closed", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+  <%= t('user_menu.credential')%>
+<% end %>
+
+<hr>
+<!-- Sign Out -->
+<%= link_to destroy_company_session_path, 
+  class: link_class,
+  data: {action: "dropdown#toggle", turbo_method: :delete, turbo_confirm: t('global.are_you_sure')},  
+  tabindex:"-1", 
+  id:"signOutLink" do 
+%>
+ <%= heroicon "arrow-right-on-rectangle", class: "w-4 h-4 rtl:ml-2 ltr:mr-2" %>
+ <%= t('user_menu.sign_out')%>
+<% end %>

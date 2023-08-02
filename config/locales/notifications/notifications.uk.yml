@@ -1,0 +1,13 @@
+uk:
+    activerecord:
+        models:
+            notification: 'Сповіщення'
+    notification:
+        no_notice:        "Немає повідомлень"
+        comment:          "Прокоментував"
+        reply:            "Оцінили вашу компанію "
+        rating:           "Appreciated your company"
+        review:           "Залишив відгук про вашу компанію"
+        feedback:         "Залишив новий огляд сервісу"
+        
+    

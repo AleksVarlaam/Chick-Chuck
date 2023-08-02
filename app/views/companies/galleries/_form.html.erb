@@ -1,0 +1,11 @@
+<!-- Images form -->
+<%= form_with model: @company, url: companies_gallery_path, method: :post, class: "contents" do |f| %>
+    <!-- Errors -->
+    <%= render 'shared/error_messages', resource: @company %>
+    <!-- Images -->
+    <%= render 'carrierwave/image_field', imageable: @company, form: f, avatar: false%>
+    <!-- Button Save -->
+    <div class="flex justify-start mt-6">
+        <%= f.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none rtl:bg-left bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+    </div>
+<% end %>

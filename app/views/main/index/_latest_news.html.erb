@@ -1,0 +1,18 @@
+<!-- News section-->
+<div class="items-center flex container mx-auto w-full justify-center relative">
+    <!-- Title -->
+    <%= tag.h3 t('pages.news'), class: 'text-3xl font-semibold text-gray-800  my-6 text-center'%>
+    <!-- View all -->
+    <%= link_to news_index_path, class: "absolute w-[7rem] sm:w-full right-0 flex py-0 mr-2 text-base font-medium justify-end items-center text-end text-gray-500 hover:text-gray-700 hover:underline", data: {turbo_frame: '_top'} do %>
+        <%= heroicon 'arrow-small-left', class: "mr-1 w-5 h-5" if I18n.locale == :he%>
+        <%= t('global.view_all')%>
+        <%= heroicon 'arrow-small-right', class: "ml-2 -mr-1 w-5 h-5" unless I18n.locale == :he%>
+    <% end %>
+</div>
+
+<!-- Latest News -->
+<%= turbo_frame_tag 'news',
+    class: "grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 container w-full mx-auto" do 
+%>
+    <%= render partial: 'contents/news/news', collection: @news %>
+<% end %>

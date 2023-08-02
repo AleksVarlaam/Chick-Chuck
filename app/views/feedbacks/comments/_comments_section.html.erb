@@ -1,0 +1,39 @@
+<!-- Comments section-->
+<section class="w-full col-span-full relative">
+  <!-- Count -->
+  <% if [action_name, controller_name].eql?(['feedback', 'knowledge_base'])%>
+      <%= tag.h4 t('comment.about_page_title'), 
+          class: "py-6 text-2xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
+  <% else %>
+      <% if @commentable.class.name == 'Company'%>
+          <%= tag.h4 "#{t('comment.comments')}: #{@comments_count}", 
+              class: "my-5 text-xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
+      <% else %>
+          <%= tag.h4 "#{t('comment.comments')}: #{@commentable.comments.count}", 
+              class: "my-5 text-xl font-semibold text-gray-900 text-center", id: 'comments_title'%>
+      <% end %>
+  <% end %>
+  <!-- Content -->
+  <div class="overflow-auto max-h-screen">
+      <%= turbo_frame_tag dom_id(@commentable, :comments) do %>
+          <%= render partial: "feedbacks/comments/comment", collection: @comments.decorate %>
+      <% end %>
+      <!-- Pagination -->
+      <%== pagy_nav(@pagy) if Comment.where(commentable: @commentable).count > 10%>
+  </div>
+  <!-- Form -->
+  <% if user_signed_in?%>
+      <div class="fixed bottom-0 left-0 w-full">
+          <%= render "feedbacks/comments/form"%>
+      </div>
+  <% else%>
+      <!-- Log in button -->
+      <div class="text-center text-lg my-5">
+          <%= tag.p t('comment.need_to_signin')%>
+          <%= link_to t('user_menu.sign_in'), new_client_session_path, 
+            class:"text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out",
+            data: {turbo_frame: 'modal'}
+          %>
+      </div>
+  <% end %>
+</section>

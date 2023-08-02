@@ -1,0 +1,37 @@
+<!-- About user -->
+<section class="mx-5 flex flex-col items-center relative space-y-3">
+    <!-- Avatar -->
+    <%= image_tag(client.avatar_thumb, 
+        class: "object-cover w-24 h-24 sm:w-32 sm:h-32 mx-2 rounded-full border border-white", alt: "avatar")%>
+    <!-- User name -->
+    <%= tag.h4 client.user_name , class: "font-medium text-2xl text-center hover:underline text-gray-800" %>
+    <!-- Total products -->
+    <% if client.products.where(published: true).count.positive? && action_name != 'modal'%>
+        <%= link_to user_products_path(client), 
+            class: "flex items-center text-md font-medium hover:underline text-gray-500 mb-3", 
+            data: { turbo_frame: '_top' }, target: "_blank" do
+        %>
+            <%= "#{t('product.total_products')}: #{client.products.where(published: true).count}" %>
+            <%= heroicon 'cursor-arrow-rays', class: "ml-1 w-6 h-6 text-orange-700 hover:text-gray-800" %>
+        <% end  %>
+    <% elsif client.products.where(published: true).count.positive? %>
+        <%= tag.span ("#{t('product.total_products')}: #{client.products.where(published: true).count}"), 
+            class: "text-md font-medium hover:underline text-gray-500 mb-3" %>
+    <% end %>
+    
+    <!-- Message -->
+    <%= form_with model: Room.new, remote: true, data: {turbo_frame: user_signed_in? ? '_top' : 'modal'} do |f| %>
+        <%= f.hidden_field :recipient_id, value: client.id%>
+        <%= f.button class: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-2 px-4 text-center flex items-center" do %>
+            <%= heroicon 'chat-bubble-left-right', class: 'w-6 h-6 mr-2'%>
+            Написать
+        <% end %>
+    <% end %>
+    
+    <!-- Contacts -->
+    <%= render 'users/users/contacts_section', user: client%>
+    <!-- Created_at -->
+    <!-- <div class="flex justify-center text-center">
+        <%= tag.span client.decorate.created_at, class: 'text-sm text-gray-500'%>
+    </div> -->
+</section>

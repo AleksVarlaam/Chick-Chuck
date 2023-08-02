@@ -1,0 +1,51 @@
+<%= provide :schema_json do %>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "<%= user.title %>",
+          "image": "<%= user.avatar_thumb %>",
+          "description": "<%= user.description.to_plain_text %>",
+          "url": "<%= user.website || user_url(user) %>",
+          "founder": {
+              "@type": "Person",
+              "name": "<%= "#{user.first_name} #{user.last_name}" %>"
+          },
+          "foundingLocation": {
+               "@type": "Place",
+               "address": "<%= "#{t('israel')}, #{user.city&.decorate&.title}"%>"
+          },
+          <% if user.reviews.present? %>
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "<%= user.rating %>",
+                  "reviewCount": "<%= user.reviews.count %>"
+                },
+                <% user.reviews.each do |review| %>
+                    "review": [
+                    {
+                      "@type": "Review",
+                      "author": "<%= review.user.user_name %>",
+                      "datePublished": "<%= review.created_at.strftime("%Y-%m-%d") %>",
+                      "reviewBody": "<%= review.content %>",
+                      "name": "<%= review.title %>",
+                      "reviewRating": {
+                        "@type": "Rating",
+                        "bestRating": "5",
+                        "ratingValue": "<%= review.rating %>",
+                        "worstRating": "1"
+                      }
+                    },
+                <% end %>
+          <% end %>
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "<%= user.city&.decorate&.title %>",
+            "addressCountry": "<%= t('israel') %>"
+          },
+          "telephone": "<%= user.additional_phone %>",
+          "knowsLanguage": "<%= user.languages.map(&:title).join(', ').sub(/(, )+$/, '') %>",
+          "keywords": "<%= user.services.decorate.map(&:title).join(', ').sub(/(, )+$/, '') %>"
+        }
+    </script>
+<% end %>

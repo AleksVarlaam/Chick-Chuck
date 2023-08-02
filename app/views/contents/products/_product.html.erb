@@ -1,0 +1,93 @@
+<%= turbo_frame_tag product do %>
+    <div class="<%= ['index', 'main'].eql?([action_name, controller_name]) ? 'w-[22rem] sm:w-[20rem]' : 'w-full'%>
+            flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl">
+        <!-- Images -->
+        <%= render 'carrierwave/images/carousel', object: product %>
+        <%= tag.div class: "p-5 grid #{'sm:grid-cols-2' if ['show', 'products'].eql?([action_name, controller_name])}" do %>
+            <!-- Header -->
+            <div class="col-span-full flex items-center justify-between mb-3 space-x-3">
+                <!-- Title -->
+                <% if action_name == 'show' %>
+                    <%= tag.h1 product.title, class: "text-2xl font-bold tracking-tight text-gray-600" %>
+                <% elsif current_page?(root_path)%>
+                    <%= tag.p product.title, class: "text-2xl font-bold tracking-tight text-gray-600" %>
+                <% else %>
+                    <%= tag.h2 product.title, class: "text-2xl font-bold tracking-tight text-gray-600" %>
+                <% end %>
+                <!-- Icons -->
+                <%= tag.div class: "flex justify-center items-center relative -my-1" do %>
+                    <!-- Product by carrier -->
+                    <%= render 'shared/buttons/popover', text: t('product.product_by'), 
+                        icon: 'icons/icons8-in-transit-50.png' if product.user.type == Company.name%>
+                    <!-- Favorite form -->
+                    <%= render 'users/favorites/form', object: product%>
+                <% end %>
+            </div>
+            <!-- Body -->
+            <% if ['show', 'products'].eql?([action_name, controller_name]) %>
+                <div>
+                    <!-- Category -->
+                    <%= tag.h2 "#{Product.human_attribute_name('category')}: #{product.category_name}", 
+                        class: "mb-3 font-normal text-gray-500"%>
+                    <!-- Type -->
+                    <%= tag.h3 "#{Product.human_attribute_name('things')}: #{product.thing_name}",
+                        class: "mb-3 font-normal text-gray-500"%>
+                </div>
+                <div>
+                    <!-- Condition -->
+                    <%= tag.p "#{Product.human_attribute_name('condition')}: #{product.condition_name}", 
+                        class: "mb-3 font-normal text-gray-500"%>
+                    <!-- Delivery -->
+                    <%= tag.p class: "mb-3 font-normal text-gray-500 flex items-center" do %>
+                        <%= Product.human_attribute_name('delivery') + ': ' %>
+                        <%= product.delivery_name %>
+                    <% end %>
+                </div>
+                <!-- Description -->
+                <%= tag.p "#{Product.human_attribute_name('description')}: #{product.description}", 
+                    class: "mb-3 font-normal text-gray-500 col-span-full" if product.description.present?%>
+            <% end %>
+            <div class="col-span-full text-center mt-3">
+                <!-- City -->
+                <%= tag.h4 "#{product.district_name}, #{product.city_name}",
+                    class: "text-sm text-gray-500" if product.city.present?%>
+            </div>
+            <!-- Card Footer -->
+            <div class="flex items-center justify-between mt-4 col-span-full">
+                <!-- Created at -->
+                <%= tag.p product.created_at, class: "text-sm text-gray-500"%>
+                <!-- Price -->
+                <%= tag.label class: "mb-2 text-xl text-end font-medium text-gray-600 flex items-center" do %>
+                    <%= render 'shared/buttons/popover', text: t('product.delivery.price_popover'), icon: 'icons/icons8-info-50.png' %>
+                    <%= "#{Product.human_attribute_name('price')}: #{product.price} ₪" %>
+                <% end if ['show', 'products'].eql?([action_name, controller_name]) %>
+                <!-- View more button -->
+                <%= render 'shared/buttons/view_more', path: product_path(product), link_title: product.title unless ['show', 'products'].eql?([action_name, controller_name]) %>
+            </div>
+            <!-- Views -->
+            <%= tag.div class: "col-span-full flex justify-center items-center relative mt-3 text-gray-500 text-sm" do %>
+                <%= render 'shared/buttons/views', object: product, popover_target: product.title %>
+            <% end %>
+        <% end %>
+        
+        <!-- Control buttons -->
+        <% if current_user == product.user %>
+            <hr class="">
+            <!-- Mark as sold -->
+            <div class="flex justify-center w-full py-3">
+                <% if product.sold == true%>
+                    <%= link_to users_product_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
+                        <%= Product.human_attribute_name('sold') %>
+                        <%= image_tag('icons/icons8-done-40.png', class: 'ml-2 w-5 h-5', alt: "icons-8-done-40")%>
+                    <% end%>
+                <% else%>
+                    <%= link_to users_product_mark_as_sold_path(product), class: "flex items-center py-2 px-3 text-sm font-medium text-center text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200", data: { turbo_method: :post, turbo_confirm: t('global.are_you_sure') } do %>
+                        <%= t('product.mark_as_sold') %>
+                    <% end %>
+                <% end %>
+            </div>
+            <%= render 'shared/buttons/control_buttons', model: product, 
+                edit_path: [:edit, :users, product], publish_path: [:users, product, :publish], del_path: [:users, product]%>
+        <% end %>
+    </div>
+<% end %>

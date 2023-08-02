@@ -1,0 +1,32 @@
+uk:
+    activerecord:
+        models:
+            company:      "Компанія"
+        attributes:
+            company:
+                districts:        "Регіон"
+                languages:        "Мови"
+                services:         "Послуги"
+                title:            "Назва"
+                working_area:     "Регіон"
+                description:      "Опис або слоган"
+                avatar:           "логотип"
+                images:           "фото"
+    company:
+        carriers:         "перевізники"
+        top_carriers:     "Кращі перевізники"
+        latest_carriers:  "Всі перевізники"
+        about:            "Про компанію"
+        we_speak:         "Ми спілкуємось на: "
+        find_carrier:     "Знайти перевізника"
+        sign_up:    
+            link:             "Стати перевізником"
+            title:            "Реєстрація компанії"
+            credential:       "Дані входу"
+            personal:         "Репрезентативна інформація"
+            slogan_length:    "%{length} символів макс"
+            meta_desc:        "Зареєструйте свою компанію, щоб отримати безкоштовну рекламу і залучити ще більше клієнтів для вашого бізнесу!"
+        gallery:          
+            title:        "Галерея"
+            view_btn:     "Дивитися галерею"
+            desc:         "Примітка: Тут ви можете завантажити фотографії для вашого портфоліо, наприклад, ваш флот і ваша команда."

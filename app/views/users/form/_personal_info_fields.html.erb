@@ -1,0 +1,60 @@
+
+<!-- First Name input -->
+<div class="">
+   <div class="flex items-center">
+       <%= tag.span '*', class: "text-red-500 mr-1" if controller_name == 'registrations'%>
+       <%= form.label :first_name, class: "text-lg" %>
+   </div>
+   <%= form.text_field :first_name, autocomplete: "first_name", 
+    class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+    id: "firstName-input",
+    placeholder: "#{User.human_attribute_name('first_name')}",
+    required: true
+   %>
+</div>
+
+<!-- Last Name input -->
+<div class="">
+   <div class="flex items-center">
+       <%= tag.span '*', class: "text-red-500 mr-1" if controller_name == 'registrations'%>
+       <%= form.label :last_name, class: "text-lg" %>
+   </div>
+   <%= form.text_field :last_name, autofocus: false, autocomplete: "last_name", 
+    class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+    id: "lastName-input",
+    placeholder: "#{User.human_attribute_name('last_name')}",
+    required: true
+   %>
+</div>
+
+<!-- City -->
+<div class="">
+    <div class="flex items-center">
+        <%= tag.span '*', class: "text-red-500 mr-1" if controller_name == 'registrations'%>
+        <%= form.label :city, class: "text-lg" %>
+    </div>
+    <%= form.grouped_collection_select(:city_id, District.all.decorate.drop(1), :cities, :title, :id, I18n.locale, 
+        { include_blank: t('global.select'), selected: params[:city_id] || current_user&.city_id}, 
+        {class: "block w-full px-4 py-2 mt-1 text-gray-500 bg-white border border-gray-300 rounded-md focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"})%>
+</div>
+
+<!-- Gender -->
+<%= tag.div class: "" do %>
+   <div class="flex items-center">
+       <%= tag.span '*', class: "text-red-500 mr-1" if controller_name == 'registrations'%>
+       <%= form.label :gender, class: "text-lg" %>
+   </div>
+   <%= form.select(:gender, options_for_select([[User.human_attribute_name('male'), 'male'], [User.human_attribute_name('female'), 'female']], current_user&.gender), {include_blank: t('global.select')},
+       {class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", required: true})%>
+<% end if current_client || current_page?(new_client_registration_path)%>
+
+<!-- Birthday -->
+<div class="">
+   <%= form.label :birthday, class: "text-lg" %>
+   <%= form.date_field :birthday, autocomplete: "birthday", 
+    class: "text-base form-control block w-full px-4 py-2 mt-1 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+    id: "birthday-input",
+    placeholder: "#{User.human_attribute_name('birthday')}",
+    required: true
+   %>
+</div>

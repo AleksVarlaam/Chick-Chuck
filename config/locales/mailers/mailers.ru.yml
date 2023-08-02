@@ -1,0 +1,5 @@
+ru:
+    mailer:
+        greeting:   "Здравствуйте, %{recipient}!"
+        notification:
+            message:    "%{user} отправил вам новое сообщение"

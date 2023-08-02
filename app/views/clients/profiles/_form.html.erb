@@ -1,0 +1,20 @@
+<!-- Personal info form -->
+<%= form_with model: @user, url: clients_profile_path, method: :put do |form| %>
+    <%= render "shared/error_messages", resource: @user %>
+    
+    <!-- Personal info -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <%= render 'users/form/personal_info_fields',    form: form %>
+    </div>
+    <!-- Avatar -->
+    <%= render 'carrierwave/avatar_field',    form: form, imageable: current_user %>
+    <!-- Contacts section -->
+    <%= render 'users/form/contacts_section_fields', form: form %>
+    <!-- Default locale -->
+    <%= render 'users/form/default_locale',   form: form %>
+    
+    <!-- Button Save -->
+    <div class="flex justify-start mt-6">
+        <%= form.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+    </div>
+<% end %>

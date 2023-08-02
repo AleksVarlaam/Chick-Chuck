@@ -1,0 +1,21 @@
+<!-- Company card -->
+<%= turbo_frame_tag company, 
+    class: "bg-white py-4 rounded-lg border-gray-200 shadow-md hover:shadow-xl #{'border' unless ['show', 'modal'].include?(action_name) }" do %>
+    <div class="flex flex-col items-center space-y-4 ">
+        <!-- Header -->
+        <%= render 'companies/shared/company_info', company: company%>
+        <!-- Footer -->
+        <%= tag.div class: "col-span-full flex flex-col space-y-4 pt-1 justify-center items-center text-gray-500 text-sm" do %>
+            <!-- Views -->
+            <%= render 'shared/buttons/views', object: company, popover_target: company.title %>
+            <!-- Created at -->
+            <%# tag.span company.decorate.created_at, class: 'text-sm text-gray-500'%>
+        <% end %>
+        <!-- Gallery -->
+        <%= tag.div class: "w-full sm:w-1/2 flex-shrink-0 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-xl" do %>
+            <!-- Images -->
+            <%= render 'carrierwave/images/carousel', object: company %>
+        <% end if company.images.present? %>
+    </div>
+<% end %>
+

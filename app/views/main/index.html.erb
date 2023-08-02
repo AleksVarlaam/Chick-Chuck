@@ -1,0 +1,22 @@
+<% currently_at t('pages.home') %>
+<% provide :page_title, t('pages.home') %>
+
+
+<%= tag.section class: "grid grid-flow-row auto-rows-max flex w-full px-2" do %>
+    <!-- Header -->
+    <%= tag.div (render 'main/index/header'), class: "mb-6 -mx-2"%>
+    <!-- Top features -->
+    <%= render 'main/index/top_features'%>
+    <!-- Top trucks -->
+    <%= render 'main/index/companies'%>
+    <!-- Market -->
+    <%= render 'main/index/market'%>
+    <!-- Features -->
+    <%= render 'main/index/main_features'%>
+    <!-- Moving preparation -->
+    <%= render 'main/index/moving_preparation'%>
+    <!-- Newsletter -->
+    <%= render 'main/index/newsletter'%>
+    <!-- Latest news -->
+    <%= render 'main/index/latest_news' if News.count.positive?%>
+<% end %>

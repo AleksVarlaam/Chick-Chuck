@@ -1,0 +1,34 @@
+<% currently_at t('user_menu.dashboard') %>
+<% provide :page_title, t('user_menu.dashboard') %>
+<% provide :main_title, t('user_menu.dashboard')%>
+
+<section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+    <!-- Analytics -->
+    <%= link_to admins_active_analytics_path, class: "flex items-center p-8 bg-white shadow-md hover:shadow-lg rounded-lg" do %>
+      <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6">
+        <%= heroicon 'chart-bar-square', class: 'h-7 w-7'%>
+      </div>
+      <div>
+        <%= tag.span 'Analytics', class: "block text-gray-500 hover:text-gray-900" %>
+      </div>
+    <% end %>
+    <!-- Sidekiq -->
+    <%= link_to admins_sidekiq_web_path, class: "flex items-center p-8 bg-white shadow-md hover:shadow-lg rounded-lg" do %>
+      <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6">
+        <%= heroicon 'circle-stack', class: 'h-7 w-7'%>
+      </div>
+      <div>
+        <%= tag.span 'Sidekiq', class: "block text-gray-500 hover:text-gray-900" %>
+      </div>
+    <% end %>
+    <!-- Users -->
+    <%= link_to users_admins_dashboard_path, class: "flex items-center p-8 bg-white shadow-md hover:shadow-lg rounded-lg" do %>
+      <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6">
+        <%= heroicon 'user-group', class: 'h-7 w-7'%>
+      </div>
+      <div>
+        <%= tag.span @users.count, class: "block text-2xl font-bold" %>
+        <%= tag.span 'Users', class: "block text-gray-500 hover:text-gray-900" %>
+      </div>
+    <% end %>
+</section>

@@ -1,0 +1,19 @@
+@import "application.tailwind";
+@import "star_rating";
+@import "actiontext.css";
+
+//Stimulus ReadMore
+.my-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--read-more-line-clamp, 2);
+}
+
+/*Number input field hide arrows*/
+form input[type='number']::-webkit-outer-spin-button,
+form input[type='number']::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+

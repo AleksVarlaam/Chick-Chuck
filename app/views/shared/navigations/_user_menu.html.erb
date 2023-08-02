@@ -1,0 +1,113 @@
+<% if user_signed_in? %>
+    <!-- Message Notifications -->
+    <%= render 'feedbacks/messages/notifications/notifications_section'%>
+    <!-- Notifications -->
+    <%= render 'feedbacks/notifications/notifications_section'%>
+<% end %>
+
+<div class="flex items-center space-x-4">
+    <!-- Become a Carrier -->
+    <%= link_to new_company_registration_path, class: "hidden relative xl:inline-flex items-center justify-center p-0.5 overflow-hidden text-base font-medium rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800
+        #{current_page?(new_company_registration_path) ? 'text-gray-900' : 'text-gray-600'}" do %>
+      <span class="relative px-4 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          <%= t('company.sign_up.link')%>
+      </span>
+    <% end unless user_signed_in?%>
+    <!-- User menu -->
+    <div class="relative z-40" data-controller="dropdown">
+        <!-- User menu button -->
+        <div>
+          <button 
+            id="user-menu-button"
+            aria-label="user-dropdown-menu"
+            data-action="dropdown#toggle click@window->dropdown#hide"
+            class="flex text-sm rounded-full border-2 border-gray-300 hover:border-gray-400 focus:outline-none drop-shadow-2xl hover:drop-shadow-lg items-center" 
+          >
+            <%= heroicon "bars-3", class: "mx-2 hidden sm:block", size: 20 %>
+            <!-- Avatar -->
+            <% if user_signed_in? %>
+                <%= image_tag(current_user.avatar_thumb, 
+                    class: "object-cover h-8 w-8 rounded-full border border-gray-500 m-1", alt: "user-avatar")%>
+            <% else %>
+                <%= heroicon "user-circle", class: "w-8 h-8 text-gray-600 rounded-full border m-1" %>
+            <% end %>
+          </button>
+        </div>
+
+        <!-- User menu dropdown -->
+        <div 
+            data-dropdown-target="menu"
+            class="hidden absolute rtl:origin-top-left rtl:left-0 ltr:origin-top-right ltr:right-0 z-50 mt-2 min-w-[14rem] w-auto rounded-lg shadow-md hover:shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" 
+            data-transition-enter-from="opacity-0 scale-95"
+            data-transition-enter-to="opacity-100 scale-100"
+            data-transition-leave-from="opacity-100 scale-100"
+            data-transition-leave-to="opacity-0 scale-95"
+        >
+            <% if user_signed_in? %>
+                <!-- User menu header -->
+                <%= tag.div class: "flex flex-col items-center my-3 mx-2", 
+                  data: {action: "dropdown#toggle"}, 
+                  tabindex:"-1",
+                  id:"personalInfoLink" do
+                %>
+                    <!-- Avatar -->
+                    <%= image_tag(current_user.avatar_thumb, class: "object-cover w-16 h-16 mx-2 mb-3 rounded-full", alt: "user-avatar")%>
+                    <!-- User name -->
+                    <%= tag.h4 (current_user.user_name), class: "px-4 font-medium text-gray-800 text-center hover:underline"%>
+                    <!-- Email -->
+                    <%= tag.p current_user.email, class: "px-4 py-2 text-sm font-medium text-gray-600 text-center hover:underline"%>
+                <% end %>
+                <!-- Links list -->
+                <%= render 'clients/shared/client_menu', 
+                    link_class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center" if client_signed_in?%>
+                <%= render 'companies/shared/company_menu', 
+                    link_class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center" if company_signed_in?%>
+                <%= render 'admins/shared/admin_menu', 
+                    link_class: "font-medium flex block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center" if admin_signed_in?%> 
+            <% else %>
+                <!-- Sign In -->
+                <%= link_to t('user_menu.sign_in'), new_client_session_path, 
+                    class: "font-medium block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", 
+                    data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
+                    tabindex:"-1",
+                    id: "clientSignInLink"
+                %>
+                <!-- Sign Up -->
+                <%= link_to t('user_menu.sign_up'), new_client_registration_path, 
+                    class: "font-medium block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", 
+                    data: {action: "dropdown#toggle"}, 
+                    tabindex:"-1",
+                    id: "clientSignUpLink"
+                %>
+                <hr>
+                <!-- Company -->
+                <div class="m-2 min-w-[14rem] w-auto inline-flex items-center justify-center p-0.5 overflow-hidden text-base font-medium rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                    <span class="w-full relative  py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md">
+                        <!-- Sign In As Company-->
+                        <%= link_to new_company_session_path, 
+                            class: "font-medium flex block  px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+                            data: {action: "dropdown#toggle", turbo_frame: 'modal'}, 
+                            tabindex:"-1",
+                            id: "companySignInLink" do
+                        %>
+                            <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), 
+                                class: "w-4 h-4 rtl:ml-2 ltr:mr-2", alt: "log-in-as-company")%>
+                            <%= t('user_menu.sign_in_company')%>
+                        <% end %>
+                        <!-- Become a Carrier -->
+                        <%= link_to new_company_registration_path, 
+                            class: "font-medium flex block  px-2 py-2 text-sm text-gray-700 hover:bg-gray-100 items-center", 
+                            data: {action: "dropdown#toggle"}, 
+                            tabindex:"-1",
+                            id:"companySignUpLink" do
+                        %>
+                                <%= image_tag(asset_path('icons/icons8-in-transit-50.png'), 
+                                    class: "w-4 h-4 rtl:ml-2 ltr:mr-2 flex-none", alt: "become-a-carrier")%>
+                                <%= t('company.sign_up.title')%>
+                        <% end %>
+                    </span>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

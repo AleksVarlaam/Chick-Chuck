@@ -1,0 +1,40 @@
+<% currently_at 'Confirmation' %>
+<% provide :page_title, 'Confirmation' %>
+
+
+<section class="max-w-4xl p-6 mx-auto bg-white rounded-lg shadow-md hover:shadow-lg dark:bg-gray-800">
+    <!-- Flash messages -->
+    <%= tag.div class: "flex w-full overflow-hidden bg-white rounded-lg shadow-md hover:shadow-lg my-6" do %>
+        <div class="flex items-center justify-center w-12 bg-emerald-500">
+            <svg class="w-6 h-6 text-white fill-current" alt="info" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+            </svg>
+        </div>
+        <div class="px-4 py-2 w-full">
+            <%= tag.h2 t('devise.confirmations.send_instructions'), class: "text-lg text-gray-600 ltr:pr-3 rtl:pl-3"%>
+        </div>
+    <% end %>
+
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <!-- Error message -->
+      <%= render "shared/error_messages", resource: resource %>
+        <div class="grid grid-cols-1 gap-6 mt-4">
+            <div>
+                <%= f.label t('did_not_get_email'), class: "text-lg font-semibold text-gray-700 dark:text-white"  %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', required: true,
+                    value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                    class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" %>
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-6">
+            <%= f.submit t('devise.confirmations.new.resend_confirmation_instructions'), class: "px-5 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600 cursor-pointer" %>
+        </div>
+   <% end %>
+ 
+   <p class="text-sm text-gray-500 font-semibold mt-2 pt-1 mb-0 space-x-3">
+     <%= link_to t('user_menu.sign_in'), new_session_path(resource_name), class:"text-blue-600 hover:text-gray-700 focus:text-red-700 transition duration-200 ease-in-out", data: {turbo_frame: 'modal'}%>
+     <%= link_to t('sign_in.register'), new_registration_path(resource_name), class:"text-red-600 hover:text-gray-700 focus:text-red-700 transition duration-200 ease-in-out", data: {turbo_frame: '_top'}%>
+   </p>
+
+</section>

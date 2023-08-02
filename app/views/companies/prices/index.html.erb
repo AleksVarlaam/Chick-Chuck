@@ -1,0 +1,17 @@
+<% currently_at t('calculator.title') %>
+<% provide :page_title, t('calculator.title') %>
+<% provide :nav_title, t('calculator.title') %>
+<% provide :nav_path, companies_prices_path %>
+<% provide :main_title, t('calculator.title') %>
+
+
+<%= tag.div class: "grid grid-flow-row auto-rows-max w-full" do %>
+    <!-- Calculator form -->  
+    <%= render 'companies/calculators/calculator'%>
+    
+    <!-- Categories table -->
+    <%= turbo_frame_tag 'categories' do %>
+        <!-- All things -->
+        <%= render partial: 'companies/prices/category', collection: @categories%>
+    <% end %>
+<% end %>

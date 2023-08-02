@@ -1,0 +1,33 @@
+<% currently_at @new.title %>
+<% provide :page_title, @new.title %>
+
+<%= turbo_stream_from @new %>
+
+<section class="bg-gray-50">
+    <div class="container px-6 py-10 mx-auto">
+        <!-- Title -->
+        <%= tag.h1 @new.title, class: "max-w-lg text-4xl font-semibold leading-tight text-gray-800 mb-6" %>
+        <div class="lg:flex lg:-mx-6">
+            <div class="lg:w-3/4 lg:px-6">
+                <%= tag.div (render 'active_storage/attachments/carousel', object: @new), class: "object-cover object-center w-full h-auto  rounded-xl", alt: "#{@new.title}"%>
+                <div class="grid grid-flow-row auto-rows-max flex w-full pb-6 mb-6 border-b border-b-gray-400">
+                    <!-- News header -->
+                    <%= render 'news_header'%>
+                    <!-- Content -->
+                    <%= tag.p @new.content, class: "block font-medium text-gray-700"%>
+                    <!-- Views -->
+                    <%= tag.span (render 'shared/buttons/views', object: @new), class: 'mt-6'%>
+                    <!-- Control buttons -->
+                    <% if admin_signed_in?  %>
+                        <%= render 'shared/control_buttons', model: @new, 
+                            edit_path: [:edit, :admins, @new], publish_path: [:admins, :publish, @new], del_path: [:admins, @new]%>
+                    <% end %>
+                </div>
+                <!-- Comments section -->
+                <%= render 'feedbacks/comments/comments_section'%>
+            </div>
+            <!-- News list -->
+            <%= render 'news_list'%>
+        </div>
+    </div>
+</section>

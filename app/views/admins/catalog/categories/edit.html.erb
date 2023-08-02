@@ -1,0 +1,7 @@
+<% currently_at t('admin.edit_category') %>
+<% provide :page_title, t('admin.edit_category') %>
+<% provide :nav_title, t('admin.edit_category') %>
+<% provide :nav_path, '#' %>
+<% provide :main_title, t('admin.edit_category') %>
+
+<%= render 'form', path: admins_category_path, method: :put%>

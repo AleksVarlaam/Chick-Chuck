@@ -1,0 +1,14 @@
+<% currently_at t('pages.news') %>
+<% provide :page_title, t('pages.news') %>
+
+<!-- Latest News -->
+<%= turbo_frame_tag 'news',
+    class: "grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 container w-full mx-auto" do 
+%>
+    <!-- Title -->
+    <%= tag.h4 t('pages.news'), class: 'text-3xl font-semibold text-gray-800  mt-6 text-center col-span-full'%>
+    
+    <%= render @news %>
+<% end %>
+
+<%== pagy_nav(@pagy) if News.count > 8%>

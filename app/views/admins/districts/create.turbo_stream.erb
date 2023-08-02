@@ -1,0 +1,5 @@
+<%= turbo_stream.replace District.new do %>
+    <%= render 'shared/buttons/add', id: dom_id(District.new), title: t('admin.add_district'), path: new_admins_district_path%>
+<% end %>
+<%= turbo_stream.append 'districts', render(@district)%>
+<%= prepend_flash%>

@@ -1,0 +1,10 @@
+# Active Record section
+he:
+    activerecord:
+        models:
+            
+        errors:
+              messages:
+                  in:         "%{value} אינו חוקי, הזן ערך בטווח %{count}"
+        attributes:
+            

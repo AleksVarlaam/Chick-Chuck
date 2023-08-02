@@ -1,0 +1,13 @@
+<!-- Views count -->
+<button data-popover-target="<%= popover_target.split(' ').join('_') %>" type="button" class="relative flex items-center">
+    <%= heroicon 'eye', class: "w-5 h-5 mx-1" %>
+    <%= object.views%>
+</button>
+<div data-popover id="<%= popover_target.split(' ').join('_') %>" role="tooltip" class="absolute z-10 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
+    <div class="px-3 py-2  text-center">
+        <%= tag.p t('global.views'), class: "text-gray-500 text-sm break-all"%>
+    </div>
+    <div data-popper-arrow></div>
+</div>
+
+

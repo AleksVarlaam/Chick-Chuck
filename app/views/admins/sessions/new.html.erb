@@ -1,0 +1,7 @@
+<% currently_at 'Sign In' %>
+<% provide :page_title, 'Sign In' %>
+
+
+<%= render TurboModalComponent.new(title: t('sign_in.title')) do %>
+    <%= render 'form'%>
+<% end %>

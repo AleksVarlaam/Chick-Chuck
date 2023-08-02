@@ -1,0 +1,40 @@
+<% currently_at t('admin_menu.lang_dist') %>
+<% provide :page_title, t('admin_menu.lang_dist') %>
+<% provide :nav_title, t('admin_menu.lang_dist') %>
+<% provide :nav_path, admins_districts_path %>
+<% provide :main_title, t('admin_menu.lang_dist') %>
+
+
+<!-- Districts table -->
+<%= turbo_frame_tag 'districts',
+    class: "grid grid-flow-row auto-rows-max w-full mb-6" do 
+%>
+    <%= tag.p District.model_name.human, class: "text-start text-gray-500 text-xl font-bold uppercase mb-2" %>
+    <div class="grid grid-cols-9 gap-6 bg-gray-200 p-1">
+        <%= tag.div 'Ru', class: 'col-span-2'%>
+        <%= tag.div 'En', class: 'col-span-2'%>
+        <%= tag.div 'He', class: 'col-span-2'%>
+        <%= tag.div 'Uk', class: 'col-span-2'%>
+    </div>
+    <%= render @districts %>
+<% end %>
+
+<!-- Add district -->
+<%= render 'shared/buttons/add', id: dom_id(District.new), title: t('global.add_btn', model: District.model_name.human.downcase),
+     path: new_admins_district_path%>
+
+<div class="my-6"><hr></div>
+
+<!-- Languages -->
+<%= turbo_frame_tag 'languages',
+    class: "grid grid-flow-row auto-rows-max w-full" do 
+%>
+    <%= tag.p Language.model_name.human, class: "text-start text-gray-500 text-xl font-bold uppercase" %>
+    <%= render @languages %>
+<% end %>
+
+<!-- New language -->
+<div class="mt-6">
+    <%= render 'shared/buttons/add', id: dom_id(Language.new), title: t('global.add_btn', model: Language.model_name.human.downcase), 
+        path: new_admins_language_path%>
+</div>

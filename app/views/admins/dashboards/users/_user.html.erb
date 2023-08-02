@@ -1,0 +1,45 @@
+<tr>
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <div class="flex items-center">
+            <!-- User avatar -->
+            <div class="flex-shrink-0 w-10 h-10">
+                <%= image_tag(user.avatar_thumb,
+                class: 'mt-2 object-cover rounded-full w-8 h-8 sm:w-10 sm:h-10', alt: 'avatar')%>
+            </div>
+            <%= link_to user_modal_path(user), data: { turbo_frame: 'modal' }, class: 'ml-2 flex items-center hover:underline' do %>
+                <%= tag.h5 user.user_name, class: "text-base font-semibold text-gray-700" %>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 w-6 h-6 text-orange-700 hover:text-gray-700">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                </svg>  
+            <% end %>
+        </div>
+    </td>
+    <!-- User type -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <%= tag.p user.type, class: "text-gray-900 whitespace-no-wrap"%>
+    </td>
+    <!-- Created at -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <%= tag.p (l user.created_at, format: :short), class: "text-gray-900 whitespace-no-wrap"%>
+    </td>
+    <!-- Status -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+            <% if user.provider.present? %>
+                <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                <span class="relative"><%= user.provider.capitalize%></span>
+            <% elsif user.confirmed? %>
+                <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                <span class="relative">Confirmed</span>
+            <% else %>
+                <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+                <span class="relative">Unconfirmed</span>
+            <% end %>
+        </span>
+    </td>
+    <!-- Options -->
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <%= link_to user.email, "mailto:#{user.email}", 
+            class:"text-gray-900 whitespace-no-wrap hover:underline"%>
+    </td>
+</tr>

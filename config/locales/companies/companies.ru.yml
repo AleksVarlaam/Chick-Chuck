@@ -1,0 +1,31 @@
+ru:
+    activerecord:
+        models:
+            company:      "Компания"
+        attributes:
+            company:
+                districts:        "Регион"
+                languages:        "Языки"
+                services:         "Услуги"
+                title:            "Название"
+                working_area:     "Регион"
+                description:      "Описание или слоган"
+                avatar:           "логотип"
+                images:           "фотографии"
+    company:
+        carriers:         "перевозчики"
+        top_carriers:     "Лучшие перевозчики"
+        latest_carriers:  "Все перевозчики"
+        about:            "О компании"
+        we_speak:         "Мы говорим на: "
+        find_carrier:     "Найти перевозчика"
+        sign_up:    
+            link:             "Стать перевозчиком"
+            title:            "Регистрация компании"
+            credential:       "Данные входа"
+            personal:         "Информация о представителе"
+            slogan_length:    "%{length} символов максимум"
+        gallery:          
+            title:        "Галерея"
+            view_btn:     "Смотреть галерею"
+            desc:         "Примечание: Здесь вы можете загрузить фотографии для вашего портфолио, например, ваш автопарк и вашу команду."

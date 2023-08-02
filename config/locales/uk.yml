@@ -1,0 +1,68 @@
+uk:
+  en: "English"
+  he: "עברית"
+  ru: "Русский"
+  uk: "Українська"
+  israel:  "Ізраїль"
+  # Pages
+  pages: 
+      home:             'Головна'
+      calculator:       'Калькулятор'
+      preparation:      'Підготовка'
+      market:           'Оголошення'
+      news:             'Новини'
+      knowledge_base:   'База знань'
+      about:            'Про сервіс'
+  # Global
+  global:
+      save_btn:         "Зберегти"
+      are_you_sure:     "Ви впевнені?"
+      select:           "Виберіть: "
+      destroy_btn:      "Видалити"
+      edit_btn:         "Змінити"
+      add_btn:          "Додати %{model}"
+      read_more:        "Детальніше"
+      read_less:        "Приховувати"
+      view_all:         "Дивитись усе"
+      send_btn:         "Відправити"
+      dismiss_btn:      "Пропустити"
+      views:            "Кількість переглядів"
+      publish_btn:      "Публікувати в загальний перегляд"
+      hide_btn:         "Приховати з загального перегляду"
+      image:            "Зображення"
+      images:           "Зображення"
+      unavailable_html: "Наш сервіс тільки запущений і на даний момент %{model} відсутні, будь ласка, зайдіть пізніше.<br> 
+Підпишіться на наші новини щоб слідкувати за нашим развитком."
+      da:               "Так"
+      net:              "Ні"
+      find_btn:         "Знайти %{model}"
+      upload:           "Завантажити %{model}"
+      update:           "Оновлення %{model}"
+      select_all:       "Вибрати все"
+      deselect_all:     "Скасувати всі"
+  moving:           "Переміщення"
+  # Flash
+  flash:
+      type:
+          success:      "Успішно"
+          info:         "Інформація"
+          danger:       "Небезпека"
+          warning:      "Увага"
+          alert:        "Увага"
+          notice:       "Повідомлення"
+      account:      "Ваш обліковий запис"
+      success:
+          created:      "%{model} успішно створений(а)."
+          saved:        "%{model} успішно збережено."
+          updated:      "%{model} успішно оновлений(а)." 
+          destroyed:    "%{model} успішно видалений(а)."
+          published:    "%{model} успішно опублікований(а) в загальний перегляд." 
+          hided:        "%{model} успішно прихований(а) з загального перегляду."
+      alert:       "Щось пішло не так."
+      mailers:
+          success:      "Ви успішно підписалися на наші новини!"
+          info:         "Даний email вже існує, будь ласка, перевірте ваш email або чекайте від нас нових новин!"
+  # Date and Time
+  time:
+      formats:
+          date:         "%d %B %Y"

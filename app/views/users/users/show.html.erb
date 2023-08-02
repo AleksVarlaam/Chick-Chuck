@@ -1,0 +1,18 @@
+<% currently_at @user.title %>
+<% provide :page_title, @user.title %>
+<% provide :nav_title, @user.title %>
+
+<!-- Schema -->
+<%= render 'shared/meta/organization_json', user: @user%>
+<%= turbo_stream_from @user%>
+<!-- Load Facebook SDK for JavaScript -->
+<%= render 'shared/buttons/facebook_sdk_js'%>
+
+<%= tag.div class: "grid grid-flow-row auto-rows-max flex w-full px-2 lg:px-6" do %>
+    <!-- About company section -->
+    <%= tag.div (render 'companies/shared/company', company: @user), class: 'mb-3 pt-3 col-span-full' %>
+    <!-- Global rating -->
+    <%= render 'feedbacks/shared/global_ratings', company: @user%>
+    <!-- Revies section -->
+    <%= render 'feedbacks/reviews/reviews_section' %>
+<% end %>

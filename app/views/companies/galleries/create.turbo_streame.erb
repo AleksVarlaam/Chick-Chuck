@@ -1,0 +1,6 @@
+<!-- Reload images -->
+<% @images.each do |image| %>
+    <%= turbo_stream.append 'gallery', render('companies/galleries/image', image: image) %>
+<% end if @images.present? %>
+
+<%= prepend_flash %>

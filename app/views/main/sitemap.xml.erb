@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Root -->
+    <%= render 'sitemap_url', url: root_url, date: nil, priority: 1.0 %>
+    
+    <% @locales.each do |locale| %>
+        <!-- Root with locale -->
+        <%= render 'sitemap_url', url: root_url(locale: locale), date: nil, priority: 1.0 %>
+        <!-- Users -->
+            <!-- Index -->
+            <%= render 'sitemap_url', url: users_url(locale: locale), date: nil, priority: 1.0 %>
+            <!-- List -->
+            <% @users.each do |user| %>
+                <!-- Show -->
+                <%= render 'sitemap_url', url: user_url(user, locale: locale), 
+                    date: user.created_at, priority: 0.8 %>
+                <!-- Contacts -->
+                <%= render 'sitemap_url', url: user_contacts_url(user, locale: locale), 
+                    date: user.created_at, priority: 0.6 %>
+            <% end %>
+        <!--  -->
+        <!-- Products -->
+            <!-- Index -->
+            <%= render 'sitemap_url', url: products_url(locale: locale), date: nil, priority: 1.0 %>
+            <!-- Show -->
+            <% @products.each do |product| %>
+                <%= render 'sitemap_url', url: product_url(product, locale: locale), date: product.created_at, priority: 0.8 %>
+            <% end %>
+        <!-- -->
+        <!-- Calculator -->
+            <%= render 'sitemap_url', url: calculator_url(locale: locale), date: nil, priority: 0.6 %>
+        <!-- -->
+        <!-- About service -->
+            <%= render 'sitemap_url', url: about_url(locale: locale), date: nil, priority: 0.8 %>
+        <!-- -->
+        <!-- Feedbacks -->
+            <%= render 'sitemap_url', url: feedbacks_url(locale: locale), date: nil, priority: 0.8 %>
+        <!-- -->
+        <!-- Moving preparation -->
+            <%= render 'sitemap_url', url: moving_preparation_url(locale: locale), date: nil, priority: 0.4 %>
+        <!-- -->
+    <% end %>
+</urlset>

@@ -1,0 +1,48 @@
+<!-- Calculator categories form -->
+<%= turbo_frame_tag dom_id(@category, 'form') do %>
+    <%= form_with model: [:admins, @category], class: "col-span-full mx-auto my-4 w-full relative" do |f| %>
+        <!-- Error messages -->
+        <%= tag.div (render 'shared/error_messages', resource: @category), class: 'col-span-full' %>
+        <div class="w-full items-center flex grid grid-cols-1 md:grid-cols-4 gap-3">
+          <!-- Ru -->
+          <div class="flex items-center text-gray-600 justify-center">
+              <div class="flex items-center text-center">
+                  <%= f.label :ru, 'Ru', class: "text-lg mr-2" %>
+              </div>
+              <%= f.text_field :ru, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
+          </div>
+          <!-- En -->
+          <div class="flex items-center text-gray-600 justify-center">
+              <div class="flex items-center text-center">
+                  <%= f.label :en, 'En', class: "text-lg mr-2" %>
+              </div>
+              <%= f.text_field :en, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
+          </div>
+          <!-- Uk -->
+          <div class="flex items-center text-gray-600 justify-center">
+              <div class="flex items-center text-center">
+                  <%= f.label :uk, 'Uk', class: "text-lg mr-2" %>
+              </div>
+              <%= f.text_field :uk, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
+          </div>
+          <!-- He -->
+          <div class="flex items-center text-gray-600 justify-center">
+              <div class="flex items-center text-center">
+                  <%= f.label :he, 'He', class: "text-lg mr-2" %>
+              </div>
+              <%= f.text_field :he, class: "w-full mr-1 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
+          </div>
+        </div>
+        <div class="flex items-center justify-start mt-4">
+          <!-- Button Save -->
+          <div class="flex justify-start pb-2">
+              <%= f.submit t('global.save_btn'), class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4"%>
+          </div>
+          <!-- Button delete -->
+          <div class="flex justify-start pb-2 ml-3">
+              <%= link_to t('global.destroy_btn'), admins_category_path(@category), data: {turbo_method: :delete, turbo_confirm: t('global.are_you_sure')},
+                  class: "cursor-pointer px-6 py-2 leading-5 text-white transition-colors duration-200 transform  rounded-md  focus:outline-none bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br focus:ring-4" if action_name == 'edit'%>
+          </div>
+        </div>
+    <% end %>
+<% end %>
