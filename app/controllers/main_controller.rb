@@ -35,4 +35,12 @@ class MainController < ApplicationController
       end
     end
   end
+  
+  def cookies
+    respond_to do |format|
+      format.turbo_stream do 
+        session[:cookies_accepted] = params[:cookies].presence
+      end
+    end
+  end
 end
