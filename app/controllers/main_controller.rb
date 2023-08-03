@@ -13,7 +13,7 @@ class MainController < ApplicationController
       }
     )
     @companies = Company.confirmed.take(3)
-    @products = Product.where(published: true).decorate.take(6)
+    @products = Product.published.decorate.take(6)
     # @news = News.all.decorate.last(3)
   end
 
