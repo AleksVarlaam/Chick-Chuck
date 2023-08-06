@@ -5,7 +5,7 @@ module Contents
     include Feedbacks::ReviewsHelper
     before_action :params_for_select, only: %i[index user_products]
     after_action  :update_views, only: :show
-    
+
     def index
       set_meta_tags(
         title: t('meta.market.title'),

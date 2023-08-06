@@ -17,11 +17,11 @@ Rails.application.routes.draw do
         via: :all,
         constraints: { subdomain: 'www' }
   # 404 old pages to remove!
-  get "/he", to: redirect('/404')
-  get "/he/*other", to: redirect('/404')
+  get '/he', to: redirect('/404')
+  get '/he/*other', to: redirect('/404')
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     # 404
-    get '404', :to => 'errors#page_not_found'
+    get '404', to: 'errors#page_not_found'
     # 404 old pages to remove!
     # get "/contents/*other", to: redirect('/404')
     # get "/news/*other", to: redirect('/404')
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     # Favicon
     get 'favicon.png', to: 'main#favicon', format: 'png', as: :favicon
     # Cookies
-    get 'cookies', to: 'main#cookies', as: :cookies, defaults: {format: 'turbo_stream'}
+    get 'cookies', to: 'main#cookies', as: :cookies, defaults: { format: 'turbo_stream' }
 
     # --- Content ---
 

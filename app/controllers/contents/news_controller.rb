@@ -2,7 +2,7 @@
 
 module Contents
   class NewsController < ApplicationController
-    after_action  :update_views, only: :show
+    after_action :update_views, only: :show
 
     def index
       set_meta_tags(
@@ -33,7 +33,7 @@ module Contents
     end
 
     private
-    
+
     def update_views
       return if request.is_crawler? || current_admin
 

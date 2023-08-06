@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   belongs_to :thing
   belongs_to :district
   belongs_to :city
-  has_many :images,   as: :imageable,   dependent: :destroy, class_name: 'Image'
+  has_many :images, as: :imageable, dependent: :destroy, class_name: 'Image'
   accepts_nested_attributes_for :images
 
   scope :published,             -> { where published: true }

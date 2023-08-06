@@ -72,7 +72,7 @@ module Feedbacks
     private
 
     def comment_params
-      params.require(:comment).permit(:content, images_attributes: [:id, :file])
+      params.require(:comment).permit(:content, images_attributes: %i[id file])
     end
 
     def set_commentable

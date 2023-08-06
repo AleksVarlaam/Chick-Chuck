@@ -29,7 +29,7 @@ module Companies
     private
 
     def images_params
-      params.require(:company).permit(images_attributes: [:id, :file])
+      params.require(:company).permit(images_attributes: %i[id file])
     end
 
     def set_company

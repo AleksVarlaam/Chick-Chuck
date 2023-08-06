@@ -4,7 +4,7 @@ class News < ApplicationRecord
   validates :title, :description, :content, :images, presence: true
 
   belongs_to :admin, foreign_key: :user_id
-  has_many :images,   as: :imageable,   dependent: :destroy, class_name: 'Image'
+  has_many :images, as: :imageable, dependent: :destroy, class_name: 'Image'
   accepts_nested_attributes_for :images
 
   has_rich_text :content

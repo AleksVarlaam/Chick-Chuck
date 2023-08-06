@@ -3,7 +3,7 @@
 module Carrierwave
   class ImagesController < ApplicationController
     before_action :set_imageable
-    
+
     def show
       if helpers.is_avatar?
         @images = [@imageable.avatar]

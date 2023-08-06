@@ -7,7 +7,7 @@ class ErrorsController < ApplicationController
       format.all  { render nothing: true, status: 404 }
     end
   end
-  
+
   def show
     @exception = request.env['action_dispatch.exception']
     @status_code = @exception.try(:status_code) ||

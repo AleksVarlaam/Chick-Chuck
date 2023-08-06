@@ -10,7 +10,7 @@ module Feedbacks
       @new_message = current_user.messages.build(message_params)
 
       return unless @new_message.save
-      
+
       helpers.upload_image(@new_message)
       @room = @new_message.room
       recipient = @new_message.recipient
@@ -55,7 +55,7 @@ module Feedbacks
     private
 
     def message_params
-      params.require(:message).permit(:room_id, :content, images_attributes: [:id, :file])
+      params.require(:message).permit(:room_id, :content, images_attributes: %i[id file])
     end
 
     def set_message

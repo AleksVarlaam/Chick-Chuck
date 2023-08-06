@@ -3,7 +3,7 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  has_many :images,   as: :imageable,   dependent: :destroy, class_name: 'Image'
+  has_many :images, as: :imageable, dependent: :destroy, class_name: 'Image'
   accepts_nested_attributes_for :images
 
   scope :unread, -> { where(readed: false).count }

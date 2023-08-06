@@ -26,9 +26,10 @@
                     <%= heroicon 'map', class: 'w-6 h-6 flex-none'%>
                     <p class="w-full px-2 text-md">
                         <% company.districts.decorate.each do |district|%>
-                                <%= link_to users_path(district_id: district), class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
-                                    <%= tag.span (!company.districts.include?(District.first) && district != company.districts.last) ? district.title + ',' : district.title %>
-                                <% end %>
+                            <%= link_to users_path(district_id: district), 
+                                class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
+                                <%= tag.span (!company.districts.include?(District.first) && district != company.districts.last) ? district.title + ',' : district.title %>
+                            <% end %>
                             <% break if company.districts.include?(District.first)%>
                         <% end %>
                     </p>
@@ -38,9 +39,10 @@
                     <%= heroicon 'language', class: 'w-6 h-6 flex-none'%>
                     <p class="w-full px-2 text-md">
                         <% company.languages.each do |language|%>
-                                <%= link_to users_path(language_id: language), class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
-                                    <%= tag.span (!company.languages.include?(District.first) && language != company.languages.last) ? language.title + ',' : language.title %>
-                                <% end %>
+                            <%= link_to users_path(language_id: language), 
+                                class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
+                                <%= tag.span (!company.languages.include?(District.first) && language != company.languages.last) ? language.title + ',' : language.title %>
+                            <% end %>
                             <% break if company.languages.include?(District.first)%>
                         <% end %>
                     </p>
