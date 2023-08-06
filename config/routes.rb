@@ -23,9 +23,9 @@ Rails.application.routes.draw do
     # 404
     get '404', :to => 'errors#page_not_found'
     # 404 old pages to remove!
-    get "/contents/*other", to: redirect('/404')
-    get "/news/*other", to: redirect('/404')
-    get "/trucks/*other", to: redirect('/404')
+    # get "/contents/*other", to: redirect('/404')
+    # get "/news/*other", to: redirect('/404')
+    # get "/trucks/*other", to: redirect('/404')
     # Root path
     root to: 'main#index'
     # Sitemap
