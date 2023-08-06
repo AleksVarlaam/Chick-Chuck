@@ -2,10 +2,16 @@
     class: "w-full max-w-lg overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl dark:bg-gray-800 
         #{'border border-gray-200' unless controller_name == 'products'}" do %>
     <!-- Avatar -->
-    <%= link_to user_path(company_card), data: { turbo: false} do%>
-        <%= image_tag company_card.avatar_medium,
-            class:"object-cover object-center w-full h-56", alt: company_card.title%>
-    <% end %>
+    <div class="w-full" itemscope itemtype="http://schema.org/ImageObject">
+        <%= tag.span company_card.title, itemprop: "name", class: "sr-only"%>
+        <%= link_to user_path(company_card), data: { turbo: false} do%>
+            <%= image_tag company_card.avatar_medium,
+                itemprop: "contentUrl",
+                alt: company_card.title,
+                class:"object-cover object-center w-full h-56"%>
+        <% end %>
+        <%= tag.span company_card.description.to_plain_text, itemprop: "description", class: "sr-only"%>
+    </div>
     <!-- Rating -->
     <%= render 'feedbacks/shared/rating', object: company_card%>
     <div class="px-6 py-4">

@@ -2,10 +2,16 @@
 <%= tag.div class: "w-full flex flex-col max-w-xl justify-center dark:bg-gray-800 rounded-lg" do %>
     <div class="flex justify-center">
         <!-- Avatar -->
-        <%= link_to carrierwave_image_path(company, avatar: true), data: {turbo_frame: 'modal'}, class: "w-full" do %>
-            <%= image_tag company.avatar_large,
-                class: "object-cover object-center w-full max-w-xl h-56 sm:h-72 rounded-t-lg cursor-zoom-in", alt: company.title%>
-        <% end %>
+        <div class="w-full" itemscope itemtype="http://schema.org/ImageObject">
+            <%= tag.span company.title, itemprop: "name", class: "sr-only"%>
+            <%= link_to carrierwave_image_path(company, avatar: true), data: {turbo_frame: 'modal'}, class: "w-full" do %>
+                <%= image_tag company.avatar_large,
+                    itemprop: "contentUrl",
+                    alt: company.title, 
+                    class: "object-cover object-center w-full max-w-xl h-56 sm:h-72 rounded-t-lg cursor-zoom-in" %>
+            <% end %>
+            <%= tag.span company.description.to_plain_text, itemprop: "description", class: "sr-only"%>
+        </div>
     </div>
     <!-- Rating -->
     <%= render 'feedbacks/shared/rating', object: company%>
