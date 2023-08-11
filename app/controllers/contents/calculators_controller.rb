@@ -28,8 +28,8 @@ module Contents
       set_meta_tags(
         title: [t('calculator.title'), @company.title],
         description: t('home_page.main_features.calculator_desc'),
-        canonical: company_calculator_url(@company)# ,
-#         noindex: request.original_url.include?('?') ? true : false
+        canonical: company_calculator_url(@company) # ,
+        #         noindex: request.original_url.include?('?') ? true : false
       )
     end
   end

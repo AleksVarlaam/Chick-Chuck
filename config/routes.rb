@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # 404 old pages to remove!
   get '/he', to: redirect('/404')
   get '/he/*other', to: redirect('/404')
-  scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
+  scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     # 404
     get '404', to: 'errors#page_not_found'
     # 404 old pages to remove!
