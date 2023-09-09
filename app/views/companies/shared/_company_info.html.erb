@@ -2,10 +2,16 @@
 <%= tag.div class: "w-full flex flex-col max-w-xl justify-center dark:bg-gray-800 rounded-lg" do %>
     <div class="flex justify-center">
         <!-- Avatar -->
-        <%= link_to carrierwave_image_path(company, avatar: true), data: {turbo_frame: 'modal'}, class: "w-full" do %>
-            <%= image_tag company.avatar_large,
-                class: "object-cover object-center w-full max-w-xl h-56 sm:h-72 rounded-t-lg cursor-zoom-in", alt: company.title%>
-        <% end %>
+        <div class="w-full" itemscope itemtype="http://schema.org/ImageObject">
+            <%= tag.span company.title, itemprop: "name", class: "sr-only"%>
+            <%= link_to carrierwave_image_path(company, avatar: true), data: {turbo_frame: 'modal'}, class: "w-full" do %>
+                <%= image_tag company.avatar_large,
+                    itemprop: "contentUrl",
+                    alt: company.title, 
+                    class: "object-cover object-center w-full max-w-xl h-56 sm:h-72 rounded-t-lg cursor-zoom-in" %>
+            <% end %>
+            <%= tag.span company.description.to_plain_text, itemprop: "description", class: "sr-only"%>
+        </div>
     </div>
     <!-- Rating -->
     <%= render 'feedbacks/shared/rating', object: company%>
@@ -20,9 +26,10 @@
                     <%= heroicon 'map', class: 'w-6 h-6 flex-none'%>
                     <p class="w-full px-2 text-md">
                         <% company.districts.decorate.each do |district|%>
-                                <%= link_to users_path(district_id: district), class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
-                                    <%= tag.span (!company.districts.include?(District.first) && district != company.districts.last) ? district.title + ',' : district.title %>
-                                <% end %>
+                            <%= link_to users_path(district_id: district), 
+                                class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
+                                <%= tag.span (!company.districts.include?(District.first) && district != company.districts.last) ? district.title + ',' : district.title %>
+                            <% end %>
                             <% break if company.districts.include?(District.first)%>
                         <% end %>
                     </p>
@@ -32,9 +39,10 @@
                     <%= heroicon 'language', class: 'w-6 h-6 flex-none'%>
                     <p class="w-full px-2 text-md">
                         <% company.languages.each do |language|%>
-                                <%= link_to users_path(language_id: language), class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
-                                    <%= tag.span (!company.languages.include?(District.first) && language != company.languages.last) ? language.title + ',' : language.title %>
-                                <% end %>
+                            <%= link_to users_path(language_id: language), 
+                                class: 'w-full hover:underline', data: {turbo_frame: '_top'} do  %>
+                                <%= tag.span (!company.languages.include?(District.first) && language != company.languages.last) ? language.title + ',' : language.title %>
+                            <% end %>
                             <% break if company.languages.include?(District.first)%>
                         <% end %>
                     </p>
@@ -42,23 +50,23 @@
             </div>
             <div class="flex justify-center flex-col">
                 <!-- Market -->
-                <div class="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+                <%= tag.div class: "flex items-center mt-4 text-gray-700 dark:text-gray-200" do %>
                     <%= heroicon 'shopping-bag', class: 'w-6 h-6 flex-none'%>
                     <p class="w-full px-2 text-md max-w-screen">
                         <%= link_to user_products_path(company), aria: {label: company.title + '_products'} do %>
                             <%= tag.span t('pages.market'), class: 'hover:underline'%>
                         <% end %>
                     </p>
-                </div>
+                <% end if company.products.published.present?%>
                 <!-- Calculator -->
-                <div class="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+                <%= tag.div class: "flex items-center mt-4 text-gray-700 dark:text-gray-200" do %>
                     <%= heroicon 'calculator', class: 'w-6 h-6 flex-none'%>
                     <p class="w-full px-2 text-md max-w-screen">
                         <%= link_to company_calculator_path(company), aria: {label: company.title + '_calculator'} do %>
                             <%= tag.span t('home_page.calculate'), class: 'hover:underline'%>
                         <% end %>
                     </p>
-                </div>
+                <% end if company.calculator.present?%>
                 <!-- Website -->
                 <%= tag.div class: "flex items-center mt-4 text-gray-700 dark:text-gray-200" do %>
                     <%= heroicon 'globe-alt', class: 'w-6 h-6 flex-none'%>
@@ -70,7 +78,7 @@
             </div>
         </div>
         <!-- Description -->
-        <%= tag.div class: "my-2 text-gray-700 dark:text-gray-400" do %>
+        <%= tag.div class: "my-4 text-gray-700 dark:text-gray-400" do %>
             <%= company.description %>
         <% end if company.description.present? %>
     </div>

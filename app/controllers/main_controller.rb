@@ -13,7 +13,7 @@ class MainController < ApplicationController
       }
     )
     @companies = Company.confirmed.take(3)
-    @products = Product.where(published: true).decorate.take(6)
+    @products = Product.published.decorate.take(6)
     # @news = News.all.decorate.last(3)
   end
 
@@ -32,6 +32,14 @@ class MainController < ApplicationController
     respond_to do |format|
       format.png do
         send_file 'app/assets/images/favicon.png', type: 'image/png', disposition: 'inline', sizes: '120x120'
+      end
+    end
+  end
+
+  def cookies
+    respond_to do |format|
+      format.turbo_stream do
+        session[:cookies_accepted] = params[:cookies].presence
       end
     end
   end

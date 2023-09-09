@@ -7,10 +7,10 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :object, polymorphic: true
   belongs_to :commentable, polymorphic: true
-  has_many :images,   as: :imageable,   dependent: :destroy, class_name: 'Image'
+  has_many :images, as: :imageable, dependent: :destroy, class_name: 'Image'
   accepts_nested_attributes_for :images
 
-  has_many   :comments, as: :commentable, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   has_noticed_notifications
 

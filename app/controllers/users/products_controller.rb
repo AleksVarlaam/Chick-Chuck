@@ -104,7 +104,7 @@ module Users
 
     def product_params
       params.require(:product).permit(:category_id, :thing_id, :district_id, :city_id, :title, :condition, :delivery,
-                                      :description, :price, { images_attributes: [:id, :file] })
+                                      :description, :price, { images_attributes: %i[id file] })
     end
 
     def filter_product

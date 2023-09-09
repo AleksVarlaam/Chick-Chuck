@@ -5,13 +5,14 @@ module Contents
     include Feedbacks::ReviewsHelper
     before_action :params_for_select, only: %i[index user_products]
     after_action  :update_views, only: :show
-    
+
     def index
       set_meta_tags(
         title: t('meta.market.title'),
         description: t('meta.market.desc'),
         keywords: Category.all.decorate.map(&:title).join(', ').sub(/(, )+$/, ''),
-        noindex: request.original_url.include?('?') ? true : false,
+        canonical: request.original_url.include?('?') ? products_url(locale: I18n.locale) : request.original_url,
+        # noindex: request.original_url.include?('?') ? true : false,
         alternate: {
           'x-default' => products_url(locale: nil),
           'en' => products_url(locale: :en),
